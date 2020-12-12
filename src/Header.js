@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title } = props;
+  const { sections, title, modeButton } = props;
 
   return (
     <React.Fragment>
@@ -44,6 +44,7 @@ export default function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
+        { modeButton }
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
