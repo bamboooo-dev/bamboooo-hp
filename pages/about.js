@@ -3,7 +3,6 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import Copyright from '../src/Copyright';
 import Link from '../src/Link';
 
 export default function About() {
@@ -16,7 +15,6 @@ export default function About() {
         <Button variant="contained" color="primary" component={Link} naked href="/">
           Go to the main page
         </Button>
-        <Copyright />
       </Box>
     </Container>
   );

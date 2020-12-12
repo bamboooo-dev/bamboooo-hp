@@ -4,6 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Footer from '../src/Footer';
 import Header from '../src/Header';
 import theme from '../src/theme';
 
@@ -41,6 +42,7 @@ export default function MyApp(props) {
           <Header title="bamboooo" sections={sections} />
           <Component {...pageProps} />
         </Container>
+        <Footer title="Footer" description="Something here to give the footer a purpose!" />
       </ThemeProvider>
     </React.Fragment>
   );
