@@ -1,7 +1,6 @@
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -31,16 +30,16 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Typography
-          component="h2"
+        <Link
           variant="h5"
           color="inherit"
           align="center"
           noWrap
+          href="/"
           className={classes.toolbarTitle}
         >
           {title}
-        </Typography>
+        </Link>
         <IconButton>
           <SearchIcon />
         </IconButton>

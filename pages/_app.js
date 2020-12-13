@@ -13,9 +13,10 @@ import { darkTheme, lightTheme } from '../src/theme';
 
 const sections = [
   { title: 'ABOUT', url: 'about' },
-  { title: 'MEMBERS', url: '#' },
-  { title: 'WORKS', url: '#' },
+  { title: 'MEMBERS', url: 'members' },
+  { title: 'WORKS', url: 'works' },
   { title: 'SKILLS', url: '#' },
+  { title: 'HISTORY', url: 'history' },
   { title: 'BLOG', url: '#' },
   { title: 'CONTACT', url: '#' },
   { title: 'RECRUIT', url: '#' },
@@ -60,7 +61,7 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>bamboooo | 新しいエンタメを</title>
+        <title>bamboooo | Colors your life</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
