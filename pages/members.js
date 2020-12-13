@@ -17,7 +17,7 @@ function Member(props) {
   const classes = useStyles();
   
   return (
-    <Grid item>
+    <Grid item xs={12} md={3}>
       <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" className={classes.large} />
       <Typography variant="h6">
         {member.position}
