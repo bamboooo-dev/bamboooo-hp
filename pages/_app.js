@@ -16,6 +16,7 @@ const sections = [
   { title: 'MEMBERS', url: 'members' },
   { title: 'WORKS', url: '#' },
   { title: 'SKILLS', url: '#' },
+  { title: 'HISTORY', url: 'history' },
   { title: 'BLOG', url: '#' },
   { title: 'CONTACT', url: '#' },
   { title: 'RECRUIT', url: '#' },
