@@ -14,7 +14,7 @@ import { darkTheme, lightTheme } from '../src/theme';
 const sections = [
   { title: 'ABOUT', url: 'about' },
   { title: 'MEMBERS', url: 'members' },
-  { title: 'WORKS', url: '#' },
+  { title: 'WORKS', url: 'works' },
   { title: 'SKILLS', url: '#' },
   { title: 'HISTORY', url: 'history' },
   { title: 'BLOG', url: '#' },
