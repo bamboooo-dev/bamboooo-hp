@@ -13,7 +13,7 @@ import { darkTheme, lightTheme } from '../src/theme';
 
 const sections = [
   { title: 'ABOUT', url: 'about' },
-  { title: 'MEMBERS', url: '#' },
+  { title: 'MEMBERS', url: 'members' },
   { title: 'WORKS', url: '#' },
   { title: 'SKILLS', url: '#' },
   { title: 'BLOG', url: '#' },
