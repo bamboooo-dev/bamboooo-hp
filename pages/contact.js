@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,6 +31,69 @@ const useStyles = makeStyles((theme) => ({
 export default function Contact(){
   const classes = useStyles();
 
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  })
+
+  const [inputs, setInputs] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+
+  const handleServerResponse = (ok, msg) => {
+    if (ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg },
+      })
+      setInputs({
+        name: '',
+        email: '',
+        message: '',
+      })
+    } else {
+      setStatus({
+        info: { error: true, msg: msg },
+      })
+    }
+  }
+
+  const handleOnChange = (e) => {
+    e.persist()
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }))
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    })
+  }
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }))
+    axios({
+      method: 'POST',
+      url: 'https://formspree.io/f/mbjpplnk',
+      data: inputs,
+    })
+      .then((response) => {
+        handleServerResponse(
+          true,
+          'Thank you, your message has been submitted.'
+        )
+      })
+      .catch((error) => {
+        handleServerResponse(false, error.response.data.error)
+      })
+  }
+
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
@@ -39,7 +103,7 @@ export default function Contact(){
         <Typography component="h1" variant="h5">
           お問い合わせ
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleOnSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -49,16 +113,20 @@ export default function Contact(){
             label="NAME"
             name="name"
             autoComplete="name"
+            onChange={handleOnChange}
+            value={inputs.name}
           />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            name="email"
+            name="_replyto"
             label="E-MAIL"
             id="email"
             autoComplete="email"
+            onChange={handleOnChange}
+            value={inputs.email}
           />
           <TextField
             variant="outlined"
@@ -70,6 +138,8 @@ export default function Contact(){
             id="message"
             multiline
             rows={4}
+            onChange={handleOnChange}
+            value={inputs.message}
           />
           <Button
             type="submit"
@@ -77,10 +147,19 @@ export default function Contact(){
             variant="contained"
             color="secondary"
             className={classes.submit}
+            disabled={status.submitting}
           >
-            submit
+            {!status.submitting
+            ? !status.submitted
+              ? 'submit'
+              : 'submitted'
+            : 'submitting...'}
           </Button>
         </form>
+        {status.info.error && (
+          <div className="error">Error: {status.info.msg}</div>
+        )}
+        {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
       </div>
     </Container>
   )
