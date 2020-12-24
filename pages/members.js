@@ -40,19 +40,25 @@ const members = [
     position: 'Infrastructure Engineer',
     university: '北海道大学',
     name: '山本 浩平',
-    description: '金髪',
+    description: 'k8s。猫好き。初めての料理は炒り卵。',
   },
   { 
     position: 'Backend Engineer',
     university: '京都大学',
     name: '住江 祐哉',
-    description: '満島ひかりが好き',
+    description: 'パフォーマンス・チューナー。満島ひかりが好き。',
   },
   { 
     position: 'Planner',
     university: '京都大学',
     name: '朝田 隼平',
-    description: '筋トレが趣味',
+    description: '筋トレが趣味。',
+  },
+  { 
+    position: 'Planner',
+    university: '京都大学',
+    name: '中林 健人',
+    description: 'UchiUchi 代表。',
   }
 ];
 

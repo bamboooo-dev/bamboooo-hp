@@ -72,7 +72,7 @@ export default function MyApp(props) {
           <Header title="bamboooo" sections={sections} modeButton={darkMode ? <SunButton /> : <MoonButton />}/>
           <Component {...pageProps} />
         </Container>
-        <Footer title="Footer" description="Something here to give the footer a purpose!" />
+        <Footer />
       </ThemeProvider>
     </React.Fragment>
   );
