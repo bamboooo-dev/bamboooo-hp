@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   cardMedia: {
-    width: 160,
+    width: 320,
   },
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -43,8 +43,8 @@ function PostCard(props){
   const { post } = props;
 
   return(
-    <Grid item xs={12} md={6}>
-      <CardActionArea component="a" href="#">
+    <Grid item xs={12}>
+      <CardActionArea component="a" href={post.url} target="_blank">
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>
@@ -54,8 +54,8 @@ function PostCard(props){
               <Typography variant="subtitle1" color="textSecondary">
                 {post.date}
               </Typography>
-              <Typography variant="subtitle1" paragraph>
-                {post.description}
+              <Typography variant="subtitle1" color="textPrimary">
+                {post.author}
               </Typography>
               <Typography variant="subtitle1" color="primary">
                 Continue reading...
