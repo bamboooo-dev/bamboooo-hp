@@ -24,8 +24,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const urls = [
+  'https://qiita.com/monaka0721/feed.atom',
+  'https://qiita.com/yamagai/feed.atom'
+];
+
 export async function getStaticProps() {
-  const posts = getSortedPostsData();
+  const posts = await getSortedPostsData(urls);
   return {
     props: {
       posts
