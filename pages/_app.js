@@ -17,7 +17,7 @@ const sections = [
   { title: 'WORKS', url: 'works' },
   { title: 'SKILLS', url: 'skills' },
   { title: 'HISTORY', url: 'history' },
-  { title: 'BLOG', url: '#' },
+  { title: 'BLOG', url: 'blog' },
   { title: 'CONTACT', url: 'contact' },
   { title: 'RECRUIT', url: '#' },
 ];
@@ -72,7 +72,7 @@ export default function MyApp(props) {
           <Header title="bamboooo" sections={sections} modeButton={darkMode ? <SunButton /> : <MoonButton />}/>
           <Component {...pageProps} />
         </Container>
-        <Footer title="Footer" description="Something here to give the footer a purpose!" />
+        <Footer />
       </ThemeProvider>
     </React.Fragment>
   );
