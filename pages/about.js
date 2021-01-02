@@ -1,11 +1,20 @@
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
+const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    marginTop: theme.spacing(3),
+  },
+}));
+
 export default function About() {
+  const classes = useStyles();
+  
   return (
-    <Container>
+    <Container className={classes.mainContainer}>
       <Typography variant="h4" gutterBottom>
         Philosophy
       </Typography>

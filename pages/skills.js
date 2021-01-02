@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
   },
+  mainContainer: {
+    marginTop: theme.spacing(3),
+  },
 }));
 
 const frontends = [
@@ -114,9 +117,10 @@ function Skill(props) {
 }
 
 export default function Skills() {
+  const classes = useStyles();
 
   return (
-    <Container>
+    <Container className={classes.mainContainer}>
       <Skill title="Frontend" field={frontends} />
       <Skill title="Backend" field={backends} />
       <Skill title="Middleware" field={middlewares} />

@@ -10,14 +10,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
   },
   media: {
     height: 140,
   },
-});
+  mainContainer: {
+    marginTop: theme.spacing(3),
+  },
+}));
 
 const works = [
   { 
@@ -67,8 +70,10 @@ function Work(props) {
 }
 
 export default function Works() {
+  const classes = useStyles();
+
   return (
-    <Container>
+    <Container className={classes.mainContainer}>
       <Grid container spacing={4}>
         {works.map((work) => (
           <Work key={work.name} description={work.description} name={work.name} url={work.url} />
