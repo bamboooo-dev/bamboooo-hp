@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
   },
+  mainContainer: {
+    marginTop: theme.spacing(3),
+  },
 }));
 
 const frontends = [
@@ -104,7 +107,7 @@ function Skill(props) {
         <GridList cellHeight={160} className={classes.gridList} cols={matchesXs ? 2 : 5}>
           {field.map((skill) => (
             <GridListTile key={skill.img} cols={1}>
-              <img src={skill.img} alt={skill.title} />
+              <img src={skill.img} alt={skill.title} height="100%" width="auto"/>
             </GridListTile>
           ))}
         </GridList>
@@ -114,9 +117,10 @@ function Skill(props) {
 }
 
 export default function Skills() {
+  const classes = useStyles();
 
   return (
-    <Container>
+    <Container className={classes.mainContainer}>
       <Skill title="Frontend" field={frontends} />
       <Skill title="Backend" field={backends} />
       <Skill title="Middleware" field={middlewares} />

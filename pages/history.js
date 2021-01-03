@@ -40,6 +40,69 @@ export default function History() {
         <TimelineItem>
           <TimelineOppositeContent>
             <Typography variant="body2" color="textSecondary">
+              2020年 1月
+            </Typography>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <Paper elevation={3} className={classes.paper}>
+              <Typography variant="h6" component="h1">
+                HIMO
+              </Typography>
+              <Typography>
+                パーティーゲーム『HIMO』の開発開始
+              </Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineOppositeContent>
+            <Typography variant="body2" color="textSecondary">
+              2020年 1月
+            </Typography>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <Paper elevation={3} className={classes.paper}>
+              <Typography variant="h6" component="h1">
+                HP 作成
+              </Typography>
+              <Typography>
+                bamboooo のホームページを作成する
+              </Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineOppositeContent>
+            <Typography variant="body2" color="textSecondary">
+              2020年 11月
+            </Typography>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <Paper elevation={3} className={classes.paper}>
+              <Typography variant="h6" component="h1">
+                Alcatraz
+              </Typography>
+              <Typography>
+                仮想世界で出会うサイト『Alcatraz』開発開始
+              </Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineOppositeContent>
+            <Typography variant="body2" color="textSecondary">
               2020年 9月
             </Typography>
           </TimelineOppositeContent>
@@ -48,7 +111,28 @@ export default function History() {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
-            <CardActionArea component="a" href="#">
+            <Paper elevation={3} className={classes.paper}>
+              <Typography variant="h6" component="h1">
+                技育展 登壇
+              </Typography>
+              <Typography>
+                サポーターズ主催、アウトプットを展示する学生向けテックカンファレンス「技育展」に memopic で登壇
+              </Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineOppositeContent>
+            <Typography variant="body2" color="textSecondary">
+              2020年 9月
+            </Typography>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <CardActionArea component="a" href="https://www.memopic.net" target="_blank">
               <Card className={classes.card}>
                 <div className={classes.cardDetails}>
                   <CardContent>
@@ -56,12 +140,12 @@ export default function History() {
                       memopic
                     </Typography>
                     <Typography variant="subtitle1" paragraph>
-                      旅行の思い出共有サイト『memopic』を作成する
+                      旅行の思い出共有サイト『memopic』をリリース
                     </Typography>
                   </CardContent>
                 </div>
                 <Hidden xsDown>
-                  <CardMedia className={classes.cardMedia} image='https://source.unsplash.com/random' />
+                  <CardMedia className={classes.cardMedia} image='/memopic.png' />
                 </Hidden>
               </Card>
             </CardActionArea>
@@ -78,7 +162,7 @@ export default function History() {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
-            <CardActionArea component="a" href="#">
+            <CardActionArea component="a" href="https://memorip.net" target="_blank">
               <Card className={classes.card}>
                 <div className={classes.cardDetails}>
                   <CardContent>
@@ -86,12 +170,12 @@ export default function History() {
                       Memorip
                     </Typography>
                     <Typography variant="subtitle1" paragraph>
-                      旅行プラン共有サイト『Memorip』を作成する
+                      旅行プラン共有サイト『Memorip』をリリース
                     </Typography>
                   </CardContent>
                 </div>
                 <Hidden xsDown>
-                  <CardMedia className={classes.cardMedia} image='https://source.unsplash.com/random' />
+                  <CardMedia className={classes.cardMedia} image='/Memorip.png' />
                 </Hidden>
               </Card>
             </CardActionArea>

@@ -1,21 +1,20 @@
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import MainFeaturedPost from '../src/MainFeaturePost';
+import MainPaper from '../src/MainPaper';
 
-const mainFeaturedPost = {
-  title: 'bamboooo',
-  description:
-    "Colors your life.",
-  image: 'https://source.unsplash.com/random',
-  imgText: 'main image description',
-  linkText: 'Continue reading…',
-};
+const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    marginTop: theme.spacing(3),
+  },
+}));
 
 export default function Index() {
-  
+  const classes = useStyles();
+
   return (
-    <Container>
-      <MainFeaturedPost post={mainFeaturedPost} />
+    <Container className={classes.mainContainer}>
+      <MainPaper />
     </Container>
   );
 }

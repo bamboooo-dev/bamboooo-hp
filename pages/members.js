@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
+  mainContainer: {
+    marginTop: theme.spacing(3),
+  },
 }))
 
 function Member(props) {
@@ -63,8 +66,10 @@ const members = [
 ];
 
 export default function Members() {
+  const classes = useStyles();
+
   return (
-    <Container>
+    <Container className={classes.mainContainer}>
       <Typography variant="h4" gutterBottom>
         MEMBERS
       </Typography>

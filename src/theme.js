@@ -9,6 +9,9 @@ const coreThemeObj = {
     secondary: {
       main: '#19857b',
     },
+    tertiary: {
+      main: '#4CAF50'
+    },
     error: {
       main: red.A400,
     },
