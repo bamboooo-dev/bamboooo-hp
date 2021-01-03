@@ -107,7 +107,7 @@ function Skill(props) {
         <GridList cellHeight={160} className={classes.gridList} cols={matchesXs ? 2 : 5}>
           {field.map((skill) => (
             <GridListTile key={skill.img} cols={1}>
-              <img src={skill.img} alt={skill.title} />
+              <img src={skill.img} alt={skill.title} height="100%" width="auto"/>
             </GridListTile>
           ))}
         </GridList>
