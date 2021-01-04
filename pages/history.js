@@ -175,7 +175,7 @@ export default function History() {
                   </CardContent>
                 </div>
                 <Hidden xsDown>
-                  <CardMedia className={classes.cardMedia} image='/Memorip.png' />
+                  <CardMedia className={classes.cardMedia} image='/memorip.png' />
                 </Hidden>
               </Card>
             </CardActionArea>
