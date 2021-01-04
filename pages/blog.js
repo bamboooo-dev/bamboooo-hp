@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
+  continueReading: {
+    color: theme.palette.tertiary.main,
+  }
 }));
 
 const urls = [
@@ -57,7 +60,7 @@ function PostCard(props){
               <Typography variant="subtitle1" color="textPrimary">
                 {post.author}
               </Typography>
-              <Typography variant="subtitle1" color="primary">
+              <Typography variant="subtitle1" className={classes.continueReading}>
                 Continue reading...
               </Typography>
             </CardContent>

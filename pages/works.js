@@ -9,16 +9,17 @@ import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
   media: {
-   borderWidth: 1,
-   border: "solid",
-   borderRadius: 10,
-   borderColor: grey[300],
+    borderWidth: 1,
+    border: "solid",
+    borderRadius: 10,
+    borderColor: grey[300],
   },
   mainContainer: {
     marginTop: theme.spacing(3),
   },
-  preLine: {
+  description: {
     whiteSpace: "pre-line",
+    lineHeight: 2,
   }
 }));
 
@@ -43,7 +44,7 @@ const works = [
     catchphrase: '旅行プラン作成・共有サイト',
     url: 'https://memorip.net',
     alt: 'Picture of Memorip',
-    image: '/Memorip.png',
+    image: '/memorip.png',
     description: `
       『Memorip』では直感的にプランを作成したり
       簡単にプランを共有したりすることができます
@@ -55,12 +56,10 @@ const works = [
     name: 'Alcatraz',
     catchphrase: '仮想世界で出会おう',
     alt: 'Picture of Alcatraz',
-    image: '/comingsoon.png',
   },
   { 
     name: 'HIMO',
     alt: 'Picture of HIMO',
-    image: '/comingsoon.png',
   },
 ];
 
@@ -71,51 +70,71 @@ function Work(props) {
   return (
     <Grid item container xs={12} md={6} justify="center">
       <Grid item>
-        <img
-          src={work.image}
-          alt={work.alt}
-          width={400}
-          height={260}
-          className={classes.media}
-        />
+        {work.image ? (
+          <img
+            src={work.image}
+            alt={work.alt}
+            width={400}
+            height={260}
+            className={classes.media}
+          />
+        ):(
+          <Box
+            width={400}
+            height={260}
+            className={classes.media}
+            mb={1}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Typography variant="h4">
+              COMING SOON...
+            </Typography> 
+          </Box>
+        )}
         <Typography gutterBottom variant="h4" component="h2">
           {work.name}
         </Typography>
         <Typography variant="body1" color="textSecondary" component="p">
           {work.catchphrase}
         </Typography>
-        <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.preLine}>
-          <Box lineHeight={2}>
-            {work.description}
-          </Box>
+        <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
+          {work.description}
         </Typography>
         {work.url && (
-          
+          <Box my={1}>
             <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
-          
+          </Box>
         )}
-        <Grid item container alignItems="center">
-          
-          {work.appleUrl && (
-            
-              <a href={work.appleUrl} target="_blank">
-                <img
-                  src="/app-store-badge.png"
-                  alt="App Store Badge"
-                />
-              </a>
-            
-          )}
-          {work.googleUrl && (
-            
-              <a href={work.appleUrl} target="_blank">
-                <img
-                  src="/google-play-badge.png"
-                  alt="Google Play Store Badge"
-                />
-              </a>
-          )}
-        </Grid>
+        {(work.appleUrl && work.googleUrl) &&(
+          <Box 
+            display="flex"
+            alignItems="center"
+          >
+            {work.appleUrl && (
+              <Box>
+                <a href={work.appleUrl} target="_blank">
+                  <img
+                    src="/app-store-badge.png"
+                    alt="App Store Badge"
+                  />
+                </a>
+              </Box>
+            )}
+            {work.googleUrl && (
+              <Box>
+                <a href={work.appleUrl} target="_blank">
+                  <img
+                    src="/google-play-badge.png"
+                    alt="Google Play Store Badge"
+                    height={60}
+                  />
+                </a>
+              </Box>
+            )}
+          </Box>
+        )}
       </Grid>
     </Grid>
   )
