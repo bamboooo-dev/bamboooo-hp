@@ -8,13 +8,18 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
+  content: {
+    width: '100%',
+  },
   media: {
     borderWidth: 1,
     border: "solid",
     borderRadius: 10,
     borderColor: grey[300],
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 400,
+      height: 260,
     },
   },
   mainContainer: {
@@ -61,7 +66,7 @@ const works = [
     alt: 'Picture of Alcatraz',
   },
   { 
-    name: 'HIMO',
+    name: 'HI-MO',
     alt: 'Picture of HIMO',
   },
 ];
@@ -72,20 +77,17 @@ function Work(props) {
 
   return (
     <Grid item container xs={12} md={6} justify="center">
-      <Grid item>
+      <Grid item className={classes.content}>
         {work.image ? (
           <img
             src={work.image}
             alt={work.alt}
-            width={400}
-            height={260}
             className={classes.media}
           />
         ):(
           <Box
-            width={400}
-            height={260}
             className={classes.media}
+            height={260}
             mb={1}
             display="flex"
             alignItems="center"
