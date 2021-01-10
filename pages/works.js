@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
+  content: {
+    width: '100%',
+  },
   media: {
     borderWidth: 1,
     border: "solid",
@@ -74,7 +77,7 @@ function Work(props) {
 
   return (
     <Grid item container xs={12} md={6} justify="center">
-      <Grid item>
+      <Grid item className={classes.content}>
         {work.image ? (
           <img
             src={work.image}
@@ -84,6 +87,7 @@ function Work(props) {
         ):(
           <Box
             className={classes.media}
+            height={260}
             mb={1}
             display="flex"
             alignItems="center"
