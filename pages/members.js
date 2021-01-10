@@ -87,6 +87,7 @@ const members = [
     university: '北海道大学',
     name: '山本 浩平',
     description: 'k8s。猫好き。初めての料理は炒り卵。',
+    avatar: '/avatar_kohei.jpg',
     twitter: 'https://twitter.com/yamagai_0919',
     github: 'https://github.com/yamagai',
     homepage: 'http://portfolio-kohei.herokuapp.com/',
@@ -106,18 +107,53 @@ const members = [
   { 
     position: 'Planner',
     university: '京都大学',
+    avatar: '/avatar_shunpei.jpg',
     name: '朝田 隼平',
-    description: '筋トレが趣味。',
+    description: 'ムードメーカー。趣味はカフェ巡り。',
     twitter: 'https://twitter.com/0514AsaShun',
   },
   { 
     position: 'Planner',
-    university: '京都大学',
+    university: '早稲田大学',
+    avatar: '/avatar_kento.png',
     name: '中林 健人',
-    description: 'UchiUchi 代表。',
+    description: '京都大学中退。現在早稲田大学在学兼ノマドカフェNOPAY代表。',
     twitter: 'https://twitter.com/bayashi0314',
-  }
+  },
 ];
+
+const obogs = [
+  {
+    position: 'Frontend Engineer',
+    university: '長崎大学',
+    avatar: '/avatar_takaki.png',
+    name: '竹内 貴紀',
+    description: '一日15時間寝たことがある。',
+    twitter: 'https://twitter.com/shrry2',
+    github: 'https://github.com/shrry2',
+    homepage: 'https://takaki.takeu.ch',
+    wantedly: 'https://www.wantedly.com/id/takaki_takeuchi',
+  },
+  { 
+    position: 'Designer',
+    university: '関西学院大学',
+    avatar: '/avatar_chisa.png',
+    name: '近藤 千紗',
+    description: 'イーブイ飼いたい。',
+    twitter: 'https://twitter.com/5xPsr',
+    github: 'https://github.com/chisakondo',
+  },
+  { 
+    position: 'Frontend Engineer',
+    university: '同志社大学',
+    avatar: '/avatar_kazuki.jpeg',
+    name: '小森 一輝',
+    description: 'Vue信者。尻に火が付くまで動かない。リンゴと窓のPCを持っている。',
+    twitter: 'https://twitter.com/D_kazuyan',
+    github: 'https://github.com/kazuki-komori',
+    wantedly: 'https://www.wantedly.com/id/D_kazuyan',
+  },
+]
 
 export default function Members() {
   const classes = useStyles();
@@ -138,6 +174,11 @@ export default function Members() {
         <Typography variant="h4" gutterBottom>
           OB・OG
         </Typography>
+        <Grid container spacing={4}>
+          {obogs.map((obog) => (
+            <Member key={obog.name} member={obog} /> 
+          ))}
+        </Grid>
       </Box>
     </Container>
   );

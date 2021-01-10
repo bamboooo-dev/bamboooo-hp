@@ -1,7 +1,5 @@
-import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Link from './Link';
@@ -47,9 +45,6 @@ export default function Header(props) {
         >
           {title}
         </Link>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
         { modeButton }
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
