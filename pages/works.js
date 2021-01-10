@@ -13,8 +13,10 @@ const useStyles = makeStyles((theme) => ({
     border: "solid",
     borderRadius: 10,
     borderColor: grey[300],
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 400,
+      height: 260,
     },
   },
   mainContainer: {
@@ -61,7 +63,7 @@ const works = [
     alt: 'Picture of Alcatraz',
   },
   { 
-    name: 'HIMO',
+    name: 'HI-MO',
     alt: 'Picture of HIMO',
   },
 ];
@@ -77,14 +79,10 @@ function Work(props) {
           <img
             src={work.image}
             alt={work.alt}
-            width={400}
-            height={260}
             className={classes.media}
           />
         ):(
           <Box
-            width={400}
-            height={260}
             className={classes.media}
             mb={1}
             display="flex"
