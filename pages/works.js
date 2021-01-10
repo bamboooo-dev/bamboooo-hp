@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     border: "solid",
     borderRadius: 10,
     borderColor: grey[300],
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
   },
   mainContainer: {
     marginTop: theme.spacing(3),
