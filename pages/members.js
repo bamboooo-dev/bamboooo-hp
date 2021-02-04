@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import HomeIcon from '@material-ui/icons/Home';
+import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import React from 'react';
 
@@ -76,6 +77,13 @@ function Member(props) {
             </a>
           </Box>
         )}
+        {member.instagram && (
+          <Box>
+            <a href={member.instagram} target="_blank">
+              <InstagramIcon style={{ color: "black", }}/>
+            </a>
+          </Box>
+        )}
       </Box>
     </Grid>
   )
@@ -105,7 +113,16 @@ const members = [
     wantedly: 'https://www.wantedly.com/id/monaka0721',
   },
   { 
-    position: 'Planner',
+    position: 'Inspirator',
+    university: '大阪府立大学',
+    name: '三輪 雄基',
+    description: 'アウトドアマン。スシローヘビーユーザー。',
+    avatar: '/avatar_yuki.jpg',
+    twitter: 'https://twitter.com/wamiwa1126',
+    instagram: 'https://www.instagram.com/wamiwa1126/',
+  },
+  { 
+    position: 'Planner & Unity Engineer',
     university: '京都大学',
     avatar: '/avatar_shunpei.jpg',
     name: '朝田 隼平',
