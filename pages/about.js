@@ -31,10 +31,11 @@ export default function About() {
         <Grid item md={8}>
           <Box mb={8}>
             <Typography variant="h5" gutterBottom>
-              世界の人々を笑顔に
+              人々を笑顔に
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              エンターテインメントとは、「人生を色付け、より豊かにするもの」だと考えています。<br/>
+              人々に生きる楽しみや一歩踏み出すきっかけを与えるサービスを作ることが我々の使命です。
             </Typography>
           </Box>
           <Box mb={8}>
@@ -42,7 +43,23 @@ export default function About() {
               社会の効率化を
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+            効率化には様々な手段があります。<br/>
+            その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+      <Grid container spacing={5}>
+        <Grid item md={4}>
+          <Typography variant="h4" gutterBottom>
+            Vision
+          </Typography>
+          <Divider className={classes.divider}/>
+        </Grid>
+        <Grid item md={8}>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              愛される会社になる
             </Typography>
           </Box>
         </Grid>
@@ -60,23 +77,23 @@ export default function About() {
               新しいエンタメを
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              既存のものに囚われず、ユーザーにとって新鮮で、生活を面白くする『新しいエンタメを』つくり続けます。
             </Typography>
           </Box>
           <Box mb={8}>
             <Typography variant="h5" gutterBottom>
-              好きなことを好きなだけ
+              やりたいことをやりたいだけ
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              各々がしたいことを尊重し、『やりたいことをやりたいだけ』任せることで最高のサービスをつくり上げます。
             </Typography>
           </Box>
           <Box mb={8}>
             <Typography variant="h5" gutterBottom>
-              攻めの姿勢を忘れない
+              ユーザーとともに
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              ユーザーの意見を積極的に取り入れ、サービスを『ユーザーとともに』つくっていきます。
             </Typography>
           </Box>
         </Grid>
