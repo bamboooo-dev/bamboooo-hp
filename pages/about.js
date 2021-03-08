@@ -24,6 +24,21 @@ export default function About() {
       <Grid container spacing={5}>
         <Grid item md={4}>
           <Typography variant="h4" gutterBottom>
+            Vision
+          </Typography>
+          <Divider className={classes.divider}/>
+        </Grid>
+        <Grid item md={8}>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              愛される会社になる
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+      <Grid container spacing={5}>
+        <Grid item md={4}>
+          <Typography variant="h4" gutterBottom>
             Mission
           </Typography>
           <Divider className={classes.divider}/>
@@ -45,21 +60,6 @@ export default function About() {
             <Typography variant="body1" gutterBottom>
             効率化には様々な手段があります。<br/>
             その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container spacing={5}>
-        <Grid item md={4}>
-          <Typography variant="h4" gutterBottom>
-            Vision
-          </Typography>
-          <Divider className={classes.divider}/>
-        </Grid>
-        <Grid item md={8}>
-          <Box mb={8}>
-            <Typography variant="h5" gutterBottom>
-              愛される会社になる
             </Typography>
           </Box>
         </Grid>
