@@ -113,15 +113,6 @@ const members = [
     wantedly: 'https://www.wantedly.com/id/monaka0721',
   },
   { 
-    position: 'Inspirator',
-    university: '大阪府立大学',
-    name: '三輪 雄基',
-    description: 'アウトドアマン。スシローヘビーユーザー。',
-    avatar: '/avatar_yuki.jpg',
-    twitter: 'https://twitter.com/wamiwa1126',
-    instagram: 'https://www.instagram.com/wamiwa1126/',
-  },
-  { 
     position: 'Planner & Unity Engineer',
     university: '京都大学',
     avatar: '/avatar_shunpei.jpg',
@@ -136,6 +127,11 @@ const members = [
     name: '中林 健人',
     description: '京都大学中退。現在早稲田大学在学兼ノマドカフェNOPAY代表。',
     twitter: 'https://twitter.com/bayashi0314',
+  },
+  { 
+    position: 'Designer',
+    name: '松田 まり',
+    description: 'スーパーデザイナー。',
   },
 ];
 
@@ -169,6 +165,15 @@ const obogs = [
     twitter: 'https://twitter.com/D_kazuyan',
     github: 'https://github.com/kazuki-komori',
     wantedly: 'https://www.wantedly.com/id/D_kazuyan',
+  },
+  { 
+    position: 'Inspirator',
+    university: '大阪府立大学',
+    name: '三輪 雄基',
+    description: 'アウトドアマン。スシローヘビーユーザー。',
+    avatar: '/avatar_yuki.jpg',
+    twitter: 'https://twitter.com/wamiwa1126',
+    instagram: 'https://www.instagram.com/wamiwa1126/',
   },
 ]
 
