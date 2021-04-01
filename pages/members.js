@@ -48,11 +48,13 @@ function Member(props) {
         display="flex"
         alignItems="center"
       >
+        {member.twitter && (
         <Box mr={0.5}>
           <a href={member.twitter} target="_blank">
             <TwitterIcon style={{ color: blue[300] }}/>
           </a>
         </Box>
+        )}
         {member.github && (
           <Box mx={0.5}>
             <a href={member.github} target="_blank">
@@ -131,7 +133,8 @@ const members = [
   { 
     position: 'Designer',
     name: '松田 まり',
-    description: 'スーパーデザイナー。',
+    avatar: '/avatar_mari.png',
+    description: 'スーパーデザイナー。左利きの風呂嫌い。',
   },
 ];
 

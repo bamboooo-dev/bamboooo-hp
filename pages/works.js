@@ -22,6 +22,13 @@ const useStyles = makeStyles((theme) => ({
       height: 260,
     },
   },
+  mediaWaiwai: {
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 400,
+      height: 260,
+    },
+  },
   mainContainer: {
     marginTop: theme.spacing(3),
   },
@@ -32,6 +39,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const works = [
+  { 
+    name: 'ワイワイ',
+    catchphrase: 'あなたの価値観でみんながワイワイ',
+    alt: 'Picture of HIMO',
+    image: '/waiwai.png',
+    description: `
+      オンラインでオフライン以上にワイワイする。
+      「ワイワイ」はおしゃべりしながらオンライン対戦できる心理ゲームで、
+      Among Us の次に流行ると巷で噂されてます。
+      キャラクター(エモー)もかわいいので、テンションも上がること間違いなし！
+      自分の性格、センス、価値観が問われるので仲間内はもちろん、
+      初対面の人の事も手っ取り早く知ることが出来ます。`,
+  },
   { 
     name: 'memopic',
     catchphrase: '旅の思い出をプレイリストで振り返ろう',
@@ -65,10 +85,6 @@ const works = [
     catchphrase: '仮想世界で出会おう',
     alt: 'Picture of Alcatraz',
   },
-  { 
-    name: 'HI-MO',
-    alt: 'Picture of HIMO',
-  },
 ];
 
 function Work(props) {
@@ -82,7 +98,7 @@ function Work(props) {
           <img
             src={work.image}
             alt={work.alt}
-            className={classes.media}
+            className={work.name=="ワイワイ" ? classes.mediaWaiwai : classes.media}
           />
         ):(
           <Box
