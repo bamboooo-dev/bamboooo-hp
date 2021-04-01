@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
+import ScriptTag from 'react-script-tag';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -21,6 +22,7 @@ export default function About() {
   
   return (
     <Container className={classes.mainContainer}>
+      <ScriptTag async className="speakerdeck-embed" data-slide="3" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js" />
       <Grid container spacing={5}>
         <Grid item md={4}>
           <Typography variant="h4" gutterBottom>
