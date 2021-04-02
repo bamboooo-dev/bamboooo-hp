@@ -31,89 +31,85 @@ export default function About() {
   }, []);
 
   return (
-    <>
-      <Container className={classes.mainContainer}>
-        <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
-      </Container>
-      <Container className={classes.mainContainer}>
-              <Grid container spacing={5}>
-          <Grid item md={4}>
-            <Typography variant="h4" gutterBottom>
-              Vision
-            </Typography>
-            <Divider className={classes.divider}/>
-          </Grid>
-          <Grid item md={8}>
-            <Box mb={8}>
-              <Typography variant="h5" gutterBottom>
-                愛される会社になる
-              </Typography>
-            </Box>
-          </Grid>
+    <Container className={classes.mainContainer}>
+            <Grid container spacing={5}>
+        <Grid item md={4}>
+          <Typography variant="h4" gutterBottom>
+            Vision
+          </Typography>
+          <Divider className={classes.divider}/>
         </Grid>
-        <Grid container spacing={5}>
-          <Grid item md={4}>
-            <Typography variant="h4" gutterBottom>
-              Mission
+        <Grid item md={8}>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              愛される会社になる
             </Typography>
-            <Divider className={classes.divider}/>
-          </Grid>
-          <Grid item md={8}>
-            <Box mb={8}>
-              <Typography variant="h5" gutterBottom>
-                人々を笑顔に
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                エンターテインメントとは、「人生を色付け、より豊かにするもの」だと考えています。<br/>
-                人々に生きる楽しみや一歩踏み出すきっかけを与えるサービスを作ることが我々の使命です。
-              </Typography>
-            </Box>
-            <Box mb={8}>
-              <Typography variant="h5" gutterBottom>
-                社会の効率化を
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-              効率化には様々な手段があります。<br/>
-              その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
-              </Typography>
-            </Box>
-          </Grid>
+          </Box>
         </Grid>
-        <Grid container spacing={5}>
-          <Grid item md={4}>
-            <Typography variant="h4" gutterBottom>
-              Philosophy
+      </Grid>
+      <Grid container spacing={5}>
+        <Grid item md={4}>
+          <Typography variant="h4" gutterBottom>
+            Mission
+          </Typography>
+          <Divider className={classes.divider}/>
+        </Grid>
+        <Grid item md={8}>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              人々を笑顔に
             </Typography>
-            <Divider className={classes.divider}/>
-          </Grid>
-          <Grid item md={8}>
-            <Box mb={8}>
-              <Typography variant="h5" gutterBottom>
-                新しいエンタメを
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                既存のものに囚われず、ユーザーにとって新鮮で、生活を面白くする『新しいエンタメを』つくり続けます。
-              </Typography>
-            </Box>
-            <Box mb={8}>
-              <Typography variant="h5" gutterBottom>
-                やりたいことをやりたいだけ
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                各々がしたいことを尊重し、『やりたいことをやりたいだけ』任せることで最高のサービスをつくり上げます。
-              </Typography>
-            </Box>
-            <Box mb={8}>
-              <Typography variant="h5" gutterBottom>
-                ユーザーとともに
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                ユーザーの意見を積極的に取り入れ、サービスを『ユーザーとともに』つくっていきます。
-              </Typography>
-            </Box>
-          </Grid>
+            <Typography variant="body1" gutterBottom>
+              エンターテインメントとは、「人生を色付け、より豊かにするもの」だと考えています。<br/>
+              人々に生きる楽しみや一歩踏み出すきっかけを与えるサービスを作ることが我々の使命です。
+            </Typography>
+          </Box>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              社会の効率化を
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+            効率化には様々な手段があります。<br/>
+            その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
+            </Typography>
+          </Box>
         </Grid>
-      </Container>
-    </>
+      </Grid>
+      <Grid container spacing={5}>
+        <Grid item md={4}>
+          <Typography variant="h4" gutterBottom>
+            Philosophy
+          </Typography>
+          <Divider className={classes.divider}/>
+        </Grid>
+        <Grid item md={8}>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              新しいエンタメを
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              既存のものに囚われず、ユーザーにとって新鮮で、生活を面白くする『新しいエンタメを』つくり続けます。
+            </Typography>
+          </Box>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              やりたいことをやりたいだけ
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              各々がしたいことを尊重し、『やりたいことをやりたいだけ』任せることで最高のサービスをつくり上げます。
+            </Typography>
+          </Box>
+          <Box mb={8}>
+            <Typography variant="h5" gutterBottom>
+              ユーザーとともに
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              ユーザーの意見を積極的に取り入れ、サービスを『ユーザーとともに』つくっていきます。
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+      <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
+    </Container>
   );
 }
