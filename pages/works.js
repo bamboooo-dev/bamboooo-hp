@@ -51,6 +51,7 @@ const works = [
       キャラクター(エモー)もかわいいので、テンションも上がること間違いなし！
       自分の性格、センス、価値観が問われるので仲間内はもちろん、
       初対面の人の事も手っ取り早く知ることが出来ます。`,
+    appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
   },
   { 
     name: 'memopic',
@@ -128,7 +129,7 @@ function Work(props) {
             <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
           </Box>
         )}
-        {(work.appleUrl && work.googleUrl) &&(
+        {(work.appleUrl || work.googleUrl) &&(
           <Box 
             display="flex"
             alignItems="center"
