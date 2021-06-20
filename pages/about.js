@@ -7,12 +7,18 @@ import Typography from '@material-ui/core/Typography';
 import React, { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
-  mainContainer: {
-    marginTop: theme.spacing(3),
+  contents: {
+    padding: 15,
+    borderStyle: "solid",
+    borderWidth: "0 36px 0 36px",
+    borderColor: "#DFFFD6",
   },
   divider: {
     height: 4,
     backgroundColor: theme.palette.tertiary.main,
+  },
+  headline: {
+    fontFamily: "Corporate-Logo-Bold-ver2",
   },
 }));
 
@@ -31,22 +37,83 @@ export default function About() {
   }, []);
 
   return (
-    <Container className={classes.mainContainer}>
-            <Grid container spacing={5}>
-        <Grid item md={4}>
-          <Typography variant="h4" gutterBottom>
-            Vision
-          </Typography>
-          <Divider className={classes.divider}/>
-        </Grid>
-        <Grid item md={8}>
-          <Box mb={8}>
-            <Typography variant="h5" gutterBottom>
-              愛される会社になる
-            </Typography>
-          </Box>
-        </Grid>
+    <Container>
+      <Grid container>
+        <img src='/about_top.jpg' width="100%" />
       </Grid>
+      <div className={classes.contents}>
+        <Grid container>
+          <Grid item xs={12}>
+            <img src='/vision.png' width="25%" />
+          </Grid>
+          <Grid container item xs={12}>
+            <Grid container justify="center" item xs={4}>
+              <img src='/vision_1.png' width="70%" />
+            </Grid>
+            <Grid item xs={8} >
+              <Typography variant="h2" gutterBottom className={classes.headline}>
+                ユーザーから愛されること
+              </Typography>     
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container>
+          <Grid item xs={12}>
+            <img src='/mission.png' width="29%" />
+          </Grid>
+          <Grid container item xs={12}>
+            <Grid container justify="center" item xs={4}>
+              <img src='/mission_1.png' width="70%" />
+            </Grid>
+            <Grid item xs={8} >
+              <Typography variant="h2" gutterBottom className={classes.headline}>
+                人々を笑顔に
+              </Typography>     
+            </Grid>
+          </Grid>
+          <Grid container item xs={12}>
+            <Grid container justify="center" item xs={4}>
+              <img src='/mission_2.png' width="70%" />
+            </Grid>
+            <Grid item xs={8} >
+              <Typography variant="h2" gutterBottom className={classes.headline}>
+                社会の非効率を
+              </Typography>     
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container>
+          <Grid item xs={12}>
+            <img src='/philosophy.png' width="38%" />
+          </Grid>
+          <Grid container item xs={12}>
+            <Grid container justify="center" item xs={4}>
+              <img src='/philosophy_1.png' width="70%" />
+            </Grid>
+            <Grid item xs={8} >
+              <Typography variant="h2" gutterBottom className={classes.headline}>
+                新しいエンタメを届ける
+              </Typography>     
+            </Grid>
+            <Grid container justify="center" item xs={4}>
+              <img src='/philosophy_2.png' width="70%" />
+            </Grid>
+            <Grid item xs={8} >
+              <Typography variant="h2" gutterBottom className={classes.headline}>
+                やりたいことをやりたいだけ
+              </Typography>     
+            </Grid>
+            <Grid container justify="center" item xs={4}>
+              <img src='/philosophy_3.png' width="70%" />
+            </Grid>
+            <Grid item xs={8} >
+              <Typography variant="h2" gutterBottom className={classes.headline}>
+                ユーザーとともに
+              </Typography>     
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>
       <Grid container spacing={5}>
         <Grid item md={4}>
           <Typography variant="h4" gutterBottom>
