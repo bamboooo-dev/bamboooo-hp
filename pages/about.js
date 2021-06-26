@@ -1,17 +1,27 @@
-import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React, { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    padding: 0,
+  },
   contents: {
-    padding: 15,
     borderStyle: "solid",
-    borderWidth: "0 36px 0 36px",
+    borderWidth: "0 20px 0 20px",
+    padding: 10,
+    [theme.breakpoints.up('lg')]: {
+      borderWidth: "0 30px 0 30px",
+      padding: 40,
+    },
     borderColor: "#DFFFD6",
+  },
+  block: {
+    [theme.breakpoints.up('lg')]: {
+      paddingBottom: 50,
+    },
   },
   divider: {
     height: 4,
@@ -19,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
   },
   headline: {
     fontFamily: "Corporate-Logo-Bold-ver2",
+    whiteSpace: "pre-line",
+  },
+  catchphraseContainer: {
+    marginTop: 10,
+    marginBottom: 10,
   },
 }));
 
@@ -37,146 +52,103 @@ export default function About() {
   }, []);
 
   return (
-    <Container>
+    <Container className={classes.container}>
       <Grid container>
-        <img src='/about_top.jpg' width="100%" />
+        <img src='/about_cover.png' width="100%" />
       </Grid>
       <div className={classes.contents}>
-        <Grid container>
+        
+        <Grid container className={classes.block}>
           <Grid item xs={12}>
-            <img src='/vision.png' width="25%" />
+            <img src='/vision.png' width="30%" style={{maxWidth: 269}}/>
           </Grid>
-          <Grid container item xs={12}>
+          {/* alignItems が違うので <Topic/> を使用していない */}
+          <Grid container item xs={12} className={classes.catchphraseContainer} alignItems="center">
             <Grid container justify="center" item xs={4}>
               <img src='/vision_1.png' width="70%" />
             </Grid>
-            <Grid item xs={8} >
-              <Typography variant="h2" gutterBottom className={classes.headline}>
+            <Grid item xs={8}>
+              <Typography variant="h2" gutterBottom className={classes.headline} style={{color: "#00AFE6"}}>
                 ユーザーから愛されること
-              </Typography>     
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
-        <Grid container>
-          <Grid item xs={12}>
-            <img src='/mission.png' width="29%" />
+        
+        <Grid container className={classes.block}>
+          <Grid item xs={12} className={classes.catchphraseContainer}>
+            <img src='/mission.png' width="35%" style={{maxWidth: 300}} />
           </Grid>
-          <Grid container item xs={12}>
-            <Grid container justify="center" item xs={4}>
-              <img src='/mission_1.png' width="70%" />
-            </Grid>
-            <Grid item xs={8} >
-              <Typography variant="h2" gutterBottom className={classes.headline}>
-                人々を笑顔に
-              </Typography>     
-            </Grid>
-          </Grid>
-          <Grid container item xs={12}>
-            <Grid container justify="center" item xs={4}>
-              <img src='/mission_2.png' width="70%" />
-            </Grid>
-            <Grid item xs={8} >
-              <Typography variant="h2" gutterBottom className={classes.headline}>
-                社会の非効率を
-              </Typography>     
-            </Grid>
-          </Grid>
+          {missions.map((mission) => (
+            <Topic key={mission.headline} topic={mission} color="#F451A5"/>
+          ))}
         </Grid>
-        <Grid container>
-          <Grid item xs={12}>
-            <img src='/philosophy.png' width="38%" />
+        
+        <Grid container className={classes.block}>
+          <Grid item xs={12} className={classes.catchphraseContainer}>
+            <img src='/philosophy.png' width="42%" style={{maxWidth: 400}}/>
           </Grid>
-          <Grid container item xs={12}>
-            <Grid container justify="center" item xs={4}>
-              <img src='/philosophy_1.png' width="70%" />
-            </Grid>
-            <Grid item xs={8} >
-              <Typography variant="h2" gutterBottom className={classes.headline}>
-                新しいエンタメを届ける
-              </Typography>     
-            </Grid>
-            <Grid container justify="center" item xs={4}>
-              <img src='/philosophy_2.png' width="70%" />
-            </Grid>
-            <Grid item xs={8} >
-              <Typography variant="h2" gutterBottom className={classes.headline}>
-                やりたいことをやりたいだけ
-              </Typography>     
-            </Grid>
-            <Grid container justify="center" item xs={4}>
-              <img src='/philosophy_3.png' width="70%" />
-            </Grid>
-            <Grid item xs={8} >
-              <Typography variant="h2" gutterBottom className={classes.headline}>
-                ユーザーとともに
-              </Typography>     
-            </Grid>
-          </Grid>
+          {philosophies.map((philosophy) => (
+            <Topic key={philosophy.headline} topic={philosophy} color="#EAB02A"/>
+          ))}
         </Grid>
+
+        <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
       </div>
-      <Grid container spacing={5}>
-        <Grid item md={4}>
-          <Typography variant="h4" gutterBottom>
-            Mission
-          </Typography>
-          <Divider className={classes.divider}/>
-        </Grid>
-        <Grid item md={8}>
-          <Box mb={8}>
-            <Typography variant="h5" gutterBottom>
-              人々を笑顔に
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              エンターテインメントとは、「人生を色付け、より豊かにするもの」だと考えています。<br/>
-              人々に生きる楽しみや一歩踏み出すきっかけを与えるサービスを作ることが我々の使命です。
-            </Typography>
-          </Box>
-          <Box mb={8}>
-            <Typography variant="h5" gutterBottom>
-              社会の効率化を
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-            効率化には様々な手段があります。<br/>
-            その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container spacing={5}>
-        <Grid item md={4}>
-          <Typography variant="h4" gutterBottom>
-            Philosophy
-          </Typography>
-          <Divider className={classes.divider}/>
-        </Grid>
-        <Grid item md={8}>
-          <Box mb={8}>
-            <Typography variant="h5" gutterBottom>
-              新しいエンタメを
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              既存のものに囚われず、ユーザーにとって新鮮で、生活を面白くする『新しいエンタメを』つくり続けます。
-            </Typography>
-          </Box>
-          <Box mb={8}>
-            <Typography variant="h5" gutterBottom>
-              やりたいことをやりたいだけ
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              各々がしたいことを尊重し、『やりたいことをやりたいだけ』任せることで最高のサービスをつくり上げます。
-            </Typography>
-          </Box>
-          <Box mb={8}>
-            <Typography variant="h5" gutterBottom>
-              ユーザーとともに
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              ユーザーの意見を積極的に取り入れ、サービスを『ユーザーとともに』つくっていきます。
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-      <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
     </Container>
   );
 }
+
+function Topic(props) {
+  const { topic } = props;
+  const classes = useStyles();
+  
+  return (
+    <Grid container item xs={12} className={classes.catchphraseContainer} alignItems="flex-start">
+      <Grid container justify="center" item xs={4}>
+        <img src={topic.image} width="70%" style={{objectFit: "contain"}}/>
+      </Grid>
+      <Grid item xs={8}>
+        <Typography variant="h2" gutterBottom className={classes.headline} style={{color: props.color}}>
+          { topic.headline }
+        </Typography>
+        <Typography variant="body1" gutterBottom className={classes.headline}>
+          { topic.detail }
+        </Typography>
+      </Grid>
+    </Grid>
+  )
+}
+
+const missions = [
+  {
+    image: '/mission_1.png',
+    headline: '人々を笑顔に',
+    detail: `エンターテインメントとは、「人生を色付け、より豊かにするもの」だと考えています。
+            人々に生きる楽しみや一歩踏み出すきっかけを与えるサービスを作ることが我々の使命です。`,
+  },
+  {
+    image: '/mission_2.png',
+    headline: '社会の非効率を',
+    detail: `効率化には様々な手段があります。
+            その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。`,
+  },
+]
+
+const philosophies = [
+  {
+    image: '/philosophy_1.png',
+    headline: '新しいエンタメを届ける',
+    detail: '既存のものに囚われず、ユーザーにとって新鮮で、生活を面白くする『新しいエンタメを』つくり続けます。',
+  },
+  {
+    image: '/philosophy_2.png',
+    headline: 'やりたいことをやりたいだけ',
+    detail: '各々がしたいことを尊重し、『やりたいことをやりたいだけ』任せることで最高のサービスをつくり上げます。',
+  },
+  {
+    image: '/philosophy_3.png',
+    headline: 'ユーザーとともに',
+    detail: 'ユーザーの意見を積極的に取り入れ、サービスを『ユーザーとともに』つくっていきます。',
+  },
+]
