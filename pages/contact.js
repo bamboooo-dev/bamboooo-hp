@@ -146,6 +146,7 @@ export default function Contact(){
           />
           <Button
             type="submit"
+            value="送信"
             fullWidth
             variant="contained"
             color="secondary"
