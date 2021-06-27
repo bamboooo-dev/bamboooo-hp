@@ -71,7 +71,7 @@ const Twitter =() =>{
      <div>
        Twitter
        <div>
-         アカウントをフォローする
+         アカウントをフォローする!!
        </div>
      </div>
     </>
