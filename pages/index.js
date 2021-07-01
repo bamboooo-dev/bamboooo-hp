@@ -21,10 +21,12 @@ export default function Index() {
          <GAMES />
          <NEWS />
          <Twitter />
+         <Members />
+         <OBOG/>
     </Container>
   );
 }
-
+ 
 
   const GAMES =() =>{ 
     const classes = useStyles(); 
@@ -32,7 +34,11 @@ export default function Index() {
     return(
       <>
        <div>
-         GAME
+         {/*GAME icon */}
+          <img
+          src='/game.jpg'
+          className={classes.medgame}
+          />
          <div>
            ワイワイ
              <img
@@ -49,10 +55,16 @@ export default function Index() {
   }
  
   const NEWS =() =>{
+    const classes = useStyles();
+
     return(
       <>
        <div>
-         NEWS
+         {/*NEWS icon*/}
+         <img
+          src='/news.jpg'
+          className={classes.mednews}
+          />
          <div>
           2019年　3月　bamboooo発足
          </div>
@@ -66,12 +78,61 @@ export default function Index() {
   }
 
 const Twitter =() =>{
+  const classes = useStyles();
+
   return(
     <>
      <div>
-       Twitter
+       {/*Twitter icon*/}
+       <img
+          src='/twitter.jpg'
+          className={classes.medtwitter}
+          />
+
        <div>
          アカウントをフォローする!!
+       </div>
+     </div>
+    </>
+  )
+}
+
+const Members =() =>{
+  const classes = useStyles();
+
+  return(
+    <>
+     <div>
+       {/*Members icon*/}
+       <img
+          src='/member.jpg'
+          className={classes.medmember}
+          />
+
+       <div>
+         {/*Memberのiconと紹介文 */}
+         Memberの紹介文
+       </div>
+     </div>
+    </>
+  )
+}
+
+const OBOG =() =>{
+  const classes = useStyles();
+
+  return(
+    <>
+     <div>
+       {/*OBOG icon*/}
+       <img
+          src='/OBOG.jpg'
+          className={classes.OBOG}
+          />
+
+       <div>
+         {/*OBOGのiconと紹介文 */}
+         OB・OGの紹介文
        </div>
      </div>
     </>
