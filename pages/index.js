@@ -1,5 +1,6 @@
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
+import { FullscreenExit } from '@material-ui/icons';
 import React from 'react';
 import MainPaper from '../src/MainPaper';
 

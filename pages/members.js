@@ -164,17 +164,17 @@ const members = [
     position:'Unity Engineer',
     name: '高木 公太郎',
    /*タコヤロウのicon */
-    avatar:'a',
+    avatar:'takoyarou icon.png',
     /*タコヤロウの自己紹介文 */
-    description:'タコヤロウです。',
+    description:'ゲームと開発を生きがいにする北海道の高校生。',
   },
   {
     position:'Frontend Enginner',
     name:'北村 拓也',
     /*北村拓也のicon */
-    avatar:'a',
+    avatar:'kittan icon.jpg',
     /*北村拓也の自己紹介文 */
-    description:'北村拓也です',
+    description:'多趣味な器用貧乏。',
   },
   {
     position:'',

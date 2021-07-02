@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(4),
     paddingTop: theme.spacing(20),
     paddingBottom: theme.spacing(20),
-    backgroundImage: 'url(/topCover.jpg)',
+    backgroundImage: 'url(/colorsyourlife.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -34,10 +34,10 @@ export default function MainPaper(props) {
 
   return (
     <Paper className={classes.mainPaper}>
-      {/* Increase the priority of the hero background image */}
+      {/* Increase the priority of the hero background image  */}　
       {<img style={{ display: 'none' }} src="/topCover.jpg" alt='main image description' />}
       <div className={classes.overlay} />
-      <Grid container>
+        <Grid container>
         <Grid item xs={12}>
           <Box textAlign="center" position="relative">
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
@@ -51,7 +51,13 @@ export default function MainPaper(props) {
             </Link>
           </Box>
         </Grid>
-      </Grid>
+      </Grid> 
     </Paper>
   );
 }
+
+
+
+
+
+
