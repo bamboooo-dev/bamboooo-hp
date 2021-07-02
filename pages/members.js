@@ -31,6 +31,7 @@ function Member(props) {
   const { member } = props;
   const classes = useStyles();
   
+
   return (
     <Grid item xs={12} md={3}>
       {member.avatar ? (
@@ -92,10 +93,19 @@ function Member(props) {
             </a>
           </Box>
         )}
+
+
+       {/* moreを押したら詳細が出てくるようにしたい*/}
+        <buttom onClick ={()=>{
+          console.log('自己紹介')
+        }}>
+          more
+        </buttom>
       </Box>
     </Grid>
-  )
+  ) 
 }
+
 
 {/*colorsyourlifeのコンポーネントが表示されるようにしたい */}
 const colorsyourlife =() =>{
@@ -120,69 +130,81 @@ const members = [
     position: 'Infrastructure Engineer',
     university: '北海道大学',
     name: '山本 浩平',
-    description: 'k8s。猫好き。初めての料理は炒り卵。',
     avatar: '/avatar_kohei.jpg',
+
+    /*
+    description: 'k8s。猫好き。初めての料理は炒り卵。',
     twitter: 'https://twitter.com/yamagai_0919',
     github: 'https://github.com/yamagai',
     homepage: 'http://portfolio-kohei.herokuapp.com/',
     wantedly: 'https://www.wantedly.com/id/yamamoto_kohei_b',
+    */
   },
   { 
     position: 'Backend Engineer',
     university: '京都大学',
     name: '住江 祐哉',
-    description: 'パフォーマンス・チューナー。満島ひかりが好き。',
     avatar: '/avatar_yuya.jpg',
+    /*
+    description: 'パフォーマンス・チューナー。満島ひかりが好き。',
     twitter: 'https://twitter.com/monaka_0721',
     github: 'https://github.com/MONAKA0721',
     homepage: 'https://monaka0721.github.io/portfolio/#/',
     wantedly: 'https://www.wantedly.com/id/monaka0721',
+    */
   },
   { 
     position: 'Planner & Unity Engineer',
     university: '京都大学',
     avatar: '/avatar_shunpei.jpg',
     name: '朝田 隼平',
+    /*
     description: 'ムードメーカー。趣味はカフェ巡り。',
     twitter: 'https://twitter.com/0514AsaShun',
+    */
   },
   { 
     position: 'Planner',
     university: '早稲田大学',
     avatar: '/avatar_kento.png',
     name: '中林 健人',
+    /*
     description: '京都大学中退。現在早稲田大学在学兼ノマドカフェNOPAY代表。',
     twitter: 'https://twitter.com/bayashi0314',
+    */
   },
   { 
     position: 'Designer',
     name: '松田 まり',
     avatar: '/avatar_mari.png',
+    /*
     description: 'スーパーデザイナー。左利きの風呂嫌い。',
+    */
   },
   {
     position:'Unity Engineer',
     name: '高木 公太郎',
-   /*タコヤロウのicon */
     avatar:'takoyarou icon.png',
-    /*タコヤロウの自己紹介文 */
+    /*
     description:'ゲームと開発を生きがいにする北海道の高校生。',
+    */
   },
   {
     position:'Frontend Enginner',
     name:'北村 拓也',
-    /*北村拓也のicon */
     avatar:'kittan icon.jpg',
-    /*北村拓也の自己紹介文 */
+    /*
     description:'多趣味な器用貧乏。',
+    */
   },
   {
     position:'',
     name:'藤本 源',
     /*藤本源のicon */
     avatar:'',
-    /*藤本源の自己紹介文 */
+    /*
     description:'藤本源です',
+    */
   },
 ];
 
