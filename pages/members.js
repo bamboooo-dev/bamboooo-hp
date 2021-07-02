@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     marginTop: theme.spacing(3),
   },
+  mediamember:{
+    width:"250px"
+  },
+    mediaOBOG:{
+      width:"250px"
+    },
 }))
 
 function Member(props) {
