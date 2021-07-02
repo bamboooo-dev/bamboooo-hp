@@ -91,6 +91,24 @@ function Member(props) {
   )
 }
 
+{/*colorsyourlifeのコンポーネントが表示されるようにしたい */}
+const colorsyourlife =() =>{
+  const classes = useStyles();
+
+  return(
+    <>
+     <div>
+       {/*memberの一番上の画像*/}
+       <img
+          src='/colorsyourlife.jpg'
+          className={classes.mediacolorsyourlife}
+          />
+     </div>
+    </>
+  )
+}
+
+
 const members = [
   { 
     position: 'Infrastructure Engineer',
@@ -135,6 +153,30 @@ const members = [
     name: '松田 まり',
     avatar: '/avatar_mari.png',
     description: 'スーパーデザイナー。左利きの風呂嫌い。',
+  },
+  {
+    position:'Unity Engineer',
+    name: '高木 公太郎',
+   /*タコヤロウのicon */
+    avatar:'a',
+    /*タコヤロウの自己紹介文 */
+    description:'タコヤロウです。',
+  },
+  {
+    position:'Frontend Enginner',
+    name:'北村 拓也',
+    /*北村拓也のicon */
+    avatar:'a',
+    /*北村拓也の自己紹介文 */
+    description:'北村拓也です',
+  },
+  {
+    position:'',
+    name:'藤本 源',
+    /*藤本源のicon */
+    avatar:'',
+    /*藤本源の自己紹介文 */
+    description:'藤本源です',
   },
 ];
 
@@ -183,11 +225,15 @@ const obogs = [
 export default function Members() {
   const classes = useStyles();
 
+
   return (
     <Container className={classes.mainContainer}>
       <Box>
         <Typography variant="h4" gutterBottom>
-          MEMBERS
+        <img
+        src='/member.jpg'
+        className={classes.mediamember}
+        />
         </Typography>
         <Grid container spacing={4}>
           {members.map((member) => (
@@ -197,7 +243,10 @@ export default function Members() {
       </Box>
       <Box mt={5}>
         <Typography variant="h4" gutterBottom>
-          OB・OG
+        <img
+       src='/OBOG.jpg'
+       className={classes.mediaOBOG}
+       />
         </Typography>
         <Grid container spacing={4}>
           {obogs.map((obog) => (
