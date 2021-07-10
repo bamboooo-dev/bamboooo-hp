@@ -83,9 +83,9 @@ const works = [
     `,
   },
   { 
-    name: 'MESHI-BUGYO',
+    name: 'MESHIBUGYO',
     catchphrase: '「きょう何食べよう？」を楽しく',
-    alt: 'Picture of MESHI-BUGYO',
+    alt: 'Picture of MESHIBUGYO',
   },
 ];
 
@@ -147,7 +147,7 @@ function Work(props) {
             )}
             {work.googleUrl && (
               <Box>
-                <a href={work.appleUrl} target="_blank">
+                <a href={work.googleUrl} target="_blank">
                   <img
                     src="/google-play-badge.png"
                     alt="Google Play Store Badge"
