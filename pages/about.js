@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   innerContents: {
     margin: 'auto',
     [theme.breakpoints.up('lg')]: {
-      width: '80%',
+      width: '65%',
     }
   },
   coverMain: {
@@ -45,12 +45,19 @@ const useStyles = makeStyles((theme) => ({
   detail: {
     fontFamily: "YuGothic",
     fontWeight: 500,
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '1.5rem',
+    },
     whiteSpace: "pre-line",
   },
   catchphraseContainer: {
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 20,
+    marginBottom: 20,
   },
+  speakerDeckEmbed: {
+    width:'80%',
+    margin: 'auto',
+  }
 }));
 
 export default function About() {
@@ -83,7 +90,7 @@ export default function About() {
             {/* alignItems が違うので <Topic/> を使用していない */}
             <Grid container item xs={12} className={classes.catchphraseContainer} alignItems="center">
               <Grid container justify="center" item xs={4}>
-                <img src='/vision_1.png' width="70%" />
+                <img src='/vision_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
               <Grid item xs={8}>
                 <Typography variant="h2" gutterBottom className={classes.headline} style={{color: "#00AFE6"}}>
@@ -111,8 +118,10 @@ export default function About() {
             ))}
           </Grid>
 
-          <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
         </Grid>
+        <div className={classes.speakerDeckEmbed}>
+          <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
+        </div>
       </Grid>
     </Container>
   );
@@ -125,7 +134,7 @@ function Topic(props) {
   return (
     <Grid container item xs={12} className={classes.catchphraseContainer} alignItems="flex-start">
       <Grid container justify="center" item xs={4}>
-        <img src={topic.image} width="70%" style={{objectFit: "contain"}}/>
+        <img src={topic.image} width="70%" style={{objectFit: "contain", maxWidth: 300 }}/>
       </Grid>
       <Grid item xs={8}>
         <Typography variant="h2" gutterBottom className={classes.headline} style={{color: props.color}}>
