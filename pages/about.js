@@ -10,13 +10,19 @@ const useStyles = makeStyles((theme) => ({
   },
   contents: {
     borderStyle: "solid",
-    borderWidth: "0 20px 0 20px",
-    padding: 10,
+    borderWidth: "0 15px 0 15px",
+    padding: 20,
     [theme.breakpoints.up('lg')]: {
       borderWidth: "0 30px 0 30px",
       padding: 40,
     },
     borderColor: "#DFFFD6",
+  },
+  innerContents: {
+    margin: 'auto',
+    [theme.breakpoints.up('lg')]: {
+      width: '80%',
+    }
   },
   coverMain: {
     marginTop: 20,
@@ -34,6 +40,11 @@ const useStyles = makeStyles((theme) => ({
   },
   headline: {
     fontFamily: "Corporate-Logo-Bold-ver2",
+    whiteSpace: "pre-line",
+  },
+  detail: {
+    fontFamily: "YuGothic",
+    fontWeight: 500,
     whiteSpace: "pre-line",
   },
   catchphraseContainer: {
@@ -63,45 +74,46 @@ export default function About() {
         <img src='/about_cover_main.png' width="50%" className={classes.coverMain}/>
         <img src='/about_cover_bottom.png' width="100%" />
       </Grid>
-      <div className={classes.contents}>
-        
-        <Grid container className={classes.block}>
-          <Grid item xs={12}>
-            <img src='/vision.png' width="30%" style={{maxWidth: 269}}/>
-          </Grid>
-          {/* alignItems が違うので <Topic/> を使用していない */}
-          <Grid container item xs={12} className={classes.catchphraseContainer} alignItems="center">
-            <Grid container justify="center" item xs={4}>
-              <img src='/vision_1.png' width="70%" />
+      <Grid className={classes.contents}>
+        <Grid container className={classes.innerContents}>
+          <Grid container className={classes.block}>
+            <Grid item xs={12}>
+              <img src='/vision.png' width="30%" style={{maxWidth: 269}}/>
             </Grid>
-            <Grid item xs={8}>
-              <Typography variant="h2" gutterBottom className={classes.headline} style={{color: "#00AFE6"}}>
-                ユーザーから愛されること
-              </Typography>
+            {/* alignItems が違うので <Topic/> を使用していない */}
+            <Grid container item xs={12} className={classes.catchphraseContainer} alignItems="center">
+              <Grid container justify="center" item xs={4}>
+                <img src='/vision_1.png' width="70%" />
+              </Grid>
+              <Grid item xs={8}>
+                <Typography variant="h2" gutterBottom className={classes.headline} style={{color: "#00AFE6"}}>
+                  ユーザーから愛されること
+                </Typography>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        
-        <Grid container className={classes.block}>
-          <Grid item xs={12} className={classes.catchphraseContainer}>
-            <img src='/mission.png' width="35%" style={{maxWidth: 300}} />
+          
+          <Grid container className={classes.block}>
+            <Grid item xs={12} className={classes.catchphraseContainer}>
+              <img src='/mission.png' width="35%" style={{maxWidth: 300}} />
+            </Grid>
+            {missions.map((mission) => (
+              <Topic key={mission.headline} topic={mission} color="#F451A5"/>
+            ))}
           </Grid>
-          {missions.map((mission) => (
-            <Topic key={mission.headline} topic={mission} color="#F451A5"/>
-          ))}
-        </Grid>
-        
-        <Grid container className={classes.block}>
-          <Grid item xs={12} className={classes.catchphraseContainer}>
-            <img src='/philosophy.png' width="42%" style={{maxWidth: 400}}/>
+          
+          <Grid container className={classes.block}>
+            <Grid item xs={12} className={classes.catchphraseContainer}>
+              <img src='/philosophy.png' width="42%" style={{maxWidth: 400}}/>
+            </Grid>
+            {philosophies.map((philosophy) => (
+              <Topic key={philosophy.headline} topic={philosophy} color="#EAB02A"/>
+            ))}
           </Grid>
-          {philosophies.map((philosophy) => (
-            <Topic key={philosophy.headline} topic={philosophy} color="#EAB02A"/>
-          ))}
-        </Grid>
 
-        <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
-      </div>
+          <div async className="speakerdeck-embed" data-slide="4" data-id="ab88cdaba19348a7a1333f27d68272cd" data-ratio="1.77777777777778" />
+        </Grid>
+      </Grid>
     </Container>
   );
 }
@@ -119,7 +131,7 @@ function Topic(props) {
         <Typography variant="h2" gutterBottom className={classes.headline} style={{color: props.color}}>
           { topic.headline }
         </Typography>
-        <Typography variant="body1" gutterBottom className={classes.headline}>
+        <Typography variant="body2" gutterBottom className={classes.detail}>
           { topic.detail }
         </Typography>
       </Grid>
