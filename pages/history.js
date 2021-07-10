@@ -50,10 +50,10 @@ export default function History() {
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
               <Typography variant="h6" component="h1">
-                HIMO
+                ワイワイ
               </Typography>
               <Typography>
-                パーティーゲーム『HIMO』の開発開始
+                パーティーゲーム『ワイワイ』の開発開始
               </Typography>
             </Paper>
           </TimelineContent>

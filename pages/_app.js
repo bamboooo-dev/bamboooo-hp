@@ -19,7 +19,6 @@ const sections = [
   { title: 'HISTORY', url: 'history' },
   { title: 'BLOG', url: 'blog' },
   { title: 'CONTACT', url: 'contact' },
-  { title: 'RECRUIT', url: '#' },
 ];
 
 export default function MyApp(props) {

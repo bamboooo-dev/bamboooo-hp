@@ -85,7 +85,7 @@ const works = [
   { 
     name: 'MESHI-BUGYO',
     catchphrase: '「きょう何食べよう？」を楽しく',
-    alt: 'Picture of Alcatraz',
+    alt: 'Picture of MESHI-BUGYO',
   },
 ];
 
