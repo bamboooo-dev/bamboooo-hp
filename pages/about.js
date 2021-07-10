@@ -18,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     },
     borderColor: "#DFFFD6",
   },
+  coverMain: {
+    marginTop: 20,
+    marginBottom: 20,
+    minWidth: 300,
+  },
   block: {
     [theme.breakpoints.up('lg')]: {
       paddingBottom: 50,
@@ -52,9 +57,11 @@ export default function About() {
   }, []);
 
   return (
-    <Container className={classes.container}>
-      <Grid container>
-        <img src='/about_cover.png' width="100%" />
+    <Container maxWidth={false} className={classes.container}>
+      <Grid container justify="center">
+        <img src='/about_cover_top.png' width="100%" />
+        <img src='/about_cover_main.png' width="50%" className={classes.coverMain}/>
+        <img src='/about_cover_bottom.png' width="100%" />
       </Grid>
       <div className={classes.contents}>
         
