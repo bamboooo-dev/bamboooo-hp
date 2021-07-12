@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "pre-line",
   },
   detail: {
-    fontFamily: ['"YuGothic"', 'sans-serif'],
+    fontFamily: ['"Helvetica Neue"', '"Helvetica"', '"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', '"Arial"', '"Yu Gothic"', '"Meiryo"', 'sans-serif'],
     fontWeight: 500,
     [theme.breakpoints.up('lg')]: {
       fontSize: '1.5rem',
