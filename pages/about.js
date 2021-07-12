@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "pre-line",
   },
   detail: {
-    fontFamily: "YuGothic",
+    fontFamily: ['"YuGothic"', 'sans-serif'],
     fontWeight: 500,
     [theme.breakpoints.up('lg')]: {
       fontSize: '1.5rem',
@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "pre-line",
   },
   catchphraseContainer: {
-    marginTop: 20,
     marginBottom: 20,
   },
   speakerDeckEmbed: {
@@ -88,7 +87,7 @@ export default function About() {
               <img src='/vision.png' width="30%" style={{maxWidth: 269}}/>
             </Grid>
             {/* alignItems が違うので <Topic/> を使用していない */}
-            <Grid container item xs={12} className={classes.catchphraseContainer} alignItems="center">
+            <Grid container item xs={12} style={{ marginBottom: 40 }} alignItems="center">
               <Grid container justify="center" item xs={4}>
                 <img src='/vision_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
@@ -101,7 +100,7 @@ export default function About() {
           </Grid>
           
           <Grid container className={classes.block}>
-            <Grid item xs={12} className={classes.catchphraseContainer}>
+            <Grid item xs={12}>
               <img src='/mission.png' width="35%" style={{maxWidth: 300}} />
             </Grid>
             {missions.map((mission) => (
@@ -110,7 +109,7 @@ export default function About() {
           </Grid>
           
           <Grid container className={classes.block}>
-            <Grid item xs={12} className={classes.catchphraseContainer}>
+            <Grid item xs={12}>
               <img src='/philosophy.png' width="42%" style={{maxWidth: 400}}/>
             </Grid>
             {philosophies.map((philosophy) => (
