@@ -27,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
+
+
 function Member(props) {
   const { member } = props;
   const classes = useStyles();
@@ -107,8 +109,13 @@ function Member(props) {
 }
 
 
+
+
+
+
+
 {/*colorsyourlifeのコンポーネントが表示されるようにしたい */}
-const colorsyourlife =() =>{
+const attaraiina =() =>{
   const classes = useStyles();
 
   return(
@@ -116,8 +123,8 @@ const colorsyourlife =() =>{
      <div>
        {/*memberの一番上の画像*/}
        <img
-          src='/colorsyourlife.jpg'
-          className={classes.mediacolorsyourlife}
+          src='/attaraiina.jpg'
+          className={classes.mediaattaraiina}
           />
      </div>
     </>

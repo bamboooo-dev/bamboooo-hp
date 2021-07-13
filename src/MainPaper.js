@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(4),
     paddingTop: theme.spacing(20),
     paddingBottom: theme.spacing(20),
-    backgroundImage: 'url(/colorsyourlife.jpg)',
+    backgroundImage: 'url(/coloryourlife.png)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
