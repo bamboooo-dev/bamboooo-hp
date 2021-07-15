@@ -83,7 +83,7 @@ const others = [
 const communications = [
   {
     img: '/slack.png',
-    title: 'Slack',
+    title: 'slackkkkkkk',
   },
   {
     img: '/notion.png',
