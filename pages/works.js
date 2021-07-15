@@ -42,7 +42,7 @@ const works = [
   { 
     name: 'ワイワイ',
     catchphrase: 'あなたの価値観でみんながワイワイ',
-    alt: 'Picture of HIMO',
+    alt: 'Picture of waiwai',
     image: '/waiwai.png',
     description: `
       オンラインでオフライン以上にワイワイする。
