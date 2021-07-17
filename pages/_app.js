@@ -66,11 +66,11 @@ export default function MyApp(props) {
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Container maxWidth="lg">
+        
           { /* TODO: props で Component を渡してしまっているので美しくない気がする */}
           <Header title="bamboooo" sections={sections} modeButton={darkMode ? <SunButton /> : <MoonButton />}/>
           <Component {...pageProps} />
-        </Container>
+
         <Footer />
       </ThemeProvider>
     </React.Fragment>
