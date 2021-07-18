@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FullscreenExit } from '@material-ui/icons';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,21 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
   mediaSection:{
     width:"250px",
-    marginTop: theme.spacing(6),
+    marginBottom:"40px",
   },
-  mediatwitter:{
-    width:"250px"
+  mediaWaiwai:{
+    width:"250px",
+    marginBottom:"55px"
   },
-  gameFlex:{
-    display:"flex",
-    flexWrap:"wrap",
-    justifyContent:"space-around",
-    marginTop:"20px",
-  },
-  underFlex:{
-    display:"flex",
-    flexWrap:"wrap",
-  }
 }));
 
 export default function Index() {
@@ -48,10 +40,11 @@ export default function Index() {
       <MainImage />
         <Box className={classes.mainContainer}>
           <GAMES />
-          <Box className={classes.underFlex}>
-            <NEWS />
-            <Twitter />
-          </Box>
+          <Grid container >
+            <News />
+            <Grid item xs={1}></Grid>
+            <Twitter />  
+          </Grid>
         </Box>
     </>
   );
@@ -69,70 +62,59 @@ export default function Index() {
     const classes = useStyles(); 
 
     return(
-      <>
-       <Box marginBottom='40px'>
-          <img src='/game.jpg' className={classes.mediaSection} />
-            <Box className={classes.gameFlex}>
-              <Box>
-                <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWorks} />
-                <Box textAlign='center'>
-                  <Typography variant="h5" gutterBottom>ワイワイ</Typography>
-                  <Typography >あなたの価値観でみんながワイワイ</Typography>
-                </Box>
-              </Box>
-              
-              <Box>
-                <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
-                <Box textAlign='center'>
-                  <Typography variant="h5" gutterBottom>memopic</Typography>
-                  <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
-                </Box>
-              </Box>
+        <Box paddingTop="40px" paddingBottom="75px" marginBottom="75px" borderBottom="1px solid grey">
+          <Grid container> 
+            <Grid item xs={12}>
+              <img src='/game.jpg' className={classes.mediaSection} />
+            </Grid>
+            <Grid item xs={4} align="center">
+              <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
+              <Typography variant="h5" gutterBottom>ワイワイ</Typography>
+              <Typography >あなたの価値観でみんながワイワイ</Typography>
+            </Grid>
 
-              <Box>
-                <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
-                <Box textAlign='center'>
-                  <Typography variant="h5" gutterBottom>memorip</Typography>
-                  <Typography >旅行プラン作成・共有サイト</Typography>
-                </Box>
-              </Box>
+            <Grid item xs={4} align="center">
+              <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
+              <Typography variant="h5" gutterBottom>memopic</Typography>
+              <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
+            </Grid>
 
-            </Box>
+            <Grid item xs={4} align="center">
+              <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
+              <Typography variant="h5" gutterBottom>memorip</Typography>
+              <Typography >旅行プラン作成・共有サイト</Typography>
+            </Grid>
+
+          </Grid>     
         </Box>
-      </>
     )
   }
  
-  const NEWS =() =>{
+  const News =() =>{
     const classes = useStyles();
 
     return(
-      <>
-       <Box marginBottom='40px'>
+      <Grid item xs={7} container>
+        <Grid item xs={12}>
           <img src='/news.jpg' className={classes.mediaSection} />
-         
-          {/*本来はblog埋め込みなりをするけど一旦worksで代用 */}
-          <Box className={classes.gameFlex}>
-              <Box>
-                <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWorks} />
-                <Box textAlign='center'>
-                  <Typography variant="h5" gutterBottom>ワイワイ</Typography>
-                  <Typography >あなたの価値観でみんながワイワイ</Typography>
-                </Box>
-              </Box>
-              
-              <Box>
-                <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
-                <Box textAlign='center'>
-                  <Typography variant="h5" gutterBottom>memopic</Typography>
-                  <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
-                </Box>
-              </Box>
+        </Grid>
+        {/*本来はblogの埋め込みとか*/}
+        <Grid item xs={6} align="center">
+            <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
+              <Typography variant="h5" gutterBottom>ワイワイ</Typography>
+              <Typography >あなたの価値観でみんながワイワイ</Typography>
+        </Grid>
 
-          </Box>
-          {/*ここまで*/}
-        </Box>
-      </>
+        <Grid item xs={6} align="center">
+          <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
+            <Typography variant="h5" gutterBottom>memopic</Typography>
+            <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
+        </Grid>
+
+      </Grid>
+
+      
+
     )
   }
 
@@ -140,31 +122,35 @@ const Twitter =() =>{
   const classes = useStyles();
 
   return(
-    <>
-     <Box marginBottom='40px'>
-          <img src='/twitter.jpg' className={classes.mediaSection} />
-          <Box >
-            <a class="twitter-timeline" 
-              data-lang="ja" 
-              data-width="350" 
-              data-height="350" 
-              data-chrome="noheader nofooter"
-              href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw">
-                Tweets by bamboooo_inc
-            </a> 
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-            <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
-              class="twitter-follow-button" 
-              data-width="large" 
-              data-show-screen-name="false" 
-              data-lang="ja" 
-              data-show-count="false">
-                Follow @bamboooo_inc
-            </a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <Grid item xs={4} container>
+      <Grid item xs={12}>
+        <img src='/twitter.jpg' className={classes.mediaSection} />
+      </Grid>
+      <Box marginTop="48px" align="center">
+        <Box>
+          <a class="twitter-timeline" 
+            data-lang="ja" 
+            data-width="350" 
+            data-height="350" 
+            data-chrome="noheader nofooter"
+            href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw">
+              Tweets by bamboooo_inc
+          </a> 
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </Box>
-     </Box>
-    </>
+
+        <Box>
+          <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
+            class="twitter-follow-button" 
+            data-width="large" 
+            data-show-screen-name="false" 
+            data-lang="ja" 
+            data-show-count="false">
+              Follow @bamboooo_inc
+          </a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </Box>
+      </Box>
+    </Grid>
   )
 }
