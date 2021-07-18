@@ -21,12 +21,9 @@ const useStyles = makeStyles((theme) => ({
   mediaWorks:{
     width:"350px"
   },
-  mediagame:{
+  mediaSection:{
     width:"250px",
     marginTop: theme.spacing(6),
-  },
-  medianews:{
-    width:"250px"
   },
   mediatwitter:{
     width:"250px"
@@ -36,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
     flexWrap:"wrap",
     justifyContent:"space-around",
     marginTop:"20px",
+  },
+  underFlex:{
+    display:"flex",
+    flexWrap:"wrap",
   }
 }));
 
@@ -47,8 +48,10 @@ export default function Index() {
       <MainImage />
         <Box className={classes.mainContainer}>
           <GAMES />
-          <NEWS />
-          <Twitter />
+          <Box className={classes.underFlex}>
+            <NEWS />
+            <Twitter />
+          </Box>
         </Box>
     </>
   );
@@ -67,12 +70,11 @@ export default function Index() {
 
     return(
       <>
-       <Box >
-         {/*GAME icon */}
-          <img src='/game.jpg' className={classes.mediagame} />
+       <Box marginBottom='40px'>
+          <img src='/game.jpg' className={classes.mediaSection} />
             <Box className={classes.gameFlex}>
               <Box>
-                <img src='/waiwai.png' className={classes.mediaWorks} />
+                <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWorks} />
                 <Box textAlign='center'>
                   <Typography variant="h5" gutterBottom>ワイワイ</Typography>
                   <Typography >あなたの価値観でみんながワイワイ</Typography>
@@ -80,7 +82,7 @@ export default function Index() {
               </Box>
               
               <Box>
-                <img src='/memopic.png' className={classes.mediaWorks} />
+                <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
                 <Box textAlign='center'>
                   <Typography variant="h5" gutterBottom>memopic</Typography>
                   <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
@@ -88,13 +90,13 @@ export default function Index() {
               </Box>
 
               <Box>
-                <img src='/memorip.png' className={classes.mediaWorks} />
+                <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
                 <Box textAlign='center'>
                   <Typography variant="h5" gutterBottom>memorip</Typography>
                   <Typography >旅行プラン作成・共有サイト</Typography>
                 </Box>
               </Box>
-              
+
             </Box>
         </Box>
       </>
@@ -106,20 +108,30 @@ export default function Index() {
 
     return(
       <>
-       <div>
-         {/*NEWS icon*/}
-         <img
-          src='/news.jpg'
-          className={classes.medianews}
-          />
-         <div>
-          2019年　3月　bamboooo発足
-         </div>
-         <div>
-          2019年　12月　Memorip
-          　旅行プラン共有サイト『Memorip』をリリース
-         </div>
-       </div>
+       <Box marginBottom='40px'>
+          <img src='/news.jpg' className={classes.mediaSection} />
+         
+          {/*本来はblog埋め込みなりをするけど一旦worksで代用 */}
+          <Box className={classes.gameFlex}>
+              <Box>
+                <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWorks} />
+                <Box textAlign='center'>
+                  <Typography variant="h5" gutterBottom>ワイワイ</Typography>
+                  <Typography >あなたの価値観でみんながワイワイ</Typography>
+                </Box>
+              </Box>
+              
+              <Box>
+                <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
+                <Box textAlign='center'>
+                  <Typography variant="h5" gutterBottom>memopic</Typography>
+                  <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
+                </Box>
+              </Box>
+
+          </Box>
+          {/*ここまで*/}
+        </Box>
       </>
     )
   }
@@ -129,17 +141,30 @@ const Twitter =() =>{
 
   return(
     <>
-     <div>
-       {/*Twitter icon*/}
-       <img
-          src='/twitter.jpg'
-          className={classes.mediatwitter}
-          />
+     <Box marginBottom='40px'>
+          <img src='/twitter.jpg' className={classes.mediaSection} />
+          <Box >
+            <a class="twitter-timeline" 
+              data-lang="ja" 
+              data-width="350" 
+              data-height="350" 
+              data-chrome="noheader nofooter"
+              href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw">
+                Tweets by bamboooo_inc
+            </a> 
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-       <div>
-         アカウントをフォローする!!
-       </div>
-     </div>
+            <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
+              class="twitter-follow-button" 
+              data-width="large" 
+              data-show-screen-name="false" 
+              data-lang="ja" 
+              data-show-count="false">
+                Follow @bamboooo_inc
+            </a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </Box>
+     </Box>
     </>
   )
 }
