@@ -62,7 +62,7 @@ export default function Index() {
     const classes = useStyles(); 
 
     return(
-        <Box paddingTop="40px" paddingBottom="75px" marginBottom="75px" borderBottom="1px solid grey">
+        <Box paddingTop="40px" paddingBottom="75px" paddingRight="25px" marginBottom="75px" borderBottom="1px solid grey">
           <Grid container> 
             <Grid item xs={12}>
               <img src='/game.jpg' className={classes.mediaSection} />
@@ -126,18 +126,18 @@ const Twitter =() =>{
       <Grid item xs={12}>
         <img src='/twitter.jpg' className={classes.mediaSection} />
       </Grid>
-      <Box marginTop="48px" align="center">
-        <Box>
+      <Box marginTop="48px" >
+        
           <a class="twitter-timeline" 
             data-lang="ja" 
             data-width="350" 
             data-height="350" 
-            data-chrome="noheader nofooter"
+            data-chrome="nofooter noheader"
             href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw">
               Tweets by bamboooo_inc
           </a> 
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </Box>
+        
 
         <Box>
           <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
