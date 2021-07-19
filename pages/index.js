@@ -5,6 +5,14 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import React from 'react';
+import { Paper } from '@material-ui/core';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import InboxIcon from '@material-ui/icons/Inbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -93,22 +101,30 @@ export default function Index() {
   const News =() =>{
     const classes = useStyles();
 
+    function ListItemLink(props) {
+      return <ListItem button component="a" {...props} />;
+    }
+
     return(
       <Grid item xs={7} container>
         <Grid item xs={12}>
           <img src='/news.jpg' className={classes.mediaSection} />
-        </Grid>
+        </Grid>       
         {/*本来はblogの埋め込みとか*/}
-        <Grid item xs={6} align="center">
-            <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
-              <Typography variant="h5" gutterBottom>ワイワイ</Typography>
-              <Typography >あなたの価値観でみんながワイワイ</Typography>
-        </Grid>
+        <Grid item xs={12}>
+        <List component="nav" aria-label="main mailbox folders">
+        
+        <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
+          <ListItemText primary="2021.7.12   ワイワイアップデートver1.80発表" />
+        </ListItemLink>
 
-        <Grid item xs={6} align="center">
-          <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
-            <Typography variant="h5" gutterBottom>memopic</Typography>
-            <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
+      </List>
+      <Divider />
+      <List component="nav" aria-label="secondary mailbox folders">
+        <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
+          <ListItemText primary="2021.7.12   ワイワイアップデートver1.80発表" />
+        </ListItemLink>
+      </List>
         </Grid>
 
       </Grid>
@@ -126,7 +142,7 @@ const Twitter =() =>{
       <Grid item xs={12}>
         <img src='/twitter.jpg' className={classes.mediaSection} />
       </Grid>
-      <Box marginTop="48px" >
+      <Box marginTop="48px" align="center">
         
           <a class="twitter-timeline" 
             data-lang="ja" 
