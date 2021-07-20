@@ -1,18 +1,16 @@
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { FullscreenExit } from '@material-ui/icons';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import React from 'react';
-import { Paper } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -38,6 +36,15 @@ const useStyles = makeStyles((theme) => ({
     width:"250px",
     marginBottom:"55px"
   },
+  topButton:{
+    position:"fixed",
+    right:"0px", 
+    bottom:"25px",
+    opacity:"0.6", 
+  "&:hover":{
+    opacity:1,
+    }
+  }
 }));
 
 export default function Index() {
@@ -54,6 +61,7 @@ export default function Index() {
             <Twitter />  
           </Grid>
         </Box>
+      <ReturnTopButton />
     </>
   );
 }
@@ -112,19 +120,42 @@ export default function Index() {
         </Grid>       
         {/*本来はblogの埋め込みとか*/}
         <Grid item xs={12}>
-        <List component="nav" aria-label="main mailbox folders">
-        
-        <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
-          <ListItemText primary="2021.7.12   ワイワイアップデートver1.80発表" />
-        </ListItemLink>
+          <List component="nav">
+              <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
+                <ListItemText primary="2021.7.14   『ワイワイ』ver1.83をリリースしました。" />
+              </ListItemLink>
 
-      </List>
-      <Divider />
-      <List component="nav" aria-label="secondary mailbox folders">
-        <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
-          <ListItemText primary="2021.7.12   ワイワイアップデートver1.80発表" />
-        </ListItemLink>
-      </List>
+          <Divider />
+          
+          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1413114702423420931?s=20">
+            
+            <ListItemText primary="2021.7.8   『ワイワイ』ver1.82をリリースしました。" />
+          </ListItemLink>
+
+          <Divider />
+
+          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1412371686511448071?s=20">
+            <ListItemText primary="2021.7.6   『ワイワイ』のユーザー数が1000人を超えました！！" />
+          </ListItemLink>
+
+          <Divider />
+
+          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1382198040774078464?s=20">
+            <ListItemText primary="2021.6.23  『ワイワイ』ver1.80をリリースしました。" />
+          </ListItemLink>
+
+          <Divider />
+
+          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1407546420920414210?s=20">
+            <ListItemText primary="2021.4.14  スマホ向けアプリ『ワイワイ』をリリースしました。" />
+          </ListItemLink>
+
+          <Divider />
+
+
+
+          </List>
+        
         </Grid>
 
       </Grid>
@@ -169,4 +200,23 @@ const Twitter =() =>{
       </Box>
     </Grid>
   )
+}
+
+const ReturnTopButton = () => {
+
+  const classes = useStyles();
+  const returnTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  return (
+    <Button onClick={returnTop} className={classes.topButton}>
+      <img src="TOP.jpg" width="50px" / >
+    </Button>
+    )
+
+
 }
