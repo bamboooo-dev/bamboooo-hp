@@ -32,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     width:"250px",
     marginBottom:"40px",
   },
+  mediaApplication:{
+    width:"370px",
+    marginBottom:"40px",
+  },
   mediaWaiwai:{
     width:"250px",
     marginBottom:"55px"
@@ -70,7 +74,7 @@ export default function Index() {
     const classes = useStyles();
     
     return(
-      <img src='coloryourlife.png' className={classes.mainImage}/>
+      <img src='/home_top.png' className={classes.mainImage}/>
     )
   }
 
@@ -81,7 +85,7 @@ export default function Index() {
         <Box paddingTop="40px" paddingBottom="75px" paddingRight="25px" marginBottom="75px" borderBottom="1px solid grey">
           <Grid container> 
             <Grid item xs={12}>
-              <img src='/game.jpg' className={classes.mediaSection} />
+              <img src='/application.png' className={classes.mediaApplication} />
             </Grid>
             <Grid item xs={4} align="center">
               <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
