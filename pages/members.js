@@ -105,7 +105,7 @@ const members = [
   },
   { 
     position: 'Backend Engineer',
-    university: '京都大学',
+    university: '京都造形大学',
     name: '住江 祐哉',
     description: 'パフォーマンス・チューナー。満島ひかりが好き。',
     avatar: '/avatar_yuya.jpg',
