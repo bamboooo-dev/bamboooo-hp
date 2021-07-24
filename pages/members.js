@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import { ListItemText, makeStyles } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import blue from '@material-ui/core/colors/blue';
@@ -9,87 +9,163 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import HomeIcon from '@material-ui/icons/Home';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import React from 'react';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import React, { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
-  large: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+  mainImage:{
+    width:'100%',
+    paddingLeft: '0',
+    paddingRight: '0',
   },
-  mainContainer: {
-    marginTop: theme.spacing(3),
+  memberAvater: {
+    width: '160px',
+    height: '160px',
+    float: 'left',
   },
+  memberContainer: {
+    width:'100%',
+  },
+  mediamember:{
+    width:"250px"
+  },
+  mediaOBOG:{
+    width:"250px"
+  },
+  memberList:{
+    display:'flex',
+    flexFlow:'column',
+    justifyContent:'sapce-around',
+    alignItems:'center',
+    height:'160px',
+  }
 }))
 
 function Member(props) {
   const { member } = props;
   const classes = useStyles();
+  const [open, setopen] = useState(false);
+  const handleClickOpen = () => {setopen(true);};
+  const handleClose = () => {setopen(false);};
   
   return (
-    <Grid item xs={12} md={3}>
-      {member.avatar ? (
-        <Avatar alt={member.name} src={member.avatar} className={classes.large} />
-      ):(
-        <Avatar alt={member.name} src="/static/images/avatar/3.jpg" className={classes.large} />
-      )}
-      <Typography variant="h6">
-        {member.position}
-      </Typography>
-      <Typography variant="subtitle2" gutterBottom>
-        {member.university}
-      </Typography>
-      <Typography variant="h5" gutterBottom>
-        {member.name}
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        {member.description}
-      </Typography>
-      <Box
-        display="flex"
-        alignItems="center"
-      >
-        {member.twitter && (
-        <Box mr={0.5}>
-          <a href={member.twitter} target="_blank">
-            <TwitterIcon style={{ color: blue[300] }}/>
-          </a>
+    <>
+    <Container className={classes.memberContainer}>
+       <img src='/member.jpg' className={classes.mediamember} />
+       <Grid container>
+        {/*ここにメンバーをmapで全て入れ込みたい*/}
+        <Grid item xs={4} container >
+          <Grid item xs={5}>
+            <Avatar alt={member.name} src={member.avatar} className={classes.memberAvater} />
+          </Grid>
+          <Grid item xs={7}>
+            <Box className={classes.memberList}>
+              <Typography variant="h6" >
+                {member.position}
+              </Typography>
+              <Typography variant="h5" >
+                {member.name}
+              </Typography>
+              <Button variant='outlined' size='small'
+                onClick={() => {handleClickOpen}}>
+                more 
+              </Button>
+            </Box>
+          </Grid>
+
+        </Grid>
+
+      
+    
+
+      </Grid>
+    </Container>
+
+    <Dialog open={open} onClose={handleClose}>
+      <Grid container>
+        <Grid item xs={5}>
+            <Avatar alt={member.name} src={member.avatar} className={classes.memberAvater} />
+        </Grid>
+        <Grid item xs={7}>
+          <Box className={classes.memberList}>
+            <Typography variant="h6" >
+              {member.position}
+            </Typography>
+            <Typography variant="h5" >
+              {member.name}
+            </Typography>
+
+            <Box display="flex" alignItems="center">
+              {member.twitter && (
+              <Box mr={0.5}>
+                <a href={member.twitter} target="_blank">
+                  <TwitterIcon style={{ color: blue[300] }}/>
+                </a>
+              </Box>
+              )}
+              {member.github && (
+                <Box mx={0.5}>
+                  <a href={member.github} target="_blank">
+                    <GitHubIcon style={{ color: "black", }}/>
+                  </a>
+                </Box>
+              )}
+              {member.homepage && (
+                <Box mx={0.5}>
+                  <a href={member.homepage} target="_blank">
+                    <HomeIcon style={{ color: "black", }}/>
+                  </a>
+                </Box>
+              )}
+              {member.wantedly && (
+                <Box>
+                  <a href={member.wantedly} target="_blank">
+                    <img
+                      src="/wantedly_mark.png"
+                      width={30}
+                    />
+                  </a>
+                </Box>
+              )}
+              {member.instagram && (
+                <Box>
+                  <a href={member.instagram} target="_blank">
+                    <InstagramIcon style={{ color: "black", }}/>
+                  </a>
+                </Box>
+              )}
+            </Box>
+
+          </Box>
+        </Grid>
+        <Box>
+          <Typography>意気込みを一言</Typography>
+          <Typography>{member.ikigomi}</Typography>
+          <Typography>メンバーから一言-------</Typography>
+          <Typography>{member.hitokoto}</Typography>
         </Box>
-        )}
-        {member.github && (
-          <Box mx={0.5}>
-            <a href={member.github} target="_blank">
-              <GitHubIcon style={{ color: "black", }}/>
-            </a>
-          </Box>
-        )}
-        {member.homepage && (
-          <Box mx={0.5}>
-            <a href={member.homepage} target="_blank">
-              <HomeIcon style={{ color: "black", }}/>
-            </a>
-          </Box>
-        )}
-        {member.wantedly && (
-          <Box>
-            <a href={member.wantedly} target="_blank">
-              <img
-                src="/wantedly_mark.png"
-                width={30}
-              />
-            </a>
-          </Box>
-        )}
-        {member.instagram && (
-          <Box>
-            <a href={member.instagram} target="_blank">
-              <InstagramIcon style={{ color: "black", }}/>
-            </a>
-          </Box>
-        )}
-      </Box>
-    </Grid>
+      </Grid>
+    </Dialog>
+    </>
+
+  ) 
+}
+
+{/*後に画像は差し替えてサイズ調整*/}
+const MainImage=() =>{
+  const classes = useStyles();
+  
+  return(
+    <img src='/home_top.png' className={classes.mainImage}/>
   )
 }
+
+
 
 const members = [
   { 
@@ -184,11 +260,13 @@ export default function Members() {
   const classes = useStyles();
 
   return (
+    <>
+    <MainImage />
     <Container className={classes.mainContainer}>
       <Box>
-        <Typography variant="h4" gutterBottom>
-          MEMBERS
-        </Typography>
+        
+       
+        
         <Grid container spacing={4}>
           {members.map((member) => (
             <Member key={member.name} member={member} /> 
@@ -206,5 +284,6 @@ export default function Members() {
         </Grid>
       </Box>
     </Container>
+    </>
   );
 }
