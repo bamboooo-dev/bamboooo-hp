@@ -1,3 +1,5 @@
+import { Typography } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import PropTypes from 'prop-types';
@@ -6,24 +8,39 @@ import Link from './Link';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    borderBottom: `2px solid ${theme.palette.divider}`,
     padding: 20,
     justifyContent: "center",
   },
   logo: {
     height: 70,
   },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
+  toolbarContainer: {
     overflowX: 'auto',
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    minHeight: 48,
+  },
+  toolbarItem: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  toolbarLinkBox: {
+    borderLeft: `1px solid ${theme.palette.divider}`,
+    borderRight: `1px solid ${theme.palette.divider}`,
   },
   toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0,
+    flex: 1,
+    borderLeft: `1px solid ${theme.palette.divider}`,
+    borderRight: `1px solid ${theme.palette.divider}`,
     '&:hover': {
       textDecoration: 'none',
-      color: theme.palette.tertiary.main,
+      backgroundColor: '#E1E1E1',
     },
+  },
+  sectionTitle: {
+    fontFamily: ['"Helvetica"'],
+    color: '#3B3B3B',
   },
 }));
 
@@ -42,7 +59,7 @@ export default function Header(props) {
           />
         </Link>
       </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+      <Grid container justify="space-between" className={classes.toolbarContainer}>
         {sections.map((section) => (
           <Link
             color="inherit"
@@ -52,10 +69,17 @@ export default function Header(props) {
             href={section.url}
             className={classes.toolbarLink}
           >
-            {section.title}
+            <Grid item container justify="center" alignItems="center" style={{height: '100%'}}>
+              <Typography
+                className={classes.sectionTitle}
+                variant="h6"
+              >
+                {section.title}
+              </Typography>
+            </Grid>
           </Link>
         ))}
-      </Toolbar>
+      </Grid>
     </>
   );
 }

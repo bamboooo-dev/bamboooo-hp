@@ -7,13 +7,13 @@ import Header from '../src/Header';
 import { lightTheme } from '../src/theme';
 
 const sections = [
-  { title: 'ABOUT', url: 'about' },
-  { title: 'MEMBERS', url: 'members' },
-  { title: 'WORKS', url: 'works' },
-  { title: 'SKILLS', url: 'skills' },
-  { title: 'HISTORY', url: 'history' },
-  { title: 'BLOG', url: 'blog' },
-  { title: 'CONTACT', url: 'contact' },
+  { title: 'About', url: 'about' },
+  { title: 'Members', url: 'members' },
+  { title: 'Works', url: 'works' },
+  { title: 'Skills', url: 'skills' },
+  { title: 'History', url: 'history' },
+  { title: 'Blog', url: 'blog' },
+  { title: 'Contact', url: 'contact' },
 ];
 
 export default function MyApp(props) {
