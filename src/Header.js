@@ -7,12 +7,11 @@ import Link from './Link';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    padding: 20,
+    justifyContent: "center",
   },
-  toolbarTitle: {
-    flex: 1,
-    '&:hover': {
-      textDecoration: 'none',
-    },
+  logo: {
+    height: 70,
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
@@ -30,22 +29,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title, modeButton } = props;
+  const { sections } = props;
 
   return (
-    <React.Fragment>
+    <>
       <Toolbar className={classes.toolbar}>
-        <Link
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          href="/"
-          className={classes.toolbarTitle}
-        >
-          {title}
+        <Link href="/">
+          <img
+            src='/bamboooo_logo.png'
+            alt='Logo of bamboooo'
+            className={classes.logo}
+          />
         </Link>
-        { modeButton }
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
@@ -61,7 +56,7 @@ export default function Header(props) {
           </Link>
         ))}
       </Toolbar>
-    </React.Fragment>
+    </>
   );
 }
 
