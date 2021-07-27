@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     height: 70,
   },
   toolbarContainer: {
-    overflowX: 'auto',
+    overflowX: 'scroll',
     borderBottom: `1px solid ${theme.palette.divider}`,
     minHeight: 48,
   },
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     borderRight: `1px solid ${theme.palette.divider}`,
   },
   toolbarLink: {
-    flex: 1,
+    flex: "1 0 100px",
     borderLeft: `1px solid ${theme.palette.divider}`,
     borderRight: `1px solid ${theme.palette.divider}`,
     '&:hover': {
@@ -59,7 +59,7 @@ export default function Header(props) {
           />
         </Link>
       </Toolbar>
-      <Grid container justify="space-between" className={classes.toolbarContainer}>
+      <Grid container wrap="nowrap" className={classes.toolbarContainer}>
         {sections.map((section) => (
           <Link
             color="inherit"
