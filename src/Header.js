@@ -8,12 +8,12 @@ import Link from './Link';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    borderBottom: `2px solid ${theme.palette.divider}`,
+    borderBottom: `1px solid ${theme.palette.divider}`,
     padding: 20,
     justifyContent: "center",
   },
   logo: {
-    height: 70,
+    height: 50,
   },
   toolbarContainer: {
     overflowX: 'scroll',
@@ -25,13 +25,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
-  toolbarLinkBox: {
-    borderLeft: `1px solid ${theme.palette.divider}`,
-    borderRight: `1px solid ${theme.palette.divider}`,
-  },
   toolbarLink: {
     flex: "1 0 100px",
-    borderLeft: `1px solid ${theme.palette.divider}`,
     borderRight: `1px solid ${theme.palette.divider}`,
     '&:hover': {
       textDecoration: 'none',
