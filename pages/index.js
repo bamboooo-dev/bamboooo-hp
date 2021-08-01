@@ -1,4 +1,3 @@
-import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
@@ -58,10 +57,10 @@ export default function Index() {
     <>
       <MainImage />
         <Box className={classes.mainContainer}>
-          <GAMES />
-          <Grid container >
+          <Applications />
+          <Grid container>
             <News />
-            <Grid item xs={1}></Grid>
+            <Grid item xs={1} />
             <Twitter />  
           </Grid>
         </Box>
@@ -70,52 +69,53 @@ export default function Index() {
   );
 }
 
-  const MainImage=() =>{
-    const classes = useStyles();
+const MainImage=() =>{
+  const classes = useStyles();
     
-    return(
-      <img src='/home_top.png' className={classes.mainImage}/>
-    )
-  }
+  return(
+    <img src='/home_top.png' className={classes.mainImage} />
+  )
+}
 
-  const GAMES =() =>{ 
-    const classes = useStyles(); 
+const Applications =() =>{ 
+  const classes = useStyles(); 
 
-    return(
-        <Box paddingTop="40px" paddingBottom="75px" paddingRight="25px" marginBottom="75px" borderBottom="1px solid grey">
-          <Grid container> 
-            <Grid item xs={12}>
-              <img src='/application.png' className={classes.mediaApplication} />
-            </Grid>
-            <Grid item xs={4} align="center">
-              <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
-              <Typography variant="h5" gutterBottom>ワイワイ</Typography>
-              <Typography >あなたの価値観でみんながワイワイ</Typography>
-            </Grid>
+  return(
+    <Box pt="40px" pb="75px" pr="25px" mb="75px" borderBottom="1px solid grey">
+      <Grid container> 
+        <Grid item xs={12}>
+          <img src='/application.png' className={classes.mediaApplication} />
+        </Grid>
+        <Grid item xs={4} align="center">
+          <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
+          <Typography variant="h5" gutterBottom>ワイワイ</Typography>
+          <Typography >あなたの価値観でみんながワイワイ</Typography>
+        </Grid>
 
-            <Grid item xs={4} align="center">
-              <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
-              <Typography variant="h5" gutterBottom>memopic</Typography>
-              <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
-            </Grid>
+        <Grid item xs={4} align="center">
+          <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
+          <Typography variant="h5" gutterBottom>memopic</Typography>
+          <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
+        </Grid>
 
-            <Grid item xs={4} align="center">
-              <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
-              <Typography variant="h5" gutterBottom>memorip</Typography>
-              <Typography >旅行プラン作成・共有サイト</Typography>
-            </Grid>
+        <Grid item xs={4} align="center">
+          <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
+          <Typography variant="h5" gutterBottom>memorip</Typography>
+          <Typography >旅行プラン作成・共有サイト</Typography>
+        </Grid>
 
-          </Grid>     
-        </Box>
-    )
-  }
+      </Grid>     
+    </Box>
+  )
+}
  
   const News =() =>{
     const classes = useStyles();
 
     function ListItemLink(props) {
-      return <ListItem button component="a" {...props} />;
-    }
+      return
+        <ListItem button component="a" {...props} />;
+      }
 
     return(
       <Grid item xs={7} container>
@@ -177,9 +177,9 @@ const Twitter =() =>{
       <Grid item xs={12}>
         <img src='/twitter.jpg' className={classes.mediaSection} />
       </Grid>
-      <Box marginTop="48px" align="center">
+      <Box mt="48px" align="center">
         
-          <a class="twitter-timeline" 
+          <a className="twitter-timeline" 
             data-lang="ja" 
             data-width="350" 
             data-height="350" 
@@ -192,14 +192,14 @@ const Twitter =() =>{
 
         <Box>
           <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
-            class="twitter-follow-button" 
+            className="twitter-follow-button" 
             data-width="large" 
             data-show-screen-name="false" 
             data-lang="ja" 
             data-show-count="false">
               Follow @bamboooo_inc
           </a>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
         </Box>
       </Box>
     </Grid>

@@ -68,8 +68,8 @@ export default function MyApp(props) {
         <CssBaseline />
         
           { /* TODO: props で Component を渡してしまっているので美しくない気がする */}
-          <Header title="bamboooo" sections={sections} modeButton={darkMode ? <SunButton /> : <MoonButton />}/>
-          <Component {...pageProps} />
+        <Header title="bamboooo" sections={sections} modeButton={darkMode ? <SunButton /> : <MoonButton />}/>
+        <Component {...pageProps} />
 
         <Footer />
       </ThemeProvider>
