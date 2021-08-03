@@ -1,4 +1,3 @@
-import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import IconButton from "@material-ui/core/IconButton";
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -67,7 +66,7 @@ export default function MyApp(props) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         
-          { /* TODO: props で Component を渡してしまっているので美しくない気がする */}
+        { /* TODO: props で Component を渡してしまっているので美しくない気がする */}
         <Header title="bamboooo" sections={sections} modeButton={darkMode ? <SunButton /> : <MoonButton />}/>
         <Component {...pageProps} />
 

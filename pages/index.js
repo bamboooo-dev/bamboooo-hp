@@ -1,15 +1,13 @@
-import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import Button from '@material-ui/core/Button';
-
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -69,7 +67,7 @@ export default function Index() {
   );
 }
 
-const MainImage=() =>{
+const MainImage = () =>{
   const classes = useStyles();
     
   return(
@@ -77,7 +75,7 @@ const MainImage=() =>{
   )
 }
 
-const Applications =() =>{ 
+const Applications = () =>{ 
   const classes = useStyles(); 
 
   return(
@@ -89,50 +87,51 @@ const Applications =() =>{
         <Grid item xs={4} align="center">
           <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
           <Typography variant="h5" gutterBottom>ワイワイ</Typography>
-          <Typography >あなたの価値観でみんながワイワイ</Typography>
+          <Typography>あなたの価値観でみんながワイワイ</Typography>
         </Grid>
 
         <Grid item xs={4} align="center">
           <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
           <Typography variant="h5" gutterBottom>memopic</Typography>
-          <Typography >旅の思い出をプレイリストで振り返ろう</Typography>
+          <Typography>旅の思い出をプレイリストで振り返ろう</Typography>
         </Grid>
 
         <Grid item xs={4} align="center">
           <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
           <Typography variant="h5" gutterBottom>memorip</Typography>
-          <Typography >旅行プラン作成・共有サイト</Typography>
+          <Typography>旅行プラン作成・共有サイト</Typography>
         </Grid>
 
       </Grid>     
     </Box>
   )
 }
- 
-  const News =() =>{
-    const classes = useStyles();
 
-    function ListItemLink(props) {
-      return
-        <ListItem button component="a" {...props} />;
-      }
+const ListItemLink = (props) => {
+  return (
+    <ListItem button component="a" {...props} />
+  )
+}
 
-    return(
-      <Grid item xs={7} container>
-        <Grid item xs={12}>
-          <img src='/news.jpg' className={classes.mediaSection} />
-        </Grid>       
-        {/*本来はblogの埋め込みとか*/}
-        <Grid item xs={12}>
-          <List component="nav">
-              <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
-                <ListItemText primary="2021.7.14   『ワイワイ』ver1.83をリリースしました。" />
-              </ListItemLink>
+const News = () => {
+  const classes = useStyles();
+
+  return(
+    <Grid item xs={7} container>
+      <Grid item xs={12}>
+        <img src='/news.jpg' className={classes.mediaSection} />
+      </Grid>       
+      {/*本来はblogの埋め込みとか*/}
+      <Grid item xs={12}>
+        <List component="nav">
+
+          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
+            <ListItemText primary="2021.7.14   『ワイワイ』ver1.83をリリースしました。" />
+          </ListItemLink>
 
           <Divider />
-          
-          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1413114702423420931?s=20">
-            
+        
+          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1413114702423420931?s=20">   
             <ListItemText primary="2021.7.8   『ワイワイ』ver1.82をリリースしました。" />
           </ListItemLink>
 
@@ -156,20 +155,13 @@ const Applications =() =>{
 
           <Divider />
 
-
-
-          </List>
-        
-        </Grid>
-
+        </List>
       </Grid>
+    </Grid>
+  )
+}
 
-      
-
-    )
-  }
-
-const Twitter =() =>{
+const Twitter = () =>{
   const classes = useStyles();
 
   return(
@@ -177,8 +169,8 @@ const Twitter =() =>{
       <Grid item xs={12}>
         <img src='/twitter.jpg' className={classes.mediaSection} />
       </Grid>
-      <Box mt="48px" align="center">
-        
+      <Box mt="48px" align="center">    
+        <Box>
           <a className="twitter-timeline" 
             data-lang="ja" 
             data-width="350" 
@@ -187,9 +179,8 @@ const Twitter =() =>{
             href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw">
               Tweets by bamboooo_inc
           </a> 
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        
-
+          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+        </Box>
         <Box>
           <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
             className="twitter-follow-button" 
@@ -207,8 +198,8 @@ const Twitter =() =>{
 }
 
 const ReturnTopButton = () => {
-
   const classes = useStyles();
+
   const returnTop = () => {
     window.scrollTo({
       top: 0,
@@ -218,9 +209,7 @@ const ReturnTopButton = () => {
 
   return (
     <Button onClick={returnTop} className={classes.topButton}>
-      <img src="TOP.jpg" width="50px" / >
+      <img src="TOP.jpg" width="50px" />
     </Button>
-    )
-
-
+  )
 }
