@@ -16,6 +16,13 @@ const coreThemeObj = {
       main: red.A400,
     },
   },
+  typography: {
+    h2 : {
+      '@media (max-width:1280px)': {
+        fontSize: '1.2rem',
+      },
+    }
+  },
 }
 
 export const lightTheme = createMuiTheme({
