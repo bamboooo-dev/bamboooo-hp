@@ -23,10 +23,19 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '0',
     paddingRight: '0',
   },
+  mainContainer: {
+    marginTop:'-100px',
+    backgroundColor:'#1A1D21',
+    zIndex:'10',
+  },
   memberAvater: {
     width: '160px',
     height: '160px',
     float: 'left',
+  },
+  dialogAvater: {
+    width: '160px',
+    height: '160px',
   },
   memberContainer: {
     width:'100%',
@@ -43,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:'sapce-around',
     alignItems:'center',
     height:'160px',
+  },
+  mainDiv:{
+    zIndex:'1',
   }
 }))
 
@@ -52,8 +64,8 @@ function Member(props) {
   
   return (
     <>
-    <Container className={classes.memberContainer}>
-       <Grid container>
+  
+ 
         {/*ここにメンバーをmapで全て入れ込みたい*/}
         <Grid item xs={4} container >
           <Grid item xs={5}>
@@ -75,8 +87,8 @@ function Member(props) {
           </Grid>
 
         </Grid>
-      </Grid>
-    </Container>
+ 
+
 
     </>
 
@@ -88,7 +100,9 @@ const MainImage=() =>{
   const classes = useStyles();
   
   return(
-    <img src='/home_top.png' className={classes.mainImage}/>
+    <div className={classes.mainDiv}>
+      <img src='/home_top.png' className={classes.mainImage}/>
+    </div>
   )
 }
 
@@ -141,7 +155,8 @@ const members = [
   },
 ];
 
-const obogs = [
+{/*
+  const obogs = [
   {
     position: 'Frontend Engineer',
     university: '長崎大学',
@@ -182,6 +197,7 @@ const obogs = [
     instagram: 'https://www.instagram.com/wamiwa1126/',
   },
 ]
+*/}
 
 export default function Members() {
   const classes = useStyles();
@@ -200,91 +216,84 @@ export default function Members() {
     <>
     <MainImage />
     <Container className={classes.mainContainer}>
-      <Box>
-      <img src='/member.jpg' className={classes.mediamember} />
-
-        <Grid container spacing={4}>    
-          {members.map((member, index) => (
-            <Member key={member.name} member={member} index={index} handleClickOpen={handleClickOpen}/> 
-          ))}
-        </Grid>
-      </Box>
-      <Box mt={5}>
-        <Typography variant="h4" gutterBottom>
-          OB・OG
+      <Box mt="30px" mb="30px">
+        <Typography variant="h4" >
+          |  Member
         </Typography>
-        <Grid container spacing={4}>
-          {obogs.map((obog) => (
-            <Member key={obog.name} member={obog} /> 
-          ))}
-        </Grid>
       </Box>
+
+      <Grid container spacing={4}>    
+        {members.map((member, index) => (
+          <Member key={member.name} member={member} index={index} handleClickOpen={handleClickOpen}/> 
+        ))}
+      </Grid>
+
       
       <Dialog open={open} onClose={handleClose}>
-      <Grid container>
-        <Grid item xs={5}>
-            <Avatar alt={openMember.name} src={openMember.avatar} className={classes.memberAvater} />
-        </Grid>
-        <Grid item xs={7}>
-          <Box className={classes.memberList}>
-            <Typography variant="h6" >
-              {openMember.position}
-            </Typography>
-            <Typography variant="h5" >
-              {openMember.name}
-            </Typography>
+        <Grid container>
+          <Grid item xs={5}>
+              <Avatar alt={openMember.name} src={openMember.avatar} className={classes.dialogAvater} />
+          </Grid>
+          <Grid item xs={7}>
+            <Box className={classes.memberList}>
+              <Typography variant="h6" >
+                {openMember.position}
+              </Typography>
+              <Typography variant="h5" >
+                {openMember.name}
+              </Typography>
 
-            <Box display="flex" alignItems="center">
-              {openMember.twitter && (
-              <Box mr={0.5}>
-                <a href={openMember.twitter} target="_blank">
-                  <TwitterIcon style={{ color: blue[300] }}/>
-                </a>
+              <Box display="flex" alignItems="center">
+                {openMember.twitter && (
+                <Box mr={0.5}>
+                  <a href={openMember.twitter} target="_blank">
+                    <TwitterIcon style={{ color: blue[300] }}/>
+                  </a>
+                </Box>
+                )}
+                {openMember.github && (
+                  <Box mx={0.5}>
+                    <a href={openMember.github} target="_blank">
+                      <GitHubIcon style={{ color: "black", }}/>
+                    </a>
+                  </Box>
+                )}
+                {openMember.homepage && (
+                  <Box mx={0.5}>
+                    <a href={openMember.homepage} target="_blank">
+                      <HomeIcon style={{ color: "black", }}/>
+                    </a>
+                  </Box>
+                )}
+                {openMember.wantedly && (
+                  <Box>
+                    <a href={openMember.wantedly} target="_blank">
+                      <img
+                        src="/wantedly_mark.png"
+                        width={30}
+                      />
+                    </a>
+                  </Box>
+                )}
+                {openMember.instagram && (
+                  <Box>
+                    <a href={openMember.instagram} target="_blank">
+                      <InstagramIcon style={{ color: "black", }}/>
+                    </a>
+                  </Box>
+                )}
               </Box>
-              )}
-              {openMember.github && (
-                <Box mx={0.5}>
-                  <a href={openMember.github} target="_blank">
-                    <GitHubIcon style={{ color: "black", }}/>
-                  </a>
-                </Box>
-              )}
-              {openMember.homepage && (
-                <Box mx={0.5}>
-                  <a href={openMember.homepage} target="_blank">
-                    <HomeIcon style={{ color: "black", }}/>
-                  </a>
-                </Box>
-              )}
-              {openMember.wantedly && (
-                <Box>
-                  <a href={openMember.wantedly} target="_blank">
-                    <img
-                      src="/wantedly_mark.png"
-                      width={30}
-                    />
-                  </a>
-                </Box>
-              )}
-              {openMember.instagram && (
-                <Box>
-                  <a href={openMember.instagram} target="_blank">
-                    <InstagramIcon style={{ color: "black", }}/>
-                  </a>
-                </Box>
-              )}
-            </Box>
 
+            </Box>
+          </Grid>
+          <Box>
+            <Typography>意気込みを一言</Typography>
+            <Typography>{openMember.ikigomi}</Typography>
+            <Typography>メンバーから一言-------</Typography>
+            <Typography>{openMember.hitokoto}</Typography>
           </Box>
         </Grid>
-        <Box>
-          <Typography>意気込みを一言</Typography>
-          <Typography>{openMember.ikigomi}</Typography>
-          <Typography>メンバーから一言-------</Typography>
-          <Typography>{openMember.hitokoto}</Typography>
-        </Box>
-      </Grid>
-    </Dialog>
+      </Dialog>
     
     </Container>
     </>
