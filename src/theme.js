@@ -33,13 +33,11 @@ export const lightTheme = createMuiTheme({
       default: '#fff',
     },
     type: 'light',
-  }
-});
-
-export const darkTheme = createMuiTheme({
-  ...coreThemeObj,
-  palette: {
-    ...coreThemeObj.palette,
-    type: 'dark'
-  }
+  },
+  overrides: {
+    MuiBackdrop: {
+      root: {
+      },
+    },
+  },
 });
