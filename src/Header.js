@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -7,41 +7,28 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import CloseIcon from '@material-ui/icons/Close';
+import InstagramIcon from '@material-ui/icons/Instagram';
 import MenuIcon from '@material-ui/icons/Menu';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Link from './Link';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
     padding: '25px 10px 25px 30px',
     justifyContent: "space-between",
   },
   logo: {
     height: 50,
   },
-  toolbarContainer: {
-    overflowX: 'scroll',
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    minHeight: 48,
-  },
-  toolbarItem: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   toolbarLink: {
-    flex: "1 0 100px",
-    borderRight: `1px solid ${theme.palette.divider}`,
     '&:hover': {
       textDecoration: 'none',
       backgroundColor: '#E1E1E1',
     },
-  },
-  sectionTitle: {
-    fontFamily: ['"Helvetica"'],
-    color: '#3B3B3B',
   },
   list: {
     width: 250,
@@ -54,6 +41,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
   const classes = useStyles();
   const { sections } = props;
+
+  const router = useRouter();
 
   const [open, setOpen] = useState(false);
 
@@ -78,35 +67,20 @@ export default function Header(props) {
           color="inherit"
           aria-label="open drawer"
           onClick={toggleDrawer(true)}
-          edge="start"
-          className={classes.menuButton}
         >
-          <MenuIcon />
+          <MenuIcon style={{fontSize: '2.5rem', color: '#19807B'}} />
         </IconButton>
       </Toolbar>
-      <Grid container wrap="nowrap" className={classes.toolbarContainer}>
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            className={classes.toolbarLink}
-          >
-            <Grid item container justify="center" alignItems="center" style={{height: '100%'}}>
-              <Typography
-                className={classes.sectionTitle}
-                variant="h6"
-              >
-                {section.title}
-              </Typography>
-            </Grid>
-          </Link>
-        ))}
-      </Grid>
-
       <Drawer anchor='right' open={open} onClose={toggleDrawer(false)} classes={{modal: classes.modal}}>
+        <Box pr='5px' style={{textAlign: 'right'}}>
+          <IconButton
+            color="inherit"
+            aria-label="close drawer"
+            onClick={toggleDrawer(false)}
+          >
+            <CloseIcon style={{fontSize: '4rem', color: '#19807B'}} />
+          </IconButton>
+        </Box>
         <div
           className={classes.list}
           onClick={toggleDrawer(false)}
@@ -114,12 +88,29 @@ export default function Header(props) {
         >
           <List>
             {sections.map((section) => (
-              <ListItem button key={section.title}>
-                <ListItemText primary={section.title} className={classes.listItemText} />
-              </ListItem>
+              <Link
+                color="inherit"
+                noWrap
+                key={section.title}
+                variant="body2"
+                href={section.url}
+                className={classes.toolbarLink}
+              >
+                <ListItem button key={section.title}>
+                  <ListItemText primary={section.title} className={classes.listItemText} />
+                </ListItem>
+              </Link>
             ))}
           </List>
         </div>
+        <Grid container justify="center" spacing={1}>
+          <Grid item>
+            <TwitterIcon fontSize="large" />
+          </Grid>
+          <Grid item>
+            <InstagramIcon fontSize="large" />
+          </Grid>
+        </Grid>
       </Drawer>
     </>
   );

@@ -37,6 +37,7 @@ export const lightTheme = createMuiTheme({
   overrides: {
     MuiBackdrop: {
       root: {
+        backgroundColor: '#19807BB3'
       },
     },
   },
