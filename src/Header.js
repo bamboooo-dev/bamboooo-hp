@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
   toolbarLink: {
     '&:hover': {
       textDecoration: 'none',
-      backgroundColor: '#E1E1E1',
     },
   },
   list: {
@@ -42,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
   },
   st0: {
     fill: '#19807B',
+  },
+  twitterLink: {
+    color: 'inherit',
   },
 }));
 
@@ -102,6 +104,7 @@ export default function Header(props) {
                 variant="body2"
                 href={section.url}
                 className={classes.toolbarLink}
+                style={(router.pathname.substring(1) == section.url) ? { textDecoration: 'underline', textDecorationColor: '#19807B70', textDecorationThickness: '3px' }: {}}
               >
                 <ListItem button key={section.title}>
                   <ListItemText primary={section.title} className={classes.listItemText} primaryTypographyProps={{className: classes.listItemTextPrimary}}/>
@@ -112,7 +115,9 @@ export default function Header(props) {
         </div>
         <Grid container justify="center" spacing={1}>
           <Grid item>
-            <TwitterIcon fontSize="large" />
+            <a href="https://twitter.com/bamboooo_inc" className={classes.twitterLink} target="_blank">
+              <TwitterIcon fontSize="large" />
+            </a>
           </Grid>
           <Grid item>
             <InstagramIcon fontSize="large" />
