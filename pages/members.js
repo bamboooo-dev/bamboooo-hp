@@ -218,7 +218,7 @@ export default function Members() {
     <Container className={classes.mainContainer}>
       <Box mt="30px" mb="30px">
         <Typography variant="h4" >
-          |  Member
+          <span style={{color:"green"}}>|</span>  Member
         </Typography>
       </Box>
 
