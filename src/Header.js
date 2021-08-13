@@ -6,10 +6,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
+import SvgIcon from '@material-ui/core/SvgIcon';
 import Toolbar from '@material-ui/core/Toolbar';
 import CloseIcon from '@material-ui/icons/Close';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import MenuIcon from '@material-ui/icons/Menu';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -35,6 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
   listItemText: {
     textAlign: 'center',
+  },
+  listItemTextPrimary: {
+    fontFamily: "Corporate-Logo-Medium-ver2",
+    fontSize: 24,
+  },
+  st0: {
+    fill: '#19807B',
   },
 }));
 
@@ -68,7 +75,7 @@ export default function Header(props) {
           aria-label="open drawer"
           onClick={toggleDrawer(true)}
         >
-          <MenuIcon style={{fontSize: '2.5rem', color: '#19807B'}} />
+          <MenuIcon style={{fontSize: '4rem', color: '#19807B'}} />
         </IconButton>
       </Toolbar>
       <Drawer anchor='right' open={open} onClose={toggleDrawer(false)} classes={{modal: classes.modal}}>
@@ -97,7 +104,7 @@ export default function Header(props) {
                 className={classes.toolbarLink}
               >
                 <ListItem button key={section.title}>
-                  <ListItemText primary={section.title} className={classes.listItemText} />
+                  <ListItemText primary={section.title} className={classes.listItemText} primaryTypographyProps={{className: classes.listItemTextPrimary}}/>
                 </ListItem>
               </Link>
             ))}
@@ -114,6 +121,23 @@ export default function Header(props) {
       </Drawer>
     </>
   );
+}
+
+const MenuIcon = (props) => {
+  const classes = useStyles();
+  
+  return (
+    <SvgIcon viewBox="0 0 512 512" {...props}>
+      <g>
+        <path className={classes.st0} d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M362.667,362.667H149.333
+          c-11.797,0-21.333-9.557-21.333-21.333c0-11.776,9.536-21.333,21.333-21.333h213.333c11.797,0,21.333,9.557,21.333,21.333
+          C384,353.109,374.464,362.667,362.667,362.667z M362.667,277.333H149.333C137.536,277.333,128,267.776,128,256
+          s9.536-21.333,21.333-21.333h213.333c11.797,0,21.333,9.557,21.333,21.333S374.464,277.333,362.667,277.333z M362.667,192H149.333
+          C137.536,192,128,182.443,128,170.667s9.536-21.333,21.333-21.333h213.333c11.797,0,21.333,9.557,21.333,21.333
+          S374.464,192,362.667,192z"/>
+      </g>
+    </SvgIcon>
+  )
 }
 
 Header.propTypes = {

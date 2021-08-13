@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.tertiary.main,
   },
   headline: {
-    fontFamily: "Corporate-Logo-Bold-ver2",
+    fontFamily: "Corporate-Logo-Medium-ver2",
     whiteSpace: "pre-line",
   },
   detail: {
