@@ -115,12 +115,22 @@ export default function Header(props) {
         </div>
         <Grid container justify="center" spacing={1}>
           <Grid item>
-            <a href="https://twitter.com/bamboooo_inc" className={classes.twitterLink} target="_blank">
-              <TwitterIcon fontSize="large" />
-            </a>
+            <IconButton
+              color="inherit"
+              aria-label="open twitter"
+            >
+              <a href="https://twitter.com/bamboooo_inc" className={classes.twitterLink} target="_blank">
+                <TwitterIcon fontSize="large" />
+              </a>
+            </IconButton>
           </Grid>
           <Grid item>
-            <InstagramIcon fontSize="large" />
+            <IconButton
+              color="inherit"
+              aria-label="open twitter"
+            >
+              <InstagramIcon fontSize="large" />
+            </IconButton>
           </Grid>
         </Grid>
       </Drawer>

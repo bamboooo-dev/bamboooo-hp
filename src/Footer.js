@@ -1,23 +1,105 @@
-import Container from '@material-ui/core/Container';
+import { Typography } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Copyright from './Copyright';
+import Link from './Link';
+
 
 const useStyles = makeStyles((theme) => ({
+  logo: {
+    height: 50,
+  },
+  logoBox: {
+    textAlign: 'center',
+  },
+  toolbarLink: {
+    '&:hover': {
+      textDecoration: 'none',
+    },
+  },
+  toolbarTypography: {
+    fontFamily: "Corporate-Logo-Medium-ver2",
+  },
+  gridContainer: {
+    marginTop: 25,
+  },
+  gridItem: {
+    [theme.breakpoints.up('md')]: {
+      marginLeft: 40,
+      marginRight: 40,
+    },
+  },
   footer: {
-    padding: theme.spacing(6, 0),
+    paddingTop: 40,
+    paddingBottom: 40,
+    backgroundColor: '#f5ffec',
+  },
+  snsToolbar: {
+    marginTop: 30,
+    [theme.breakpoints.up('md')]: {
+      marginTop: 50,
+    }
+  },
+  twitterLink: {
+    color: 'inherit',
   },
 }));
 
-export default function Footer() {
+export default function Footer(props) {
   const classes = useStyles();
-  
+  const { sections } = props;
+    
   return (
     <footer className={classes.footer}>
-      <Container maxWidth="lg">
-        <Copyright />
-      </Container>
+      <Box className={classes.logoBox}>
+        <Link href="/">
+          <img
+            src='/bamboooo_logo-removebg.png'
+            alt='Logo of bamboooo'
+            className={classes.logo}
+          />
+        </Link>
+      </Box>
+      <Toolbar>
+        <Grid container justify='center' spacing={2} className={classes.gridContainer}>
+          {sections.map((section) => (
+            <Grid item className={classes.gridItem}>
+              <Link
+                color="inherit"
+                noWrap
+                key={section.title}
+                variant="body2"
+                href={section.url}
+                className={classes.toolbarLink}
+              >
+                <Typography
+                  variant="h6"
+                  className={classes.toolbarTypography}
+                >
+                  {section.title}
+                </Typography>
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
+      </Toolbar>
+      <Toolbar className={classes.snsToolbar}>
+        <Grid container justify="center" spacing={3}>
+          <Grid item>
+            <a href="https://twitter.com/bamboooo_inc" className={classes.twitterLink} target="_blank">
+              <TwitterIcon fontSize="large" />
+            </a>
+          </Grid>
+          <Grid item>
+            <InstagramIcon fontSize="large" />
+          </Grid>
+        </Grid>
+      </Toolbar>
     </footer>
   );
 }
