@@ -1,20 +1,7 @@
 import Box from '@material-ui/core/Box';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Timeline from '@material-ui/lab/Timeline';
-import TimelineConnector from '@material-ui/lab/TimelineConnector';
-import TimelineContent from '@material-ui/lab/TimelineContent';
-import TimelineDot from '@material-ui/lab/TimelineDot';
-import TimelineItem from '@material-ui/lab/TimelineItem';
-import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
-import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
@@ -73,7 +60,12 @@ const useStyles = makeStyles((theme) => ({
     top: '15%',
     zIndex: 0,
   },
+  bambooImageBox: {
+    paddingTop: '100px',
+  },
   bambooImage: {
+    border: '1px solid #c7c7c7',
+    borderRadius: '7px',
   },
   bambooText: {
     paddingTop: '140px',
@@ -87,6 +79,7 @@ const events = [
   {
     date: '2021年 4月',
     content: "パーティゲーム『ワイワイ』\nリリース",
+    img: '/waiwai.png',
   },
   {
     date: '2021年 1月',
@@ -107,10 +100,12 @@ const events = [
   {
     date: '2020年 9月',
     content: "旅行の思い出共有サイト『memopic』\nリリース",
+    img: '/memopic.png',
   },
   {
     date: '2019年 12月',
     content: "旅行プラン共有サイト『Memorip』\nリリース",
+    img: '/memorip.png',
   },
   {
     date: '2019年 3月',
@@ -138,70 +133,6 @@ export default function History() {
           </Box>
         </Box>
       </Box>
-      <Container>
-      <Timeline align="alternate">
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              2020年 9月
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <CardActionArea component="a" href="https://www.memopic.net" target="_blank">
-              <Card className={classes.card}>
-                <div className={classes.cardDetails}>
-                  <CardContent>
-                    <Typography component="h2" variant="h5">
-                      memopic
-                    </Typography>
-                    <Typography variant="subtitle1" paragraph>
-                      旅行の思い出共有サイト『memopic』をリリース
-                    </Typography>
-                  </CardContent>
-                </div>
-                <Hidden xsDown>
-                  <CardMedia className={classes.cardMedia} image='/memopic.png' />
-                </Hidden>
-              </Card>
-            </CardActionArea>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              2019年 12月
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <CardActionArea component="a" href="https://memorip.net" target="_blank">
-              <Card className={classes.card}>
-                <div className={classes.cardDetails}>
-                  <CardContent>
-                    <Typography component="h2" variant="h5">
-                      Memorip
-                    </Typography>
-                    <Typography variant="subtitle1" paragraph>
-                      旅行プラン共有サイト『Memorip』をリリース
-                    </Typography>
-                  </CardContent>
-                </div>
-                <Hidden xsDown>
-                  <CardMedia className={classes.cardMedia} image='/memorip.png' />
-                </Hidden>
-              </Card>
-            </CardActionArea>
-          </TimelineContent>
-        </TimelineItem>
-      </Timeline>
-    </Container>
     </Box>
   )
 }
@@ -213,7 +144,10 @@ const Event = (props) => {
   
   return (
     <Grid container justify="center">
-      <Grid item className={classes.bambooImage} xs={5}>
+      <Grid item xs={5} className={classes.bambooImageBox}>
+        {event.img && (
+          <img src={event.img} width="300px" className={classes.bambooImage} style={ event.img=="/waiwai.png" ? { border: 'none' } : {} } />
+        )}
       </Grid>
       <Grid item xs={2}>
         <div className={classes.bambooSection} style={{zIndex: zIndex}}>
