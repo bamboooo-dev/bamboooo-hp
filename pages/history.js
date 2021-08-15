@@ -1,10 +1,11 @@
+import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Timeline from '@material-ui/lab/Timeline';
@@ -29,98 +30,116 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
     width: 160,
   },
+  headline: {
+    fontFamily: "Corporate-Logo-Medium-ver2",
+    borderLeft: '5px solid #19807B',
+    paddingLeft: 20,
+  },
+  innerBox: {
+    maxWidth: '1000px',
+    margin: '0 auto',
+  },
+  coverBox: {
+    backgroundImage: 'url(/history_cover.png)',
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+  },
+  whiteBox: {
+    backgroundColor: 'white',
+  },
+  bambooSection: {
+    width: '90px',
+    height: '350px',
+    position: 'relative',
+    marginTop: '-48px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  bambooSectionTop: {
+    width: '130%',
+    height: '30%',
+    backgroundColor: 'white', 
+    borderRadius: '50%',
+    position: 'relative',
+    left: '-15%',
+    zIndex: 1,
+  },
+  bambooSectionBody: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#1D6E69', 
+    borderRadius: '0 0 50% 50% / 0 0 calc(900% / 120) calc(900% / 120)',
+    position: 'absolute',
+    top: '15%',
+    zIndex: 0,
+  },
+  bambooImage: {
+  },
+  bambooText: {
+    paddingTop: '140px',
+  },
+  bambooDescription: {
+    whiteSpace: 'pre-line',
+  },
 }));
+
+const events = [
+  {
+    date: '2021年 4月',
+    content: "パーティゲーム『ワイワイ』\nリリース",
+  },
+  {
+    date: '2021年 1月',
+    content: "パーティゲーム『ワイワイ』\n開発開始",
+  },
+  {
+    date: '2021年 1月',
+    content: "HP 作成",
+  },
+  {
+    date: '2020年 11月',
+    content: "仮想世界で出会うサイト\n『Alcatraz』開発開始",
+  },
+  {
+    date: '2020年 9月',
+    content: "サポーターズ主催、アウトプットを展示する\n学生向けテックカンファレンス「技育展」に\n『memopic』で登壇",
+  },
+  {
+    date: '2020年 9月',
+    content: "旅行の思い出共有サイト『memopic』\nリリース",
+  },
+  {
+    date: '2019年 12月',
+    content: "旅行プラン共有サイト『Memorip』\nリリース",
+  },
+  {
+    date: '2019年 3月',
+    content: "山本と住江で\n「bamboo」としてスタート",
+  },
+]
 
 export default function History() {
   const classes = useStyles();
   
   return (
-    <Container>
+    <Box className={classes.coverBox}>
+      <Box pt="25vw" className={classes.innerBox}>
+        <Box p={10} className={classes.whiteBox}>
+          <Typography variant="h2" className={classes.headline} gutterBottom>
+            見出しのテキスト
+          </Typography>
+          <Typography variant="h6">
+            あああああああああああああああああああああああああああああああああ
+          </Typography>
+          <Box mt={20}>
+            {events.map((event, index) => (
+              <Event key={event.content} event={event} zIndex={events.length - index}/>
+            ))}
+          </Box>
+        </Box>
+      </Box>
+      <Container>
       <Timeline align="alternate">
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              2020年 1月
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                ワイワイ
-              </Typography>
-              <Typography>
-                パーティーゲーム『ワイワイ』の開発開始
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              2020年 1月
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                HP 作成
-              </Typography>
-              <Typography>
-                bamboooo のホームページを作成する
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              2020年 11月
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                Alcatraz
-              </Typography>
-              <Typography>
-                仮想世界で出会うサイト『Alcatraz』開発開始
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              2020年 9月
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                技育展 登壇
-              </Typography>
-              <Typography>
-                サポーターズ主催、アウトプットを展示する学生向けテックカンファレンス「技育展」に memopic で登壇
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent>
             <Typography variant="body2" color="textSecondary">
@@ -181,27 +200,35 @@ export default function History() {
             </CardActionArea>
           </TimelineContent>
         </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              2019年 3月
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                bamboooo 発足
-              </Typography>
-              <Typography>
-                山本と住江で「bamboo」としてスタート
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
       </Timeline>
     </Container>
+    </Box>
+  )
+}
+
+const Event = (props) => {
+  const { event, zIndex } = props;
+
+  const classes = useStyles();
+  
+  return (
+    <Grid container justify="center">
+      <Grid item className={classes.bambooImage} xs={5}>
+      </Grid>
+      <Grid item xs={2}>
+        <div className={classes.bambooSection} style={{zIndex: zIndex}}>
+          <div className={classes.bambooSectionTop} />
+          <div className={classes.bambooSectionBody} />
+        </div>
+      </Grid>
+      <Grid item xs={5} className={classes.bambooText}>
+        <Typography variant="h4" gutterBottom>
+          {event.date}
+        </Typography>
+        <Typography variant="body1" className={classes.bambooDescription}>
+          {event.content}
+        </Typography>
+      </Grid>
+    </Grid>
   )
 }
