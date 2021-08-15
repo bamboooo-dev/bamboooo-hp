@@ -51,6 +51,26 @@ const useStyles = makeStyles((theme) => ({
     left: '-15%',
     zIndex: 1,
   },
+  bambooSectionTopFirst: {
+    width: '100%',
+    height: '25%',
+    backgroundColor: '#1D6E69', 
+    borderRadius: '15% 85% 15% 85% / 15% 85% 15% 85% ',
+    position: 'relative',
+    border: '3px solid white',
+    top: '20%',
+    zIndex: 1,
+  },
+  bambooSectionTopFirstInner: {
+    width: '86%',
+    height: '86%',
+    backgroundColor: '#64A5A0', 
+    borderRadius: '15% 85% 15% 85% / 15% 85% 15% 85% ',
+    position: 'absolute',
+    top: '7%',
+    left: '7%',
+    zIndex: 2,
+  },
   bambooSectionBody: {
     width: '100%',
     height: '100%',
@@ -58,6 +78,15 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '0 0 50% 50% / 0 0 calc(900% / 120) calc(900% / 120)',
     position: 'absolute',
     top: '15%',
+    zIndex: 0,
+  },
+  bambooSectionBodyFirst: {
+    width: '100%',
+    height: '88%',
+    backgroundColor: '#1D6E69', 
+    borderRadius: '0 100% 50% 50% / 0 20% calc(900% / 100) calc(900% / 100)',
+    position: 'absolute',
+    top: '27%',
     zIndex: 0,
   },
   bambooImageBox: {
@@ -128,7 +157,7 @@ export default function History() {
           </Typography>
           <Box mt={20}>
             {events.map((event, index) => (
-              <Event key={event.content} event={event} zIndex={events.length - index}/>
+              <Event key={event.content} event={event} zIndex={events.length - index} index={index}/>
             ))}
           </Box>
         </Box>
@@ -138,7 +167,7 @@ export default function History() {
 }
 
 const Event = (props) => {
-  const { event, zIndex } = props;
+  const { event, zIndex, index } = props;
 
   const classes = useStyles();
   
@@ -151,8 +180,19 @@ const Event = (props) => {
       </Grid>
       <Grid item xs={2}>
         <div className={classes.bambooSection} style={{zIndex: zIndex}}>
-          <div className={classes.bambooSectionTop} />
-          <div className={classes.bambooSectionBody} />
+          {index ? (
+            <>
+              <div className={classes.bambooSectionTop} />
+              <div className={classes.bambooSectionBody} />
+            </>
+          ) : (
+            <>
+              <div className={classes.bambooSectionTopFirst}>
+                <div className={classes.bambooSectionTopFirstInner} />
+              </div>
+              <div className={classes.bambooSectionBodyFirst} />
+            </>
+          )}
         </div>
       </Grid>
       <Grid item xs={5} className={classes.bambooText}>
