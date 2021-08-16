@@ -36,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
   },
   bambooSection: {
     width: '90px',
-    height: '350px',
+    height: '300px',
     position: 'relative',
-    marginTop: '-48px',
+    marginTop: '-40px',
     marginLeft: 'auto',
     marginRight: 'auto',
   },
@@ -90,14 +90,16 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 0,
   },
   bambooImageBox: {
-    paddingTop: '100px',
+    paddingTop: '80px',
+    paddingRight: '50px',
+    textAlign: 'right',
   },
   bambooImage: {
     border: '1px solid #c7c7c7',
     borderRadius: '7px',
   },
   bambooText: {
-    paddingTop: '140px',
+    paddingTop: '100px',
   },
   bambooDescription: {
     whiteSpace: 'pre-line',
@@ -175,7 +177,7 @@ const Event = (props) => {
     <Grid container justify="center">
       <Grid item xs={5} className={classes.bambooImageBox}>
         {event.img && (
-          <img src={event.img} width="300px" className={classes.bambooImage} style={ event.img=="/waiwai.png" ? { border: 'none' } : {} } />
+          <img src={event.img} width="250px" className={classes.bambooImage} style={ event.img=="/waiwai.png" ? { border: 'none' } : {} } />
         )}
       </Grid>
       <Grid item xs={2}>
