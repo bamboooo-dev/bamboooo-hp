@@ -33,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteBox: {
     backgroundColor: 'white',
+    [theme.breakpoints.down(777)]: {
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingTop: 40,
+    },
   },
   bambooSection: {
     width: '90px',
@@ -41,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '-40px',
     marginLeft: 'auto',
     marginRight: 'auto',
+    [theme.breakpoints.down(777)]: {
+      width: '45px',
+      height: '200px',
+      marginTop: '-55px',
+    },
   },
   bambooSectionTop: {
     width: '130%',
@@ -79,6 +89,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '15%',
     zIndex: 0,
+    [theme.breakpoints.down(777)]: {
+      top: 0,
+    },
   },
   bambooSectionBodyFirst: {
     width: '100%',
@@ -88,21 +101,50 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '27%',
     zIndex: 0,
+    [theme.breakpoints.down(777)]: {
+      height: '70%',
+      top: '30%',
+    },
   },
   bambooImageBox: {
     paddingTop: '80px',
     paddingRight: '50px',
     textAlign: 'right',
+    [theme.breakpoints.down(777)]: {
+      paddingRight: 0,
+      paddingTop: 30,
+    },
   },
   bambooImage: {
     border: '1px solid #c7c7c7',
     borderRadius: '7px',
+    width: '250px',
+    [theme.breakpoints.down(777)]: {
+      width: '130px',
+    },
   },
   bambooText: {
     paddingTop: '100px',
+    [theme.breakpoints.down(777)]: {
+      paddingTop: 30,
+    },
   },
   bambooDescription: {
     whiteSpace: 'pre-line',
+    [theme.breakpoints.down(777)]: {
+      fontSize: '0.75rem',
+      whiteSpace: 'normal',
+    },
+  },
+  eventsBox: {
+    [theme.breakpoints.down(777)]: {
+      marginTop: 30,
+    },
+  },
+  date: {
+    [theme.breakpoints.down(777)]: {
+      fontSize: '1.5rem',
+    },
   },
 }));
 
@@ -126,7 +168,7 @@ const events = [
   },
   {
     date: '2020年 9月',
-    content: "サポーターズ主催、アウトプットを展示する\n学生向けテックカンファレンス「技育展」に\n『memopic』で登壇",
+    content: "アウトプットを展示する\n学生向けテックカンファレンス「技育展」に『memopic』で登壇",
   },
   {
     date: '2020年 9月',
@@ -157,7 +199,7 @@ export default function History() {
           <Typography variant="h6">
             あああああああああああああああああああああああああああああああああ
           </Typography>
-          <Box mt={20}>
+          <Box mt={20} className={classes.eventsBox}>
             {events.map((event, index) => (
               <Event key={event.content} event={event} zIndex={events.length - index} index={index}/>
             ))}
@@ -177,7 +219,7 @@ const Event = (props) => {
     <Grid container justify="center">
       <Grid item xs={5} className={classes.bambooImageBox}>
         {event.img && (
-          <img src={event.img} width="250px" className={classes.bambooImage} style={ event.img=="/waiwai.png" ? { border: 'none' } : {} } />
+          <img src={event.img} className={classes.bambooImage} style={ event.img=="/waiwai.png" ? { border: 'none' } : {} } />
         )}
       </Grid>
       <Grid item xs={2}>
@@ -198,7 +240,7 @@ const Event = (props) => {
         </div>
       </Grid>
       <Grid item xs={5} className={classes.bambooText}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom className={classes.date}>
           {event.date}
         </Typography>
         <Typography variant="body1" className={classes.bambooDescription}>
