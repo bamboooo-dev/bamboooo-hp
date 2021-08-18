@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteBox: {
     backgroundColor: 'white',
+    backgroundImage: 'url(/history_background.png)',
     [theme.breakpoints.down(777)]: {
       paddingLeft: 10,
       paddingRight: 10,
