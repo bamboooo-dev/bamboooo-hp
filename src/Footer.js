@@ -68,7 +68,7 @@ export default function Footer(props) {
       <Toolbar>
         <Grid container justify='center' spacing={2} className={classes.gridContainer}>
           {sections.map((section) => (
-            <Grid item className={classes.gridItem}>
+            <Grid item className={classes.gridItem} key={section.title}>
               <Link
                 color="inherit"
                 noWrap
