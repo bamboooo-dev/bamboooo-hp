@@ -5,43 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import React, { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: 0,
-  },
-  contents: {
-    borderStyle: "solid",
-    borderWidth: "0 15px 0 15px",
-    padding: 20,
-    [theme.breakpoints.up('lg')]: {
-      borderWidth: "0 30px 0 30px",
-      padding: 40,
-    },
-    borderColor: "#DFFFD6",
-  },
-  innerContents: {
-    margin: 'auto',
-    [theme.breakpoints.up('lg')]: {
-      width: '65%',
-    }
-  },
-  coverMain: {
-    marginTop: 20,
-    marginBottom: 20,
-    minWidth: 300,
-  },
-  block: {
-    [theme.breakpoints.up('lg')]: {
-      paddingBottom: 50,
-    },
-  },
-  divider: {
-    height: 4,
-    backgroundColor: theme.palette.tertiary.main,
-  },
-  headline: {
-    fontFamily: "Corporate-Logo-Medium-ver2",
-    whiteSpace: "pre-line",
-  },
   detail: {
     fontFamily: ['"Helvetica Neue"', '"Helvetica"', '"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', '"Arial"', '"Yu Gothic"', '"Meiryo"', 'sans-serif'],
     fontWeight: 500,
@@ -74,25 +37,54 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: 40,
     },
   },
+  visionBox: {
+    [theme.breakpoints.down(777)]: {
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingTop: 0,
+    },
+  },
   sectionBox: {
     height: 240,
+    [theme.breakpoints.down(777)]: {
+      height: 120,
+    },
   },
   missionBox: {
     backgroundColor: '#F6FAF0',
+    [theme.breakpoints.down(777)]: {
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingTop: 0,
+    },
   },
   philosophyBox: {
+    [theme.breakpoints.down(777)]: {
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingTop: 0,
+    },
   },
   number: {
     fontFamily: "Corporate-Logo-Medium-ver2",
     fontSize: '160px',
     position: 'absolute',
-    color: '#AED1CE'
+    color: '#AED1CE',
+    [theme.breakpoints.down(777)]: {
+      fontSize: 80,
+    },
   },
   headline: {
     fontFamily: "Corporate-Logo-Medium-ver2",
     position: 'relative',
     top: 115,
     left: 130,
+    display: 'inline',
+    [theme.breakpoints.down(777)]: {
+      top: 48,
+      left: 65,
+      fontSize: 40,
+    },
   },
   diagonalLine: {
     position: 'relative',
@@ -101,6 +93,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: 'linear-gradient(to right bottom, transparent 50%, black 50%, black 51%, transparent 51%)',
     top: -20,
     left: 62,
+    [theme.breakpoints.down(777)]: {
+      width: 60,
+      height: 60,
+      top: -20,
+      left: 32,
+      backgroundImage: 'linear-gradient(to right bottom, transparent 49%, black 49%, black 51%, transparent 51%)',
+    },
   },
   catchphrase: {
     fontFamily: "Corporate-Logo-Medium-ver2",
@@ -126,7 +125,7 @@ export default function About() {
       <Box pt="25vw" className={classes.innerBox}>
         <Box className={classes.whiteBox}>
 
-          <Box p={10}>
+          <Box p={10} className={classes.visionBox}>
             <Box className={classes.sectionBox}>
               <Typography className={classes.number}>
                 01

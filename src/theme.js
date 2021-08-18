@@ -13,11 +13,6 @@ export const lightTheme = createMuiTheme({
       '"Meiryo"',
       'sans-serif',
     ].join(','),
-    h2: {
-      '@media (max-width:1280px)': {
-        fontSize: '1.2rem',
-      },
-    },
   },
   palette: {
     primary: {
