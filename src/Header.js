@@ -39,9 +39,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Corporate-Logo-Medium-ver2",
     fontSize: 24,
   },
-  st0: {
-    fill: '#19807B',
-  },
   twitterLink: {
     color: 'inherit',
   },
@@ -139,17 +136,16 @@ export default function Header(props) {
 }
 
 const MenuIcon = (props) => {
-  const classes = useStyles();
   
   return (
-    <SvgIcon viewBox="0 0 512 512" {...props}>
-      <g>
-        <path className={classes.st0} d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M362.667,362.667H149.333
-          c-11.797,0-21.333-9.557-21.333-21.333c0-11.776,9.536-21.333,21.333-21.333h213.333c11.797,0,21.333,9.557,21.333,21.333
-          C384,353.109,374.464,362.667,362.667,362.667z M362.667,277.333H149.333C137.536,277.333,128,267.776,128,256
-          s9.536-21.333,21.333-21.333h213.333c11.797,0,21.333,9.557,21.333,21.333S374.464,277.333,362.667,277.333z M362.667,192H149.333
-          C137.536,192,128,182.443,128,170.667s9.536-21.333,21.333-21.333h213.333c11.797,0,21.333,9.557,21.333,21.333
-          S374.464,192,362.667,192z"/>
+    <SvgIcon viewBox="0 0 63 63" {...props}>
+      <g id="グループ_367" data-name="グループ 367" transform="translate(-1120 194.528)">
+        <circle id="楕円形_336" data-name="楕円形 336" cx="31.5" cy="31.5" r="31.5" transform="translate(1120 -194.528)" fill="#19807B"/>
+        <g id="グループ_366" data-name="グループ 366" transform="translate(1129.586 -175.781)">
+          <line id="線_1" data-name="線 1" x2="25.549" transform="translate(8.985 5.3)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+          <line id="線_2" data-name="線 2" x2="25.549" transform="translate(8.985 12.954)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+          <line id="線_3" data-name="線 3" x2="25.549" transform="translate(8.985 20.608)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+        </g>
       </g>
     </SvgIcon>
   )
