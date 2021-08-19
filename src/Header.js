@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Corporate-Logo-Medium-ver2",
     fontSize: 24,
   },
-  twitterLink: {
+  iconLink: {
     color: 'inherit',
   },
 }));
@@ -116,7 +116,7 @@ export default function Header(props) {
               color="inherit"
               aria-label="open twitter"
             >
-              <a href="https://twitter.com/bamboooo_inc" className={classes.twitterLink} target="_blank">
+              <a href="https://twitter.com/bamboooo_inc" className={classes.iconLink} target="_blank">
                 <TwitterIcon fontSize="large" />
               </a>
             </IconButton>
@@ -126,7 +126,9 @@ export default function Header(props) {
               color="inherit"
               aria-label="open twitter"
             >
-              <InstagramIcon fontSize="large" />
+              <a href="https://www.instagram.com/bamboooo_inc" className={classes.iconLink} target="_blank">
+                <InstagramIcon fontSize="large" />
+              </a>
             </IconButton>
           </Grid>
         </Grid>
@@ -142,9 +144,9 @@ const MenuIcon = (props) => {
       <g id="グループ_367" data-name="グループ 367" transform="translate(-1120 194.528)">
         <circle id="楕円形_336" data-name="楕円形 336" cx="31.5" cy="31.5" r="31.5" transform="translate(1120 -194.528)" fill="#19807B"/>
         <g id="グループ_366" data-name="グループ 366" transform="translate(1129.586 -175.781)">
-          <line id="線_1" data-name="線 1" x2="25.549" transform="translate(8.985 5.3)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
-          <line id="線_2" data-name="線 2" x2="25.549" transform="translate(8.985 12.954)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
-          <line id="線_3" data-name="線 3" x2="25.549" transform="translate(8.985 20.608)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+          <line id="線_1" data-name="線 1" x2="25.549" transform="translate(8.985 5.3)" fill="none" stroke="#fff" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="3"/>
+          <line id="線_2" data-name="線 2" x2="25.549" transform="translate(8.985 12.954)" fill="none" stroke="#fff" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="3"/>
+          <line id="線_3" data-name="線 3" x2="25.549" transform="translate(8.985 20.608)" fill="none" stroke="#fff" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="3"/>
         </g>
       </g>
     </SvgIcon>
