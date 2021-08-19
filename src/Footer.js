@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 50,
     }
   },
-  twitterLink: {
+  iconLink: {
     color: 'inherit',
   },
 }));
@@ -91,12 +91,14 @@ export default function Footer(props) {
       <Toolbar className={classes.snsToolbar}>
         <Grid container justify="center" spacing={3}>
           <Grid item>
-            <a href="https://twitter.com/bamboooo_inc" className={classes.twitterLink} target="_blank">
+            <a href="https://twitter.com/bamboooo_inc" className={classes.iconLink} target="_blank">
               <TwitterIcon fontSize="large" />
             </a>
           </Grid>
           <Grid item>
-            <InstagramIcon fontSize="large" />
+            <a href="https://www.instagram.com/bamboooo_inc" className={classes.iconLink} target="_blank">
+              <InstagramIcon fontSize="large" />
+            </a>
           </Grid>
         </Grid>
       </Toolbar>
