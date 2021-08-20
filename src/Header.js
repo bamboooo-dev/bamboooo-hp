@@ -18,8 +18,11 @@ import Link from './Link';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    padding: '25px 10px 25px 30px',
+    padding: '10px 50px 10px 50px',
     justifyContent: "space-between",
+    [theme.breakpoints.down(777)]: {
+      padding: '10px 5px 10px 20px',
+    },
   },
   logo: {
     height: 50,
@@ -74,7 +77,7 @@ export default function Header(props) {
           aria-label="open drawer"
           onClick={toggleDrawer(true)}
         >
-          <MenuIcon style={{fontSize: '4rem', color: '#19807B'}} />
+          <MenuIcon style={{fontSize: '3.5rem', color: '#19807B'}} />
         </IconButton>
       </Toolbar>
       <Drawer anchor='right' open={open} onClose={toggleDrawer(false)} classes={{modal: classes.modal}}>

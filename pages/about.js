@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
   number: {
     fontFamily: "Corporate-Logo-Medium-ver2",
-    fontSize: '160px',
+    fontSize: 150,
     position: 'absolute',
     color: '#AED1CE',
     [theme.breakpoints.down(777)]: {
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   headline: {
     fontFamily: "Corporate-Logo-Medium-ver2",
     position: 'relative',
-    top: 115,
+    top: 120,
     left: 130,
     display: 'inline',
     [theme.breakpoints.down(777)]: {
@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
     width: 130,
     height: 130,
     backgroundImage: 'linear-gradient(to right bottom, transparent 50%, black 50%, black 51%, transparent 51%)',
-    top: -20,
+    top: -15,
     left: 62,
     [theme.breakpoints.down(777)]: {
       width: 60,
@@ -130,14 +130,14 @@ export default function About() {
               <Typography className={classes.number}>
                 01
               </Typography>
-              <Typography variant="h2" className={classes.headline}>
+              <Typography variant="h3" className={classes.headline}>
                 Vision
               </Typography>
               <Box className={classes.diagonalLine}/>
             </Box>
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={3}>
-                <img src='/vision_1.png' width="80%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img src='/vision_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="h4" className={classes.catchphrase}>
@@ -152,14 +152,14 @@ export default function About() {
               <Typography className={classes.number}>
                 02
               </Typography>
-              <Typography variant="h2" className={classes.headline}>
+              <Typography variant="h3" className={classes.headline}>
                 Mission
               </Typography>
               <Box className={classes.diagonalLine}/>
             </Box>
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={3}>
-                <img src='/mission_1.png' width="80%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img src='/mission_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
@@ -173,7 +173,7 @@ export default function About() {
             </Grid>
             <Grid container item xs={12} alignItems="center" style={{marginTop: 100}}>
               <Grid container justify="center" item xs={3}>
-                <img src='/mission_2.png' width="80%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img src='/mission_2.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
@@ -192,14 +192,14 @@ export default function About() {
               <Typography className={classes.number}>
                 03
               </Typography>
-              <Typography variant="h2" className={classes.headline}>
+              <Typography variant="h3" className={classes.headline}>
                 Philosophy
               </Typography>
               <Box className={classes.diagonalLine}/>
             </Box>
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={3}>
-                <img src='/philosophy_1.png' width="60%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img src='/philosophy_1.png' width="50%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
@@ -213,7 +213,7 @@ export default function About() {
             </Grid>
             <Grid container item xs={12} alignItems="center" style={{marginTop: 100}}>
               <Grid container justify="center" item xs={3}>
-                <img src='/philosophy_2.png' width="60%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img src='/philosophy_2.png' width="50%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
@@ -226,7 +226,7 @@ export default function About() {
             </Grid>
             <Grid container item xs={12} alignItems="center" style={{marginTop: 100}}>
               <Grid container justify="center" item xs={3}>
-                <img src='/philosophy_3.png' width="60%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img src='/philosophy_3.png' width="50%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
