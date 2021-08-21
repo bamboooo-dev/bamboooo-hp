@@ -15,27 +15,30 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
+import ClearIcon from '@material-ui/icons/Clear';
 import React, { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   mainImage:{
     width:'100%',
-    paddingLeft: '0',
-    paddingRight: '0',
+    marginLeft: '0',
+    marginRight: '0',
   },
   mainContainer: {
-    marginTop:'-100px',
-    backgroundColor:'#1A1D21',
+    marginTop:'-120px',
+    backgroundColor: "white",
+    width:'85%',
     zIndex:'10',
   },
   memberAvater: {
-    width: '160px',
-    height: '160px',
+    width:"auto",
+    height:"85%",
     float: 'left',
   },
   dialogAvater: {
-    width: '160px',
-    height: '160px',
+    width:"100px",
+    height:"100px",
+    marginLeft:"20px",
   },
   memberContainer: {
     width:'100%',
@@ -49,13 +52,33 @@ const useStyles = makeStyles((theme) => ({
   memberList:{
     display:'flex',
     flexFlow:'column',
-    justifyContent:'sapce-around',
+    justifyContent:'center',
     alignItems:'center',
     height:'160px',
   },
+  dialogMemberList:{
+    display:'flex',
+    flexFlow:'column',
+    alignItems:'center',
+  },
   mainDiv:{
     zIndex:'1',
-  }
+    height:'400px',
+    backgroundImage: "url(/member_top.png)",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  },
+  closeButton:{
+    position:'absolute',
+    top:'0',
+    right:'0',
+    borderRadius:'0',
+    backgroundColor:"#00837D",
+    '&:hover': {
+      opacity: "0.8",
+      backgroundColor:"#19807B",
+    },
+  },
 }))
 
 function Member(props) {
@@ -71,12 +94,12 @@ function Member(props) {
           <Grid item xs={5}>
             <Avatar alt={member.name} src={member.avatar} className={classes.memberAvater} />
           </Grid>
-          <Grid item xs={7}>
+          <Grid item xs={6}>
             <Box className={classes.memberList}>
-              <Typography variant="h6" >
+              <Typography variant="body1" noWrap gutterBottom>
                 {member.position}
               </Typography>
-              <Typography variant="h5" >
+              <Typography variant="h5" gutterBottom>
                 {member.name}
               </Typography>
               <Button variant='outlined' size='small'
@@ -101,7 +124,7 @@ const MainImage=() =>{
   
   return(
     <div className={classes.mainDiv}>
-      <img src='/home_top.png' className={classes.mainImage}/>
+      {/* <img src='/home_top.png' className={classes.mainImage}/> */}
     </div>
   )
 }
@@ -132,7 +155,7 @@ const members = [
     wantedly: 'https://www.wantedly.com/id/monaka0721',
   },
   { 
-    position: 'Planner & Unity Engineer',
+    position: 'Planner',
     university: '京都大学',
     avatar: '/avatar_shunpei.jpg',
     name: '朝田 隼平',
@@ -216,9 +239,9 @@ export default function Members() {
     <>
     <MainImage />
     <Container className={classes.mainContainer}>
-      <Box mt="30px" mb="30px">
-        <Typography variant="h4" >
-          <span style={{color:"green"}}>|</span>  Member
+      <Box pt="50px" pb="30px">
+        <Typography variant="h3" >
+          <span style={{color:"#00837D", fontWeight:"900"}}>|</span>  Member
         </Typography>
       </Box>
 
@@ -229,70 +252,80 @@ export default function Members() {
       </Grid>
 
       
-      <Dialog open={open} onClose={handleClose}>
-        <Grid container>
-          <Grid item xs={5}>
-              <Avatar alt={openMember.name} src={openMember.avatar} className={classes.dialogAvater} />
-          </Grid>
-          <Grid item xs={7}>
-            <Box className={classes.memberList}>
-              <Typography variant="h6" >
-                {openMember.position}
-              </Typography>
-              <Typography variant="h5" >
-                {openMember.name}
-              </Typography>
+      <Dialog open={open} onClose={handleClose} >
+        <div style={{width: '350px'}}>
+          <Box mt="50px">
+          <Grid container >
+            <Grid item xs={4}>
+                <Avatar alt={openMember.name} src={openMember.avatar} className={classes.dialogAvater} />
+            </Grid>
+            <Grid item xs={8}>
+              <Box className={classes.dialogMemberList}>
+                <Typography variant="h6" >
+                  {openMember.position}
+                </Typography>
+                <Typography variant="h5" >
+                  {openMember.name}
+                </Typography>
 
-              <Box display="flex" alignItems="center">
-                {openMember.twitter && (
-                <Box mr={0.5}>
-                  <a href={openMember.twitter} target="_blank">
-                    <TwitterIcon style={{ color: blue[300] }}/>
-                  </a>
+                <Box display="flex" alignItems="center">
+                  {openMember.twitter && (
+                  <Box mr={0.5}>
+                    <a href={openMember.twitter} target="_blank">
+                      <TwitterIcon style={{ color: blue[300] }}/>
+                    </a>
+                  </Box>
+                  )}
+                  {openMember.github && (
+                    <Box mx={0.5}>
+                      <a href={openMember.github} target="_blank">
+                        <GitHubIcon style={{ color: "black", }}/>
+                      </a>
+                    </Box>
+                  )}
+                  {openMember.homepage && (
+                    <Box mx={0.5}>
+                      <a href={openMember.homepage} target="_blank">
+                        <HomeIcon style={{ color: "black", }}/>
+                      </a>
+                    </Box>
+                  )}
+                  {openMember.wantedly && (
+                    <Box>
+                      <a href={openMember.wantedly} target="_blank">
+                        <img
+                          src="/wantedly_mark.png"
+                          width={30}
+                        />
+                      </a>
+                    </Box>
+                  )}
+                  {openMember.instagram && (
+                    <Box>
+                      <a href={openMember.instagram} target="_blank">
+                        <InstagramIcon style={{ color: "black", }}/>
+                      </a>
+                    </Box>
+                  )}
                 </Box>
-                )}
-                {openMember.github && (
-                  <Box mx={0.5}>
-                    <a href={openMember.github} target="_blank">
-                      <GitHubIcon style={{ color: "black", }}/>
-                    </a>
-                  </Box>
-                )}
-                {openMember.homepage && (
-                  <Box mx={0.5}>
-                    <a href={openMember.homepage} target="_blank">
-                      <HomeIcon style={{ color: "black", }}/>
-                    </a>
-                  </Box>
-                )}
-                {openMember.wantedly && (
-                  <Box>
-                    <a href={openMember.wantedly} target="_blank">
-                      <img
-                        src="/wantedly_mark.png"
-                        width={30}
-                      />
-                    </a>
-                  </Box>
-                )}
-                {openMember.instagram && (
-                  <Box>
-                    <a href={openMember.instagram} target="_blank">
-                      <InstagramIcon style={{ color: "black", }}/>
-                    </a>
-                  </Box>
-                )}
-              </Box>
 
-            </Box>
+              </Box>
+            </Grid>
+              <Box mt="20px" pl="20px" pr="20px">
+                <Typography  style={{color:"#26B8E5", fontSize:"25px"}} >意気込みをひとこと</Typography>
+                <Typography>{openMember.ikigomi}</Typography>
+                <Typography>メンバーから一言-------</Typography>
+                <Typography>{openMember.hitokoto}</Typography>
+              </Box>
           </Grid>
-          <Box>
-            <Typography>意気込みを一言</Typography>
-            <Typography>{openMember.ikigomi}</Typography>
-            <Typography>メンバーから一言-------</Typography>
-            <Typography>{openMember.hitokoto}</Typography>
           </Box>
-        </Grid>
+          
+          <Button 
+            className={classes.closeButton}
+            onClick={handleClose}>
+            <ClearIcon style={{color:"white"}} />
+          </Button>
+        </div>
       </Dialog>
     
     </Container>
