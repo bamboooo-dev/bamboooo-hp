@@ -1,3 +1,5 @@
+import { Typography } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import PropTypes from 'prop-types';
@@ -7,47 +9,52 @@ import Link from './Link';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    padding: 20,
+    justifyContent: "center",
   },
-  toolbarTitle: {
-    flex: 1,
-    '&:hover': {
-      textDecoration: 'none',
-    },
+  logo: {
+    height: 50,
   },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
+  toolbarContainer: {
+    overflowX: 'scroll',
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    minHeight: 48,
+  },
+  toolbarItem: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0,
+    flex: "1 0 100px",
+    borderRight: `1px solid ${theme.palette.divider}`,
     '&:hover': {
       textDecoration: 'none',
-      color: theme.palette.tertiary.main,
+      backgroundColor: '#E1E1E1',
     },
+  },
+  sectionTitle: {
+    fontFamily: ['"Helvetica"'],
+    color: '#3B3B3B',
   },
 }));
 
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title, modeButton } = props;
+  const { sections } = props;
 
   return (
-    <React.Fragment>
+    <>
       <Toolbar className={classes.toolbar}>
-        <Link
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          href="/"
-          className={classes.toolbarTitle}
-        >
-          {title}
+        <Link href="/">
+          <img
+            src='/bamboooo_logo.png'
+            alt='Logo of bamboooo'
+            className={classes.logo}
+          />
         </Link>
-        { modeButton }
       </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+      <Grid container wrap="nowrap" className={classes.toolbarContainer}>
         {sections.map((section) => (
           <Link
             color="inherit"
@@ -57,15 +64,21 @@ export default function Header(props) {
             href={section.url}
             className={classes.toolbarLink}
           >
-            {section.title}
+            <Grid item container justify="center" alignItems="center" style={{height: '100%'}}>
+              <Typography
+                className={classes.sectionTitle}
+                variant="h6"
+              >
+                {section.title}
+              </Typography>
+            </Grid>
           </Link>
         ))}
-      </Toolbar>
-    </React.Fragment>
+      </Grid>
+    </>
   );
 }
 
 Header.propTypes = {
   sections: PropTypes.array,
-  title: PropTypes.string,
 };

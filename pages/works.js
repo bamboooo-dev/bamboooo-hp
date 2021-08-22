@@ -47,7 +47,7 @@ const works = [
   { 
     name: 'ワイワイ',
     catchphrase: 'あなたの価値観でみんながワイワイ',
-    alt: 'Picture of HIMO',
+    alt: 'Picture of waiwai',
     image: '/waiwai.png',
     description: `
       オンラインでオフライン以上にワイワイする。
@@ -57,6 +57,7 @@ const works = [
       自分の性格、センス、価値観が問われるので仲間内はもちろん、
       初対面の人の事も手っ取り早く知ることが出来ます。`,
     appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
+    googleUrl: "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
   },
   { 
     name: 'memopic',
@@ -87,9 +88,9 @@ const works = [
     `,
   },
   { 
-    name: 'Alcatraz',
-    catchphrase: '仮想世界で出会おう',
-    alt: 'Picture of Alcatraz',
+    name: 'MESHIBUGYO',
+    catchphrase: '「きょう何食べよう？」を楽しく',
+    alt: 'Picture of MESHIBUGYO',
   },
 ];
 
@@ -154,7 +155,7 @@ function Work(props) {
             )}
             {work.googleUrl && (
               <Box>
-                <a href={work.appleUrl} target="_blank">
+                <a href={work.googleUrl} target="_blank">
                   <img
                     src="/google-play-badge.png"
                     alt="Google Play Store Badge"
