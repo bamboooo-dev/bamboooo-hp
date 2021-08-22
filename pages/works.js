@@ -10,6 +10,11 @@ import React from 'react';
 const useStyles = makeStyles((theme) => ({
   content: {
     width: '100%',
+
+    flexDirection: 'columu',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    
   },
   media: {
     borderWidth: 1,
@@ -108,7 +113,8 @@ function Work(props) {
             mb={1}
             display="flex"
             alignItems="center"
-            justifyContent="center"
+            justifyContent="space-around"
+            flexDirection= "columu"
           >
             <Typography variant="h4">
               COMING SOON...
@@ -133,6 +139,8 @@ function Work(props) {
           <Box 
             display="flex"
             alignItems="center"
+            flexDirection= "columu"
+            justifyContent= "space-around"
           >
             {work.appleUrl && (
               <Box>
