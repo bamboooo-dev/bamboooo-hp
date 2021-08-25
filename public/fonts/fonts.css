@@ -2,3 +2,7 @@
   font-family: "Corporate-Logo-Bold-ver2";
   src: url("./Corporate-Logo-Bold-ver2.ttf");
 }
+@font-face {
+  font-family: "Corporate-Logo-Medium-ver2";
+  src: url("./Corporate-Logo-Medium-ver2.ttf");
+}
