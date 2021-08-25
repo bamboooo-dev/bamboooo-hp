@@ -1,20 +1,16 @@
-import { ListItemText, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import blue from '@material-ui/core/colors/blue';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import HomeIcon from '@material-ui/icons/Home';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
 import ClearIcon from '@material-ui/icons/Clear';
 import React, { useState } from 'react';
 
@@ -49,10 +45,9 @@ const useStyles = makeStyles((theme) => ({
       justifyContent:'center',
      },
   },
-  memberAvater: {
+  memberAvatar: {
     width:"auto",
     height:"auto",
-    float: 'left',
     marginLeft:"7px",
   },
   memberList:{
@@ -62,10 +57,23 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     height:'160px',
   },
-  dialogAvater: {
+  moreButton:{
+    border:"1px solid grey",
+    borderRadius:"20px",
+    width:"80%",
+    backgroundColor:"white",
+    fontSize:"18px",
+    textAlign:'center',
+    paddingLeft:"30px",
+    '&:hover': {
+      opacity:"0.5",
+      cursor:'pointer',
+    },
+  },
+  dialogAvatar: {
     width:"100px",
     height:"100px",
-    marginLeft:"10px",
+    marginLeft:"15px",
   },
   dialogMemberList:{
     display:'flex',
@@ -125,7 +133,7 @@ function Member(props) {
         {/*ここにメンバーをmapで全て入れ込みたい*/}
       <Grid item sm={4} container>
         <Grid item sm={5} xs={4} className={classes.memberAvatarBreakpoint}>
-          <Avatar alt={member.name} src={member.avatar} className={classes.memberAvater} />
+          <Avatar alt={member.name} src={member.avatar} className={classes.memberAvatar} />
         </Grid>
         <Grid item sm={7} xs={8}>
           <Box className={classes.memberList}>
@@ -135,10 +143,12 @@ function Member(props) {
             <Typography variant="h5" gutterBottom>
               {member.name}
             </Typography>
-            <Button variant='outlined' size='small'
-              onClick={() => {handleClickOpen(index)}}>
+            <button
+              onClick={() => {handleClickOpen(index)}}
+              className={classes.moreButton}>
               more 
-            </Button>
+              <ExpandMoreIcon style={{float:"right"}}/>
+            </button>
           </Box>
         </Grid>
       </Grid>
@@ -152,7 +162,7 @@ const members = [
     university: '北海道大学',
     name: '山本 浩平',
     description: 'k8s。猫好き。初めての料理は炒り卵。',
-    avatar: '/avatar_kohei.jpg',
+    avatar: '/avatar_kohei.png',
     twitter: 'https://twitter.com/yamagai_0919',
     github: 'https://github.com/yamagai',
     homepage: 'http://portfolio-kohei.herokuapp.com/',
@@ -163,7 +173,7 @@ const members = [
     university: '京都造形大学',
     name: '住江 祐哉',
     description: 'パフォーマンス・チューナー。満島ひかりが好き。',
-    avatar: '/avatar_yuya.jpg',
+    avatar: '/avatar_yuya.png',
     twitter: 'https://twitter.com/monaka_0721',
     github: 'https://github.com/MONAKA0721',
     homepage: 'https://monaka0721.github.io/portfolio/#/',
@@ -171,16 +181,8 @@ const members = [
   },
   { 
     position: 'Planner',
-    university: '京都大学',
-    avatar: '/avatar_shunpei.jpg',
-    name: '朝田 隼平',
-    description: 'ムードメーカー。趣味はカフェ巡り。',
-    twitter: 'https://twitter.com/0514AsaShun',
-  },
-  { 
-    position: 'Planner',
     university: '早稲田大学',
-    avatar: '/avatar_kento.png',
+    avatar: '/avatar_kento.jpg',
     name: '中林 健人',
     description: '京都大学中退。現在早稲田大学在学兼ノマドカフェNOPAY代表。',
     twitter: 'https://twitter.com/bayashi0314',
@@ -195,6 +197,14 @@ const members = [
 
 {/*
   const obogs = [
+  { 
+    position: 'Planner',
+    university: '京都大学',
+    avatar: '/avatar_shunpei.jpg',
+    name: '朝田 隼平',
+    description: 'ムードメーカー。趣味はカフェ巡り。',
+    twitter: 'https://twitter.com/0514AsaShun',
+  },
   {
     position: 'Frontend Engineer',
     university: '長崎大学',
@@ -272,7 +282,7 @@ export default function Members() {
               <Box mt="40px">
               <Grid container >
                 <Grid item xs={3} sm={4}>
-                    <Avatar alt={openMember.name} src={openMember.avatar} className={classes.dialogAvater} />
+                    <Avatar alt={openMember.name} src={openMember.avatar} className={classes.dialogAvatar} />
                 </Grid>
                 <Grid item xs={9} sm={8}>
                   <Box className={classes.dialogMemberList}>
@@ -378,6 +388,7 @@ export default function Members() {
                   <img src="/golang.png" className={classes.skillIcon}/>
                 </Box>
               </Grid>
+
               {/* 二段目 */}
               <Grid container item sm={5} xs={12}>
                 <Grid item xs={12}>
@@ -401,6 +412,7 @@ export default function Members() {
                   <img src="/kubernetes.png" className={classes.skillIcon} />
                 </Box>
               </Grid>
+
               {/* 三段目 */}
               <Grid container item sm={5} xs={12}>
                 <Grid item xs={12}>
@@ -425,6 +437,7 @@ export default function Members() {
                   <img src="/oci.png" className={classes.skillIconSmall} />
                 </Box>
               </Grid>
+
               {/* 四段目 */}
               <Grid container item sm={6} xs={12}>
                 <Grid item xs={12}>
@@ -440,11 +453,6 @@ export default function Members() {
               </Grid>
             </Grid>
           </Box>
-
-
-
-
-
         </Box>
       </Box>
     </Box>
