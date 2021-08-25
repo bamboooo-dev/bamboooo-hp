@@ -201,8 +201,7 @@ export default function History() {
             bamboooo のこれまでとこれから
           </Typography>
           <Typography variant="h6" className={classes.description}>
-          {`
-          「 みんなを笑顔にする」
+          {`「みんなを笑顔にする」。
 小さい頃から抱いていた長年の夢を実現させたい、その想いで2019年2人の学生によって bamboooo の活動は始まりました。
 bamboooo という名前には「"伸び代しかない"エンタメクリエイターチームを目指す」という願いが込められています。
 これまでもこれからも、変わらぬ想いで人々を笑顔にできるエンタメを作り続けていきます。`}
