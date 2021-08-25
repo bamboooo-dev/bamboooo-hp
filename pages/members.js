@@ -96,6 +96,24 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:'space-evenly',
     alignItems:'center',
   },
+  skillIcon: {
+    width:"150px",
+    [theme.breakpoints.down('777')]: {
+      width:"80px",
+     },
+  },
+  skillIconSmall: {
+    width:"120px",
+    [theme.breakpoints.down('777')]: {
+      width:"75px",
+     },
+  },
+  skillIconHeroku: {
+    height:"120px",
+    [theme.breakpoints.down('777')]: {
+      height:"75px",
+     },
+  },
 }))
 
 function Member(props) {
@@ -336,88 +354,88 @@ export default function Members() {
           <Box>
             <Grid container>
               {/* 一段目 */}
-              <Grid container item xs={5} >
+              <Grid container item sm={5} xs={12}>
                 <Grid item xs={12}>
                   <Typography >
                     Frontend
                   </Typography>
                 </Grid>
                 <Box className={classes.skillList}>
-                  <img src="/react.png" width={150} />
-                  <img src="/next.png" width={150}/>
-                  <img src="vue.png" width={150}/>
+                  <img src="/react.png" className={classes.skillIcon}/>
+                  <img src="/next.png" className={classes.skillIcon}/>
+                  <img src="vue.png" className={classes.skillIcon}/>
                 </Box>
               </Grid>
-              <Grid item xs={2} />
-              <Grid item xs={5}>
+              <Grid item sm={2} />
+              <Grid item sm={5} xs={12}>
                 <Grid item xs={12}>
                   <Typography >
                     Backend
                   </Typography>
                 </Grid>
                 <Box className={classes.skillList}>
-                  <img src="/rails.svg" width={150} />
-                  <img src="/golang.png" width={150}/>
+                  <img src="/rails.svg" className={classes.skillIcon} />
+                  <img src="/golang.png" className={classes.skillIcon}/>
                 </Box>
               </Grid>
               {/* 二段目 */}
-              <Grid container item xs={5}>
+              <Grid container item sm={5} xs={12}>
                 <Grid item xs={12}>
                   <Typography >
                     Middleware
                   </Typography>
                 </Grid>
                 <Box className={classes.skillList}>
-                  <img src="/mysql.png" width={150} />
-                  <img src="/nginx.png" width={150}/>
+                  <img src="/mysql.png" className={classes.skillIcon} />
+                  <img src="/nginx.png" className={classes.skillIcon}/>
                 </Box>
               </Grid>
-              <Grid item xs={2} />
-              <Grid item xs={5}>
+              <Grid item sm={2} />
+              <Grid item sm={5} xs={12}>
                 <Grid item xs={12}>
                   <Typography >
                     Infrastructure
                   </Typography>
                 </Grid>
                 <Box className={classes.skillList}>
-                  <img src="/kubernetes.png" width={150} />
+                  <img src="/kubernetes.png" className={classes.skillIcon} />
                 </Box>
               </Grid>
               {/* 三段目 */}
-              <Grid container item xs={5}>
+              <Grid container item sm={5} xs={12}>
                 <Grid item xs={12}>
                   <Typography >
                     Game Engine
                   </Typography>
                 </Grid>
                 <Box className={classes.skillList}>
-                  <img src="/unity.png" width={150} />
+                  <img src="/unity.png" className={classes.skillIcon} />
                 </Box>
               </Grid>
-              <Grid item xs={2} />
-              <Grid item xs={5}>
+              <Grid item sm={2} />
+              <Grid item sm={5} xs={12}>
                 <Grid item xs={12}>
                   <Typography >
                     Others
                   </Typography>
                 </Grid>
                 <Box className={classes.skillList}>
-                  <img src="/time4vps.png" width={120} />
-                  <img src="/heroku.png" height={120} />
-                  <img src="/oci.png" width={130} />
+                  <img src="/time4vps.png" className={classes.skillIconSmall} />
+                  <img src="/heroku.png" className={classes.skillIconHeroku} />
+                  <img src="/oci.png" className={classes.skillIconSmall} />
                 </Box>
               </Grid>
               {/* 四段目 */}
-              <Grid container item xs={6}>
+              <Grid container item sm={6} xs={12}>
                 <Grid item xs={12}>
                   <Typography >
                     Communications
                   </Typography>
                 </Grid>
                 <Box className={classes.skillList}>
-                  <img src="/slack.png" width={150} />
-                  <img src="/notion.png" width={130} />
-                  <img src="/growi.png" width={130} />
+                  <img src="/slack.png" className={classes.skillIcon} />
+                  <img src="/notion.png" className={classes.skillIconSmall} />
+                  <img src="/growi.png" className={classes.skillIconSmall} />
                 </Box>
               </Grid>
             </Grid>
