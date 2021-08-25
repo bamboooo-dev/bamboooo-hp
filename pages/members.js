@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   memberContainer: {
     backgroundColor:'white',
+    paddingLeft:"20px",
     [theme.breakpoints.down('777')]: {
       paddingLeft: 10,
       paddingRight: 10,
@@ -87,6 +88,13 @@ const useStyles = makeStyles((theme) => ({
   },
   skillContainer: {
     backgroundColor: "#F7FCF3",
+    paddingLeft:"20px",
+  },
+  skillList: {
+    width:"100%",
+    display:'flex',
+    justifyContent:'space-evenly',
+    alignItems:'center',
   },
 }))
 
@@ -318,13 +326,107 @@ export default function Members() {
           </Dialog>
         </Box>
 
-      {/*ここからskill部分*/}
+        {/*ここからskill部分*/}
         <Box className={classes.skillContainer}>
           <Box pt="50px" pb="30px" ml="10px">
             <Typography variant="h3" >
               <span style={{color:"#00837D", fontWeight:"900"}}>|</span>  Skill
             </Typography>
           </Box>
+          <Box>
+            <Grid container>
+              {/* 一段目 */}
+              <Grid container item xs={5} >
+                <Grid item xs={12}>
+                  <Typography >
+                    Frontend
+                  </Typography>
+                </Grid>
+                <Box className={classes.skillList}>
+                  <img src="/react.png" width={150} />
+                  <img src="/next.png" width={150}/>
+                  <img src="vue.png" width={150}/>
+                </Box>
+              </Grid>
+              <Grid item xs={2} />
+              <Grid item xs={5}>
+                <Grid item xs={12}>
+                  <Typography >
+                    Backend
+                  </Typography>
+                </Grid>
+                <Box className={classes.skillList}>
+                  <img src="/rails.svg" width={150} />
+                  <img src="/golang.png" width={150}/>
+                </Box>
+              </Grid>
+              {/* 二段目 */}
+              <Grid container item xs={5}>
+                <Grid item xs={12}>
+                  <Typography >
+                    Middleware
+                  </Typography>
+                </Grid>
+                <Box className={classes.skillList}>
+                  <img src="/mysql.png" width={150} />
+                  <img src="/nginx.png" width={150}/>
+                </Box>
+              </Grid>
+              <Grid item xs={2} />
+              <Grid item xs={5}>
+                <Grid item xs={12}>
+                  <Typography >
+                    Infrastructure
+                  </Typography>
+                </Grid>
+                <Box className={classes.skillList}>
+                  <img src="/kubernetes.png" width={150} />
+                </Box>
+              </Grid>
+              {/* 三段目 */}
+              <Grid container item xs={5}>
+                <Grid item xs={12}>
+                  <Typography >
+                    Game Engine
+                  </Typography>
+                </Grid>
+                <Box className={classes.skillList}>
+                  <img src="/unity.png" width={150} />
+                </Box>
+              </Grid>
+              <Grid item xs={2} />
+              <Grid item xs={5}>
+                <Grid item xs={12}>
+                  <Typography >
+                    Others
+                  </Typography>
+                </Grid>
+                <Box className={classes.skillList}>
+                  <img src="/time4vps.png" width={120} />
+                  <img src="/heroku.png" height={120} />
+                  <img src="/oci.png" width={130} />
+                </Box>
+              </Grid>
+              {/* 四段目 */}
+              <Grid container item xs={6}>
+                <Grid item xs={12}>
+                  <Typography >
+                    Communications
+                  </Typography>
+                </Grid>
+                <Box className={classes.skillList}>
+                  <img src="/slack.png" width={150} />
+                  <img src="/notion.png" width={130} />
+                  <img src="/growi.png" width={130} />
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+
+
+
+
+
         </Box>
       </Box>
     </Box>
