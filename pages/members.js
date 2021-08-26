@@ -37,13 +37,11 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 10,
     },
   },
-  memberAvatarBreakpoint:{
-    [theme.breakpoints.down('777')]: {
-      display:'flex',
-      flexFlow:'column',
-      alignItems:'center',
-      justifyContent:'center',
-     },
+  memberAvatarPosition:{
+    display:'flex',
+    flexFlow:'column',
+    alignItems:'center',
+    justifyContent:'center',
   },
   memberAvatar: {
     width:"auto",
@@ -132,7 +130,7 @@ function Member(props) {
     <>
         {/*ここにメンバーをmapで全て入れ込みたい*/}
       <Grid item sm={4} container>
-        <Grid item sm={5} xs={4} className={classes.memberAvatarBreakpoint}>
+        <Grid item sm={5} xs={4} className={classes.memberAvatarPosition}>
           <Avatar alt={member.name} src={member.avatar} className={classes.memberAvatar} />
         </Grid>
         <Grid item sm={7} xs={8}>
@@ -265,7 +263,7 @@ export default function Members() {
       <Box className={classes.mainContainer}>
         <Box className={classes.memberContainer}>
           <Box pt="50px" pb="30px" ml="10px">
-            <Typography variant="h3" >
+            <Typography variant="h4" style={{fontFamily: "Corporate-Logo-Medium-ver2"}}>
               <span style={{color:"#00837D", fontWeight:"900"}}>|</span>  Member
             </Typography>
           </Box>
@@ -333,18 +331,17 @@ export default function Members() {
                         </Box>
                       )}
                     </Box>
-
                   </Box>
                 </Grid>
                   <Box mt="20px" mb="30px" pl="20px" pr="20px">
-                    <Typography style={{color:"#26B8E5", fontSize:"25px"}} >意気込みをひとこと</Typography>
+                    <Typography style={{color:"#26B8E5", fontSize:"25px", fontFamily: "Corporate-Logo-Medium-ver2"}} >意気込みをひとこと</Typography>
                     <Typography variant="body1">{openMember.ikigomi}</Typography>
+                    {/* メンバーから一言欄いるなら
                     <Typography>メンバーから一言</Typography>
-                    <Typography>{openMember.hitokoto}</Typography>
+                    <Typography>{openMember.hitokoto}</Typography>*/}
                   </Box>
               </Grid>
               </Box>
-              
               <Button 
                 className={classes.closeButton}
                 onClick={handleClose}>
@@ -357,7 +354,7 @@ export default function Members() {
         {/*ここからskill部分*/}
         <Box className={classes.skillContainer}>
           <Box pt="50px" pb="30px" ml="10px">
-            <Typography variant="h3" >
+            <Typography variant="h4" style={{fontFamily: "Corporate-Logo-Medium-ver2"}}>
               <span style={{color:"#00837D", fontWeight:"900"}}>|</span>  Skill
             </Typography>
           </Box>
