@@ -1,3 +1,4 @@
+import { FormHelperText } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import grey from "@material-ui/core/colors/grey";
@@ -10,11 +11,6 @@ import React from 'react';
 const useStyles = makeStyles((theme) => ({
   content: {
     width: '100%',
-
-    flexDirection: 'columu',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    
   },
   media: {
     borderWidth: 1,
@@ -99,7 +95,7 @@ function Work(props) {
   const { work } = props; 
 
   return (
-    <Grid item container xs={12} md={6} justify="center">
+    <Grid item container xs={12} md={6} display="flex">
       <Grid item className={classes.content}>
         {work.image ? (
           <img
@@ -112,10 +108,6 @@ function Work(props) {
             className={classes.media}
             height={260}
             mb={1}
-            display="flex"
-            alignItems="center"
-            justifyContent="space-around"
-            flexDirection= "columu"
           >
             <Typography variant="h4">
               COMING SOON...
@@ -137,12 +129,7 @@ function Work(props) {
           </Box>
         )}
         {(work.appleUrl || work.googleUrl) &&(
-          <Box 
-            display="flex"
-            alignItems="center"
-            flexDirection= "columu"
-            justifyContent= "space-around"
-          >
+          <Box>
             {work.appleUrl && (
               <Box>
                 <a href={work.appleUrl} target="_blank">
@@ -175,7 +162,7 @@ export default function Works() {
   const classes = useStyles();
 
   return (
-    <Container className={classes.mainContainer}>
+    <Container className={classes.mainContainer} display="flex">
       <Grid container spacing={4}>
         {works.map((work) => (
           <Work key={work.name} work={work}/>
