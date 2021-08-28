@@ -28,14 +28,17 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: 400,
       height: 260,
+      display: 'flex',
     },
   },
   mainContainer: {
     marginTop: theme.spacing(3),
+    display:'flex',
   },
   description: {
     whiteSpace: "pre-line",
     lineHeight: 2,
+    display: 'flex',
   }
 }));
 
@@ -95,19 +98,32 @@ function Work(props) {
   const { work } = props; 
 
   return (
-    <Grid item container xs={12} md={6} display="flex">
+    <Grid item container xs={12} md={6} 
+    display="flex" 
+    flexDirection= "column"
+    justifyContent= "space-around"
+    alignItems="center"
+    >
       <Grid item className={classes.content}>
         {work.image ? (
           <img
             src={work.image}
             alt={work.alt}
             className={work.name=="ワイワイ" ? classes.mediaWaiwai : classes.media}
+            display="flex" 
+            flexDirection= "column"
+            justifyContent= "space-around"
+            alignItems="center"
           />
         ):(
           <Box
             className={classes.media}
             height={260}
             mb={1}
+            display="flex" 
+            flexDirection= "column"
+            justifyContent= "space-around"
+            alignItems="center"
           >
             <Typography variant="h4">
               COMING SOON...
@@ -163,7 +179,12 @@ export default function Works() {
 
   return (
     <Container className={classes.mainContainer} display="flex">
-      <Grid container spacing={4}>
+      <Grid container spacing={4}
+       display="flex" 
+       flexDirection= "column"
+       justifyContent= "space-around"
+       alignItems="center"
+       >
         {works.map((work) => (
           <Work key={work.name} work={work}/>
         ))}
