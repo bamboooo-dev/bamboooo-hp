@@ -11,6 +11,10 @@ import React from 'react';
 const useStyles = makeStyles((theme) => ({
   content: {
     width: '100%',
+    display:'flex' ,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems:'center',
   },
   media: {
     borderWidth: 1,
@@ -18,9 +22,18 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     borderColor: grey[300],
     width: '100%',
+    display:'flex' ,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems:'center',
+
     [theme.breakpoints.up('sm')]: {
       width: 400,
       height: 260,
+      display:'flex' ,
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems:'center',
     },
   },
   mediaWaiwai: {
@@ -33,12 +46,18 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {
     marginTop: theme.spacing(3),
-    display:'flex',
+    display:'flex' ,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems:'center',
   },
   description: {
     whiteSpace: "pre-line",
     lineHeight: 2,
-    display: 'flex',
+    display:'flex' ,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems:'center',
   }
 }));
 
