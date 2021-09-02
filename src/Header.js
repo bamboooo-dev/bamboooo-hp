@@ -21,11 +21,14 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px 50px 10px 50px',
     justifyContent: "space-between",
     [theme.breakpoints.down(777)]: {
-      padding: '10px 5px 10px 20px',
+      padding: '0px 5px 0px 20px',
     },
   },
   logo: {
     height: 50,
+    [theme.breakpoints.down(777)]: {
+      height: 40,
+    },
   },
   toolbarLink: {
     '&:hover': {
@@ -45,6 +48,13 @@ const useStyles = makeStyles((theme) => ({
   iconLink: {
     color: 'inherit',
   },
+  menuIcon: {
+    fontSize: '3.5rem',
+    color: '#19807B',
+    [theme.breakpoints.down(777)]: {
+      fontSize: '3rem',
+    },
+  }
 }));
 
 export default function Header(props) {
@@ -77,7 +87,7 @@ export default function Header(props) {
           aria-label="open drawer"
           onClick={toggleDrawer(true)}
         >
-          <MenuIcon style={{fontSize: '3.5rem', color: '#19807B'}} />
+          <MenuIcon className={classes.menuIcon} />
         </IconButton>
       </Toolbar>
       <Drawer anchor='right' open={open} onClose={toggleDrawer(false)} classes={{modal: classes.modal}}>

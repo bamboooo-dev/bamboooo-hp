@@ -31,10 +31,13 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteBox: {
     backgroundColor: 'white',
+    boxShadow: '0 1px 5px 0 rgba(0, 0, 0, .3)',
+    marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 10,
       paddingRight: 10,
       paddingTop: 40,
+      maxWidth: '90%',
     },
   },
   visionBox: {
@@ -122,7 +125,7 @@ export default function About() {
 
   return (
     <Box className={classes.coverBox}>
-      <Box pt="25vw" className={classes.innerBox}>
+      <Box pt="25vw" className={classes.innerBox} display="flex" justifyContent="center">
         <Box className={classes.whiteBox}>
 
           <Box p={10} className={classes.visionBox}>
