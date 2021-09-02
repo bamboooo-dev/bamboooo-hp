@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 10,
       paddingRight: 10,
       paddingTop: 40,
+      maxWidth: '90%',
     },
   },
   bambooSection: {
@@ -197,7 +198,7 @@ export default function History() {
   
   return (
     <Box className={classes.coverBox}>
-      <Box pt="25vw" className={classes.innerBox}>
+      <Box pt="25vw" className={classes.innerBox} display="flex" justifyContent="center">
         <Box p={10} className={classes.whiteBox}>
           <Typography variant="h3" className={classes.headline} gutterBottom>
             bamboooo のこれまでとこれから

@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 10,
       paddingRight: 10,
       paddingTop: 40,
+      maxWidth: '90%',
     },
   },
   visionBox: {
@@ -124,7 +125,7 @@ export default function About() {
 
   return (
     <Box className={classes.coverBox}>
-      <Box pt="25vw" className={classes.innerBox}>
+      <Box pt="25vw" className={classes.innerBox} display="flex" justifyContent="center">
         <Box className={classes.whiteBox}>
 
           <Box p={10} className={classes.visionBox}>

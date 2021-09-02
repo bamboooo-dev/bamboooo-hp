@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   coverBox: {
-    backgroundImage: 'url(/about_cover.png)',
+    backgroundImage: 'url(/blog_cover.png)',
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
   },
@@ -141,7 +141,7 @@ function PostBox(props){
             </Typography>
           </Box>
           <Box style={{color: "#19807B", border: "1px solid", borderRadius: 10, paddingLeft: 15, paddingRight: 15}}>
-            <span>カテゴリ</span>
+            <span>{post.category}</span>
           </Box>
         </Box>
         <Divider style={{backgroundColor: "grey", marginBottom: 10}} />
