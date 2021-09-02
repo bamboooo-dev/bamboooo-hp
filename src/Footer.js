@@ -34,6 +34,11 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 40,
       marginRight: 40,
     },
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+    },
   },
   footer: {
     paddingTop: 40,
