@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 10,
       paddingRight: 10,
       paddingTop: 40,
+      maxWidth: '90%',
     },
   },
   titleTypgraphy:{
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
   postBox:{
     [theme.breakpoints.down(777)]: {
-      marginBottom: 30,
+      marginBottom: 100,
     },
   },
 }));
@@ -92,7 +93,7 @@ export default function Blog({ posts }) {
   return (
     <>
       <Box className={classes.coverBox}>
-        <Box pt="25vw" className={classes.innerBox}>
+        <Box pt="25vw" className={classes.innerBox} display="flex" justifyContent="center">
           <Grid container spacing={matches ? 0 : 5} className={classes.whiteBox}>
             {posts.slice(9*(pageNum-1), 9*pageNum).map((post) =>(
               <PostBox key={post.title} post={post} />
