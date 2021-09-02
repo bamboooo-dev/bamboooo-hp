@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTypography: {
     fontFamily: "Corporate-Logo-Medium-ver2",
+    fontSize: 16,
   },
   gridContainer: {
     marginTop: 25,

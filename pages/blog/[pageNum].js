@@ -36,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(10),
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
+    boxShadow: '0 1px 5px 0 rgba(0, 0, 0, .3)',
+    marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 10,
       paddingRight: 10,
@@ -95,23 +97,25 @@ export default function Blog({ posts }) {
             {posts.slice(9*(pageNum-1), 9*pageNum).map((post) =>(
               <PostBox key={post.title} post={post} />
             ))}
+            <Grid item xs={12}>
+              <Box w="100%" display="flex" justifyContent="center" my={8} alignItems="center">
+                {[...Array(Math.ceil(posts.length / 9)).keys()].map((pageIndex) => (
+                  pageIndex + 1 == pageNum ? 
+                    <Box>
+                      <Typography variant="h5" style={{fontFamily: "Corporate-Logo-Medium-ver2"}}>
+                        {pageIndex + 1}
+                      </Typography>
+                      <Divider style={{backgroundColor: "#19807B", height: 3}}/>
+                    </Box> :
+                    <Link href={`/blog/${pageIndex+1}`} style={{textDecoration: 'none'}}>
+                      <Typography variant="h6" color="textSecondary" style={{fontSize: 18, fontFamily: "Corporate-Logo-Medium-ver2", marginLeft: 15, marginRight: 15}}>
+                        {pageIndex + 1}
+                      </Typography>
+                    </Link>
+                ))}
+              </Box>
+            </Grid>
           </Grid>
-          <Box w="100%" display="flex" justifyContent="center" my={8} alignItems="center">
-            {[...Array(Math.ceil(posts.length / 9)).keys()].map((pageIndex) => (
-              pageIndex + 1 == pageNum ? 
-                <Box>
-                  <Typography variant="h4" style={{fontFamily: "Corporate-Logo-Medium-ver2"}}>
-                    {pageIndex + 1}
-                  </Typography>
-                  <Divider style={{backgroundColor: "#19807B", height: 3}}/>
-                </Box> :
-                <Link href={`/blog/${pageIndex+1}`} style={{textDecoration: 'none'}}>
-                  <Typography variant="h6" color="textSecondary" style={{fontFamily: "Corporate-Logo-Medium-ver2", marginLeft: 10, marginRight: 10}}>
-                    {pageIndex + 1}
-                  </Typography>
-                </Link>
-            ))}
-          </Box>
         </Box>
       </Box>
     </>

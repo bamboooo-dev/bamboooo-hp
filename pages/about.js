@@ -31,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteBox: {
     backgroundColor: 'white',
+    boxShadow: '0 1px 5px 0 rgba(0, 0, 0, .3)',
+    marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 10,
       paddingRight: 10,
