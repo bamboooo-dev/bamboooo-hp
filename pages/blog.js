@@ -1,7 +1,8 @@
 import { Box, Divider } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import React from 'react';
 import { getSortedPostsData } from '../lib/posts';
 
@@ -39,6 +40,16 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: 40,
     },
   },
+  titleTypgraphy:{
+    [theme.breakpoints.up(777)]: {
+      minHeight: 128,
+    },
+  },
+  postBox:{
+    [theme.breakpoints.down(777)]: {
+      marginBottom: 30,
+    },
+  },
 }));
 
 const urls = [
@@ -58,12 +69,14 @@ export async function getStaticProps() {
 export default function Blog({ posts }) {
 
   const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down(777));
   
   return (
     <>
       <Box className={classes.coverBox}>
         <Box pt="25vw" className={classes.innerBox}>
-          <Grid container spacing={5} className={classes.whiteBox}>
+          <Grid container spacing={matches ? 0 : 5} className={classes.whiteBox}>
             {posts.map((post) =>(
               <PostBox key={post.title} post={post} />
             ))}
@@ -84,12 +97,13 @@ export default function Blog({ posts }) {
 
 function PostBox(props){
   const { post } = props;
+  const classes = useStyles();
 
   return(
-    <Grid item xs={12} sm={4}>
+    <Grid item xs={12} sm={4} className={classes.postBox}>
       <Box display="flex" flexDirection="column">
         <img src={post.image} width="100%" style={{marginBottom: 20, borderRadius: 5}}/>
-        <Typography variant="h6" style={{minHeight: 128}}>
+        <Typography variant="h6" className={classes.titleTypgraphy}>
           {post.title}
         </Typography>
         <Box display="flex" alignItems="center" width="100%" mt={1} mb={2}>
