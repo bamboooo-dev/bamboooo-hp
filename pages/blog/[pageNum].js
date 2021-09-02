@@ -9,27 +9,20 @@ import { getSortedPostsData } from '../../lib/posts';
 import Link from '../../src/Link';
 
 const useStyles = makeStyles((theme) => ({
-  card: {
-    display: 'flex',
-  },
-  cardDetails: {
-    flex: 1,
-  },
-  cardMedia: {
-    width: 320,
-  },
-  continueReading: {
-    color: theme.palette.tertiary.main,
-  },
-
   coverBox: {
     backgroundImage: 'url(/blog_cover.png)',
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down('sm')]: {
+      backgroundImage: 'url(/blog_cover_sp.png)',
+    },
   },
   innerBox: {
     maxWidth: '1000px',
     margin: '0 auto',
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '35vw',
+    },
   },
   whiteBox: {
     backgroundColor: 'white',
@@ -52,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   postBox:{
     [theme.breakpoints.down(777)]: {
-      marginBottom: 150,
+      marginBottom: 100,
     },
   },
 }));
