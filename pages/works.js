@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
   content: {
     width: '100%',
     display:'flex' ,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
+    flexFlow:'column',
+    justifyContent:'sapce-around',
     alignItems:'center',
   },
   media: {
@@ -22,18 +22,11 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     borderColor: grey[300],
     width: '100%',
-    display:'flex' ,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems:'center',
 
     [theme.breakpoints.up('sm')]: {
       width: 400,
       height: 260,
-      display:'flex' ,
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      alignItems:'center',
+      display: 'flex',
     },
   },
   mediaWaiwai: {
@@ -46,18 +39,13 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {
     marginTop: theme.spacing(3),
-    display:'flex' ,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems:'center',
   },
   description: {
     whiteSpace: "pre-line",
     lineHeight: 2,
-    display:'flex' ,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems:'center',
+    width: 400,
+    height: 280,
+    display: 'flex',
   }
 }));
 
@@ -65,6 +53,8 @@ const works = [
   { 
     name: 'ワイワイ',
     catchphrase: 'あなたの価値観でみんながワイワイ',
+    url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
+   /*公式HP載せたい*/
     alt: 'Picture of waiwai',
     image: '/waiwai.png',
     description: `
@@ -117,32 +107,19 @@ function Work(props) {
   const { work } = props; 
 
   return (
-    <Grid item container xs={12} md={6} 
-    display="flex" 
-    flexDirection= "column"
-    justifyContent= "space-around"
-    alignItems="center"
-    >
+    <Grid item container xs={12}  display= "flex" >
       <Grid item className={classes.content}>
         {work.image ? (
           <img
             src={work.image}
             alt={work.alt}
             className={work.name=="ワイワイ" ? classes.mediaWaiwai : classes.media}
-            display="flex" 
-            flexDirection= "column"
-            justifyContent= "space-around"
-            alignItems="center"
           />
         ):(
           <Box
             className={classes.media}
             height={260}
             mb={1}
-            display="flex" 
-            flexDirection= "column"
-            justifyContent= "space-around"
-            alignItems="center"
           >
             <Typography variant="h4">
               COMING SOON...
@@ -197,13 +174,8 @@ export default function Works() {
   const classes = useStyles();
 
   return (
-    <Container className={classes.mainContainer} display="flex">
-      <Grid container spacing={4}
-       display="flex" 
-       flexDirection= "column"
-       justifyContent= "space-around"
-       alignItems="center"
-       >
+    <Container className={classes.mainContainer} >
+      <Grid container spacing={4} >
         {works.map((work) => (
           <Work key={work.name} work={work}/>
         ))}
@@ -211,3 +183,4 @@ export default function Works() {
     </Container>
   )
 }
+
