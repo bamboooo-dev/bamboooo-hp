@@ -26,15 +26,31 @@ const useStyles = makeStyles((theme) => ({
     margin:"0 auto",
     paddingTop:"25vw",
     [theme.breakpoints.down('777')]: {
-      paddingTop:100,
+      width:"90%",
+    },
+  },
+  shadowBox: {
+    boxShadow: "0 0 8px rgba(0,0,0,0.3)",
+    marginBottom: "100px",
+    [theme.breakpoints.down('777')]: {
+      marginBottom: "50px",
     },
   },
   memberContainer: {
     backgroundColor:'white',
-    paddingLeft:"20px",
+    paddingLeft:"100px",
+    paddingRight:"100px",
+    paddingBottom:"30px",
     [theme.breakpoints.down('777')]: {
-      paddingLeft: 10,
-      paddingRight: 10,
+      paddingLeft: "20px",
+      paddingRight: "20px",
+    },
+  },
+  title: {
+    fontSize: "30px",
+    fontFamily: "Corporate-Logo-Medium-ver2",
+    [theme.breakpoints.down('777')]: {
+      fontSize: "20px",
     },
   },
   memberAvatarPosition:{
@@ -47,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
     width:"auto",
     height:"auto",
     marginLeft:"7px",
+
   },
   memberList:{
     display:'flex',
@@ -54,6 +71,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:'center',
     alignItems:'center',
     height:'160px',
+    [theme.breakpoints.down('777')]: {
+      height: "100px",
+    },
+  },
+  memberPositionBox: {
+    textAlign: "center",
+    [theme.breakpoints.down('777')]: {
+      height: "40px",
+      display:'flex',
+      alignItems:'center',
+    },
   },
   moreButton:{
     border:"1px solid grey",
@@ -63,10 +91,26 @@ const useStyles = makeStyles((theme) => ({
     fontSize:"18px",
     textAlign:'center',
     paddingLeft:"30px",
+    [theme.breakpoints.down('777')]: {
+      fontSize: "10px",
+      paddingLeft: "10px",
+    },
     '&:hover': {
       opacity:"0.5",
       cursor:'pointer',
     },
+  },
+  moreButtonIcon: {
+    float:"right",
+    [theme.breakpoints.down('777')]: {
+    fontSize:"8px",
+    },
+  },
+  dialogSize: {
+    width: "350px",
+    [theme.breakpoints.down('777')]: {
+      width:"350px",
+      },
   },
   dialogAvatar: {
     width:"100px",
@@ -79,7 +123,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     justifyContent:'center',
     height:"100px",
-    marginRight:"10px",
   },
   closeButton:{
     position:'absolute',
@@ -94,30 +137,37 @@ const useStyles = makeStyles((theme) => ({
   },
   skillContainer: {
     backgroundColor: "#F7FCF3",
-    paddingLeft:"20px",
+    paddingLeft:"100px",
+    paddingRight: "100px",
+    paddingBottom:"40px",
+    [theme.breakpoints.down('777')]: {
+      paddingLeft: "20px",
+      paddingRight: "20px",
+    },
   },
   skillList: {
     width:"100%",
+    height:"150px",
     display:'flex',
     justifyContent:'space-evenly',
     alignItems:'center',
   },
   skillIcon: {
-    width:"150px",
+    height: "100px",
     [theme.breakpoints.down('777')]: {
-      width:"80px",
+      height:"90px",
      },
   },
   skillIconSmall: {
-    width:"120px",
+    width:"100px",
     [theme.breakpoints.down('777')]: {
-      width:"75px",
+      width:"70px",
      },
   },
   skillIconHeroku: {
-    height:"120px",
+    height:"100px",
     [theme.breakpoints.down('777')]: {
-      height:"75px",
+      height:"90px",
      },
   },
 }))
@@ -129,23 +179,23 @@ function Member(props) {
   return (
     <>
         {/*ここにメンバーをmapで全て入れ込みたい*/}
-      <Grid item sm={4} container>
-        <Grid item sm={5} xs={4} className={classes.memberAvatarPosition}>
+      <Grid item xs={4} container>
+        <Grid item sm={5} xs={12} className={classes.memberAvatarPosition}>
           <Avatar alt={member.name} src={member.avatar} className={classes.memberAvatar} />
         </Grid>
-        <Grid item sm={7} xs={8}>
+        <Grid item sm={7} xs={12}>
           <Box className={classes.memberList}>
-            <Typography variant="body1" noWrap gutterBottom>
+            <Typography variant="body2" gutterBottom className={classes.memberPositionBox} >
               {member.position}
             </Typography>
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="body1" gutterBottom noWrap style={{textAlign: "center"}} >
               {member.name}
             </Typography>
             <button
               onClick={() => {handleClickOpen(index)}}
               className={classes.moreButton}>
               more 
-              <ExpandMoreIcon style={{float:"right"}}/>
+              <ExpandMoreIcon className={classes.moreButtonIcon} />
             </button>
           </Box>
         </Grid>
@@ -165,10 +215,11 @@ const members = [
     github: 'https://github.com/yamagai',
     homepage: 'http://portfolio-kohei.herokuapp.com/',
     wantedly: 'https://www.wantedly.com/id/yamamoto_kohei_b',
+    midashi: '意気込みをひとこと',
   },
   { 
     position: 'Backend Engineer',
-    university: '京都造形大学',
+    university: '京都大学',
     name: '住江 祐哉',
     description: 'パフォーマンス・チューナー。満島ひかりが好き。',
     avatar: '/avatar_yuya.png',
@@ -176,6 +227,15 @@ const members = [
     github: 'https://github.com/MONAKA0721',
     homepage: 'https://monaka0721.github.io/portfolio/#/',
     wantedly: 'https://www.wantedly.com/id/monaka0721',
+    midashi: '「全知全能になる」',
+    ikigomi: `1997年奈良産まれ奈良好き。
+              京都大学大学院情報学研究科在学中。
+              来年からは toB SaaS 企業に行きます。 
+              電脳コイルの世界に憧れプログラミングに興味を持ち始めました。 
+              Golang, Ruby, Python などでバックエンドの開発を主に行っていますが、ハッカソン等ではフロントを書くこともしばしばあります。 
+              パフォーマンス・チューニングが好きで社会人になってからもその領域で活躍したいと思っています。ISUCON は10・11に参加しました。 
+              趣味は旅行とスノボとスマブラ。一生満島ひかりが好き。 
+              すべてをバランスよくこなしていきたいです。`,
   },
   { 
     position: 'Planner',
@@ -184,12 +244,53 @@ const members = [
     name: '中林 健人',
     description: '京都大学中退。現在早稲田大学在学兼ノマドカフェNOPAY代表。',
     twitter: 'https://twitter.com/bayashi0314',
+    midashi: '意気込みをひとこと',
+    ikigomi: `bambooooのファンです！って誰かに言ってもらえるようなチームにするど！！`,
   },
   { 
     position: 'Designer',
     name: '松田 まり',
     avatar: '/avatar_mari.png',
-    description: 'スーパーデザイナー。左利きの風呂嫌い。',
+    tumblr: 'https://i-eveing.tumblr.com/',
+    midashi: '昨日より多く気づけたもの勝ち',
+    ikigomi: `京都嵯峨美術大学卒。
+              健康食品会社でグラフィックデザイナー、アートディレクターとして経験した後、京都のデザイン会社に入社。
+              紙、パッケージ、グッズ、動画…なんでもデザインすること、作ることが好き。
+              最近はWebデザインを勉強中です！
+              妹の彼氏に巻き込まれて、いつの間にかbambooooのメンバーになってました。
+              毎日の生活で起こること、他人や自分の行動に何か気づこうとしたり、発見しようとする気持ちを大切にしていきたいです。`,
+  },
+  {
+    position: 'Frontend Engineer',
+    name: '髙木 公太郎',
+    avatar: 'takoyarou_icon.png',
+    twitter: 'https://twitter.com/takoyarou_VRC',
+    midashi: '「我が道を往く」',
+    ikigomi: `北海道札幌市在住。
+              2005年1月10日生まれ。
+              プログラミング、最先端の技術が大好物な学生です。運命の糸に引かれてbambooooに入ってきました。
+              自分のやりたいことを見失うことがないように、自分に正直な自分でいることをモットーにしています。
+              最年少のメンバーだからこそ、人一倍頑張ります。`,
+  },
+  {
+    position: 'Frontend Engineer',
+    name: '北村 拓也',
+    avatar: 'kittan_icon.jpg',
+    github: 'https://github.com/kittan13',
+    midashi: '意気込みをひとこと',
+    ikigomi: `2002年京都府に生まれ、4度の引っ越しを経験し現在京都府に戻ってきました。
+              龍谷大学先端理工学部電子情報通信学科在学中。
+              さまざまな環境でさまざまな人と出会い、いろいろな経験、活動を行ってきました。
+              その中で将来的に仕事に就きたいなと思ったのがプログラミングでした。
+              プログラミングでの活動、実績はまだ全然ですがフロントエンドエンジニアとして少しずつ勉強をしていけたらと思ってます。`,
+  },
+  {
+    position: 'Frontend Engineer',
+    name: '藤本 源',
+    avatar: 'avatar_gen.jpg',
+    twitter: '',
+    midashi: '人生はギャンブル',
+    ikigomi: '人生はギャンブル',
   },
 ];
 
@@ -261,194 +362,206 @@ export default function Members() {
   return (
     <Box className={classes.mainDiv}>
       <Box className={classes.mainContainer}>
-        <Box className={classes.memberContainer}>
-          <Box pt="50px" pb="30px" ml="10px">
-            <Typography variant="h4" style={{fontFamily: "Corporate-Logo-Medium-ver2"}}>
-              <span style={{color:"#00837D", fontWeight:"900"}}>|</span>  Member
-            </Typography>
-          </Box>
+        <Box className={classes.shadowBox} >
+          <Box className={classes.memberContainer}>
+            <Box pt="50px" pb="30px">
+              <Typography className={classes.title} >
+                <span style={{color:"#77C0BD", fontWeight:"900"}}>|</span>  Member
+              </Typography>
+            </Box>
 
-          <Grid container spacing={4}>    
-            {members.map((member, index) => (
-              <Member key={member.name} member={member} index={index} handleClickOpen={handleClickOpen}/> 
-            ))}
-          </Grid>
-
-          {/*以下ダイアログ部分*/}
-          <Dialog open={open} onClose={handleClose} >
-            <div style={{width: '350px'}}>
-              <Box mt="40px">
-              <Grid container >
-                <Grid item xs={3} sm={4}>
-                    <Avatar alt={openMember.name} src={openMember.avatar} className={classes.dialogAvatar} />
-                </Grid>
-                <Grid item xs={9} sm={8}>
-                  <Box className={classes.dialogMemberList}>
-                    <Typography variant="body1" >
-                      {openMember.position}
-                    </Typography>
-                    <Typography variant="h6" >
-                      {openMember.name}
-                    </Typography>
-
-                    <Box display="flex" alignItems="center">
-                      {openMember.twitter && (
-                      <Box mr={0.5}>
-                        <a href={openMember.twitter} target="_blank">
-                          <TwitterIcon style={{ color: blue[300] }}/>
-                        </a>
-                      </Box>
-                      )}
-                      {openMember.github && (
-                        <Box mx={0.5}>
-                          <a href={openMember.github} target="_blank">
-                            <GitHubIcon style={{ color: "black", }}/>
-                          </a>
-                        </Box>
-                      )}
-                      {openMember.homepage && (
-                        <Box mx={0.5}>
-                          <a href={openMember.homepage} target="_blank">
-                            <HomeIcon style={{ color: "black", }}/>
-                          </a>
-                        </Box>
-                      )}
-                      {openMember.wantedly && (
-                        <Box>
-                          <a href={openMember.wantedly} target="_blank">
-                            <img
-                              src="/wantedly_mark.png"
-                              width={30}
-                            />
-                          </a>
-                        </Box>
-                      )}
-                      {openMember.instagram && (
-                        <Box>
-                          <a href={openMember.instagram} target="_blank">
-                            <InstagramIcon style={{ color: "black", }}/>
-                          </a>
-                        </Box>
-                      )}
-                    </Box>
-                  </Box>
-                </Grid>
-                  <Box mt="20px" mb="30px" pl="20px" pr="20px">
-                    <Typography style={{color:"#26B8E5", fontSize:"25px", fontFamily: "Corporate-Logo-Medium-ver2"}} >意気込みをひとこと</Typography>
-                    <Typography variant="body1">{openMember.ikigomi}</Typography>
-                    {/* メンバーから一言欄いるなら
-                    <Typography>メンバーから一言</Typography>
-                    <Typography>{openMember.hitokoto}</Typography>*/}
-                  </Box>
-              </Grid>
-              </Box>
-              <Button 
-                className={classes.closeButton}
-                onClick={handleClose}>
-                <ClearIcon style={{color:"white"}} />
-              </Button>
-            </div>
-          </Dialog>
-        </Box>
-
-        {/*ここからskill部分*/}
-        <Box className={classes.skillContainer}>
-          <Box pt="50px" pb="30px" ml="10px">
-            <Typography variant="h4" style={{fontFamily: "Corporate-Logo-Medium-ver2"}}>
-              <span style={{color:"#00837D", fontWeight:"900"}}>|</span>  Skill
-            </Typography>
-          </Box>
-          <Box>
-            <Grid container>
-              {/* 一段目 */}
-              <Grid container item sm={5} xs={12}>
-                <Grid item xs={12}>
-                  <Typography >
-                    Frontend
-                  </Typography>
-                </Grid>
-                <Box className={classes.skillList}>
-                  <img src="/react.png" className={classes.skillIcon}/>
-                  <img src="/next.png" className={classes.skillIcon}/>
-                  <img src="vue.png" className={classes.skillIcon}/>
-                </Box>
-              </Grid>
-              <Grid item sm={2} />
-              <Grid item sm={5} xs={12}>
-                <Grid item xs={12}>
-                  <Typography >
-                    Backend
-                  </Typography>
-                </Grid>
-                <Box className={classes.skillList}>
-                  <img src="/rails.svg" className={classes.skillIcon} />
-                  <img src="/golang.png" className={classes.skillIcon}/>
-                </Box>
-              </Grid>
-
-              {/* 二段目 */}
-              <Grid container item sm={5} xs={12}>
-                <Grid item xs={12}>
-                  <Typography >
-                    Middleware
-                  </Typography>
-                </Grid>
-                <Box className={classes.skillList}>
-                  <img src="/mysql.png" className={classes.skillIcon} />
-                  <img src="/nginx.png" className={classes.skillIcon}/>
-                </Box>
-              </Grid>
-              <Grid item sm={2} />
-              <Grid item sm={5} xs={12}>
-                <Grid item xs={12}>
-                  <Typography >
-                    Infrastructure
-                  </Typography>
-                </Grid>
-                <Box className={classes.skillList}>
-                  <img src="/kubernetes.png" className={classes.skillIcon} />
-                </Box>
-              </Grid>
-
-              {/* 三段目 */}
-              <Grid container item sm={5} xs={12}>
-                <Grid item xs={12}>
-                  <Typography >
-                    Game Engine
-                  </Typography>
-                </Grid>
-                <Box className={classes.skillList}>
-                  <img src="/unity.png" className={classes.skillIcon} />
-                </Box>
-              </Grid>
-              <Grid item sm={2} />
-              <Grid item sm={5} xs={12}>
-                <Grid item xs={12}>
-                  <Typography >
-                    Others
-                  </Typography>
-                </Grid>
-                <Box className={classes.skillList}>
-                  <img src="/time4vps.png" className={classes.skillIconSmall} />
-                  <img src="/heroku.png" className={classes.skillIconHeroku} />
-                  <img src="/oci.png" className={classes.skillIconSmall} />
-                </Box>
-              </Grid>
-
-              {/* 四段目 */}
-              <Grid container item sm={6} xs={12}>
-                <Grid item xs={12}>
-                  <Typography >
-                    Communications
-                  </Typography>
-                </Grid>
-                <Box className={classes.skillList}>
-                  <img src="/slack.png" className={classes.skillIcon} />
-                  <img src="/notion.png" className={classes.skillIconSmall} />
-                  <img src="/growi.png" className={classes.skillIconSmall} />
-                </Box>
-              </Grid>
+            <Grid container spacing={4}>    
+              {members.map((member, index) => (
+                <Member key={member.name} member={member} index={index} handleClickOpen={handleClickOpen}/> 
+              ))}
             </Grid>
+
+            {/*以下ダイアログ部分*/}
+            <Dialog open={open} onClose={handleClose} >
+              <div className={classes.dialogSize} >
+                <Box mt="40px">
+                <Grid container >
+                  <Grid item xs={4}>
+                      <Avatar alt={openMember.name} src={openMember.avatar} className={classes.dialogAvatar} />
+                  </Grid>
+                  <Grid item xs={8}>
+                    <Box className={classes.dialogMemberList}>
+                      <Typography variant="body1" >
+                        {openMember.position}
+                      </Typography>
+                      <Typography variant="h6" >
+                        {openMember.name}
+                      </Typography>
+
+                      <Box display="flex" alignItems="center">
+                        {openMember.twitter && (
+                        <Box mr={0.5}>
+                          <a href={openMember.twitter} target="_blank">
+                            <TwitterIcon style={{ color: blue[300] }}/>
+                          </a>
+                        </Box>
+                        )}
+                        {openMember.github && (
+                          <Box mx={0.5}>
+                            <a href={openMember.github} target="_blank">
+                              <GitHubIcon style={{ color: "black", }}/>
+                            </a>
+                          </Box>
+                        )}
+                        {openMember.homepage && (
+                          <Box mx={0.5}>
+                            <a href={openMember.homepage} target="_blank">
+                              <HomeIcon style={{ color: "black", }}/>
+                            </a>
+                          </Box>
+                        )}
+                        {openMember.wantedly && (
+                          <Box>
+                            <a href={openMember.wantedly} target="_blank">
+                              <img
+                                src="/wantedly_mark.png"
+                                width={30}
+                              />
+                            </a>
+                          </Box>
+                        )}
+                        {openMember.instagram && (
+                          <Box>
+                            <a href={openMember.instagram} target="_blank">
+                              <InstagramIcon style={{ color: "black", }}/>
+                            </a>
+                          </Box>
+                        )}
+                        {openMember.tumblr && (
+                          <Box>
+                            <a href={openMember.tumblr} target="_blank">
+                              <img 
+                                src="tumblr_logo.png"
+                                width={25}
+                              />
+                            </a>
+                          </Box>
+                        )}
+                      </Box>
+                    </Box>
+                  </Grid>
+                    <Box mt="20px" mb="30px" pl="30px" pr="30px">
+                      <Typography style={{color:"#26B8E5", fontSize:"23px", fontFamily: "Corporate-Logo-Medium-ver2"}} >{openMember.midashi}</Typography>
+                      <Typography variant="body1" style={{whiteSpace: "pre-line"}} >{openMember.ikigomi}</Typography>
+                      {/* メンバーから一言欄いるなら
+                      <Typography>メンバーから一言</Typography>
+                      <Typography>{openMember.hitokoto}</Typography>*/}
+                    </Box>
+                </Grid>
+                </Box>
+                <Button 
+                  className={classes.closeButton}
+                  onClick={handleClose}>
+                  <ClearIcon style={{color:"white" }} />
+                </Button>
+              </div>
+            </Dialog>
+          </Box>
+
+          {/*ここからskill部分*/}
+          <Box className={classes.skillContainer}>
+            <Box pt="50px" pb="30px">
+              <Typography className={classes.title} >
+                <span style={{color:"#77C0BD", fontWeight:"900"}}>|</span>  Skill
+              </Typography>
+            </Box>
+            <Box>
+              <Grid container>
+                {/* 一段目 */}
+                <Grid container item sm={5} xs={12}>
+                  <Grid item xs={12}>
+                    <Typography >
+                      Frontend
+                    </Typography>
+                  </Grid>
+                  <Box className={classes.skillList}>
+                    <img src="/react.png" className={classes.skillIcon}/>
+                    <img src="/next.png" className={classes.skillIcon}/>
+                    <img src="vue.png" className={classes.skillIcon}/>
+                  </Box>
+                </Grid>
+                <Grid item sm={2} />
+                <Grid item sm={5} xs={12}>
+                  <Grid item xs={12}>
+                    <Typography >
+                      Backend
+                    </Typography>
+                  </Grid>
+                  <Box className={classes.skillList}>
+                    <img src="/rails.svg" className={classes.skillIcon} />
+                    <img src="/golang.png" className={classes.skillIcon}/>
+                  </Box>
+                </Grid>
+
+                {/* 二段目 */}
+                <Grid container item sm={5} xs={12}>
+                  <Grid item xs={12}>
+                    <Typography >
+                      Middleware
+                    </Typography>
+                  </Grid>
+                  <Box className={classes.skillList}>
+                    <img src="/mysql.png" className={classes.skillIcon} />
+                    <img src="/nginx.png" className={classes.skillIcon}/>
+                  </Box>
+                </Grid>
+                <Grid item sm={2} />
+                <Grid item sm={5} xs={12}>
+                  <Grid item xs={12}>
+                    <Typography >
+                      Infrastructure
+                    </Typography>
+                  </Grid>
+                  <Box className={classes.skillList}>
+                    <img src="/kubernetes.png" className={classes.skillIcon} />
+                  </Box>
+                </Grid>
+
+                {/* 三段目 */}
+                <Grid container item sm={5} xs={12}>
+                  <Grid item xs={12}>
+                    <Typography >
+                      Game Engine
+                    </Typography>
+                  </Grid>
+                  <Box className={classes.skillList}>
+                    <img src="/unity.png" className={classes.skillIcon} />
+                  </Box>
+                </Grid>
+                <Grid item sm={2} />
+                <Grid item sm={5} xs={12}>
+                  <Grid item xs={12}>
+                    <Typography >
+                      Others
+                    </Typography>
+                  </Grid>
+                  <Box className={classes.skillList}>
+                    <img src="/heroku.png" className={classes.skillIcon} />
+                    <img src="/oci.png" className={classes.skillIconSmall} />
+                    <img src="/time4vps.png" className={classes.skillIconSmall} />
+                  </Box>
+                </Grid>
+
+                {/* 四段目 */}
+                <Grid container item sm={6} xs={12}>
+                  <Grid item xs={12}>
+                    <Typography >
+                      Communications
+                    </Typography>
+                  </Grid>
+                  <Box className={classes.skillList}>
+                    <img src="/slack.png" className={classes.skillIcon} />
+                    <img src="/notion.png" className={classes.skillIconSmall} />
+                    <img src="/growi.png" className={classes.skillIconSmall} />
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
           </Box>
         </Box>
       </Box>
