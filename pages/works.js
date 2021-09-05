@@ -110,7 +110,7 @@ function Work(props) {
   return (
     <Grid item container xs={12}  display= "flex" >
       <Grid item className={classes.content}>
-       
+       <Box display="flex">
         {work.image ? (
           <Paper>
           <img
@@ -131,21 +131,21 @@ function Work(props) {
           </Box>
         )}
         <Paper>
-        <Typography gutterBottom variant="h4" component="h2">
+         <Typography gutterBottom variant="h4" component="h2">
           {work.name}
-        </Typography>
-        <Typography variant="body1" color="textSecondary" component="p">
+         </Typography>
+         <Typography variant="body1" color="textSecondary" component="p">
           {work.catchphrase}
-        </Typography>
-        <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description} >
+         </Typography>
+         <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description} >
           {work.description}
-        </Typography>
-        {work.url && (
+         </Typography>
+         {work.url && (
           <Box my={1}>
             <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
           </Box>
-        )}
-        {(work.appleUrl || work.googleUrl) &&(
+         )}
+         {(work.appleUrl || work.googleUrl) &&(
           <Box display="flex" alignItems="center"> 
             {work.appleUrl && (
               <Box>
@@ -169,8 +169,9 @@ function Work(props) {
               </Box>
             )}
           </Box>
-        )}
-       </Paper>
+         )}
+        </Paper>
+       </Box>
       </Grid>
     </Grid>
   )
