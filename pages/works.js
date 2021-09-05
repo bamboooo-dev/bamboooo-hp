@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     flexFlow:'column',
     justifyContent:'sapce-around',
     alignItems:'center',
+    padding:50,
   },
   media: {
     borderWidth: 1,
@@ -39,13 +40,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainContainer: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(30),
   },
   description: {
-    whiteSpace: "pre-line",
+
+/*これがないほうが改行は変かもしれないけどすっきりする
+    whiteSpace: "pre-line",*/
+
     lineHeight: 2,
     width: 400,
-    height: 280,
+    height: 170,
     display: 'flex',
   }
 }));
@@ -106,74 +110,70 @@ const works = [
 function Work(props) {
   const classes = useStyles();
   const { work } = props; 
-
   return (
-    <Grid item container xs={12}  display= "flex" >
-      <Grid item className={classes.content}>
-       <Box display="flex">
-        {work.image ? (
-          <Paper>
-          <img
-            src={work.image}
-            alt={work.alt}
-            className={work.name=="ワイワイ" ? classes.mediaWaiwai : classes.media}
-          />
-          </Paper>
-        ):(
-          <Box
-            className={classes.media}
-            height={260}
-            mb={1}
-          >
-            <Typography variant="h4">
-              COMING SOON...
-            </Typography> 
-          </Box>
-        )}
-        <Paper>
-         <Typography gutterBottom variant="h4" component="h2">
-          {work.name}
-         </Typography>
-         <Typography variant="body1" color="textSecondary" component="p">
-          {work.catchphrase}
-         </Typography>
-         <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description} >
-          {work.description}
-         </Typography>
-         {work.url && (
-          <Box my={1}>
-            <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
-          </Box>
-         )}
-         {(work.appleUrl || work.googleUrl) &&(
-          <Box display="flex" alignItems="center"> 
-            {work.appleUrl && (
-              <Box>
-                <a href={work.appleUrl} target="_blank">
-                  <img
-                    src="/app-store-badge.png"
-                    alt="App Store Badge"
-                  />
-                </a>
+      <Grid item container xs={12} display="flex">
+        <Grid item className={classes.content}>
+          <Box display="flex">
+            {work.image ? (
+              <Paper>
+                <img
+                  src={work.image}
+                  alt={work.alt}
+                  className={work.name == "ワイワイ" ? classes.mediaWaiwai : classes.media} />
+              </Paper>
+            ) : (
+              <Box
+                className={classes.media}
+                height={260}
+                mb={1}
+              >
+                <Typography variant="h4">
+                  COMING SOON...
+                </Typography>
               </Box>
             )}
-            {work.googleUrl && (
-              <Box>
-                <a href={work.googleUrl} target="_blank" >
-                  <img
-                    src="/google-play-badge.png"
-                    alt="Google Play Store Badge"
-                    height={60} 
-                  />
-                </a>
-              </Box>
-            )}
+            <Paper>
+              <Typography gutterBottom variant="h4" component="h2">
+                {work.name}
+              </Typography>
+              <Typography variant="body1" color="textSecondary" component="p">
+                {work.catchphrase}
+              </Typography>
+              <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
+                {work.description}
+              </Typography>
+              {work.url && (
+                <Box my={1}>
+                  <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
+                </Box>
+              )}
+              {(work.appleUrl || work.googleUrl) && (
+                <Box display="flex" alignItems="center">
+                  {work.appleUrl && (
+                    <Box>
+                      <a href={work.appleUrl} target="_blank">
+                        <img
+                          src="/app-store-badge.png"
+                          alt="App Store Badge" />
+                      </a>
+                    </Box>
+                  )}
+                  {work.googleUrl && (
+                    <Box>
+                      <a href={work.googleUrl} target="_blank">
+                        <img
+                          src="/google-play-badge.png"
+                          alt="Google Play Store Badge"
+                          height={60} />
+                      </a>
+                    </Box>
+                  )}
+                </Box>
+              )}
+            </Paper>
           </Box>
-         )}
-        </Paper>
-       </Box>
+        </Grid>
       </Grid>
-    </Grid>
   )
 }
 
