@@ -1,4 +1,4 @@
-import { FormHelperText } from '@material-ui/core';
+import { FormHelperText, Paper } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import grey from "@material-ui/core/colors/grey";
@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
+import paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -109,12 +110,15 @@ function Work(props) {
   return (
     <Grid item container xs={12}  display= "flex" >
       <Grid item className={classes.content}>
+       
         {work.image ? (
+          <Paper>
           <img
             src={work.image}
             alt={work.alt}
             className={work.name=="ワイワイ" ? classes.mediaWaiwai : classes.media}
           />
+          </Paper>
         ):(
           <Box
             className={classes.media}
@@ -126,13 +130,14 @@ function Work(props) {
             </Typography> 
           </Box>
         )}
+        <Paper>
         <Typography gutterBottom variant="h4" component="h2">
           {work.name}
         </Typography>
         <Typography variant="body1" color="textSecondary" component="p">
           {work.catchphrase}
         </Typography>
-        <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
+        <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description} >
           {work.description}
         </Typography>
         {work.url && (
@@ -141,7 +146,7 @@ function Work(props) {
           </Box>
         )}
         {(work.appleUrl || work.googleUrl) &&(
-          <Box>
+          <Box display="flex" alignItems="center"> 
             {work.appleUrl && (
               <Box>
                 <a href={work.appleUrl} target="_blank">
@@ -154,17 +159,18 @@ function Work(props) {
             )}
             {work.googleUrl && (
               <Box>
-                <a href={work.googleUrl} target="_blank">
+                <a href={work.googleUrl} target="_blank" >
                   <img
                     src="/google-play-badge.png"
                     alt="Google Play Store Badge"
-                    height={60}
+                    height={60} 
                   />
                 </a>
               </Box>
             )}
           </Box>
         )}
+       </Paper>
       </Grid>
     </Grid>
   )
