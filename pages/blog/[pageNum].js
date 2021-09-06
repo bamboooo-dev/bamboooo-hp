@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(10),
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
-    boxShadow: '0 1px 5px 0 rgba(0, 0, 0, .3)',
+    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, .3)',
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 40,
@@ -38,12 +38,12 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '90%',
     },
   },
-  titleTypgraphy:{
+  titleTypgraphy: {
     [theme.breakpoints.up(777)]: {
       minHeight: 128,
     },
   },
-  postBox:{
+  postBox: {
     [theme.breakpoints.down(777)]: {
       marginBottom: 100,
     },

@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   whiteBox: {
     backgroundColor: 'white',
     backgroundImage: 'url(/history_background.png)',
-    boxShadow: '0 1px 5px 0 rgba(0, 0, 0, .3)',
+    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, .3)',
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 10,

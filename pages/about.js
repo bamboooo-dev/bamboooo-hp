@@ -24,27 +24,32 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: 'url(/about_cover.png)',
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down('sm')]: {
+      backgroundImage: 'url(/about_cover_sp.png)',
+    },
   },
   innerBox: {
     maxWidth: '1000px',
     margin: '0 auto',
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '50vw',
+    },
   },
   whiteBox: {
     backgroundColor: 'white',
-    boxShadow: '0 1px 5px 0 rgba(0, 0, 0, .3)',
+    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, .3)',
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
-      paddingLeft: 10,
-      paddingRight: 10,
-      paddingTop: 40,
+      paddingTop: 20,
       maxWidth: '90%',
     },
   },
   visionBox: {
     [theme.breakpoints.down(777)]: {
-      paddingLeft: 10,
-      paddingRight: 10,
+      paddingLeft: 20,
+      paddingRight: 20,
       paddingTop: 0,
+      paddingBottom: 30,
     },
   },
   sectionBox: {
@@ -56,16 +61,18 @@ const useStyles = makeStyles((theme) => ({
   missionBox: {
     backgroundColor: '#F6FAF0',
     [theme.breakpoints.down(777)]: {
-      paddingLeft: 10,
-      paddingRight: 10,
-      paddingTop: 0,
+      paddingLeft: 20,
+      paddingRight: 20,
+      paddingTop: 20,
+      paddingBottom: 30,
     },
   },
   philosophyBox: {
     [theme.breakpoints.down(777)]: {
-      paddingLeft: 10,
-      paddingRight: 10,
-      paddingTop: 0,
+      paddingLeft: 20,
+      paddingRight: 20,
+      paddingTop: 20,
+      paddingBottom: 30,
     },
   },
   number: {
@@ -84,9 +91,9 @@ const useStyles = makeStyles((theme) => ({
     left: 130,
     display: 'inline',
     [theme.breakpoints.down(777)]: {
-      top: 48,
+      top: 62,
       left: 65,
-      fontSize: 40,
+      fontSize: 24,
     },
   },
   diagonalLine: {
@@ -99,13 +106,35 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(777)]: {
       width: 60,
       height: 60,
-      top: -20,
-      left: 32,
+      top: 0,
+      left: 37,
       backgroundImage: 'linear-gradient(to right bottom, transparent 49%, black 49%, black 51%, transparent 51%)',
     },
   },
   catchphrase: {
     fontFamily: "Corporate-Logo-Medium-ver2",
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 18,
+    },
+  },
+  description: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 12,
+      lineHeight: '25px',
+    },
+  },
+  mission2Container: {
+    marginTop: 100,
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 50,
+    },
+  },
+  philosophyImg: {
+    objectFit: "contain",
+    maxWidth: 300,
+    [theme.breakpoints.down('sm')]: {
+      width: '60%',
+    },
   },
 }));
 
@@ -139,10 +168,10 @@ export default function About() {
               <Box className={classes.diagonalLine}/>
             </Box>
             <Grid container item xs={12} alignItems="center">
-              <Grid container justify="center" item xs={3}>
+              <Grid container justify="center" item xs={5} sm={3}>
                 <img src='/vision_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase}>
                   ユーザーから愛されること
                 </Typography>
@@ -161,28 +190,28 @@ export default function About() {
               <Box className={classes.diagonalLine}/>
             </Box>
             <Grid container item xs={12} alignItems="center">
-              <Grid container justify="center" item xs={3}>
+              <Grid container justify="center" item xs={5} sm={3}>
                 <img src='/mission_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
                   人々を笑顔に
                 </Typography>
-                <Typography>
+                <Typography className={classes.description}>
                   エンターテインメントとは、「人生を色付け、より豊かにするもの」だと考えています。
                   人々に生きる楽しみや一歩踏み出すきっかけを与えるサービスを作ることが我々の使命です
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item xs={12} alignItems="center" style={{marginTop: 100}}>
-              <Grid container justify="center" item xs={3}>
+            <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
+              <Grid container justify="center" item xs={5} sm={3}>
                 <img src='/mission_2.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
                   社会の効率化を
                 </Typography>
-                <Typography>
+                <Typography className={classes.description}>
                   効率化には様々な手段があります。
                   その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
                 </Typography>
@@ -201,41 +230,41 @@ export default function About() {
               <Box className={classes.diagonalLine}/>
             </Box>
             <Grid container item xs={12} alignItems="center">
-              <Grid container justify="center" item xs={3}>
-                <img src='/philosophy_1.png' width="50%" style={{objectFit: "contain", maxWidth: 300 }} />
+              <Grid container justify="center" item xs={5} sm={3}>
+                <img src='/philosophy_1.png' width="50%" className={classes.philosophyImg} />
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
                   新しいエンタメを届ける
                 </Typography>
-                <Typography>
+                <Typography className={classes.description}>
                   効率化には様々な手段があります。
                   その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item xs={12} alignItems="center" style={{marginTop: 100}}>
-              <Grid container justify="center" item xs={3}>
-                <img src='/philosophy_2.png' width="50%" style={{objectFit: "contain", maxWidth: 300 }} />
+            <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
+              <Grid container justify="center" item xs={5} sm={3}>
+                <img src='/philosophy_2.png' width="50%" className={classes.philosophyImg} />
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
                   やりたいことをやりたいだけ
                 </Typography>
-                <Typography>
+                <Typography className={classes.description}>
                   各々がしたいことを尊重し、『やりたいことをやりたいだけ』任せることで最高のサービスをつくり上げます。
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item xs={12} alignItems="center" style={{marginTop: 100}}>
-              <Grid container justify="center" item xs={3}>
-                <img src='/philosophy_3.png' width="50%" style={{objectFit: "contain", maxWidth: 300 }} />
+            <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
+              <Grid container justify="center" item xs={5} sm={3}>
+                <img src='/philosophy_3.png' width="50%" className={classes.philosophyImg} />
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
                   ユーザーとともに
                 </Typography>
-                <Typography>
+                <Typography className={classes.description}>
                   ユーザーの意見を積極的に取り入れ、サービスを『ユーザーとともに』つくっていきます。
                 </Typography>
               </Grid>
