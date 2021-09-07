@@ -464,7 +464,7 @@ export default function Members() {
                   </Grid>
                     <Box mt="20px" mb="30px" pl="30px" pr="30px">
                       {/*{openMember.imageColor}を組み込みたいけどなんかできひん*/}
-                      <Typography style={{color:openMember.imageColor, fontSize:"23px", fontFamily: "Corporate-Logo-Medium-ver2"}} >{openMember.midashi}</Typography>
+                      <Typography style={{color:"#19807B", fontSize:"23px", fontFamily: "Corporate-Logo-Medium-ver2"}} >{openMember.midashi}</Typography>
                       <Typography variant="body1" style={{whiteSpace: "pre-line"}} >{openMember.ikigomi}</Typography>
                       {/* メンバーから一言欄いるなら
                       <Typography>メンバーから一言</Typography>
