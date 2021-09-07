@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   shadowBox: {
-    boxShadow: "0 0 4px rgba(0,0,0,0.3)",
+    boxShadow: "0 1px 3px 0 rgba(0, 0, 0, .3)",
     marginBottom: "100px",
     [theme.breakpoints.down('777')]: {
       marginBottom: "50px",
@@ -82,7 +82,8 @@ const useStyles = makeStyles((theme) => ({
   memberPositionBox: {
     textAlign: "center",
     [theme.breakpoints.down('777')]: {
-      height: "35px",
+      lineHeight: "16px",
+      height: "30px",
       display:'flex',
       alignItems:'center',
     },
@@ -164,19 +165,19 @@ const useStyles = makeStyles((theme) => ({
   skillIcon: {
     height: "100px",
     [theme.breakpoints.down('777')]: {
-      height:"80px",
+      height:"65px",
      },
   },
   skillIconSmall: {
     width:"100px",
     [theme.breakpoints.down('777')]: {
-      width:"70px",
+      width:"60px",
      },
   },
   skillIconHeroku: {
     height:"100px",
     [theme.breakpoints.down('777')]: {
-      height:"90px",
+      height:"65px",
      },
   },
 }))
@@ -463,7 +464,7 @@ export default function Members() {
                   </Grid>
                     <Box mt="20px" mb="30px" pl="30px" pr="30px">
                       {/*{openMember.imageColor}を組み込みたいけどなんかできひん*/}
-                      <Typography style={{color:"green", fontSize:"23px", fontFamily: "Corporate-Logo-Medium-ver2"}} >{openMember.midashi}</Typography>
+                      <Typography style={{color:openMember.imageColor, fontSize:"23px", fontFamily: "Corporate-Logo-Medium-ver2"}} >{openMember.midashi}</Typography>
                       <Typography variant="body1" style={{whiteSpace: "pre-line"}} >{openMember.ikigomi}</Typography>
                       {/* メンバーから一言欄いるなら
                       <Typography>メンバーから一言</Typography>
