@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {
     marginTop: theme.spacing(5),
+    /*
+    position:'auto',
+    ここらへんの位置をかえればいい感じになると思う*/
   },
   description: {
 
@@ -127,6 +130,7 @@ function Work(props) {
   const classes = useStyles();
   const { work } = props; 
   return (
+    <>
     <Grid item container xs={12} display="flex" >
         <Grid item className={classes.content}>
           <Box display="flex">
@@ -190,6 +194,7 @@ function Work(props) {
           </Box>
         </Grid>
     </Grid>
+    </>
   )
 }
 
@@ -199,7 +204,7 @@ export default function Works() {
   return (
     <>
     <Header />
-    <Grid>
+    <Paper>
     <Container className={classes.mainContainer} >
       <Grid container spacing={4} >
         {works.map((work) => (
@@ -207,7 +212,7 @@ export default function Works() {
         ))}
       </Grid> 
     </Container>
-    </Grid>
+    </Paper>
     </>
   )
 }
