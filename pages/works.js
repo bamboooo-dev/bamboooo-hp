@@ -10,6 +10,12 @@ import React from 'react';
 import paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
+  header:{
+    width:'100%',
+    paddingLeft: '0',
+    paddingRight: '0',
+  },
+
   content: {
     width: '100%',
     display:'flex' ,
@@ -40,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainContainer: {
-    marginTop: theme.spacing(30),
+    marginTop: theme.spacing(5),
   },
   description: {
 
@@ -53,6 +59,15 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   }
 }));
+
+const Header=() =>{
+  const classes = useStyles();
+  
+  return(
+    <img src='/header.png' className={classes.header}/>
+  )
+}
+
 
 const works = [
   { 
@@ -111,16 +126,16 @@ function Work(props) {
   const classes = useStyles();
   const { work } = props; 
   return (
-      <Grid item container xs={12} display="flex">
+    <Grid item container xs={12} display="flex" >
         <Grid item className={classes.content}>
           <Box display="flex">
             {work.image ? (
-              <Paper>
+              <Box>
                 <img
                   src={work.image}
                   alt={work.alt}
                   className={work.name == "ワイワイ" ? classes.mediaWaiwai : classes.media} />
-              </Paper>
+              </Box>
             ) : (
               <Box
                 className={classes.media}
@@ -132,7 +147,7 @@ function Work(props) {
                 </Typography>
               </Box>
             )}
-            <Paper>
+            <Box>
               <Typography gutterBottom variant="h4" component="h2">
                 {work.name}
               </Typography>
@@ -170,10 +185,10 @@ function Work(props) {
                   )}
                 </Box>
               )}
-            </Paper>
+            </Box>
           </Box>
         </Grid>
-      </Grid>
+    </Grid>
   )
 }
 
@@ -181,13 +196,16 @@ export default function Works() {
   const classes = useStyles();
 
   return (
+    <>
+    <Header />
     <Container className={classes.mainContainer} >
       <Grid container spacing={4} >
         {works.map((work) => (
           <Work key={work.name} work={work}/>
         ))}
-      </Grid>
+      </Grid> 
     </Container>
+    </>
   )
 }
 
