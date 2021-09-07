@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/member_top.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down('777')]: {
+      backgroundImage: "url(/member_topSP.png)",
+    },
   },
   mainContainer: {
     maxWidth:'1000px',
@@ -27,10 +30,11 @@ const useStyles = makeStyles((theme) => ({
     paddingTop:"25vw",
     [theme.breakpoints.down('777')]: {
       width:"90%",
+      paddingTop:"50vw",
     },
   },
   shadowBox: {
-    boxShadow: "0 0 8px rgba(0,0,0,0.3)",
+    boxShadow: "0 0 4px rgba(0,0,0,0.3)",
     marginBottom: "100px",
     [theme.breakpoints.down('777')]: {
       marginBottom: "50px",
@@ -78,22 +82,24 @@ const useStyles = makeStyles((theme) => ({
   memberPositionBox: {
     textAlign: "center",
     [theme.breakpoints.down('777')]: {
-      height: "40px",
+      height: "35px",
       display:'flex',
       alignItems:'center',
     },
   },
   moreButton:{
-    border:"1px solid grey",
+    border:"1px solid black",
     borderRadius:"20px",
     width:"80%",
     backgroundColor:"white",
-    fontSize:"18px",
+    fontSize:"14px",
     textAlign:'center',
-    paddingLeft:"30px",
+    paddingTop:"0px",
+    paddingLeft:"23px",
+    fontWeight:"100",
     [theme.breakpoints.down('777')]: {
       fontSize: "10px",
-      paddingLeft: "10px",
+      paddingLeft: "15px",
     },
     '&:hover': {
       opacity:"0.5",
@@ -102,8 +108,11 @@ const useStyles = makeStyles((theme) => ({
   },
   moreButtonIcon: {
     float:"right",
+    paddingTop:"3px",
+    fontSize:"15px",
     [theme.breakpoints.down('777')]: {
-    fontSize:"8px",
+      paddingTop:"2px",
+      fontSize:"10px",
     },
   },
   dialogSize: {
@@ -155,7 +164,7 @@ const useStyles = makeStyles((theme) => ({
   skillIcon: {
     height: "100px",
     [theme.breakpoints.down('777')]: {
-      height:"90px",
+      height:"80px",
      },
   },
   skillIconSmall: {
@@ -216,6 +225,7 @@ const members = [
     homepage: 'http://portfolio-kohei.herokuapp.com/',
     wantedly: 'https://www.wantedly.com/id/yamamoto_kohei_b',
     midashi: '意気込みをひとこと',
+    imageColor: '#CACACA',
   },
   { 
     position: 'Backend Engineer',
@@ -227,7 +237,7 @@ const members = [
     github: 'https://github.com/MONAKA0721',
     homepage: 'https://monaka0721.github.io/portfolio/#/',
     wantedly: 'https://www.wantedly.com/id/monaka0721',
-    midashi: '「全知全能になる」',
+    midashi: '全知全能になる',
     ikigomi: `1997年奈良産まれ奈良好き。
               京都大学大学院情報学研究科在学中。
               来年からは toB SaaS 企業に行きます。 
@@ -236,6 +246,7 @@ const members = [
               パフォーマンス・チューニングが好きで社会人になってからもその領域で活躍したいと思っています。ISUCON は10・11に参加しました。 
               趣味は旅行とスノボとスマブラ。一生満島ひかりが好き。 
               すべてをバランスよくこなしていきたいです。`,
+    imageColor: '#E1C04A',
   },
   { 
     position: 'Planner',
@@ -246,6 +257,7 @@ const members = [
     twitter: 'https://twitter.com/bayashi0314',
     midashi: '意気込みをひとこと',
     ikigomi: `bambooooのファンです！って誰かに言ってもらえるようなチームにするど！！`,
+    imageColor: '#38FED8',
   },
   { 
     position: 'Designer',
@@ -259,30 +271,33 @@ const members = [
               最近はWebデザインを勉強中です！
               妹の彼氏に巻き込まれて、いつの間にかbambooooのメンバーになってました。
               毎日の生活で起こること、他人や自分の行動に何か気づこうとしたり、発見しようとする気持ちを大切にしていきたいです。`,
+    imageColor: '#CABFDD',
   },
   {
     position: 'Frontend Engineer',
     name: '髙木 公太郎',
     avatar: 'takoyarou_icon.png',
     twitter: 'https://twitter.com/takoyarou_VRC',
-    midashi: '「我が道を往く」',
+    midashi: '我が道を往く',
     ikigomi: `北海道札幌市在住。
               2005年1月10日生まれ。
               プログラミング、最先端の技術が大好物な学生です。運命の糸に引かれてbambooooに入ってきました。
               自分のやりたいことを見失うことがないように、自分に正直な自分でいることをモットーにしています。
               最年少のメンバーだからこそ、人一倍頑張ります。`,
+    imageColor: '#9DC9FD',
   },
   {
     position: 'Frontend Engineer',
     name: '北村 拓也',
     avatar: 'kittan_icon.jpg',
     github: 'https://github.com/kittan13',
-    midashi: '意気込みをひとこと',
+    midashi: '多趣味な器用貧乏',
     ikigomi: `2002年京都府に生まれ、4度の引っ越しを経験し現在京都府に戻ってきました。
               龍谷大学先端理工学部電子情報通信学科在学中。
               さまざまな環境でさまざまな人と出会い、いろいろな経験、活動を行ってきました。
               その中で将来的に仕事に就きたいなと思ったのがプログラミングでした。
               プログラミングでの活動、実績はまだ全然ですがフロントエンドエンジニアとして少しずつ勉強をしていけたらと思ってます。`,
+    imageColor: '#4FDAF9',
   },
   {
     position: 'Frontend Engineer',
@@ -291,6 +306,7 @@ const members = [
     twitter: '',
     midashi: '人生はギャンブル',
     ikigomi: '人生はギャンブル',
+    imageColor: '#181B39',
   },
 ];
 
@@ -446,7 +462,8 @@ export default function Members() {
                     </Box>
                   </Grid>
                     <Box mt="20px" mb="30px" pl="30px" pr="30px">
-                      <Typography style={{color:"#26B8E5", fontSize:"23px", fontFamily: "Corporate-Logo-Medium-ver2"}} >{openMember.midashi}</Typography>
+                      {/*{openMember.imageColor}を組み込みたいけどなんかできひん*/}
+                      <Typography style={{color:"green", fontSize:"23px", fontFamily: "Corporate-Logo-Medium-ver2"}} >{openMember.midashi}</Typography>
                       <Typography variant="body1" style={{whiteSpace: "pre-line"}} >{openMember.ikigomi}</Typography>
                       {/* メンバーから一言欄いるなら
                       <Typography>メンバーから一言</Typography>
