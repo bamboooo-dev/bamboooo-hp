@@ -384,7 +384,7 @@ export default function Members() {
               <Typography className={classes.title} >
                 <span style={{color:"#77C0BD", fontWeight:"900"}}>|</span>  Member
               </Typography>
-            </Box>
+            </Box> 
 
             <Grid container spacing={4}>    
               {members.map((member, index) => (
