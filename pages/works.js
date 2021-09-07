@@ -117,8 +117,9 @@ const works = [
   },
   { 
     name: 'MESHIBUGYO',
-    catchphrase: '「きょう何食べよう？」を楽しく',
+    catchphrase: 'あなただけのサブカル発掘アプリ',
     alt: 'Picture of MESHIBUGYO',
+    description: 'あなただけのサブカルを見つけるには間違いなし！'
   },
 ];
 
@@ -198,6 +199,7 @@ export default function Works() {
   return (
     <>
     <Header />
+    <Grid>
     <Container className={classes.mainContainer} >
       <Grid container spacing={4} >
         {works.map((work) => (
@@ -205,6 +207,7 @@ export default function Works() {
         ))}
       </Grid> 
     </Container>
+    </Grid>
     </>
   )
 }
