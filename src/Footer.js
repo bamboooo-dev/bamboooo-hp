@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTypography: {
     fontFamily: "Corporate-Logo-Medium-ver2",
+    fontSize: 16,
   },
   gridContainer: {
     marginTop: 25,
@@ -32,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       marginLeft: 40,
       marginRight: 40,
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
     },
   },
   footer: {
