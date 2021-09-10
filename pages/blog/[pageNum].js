@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(10),
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
-    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, .3)',
+    boxShadow: '0 3px 5px 0 rgba(0, 0, 0, .1)',
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 40,

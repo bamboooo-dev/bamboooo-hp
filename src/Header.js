@@ -36,13 +36,14 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     width: 250,
+    marginBottom: 20,
   },
   listItemText: {
     textAlign: 'center',
   },
   listItemTextPrimary: {
     fontFamily: "Corporate-Logo-Medium-ver2",
-    fontSize: 24,
+    fontSize: 20,
   },
   iconLink: {
     color: 'inherit',
@@ -90,13 +91,13 @@ export default function Header(props) {
         </IconButton>
       </Toolbar>
       <Drawer anchor='right' open={open} onClose={toggleDrawer(false)} classes={{modal: classes.modal}}>
-        <Box pr='5px' style={{textAlign: 'right'}}>
+        <Box pr='15px' pt='10pt' style={{textAlign: 'right'}}>
           <IconButton
             color="inherit"
             aria-label="close drawer"
             onClick={toggleDrawer(false)}
           >
-            <CloseIcon style={{fontSize: '2rem'}} />
+            <CloseIcon style={{fontSize: '1.5rem'}} />
           </IconButton>
         </Box>
         <div
@@ -169,8 +170,8 @@ const CloseIcon = (props) => {
   return (
     <SvgIcon viewBox="0 0 39.507 41.743" {...props}>
       <g id="グループ_103" data-name="グループ 103" transform="translate(2.12 2.12)">
-        <line id="線_4" data-name="線 4" x2="35.266" y2="37.502" transform="translate(0)" fill="none" stroke="#19807B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
-        <line id="線_5" data-name="線 5" x1="35.266" y2="37.502" transform="translate(0)" fill="none" stroke="#19807B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+        <line id="線_4" data-name="線 4" x2="35.266" y2="37.502" transform="translate(0)" fill="none" stroke="#19807B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4"/>
+        <line id="線_5" data-name="線 5" x1="35.266" y2="37.502" transform="translate(0)" fill="none" stroke="#19807B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4"/>
       </g>
     </SvgIcon>
   )

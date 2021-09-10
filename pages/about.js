@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteBox: {
     backgroundColor: 'white',
-    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, .3)',
+    boxShadow: '0 3px 5px 0 rgba(0, 0, 0, .1)',
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingTop: 20,
@@ -132,8 +132,8 @@ const useStyles = makeStyles((theme) => ({
   philosophyImg: {
     objectFit: "contain",
     maxWidth: 300,
-    [theme.breakpoints.down('sm')]: {
-      width: '60%',
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
     },
   },
 }));
@@ -245,7 +245,7 @@ export default function About() {
             </Grid>
             <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/philosophy_2.png' width="50%" className={classes.philosophyImg} />
+                <img src='/philosophy_2.png' width="60%" className={classes.philosophyImg} />
               </Grid>
               <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>
@@ -258,7 +258,7 @@ export default function About() {
             </Grid>
             <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/philosophy_3.png' width="50%" className={classes.philosophyImg} />
+                <img src='/philosophy_3.png' width="65%" className={classes.philosophyImg} />
               </Grid>
               <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase} gutterBottom>

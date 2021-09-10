@@ -4,10 +4,10 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export const lightTheme = createMuiTheme({
   typography: {
     fontFamily: [
+      '"Hiragino Kaku Gothic ProN"',
+      '"Hiragino Sans"',
       '"Helvetica Neue"',
       '"Helvetica"',
-      '"Hiragino Sans"',
-      '"Hiragino Kaku Gothic ProN"',
       '"Arial"',
       '"Yu Gothic"',
       '"Meiryo"',

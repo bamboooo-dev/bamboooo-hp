@@ -12,7 +12,15 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 20,
     [theme.breakpoints.down('sm')]: {
       fontSize: 24,
+      border: 'none',
+      paddingLeft: 15,
+    },
+  },
+  headlineBox: {
+    [theme.breakpoints.down('sm')]: {
       borderLeft: '3px solid #76B3AF',
+      height: 28,
+      boxSizing: 'border-box',
     },
   },
   innerBox: {
@@ -34,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   whiteBox: {
     backgroundColor: 'white',
     backgroundImage: 'url(/history_background.png)',
-    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, .3)',
+    boxShadow: '0 3px 5px 0 rgba(0, 0, 0, .1)',
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 20,
@@ -131,14 +139,14 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid #c7c7c7',
     borderRadius: '7px',
     objectFit: 'contain',
-    height: '130px',
+    width: '206px',
   },
   bambooText: {
     paddingTop: '100px',
     [theme.breakpoints.down(777)]: {
       paddingTop: 20,
       paddingLeft: 20,
-      borderBottom: '1px solid #c7c7c785',
+      // borderBottom: '1px solid #c7c7c785',
     },
   },
   bambooDescription: {
@@ -146,24 +154,27 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(777)]: {
       fontSize: '0.75rem',
       whiteSpace: 'normal',
+      lineHeight: '1.5rem',
     },
   },
   eventsBox: {
     [theme.breakpoints.down(777)]: {
-      marginTop: 30,
+      marginTop: 80,
     },
   },
   date: {
     [theme.breakpoints.down(777)]: {
-      fontSize: '1.25rem',
+      fontSize: '1rem',
       color: '#1D6E69',
+      fontWeight: 600,
     },
   },
   description: {
     whiteSpace: 'pre-line',
     [theme.breakpoints.down('sm')]: {
       fontSize: 14,
-      marginTop: 30,
+      marginTop: 58,
+      lineHeight: '25px',
     },
   },
 }));
@@ -172,7 +183,7 @@ const events = [
   {
     date: '2021年 4月',
     content: "パーティゲーム『ワイワイ』\nリリース",
-    img: '/waiwai.png',
+    img: '/waiwai_history.png',
   },
   {
     date: '2021年 1月',
@@ -193,12 +204,12 @@ const events = [
   {
     date: '2020年 9月',
     content: "旅行の思い出共有サイト『memopic』\nリリース",
-    img: '/memopic.png',
+    img: '/memopic_history.png',
   },
   {
     date: '2019年 12月',
     content: "旅行プラン共有サイト『Memorip』\nリリース",
-    img: '/memorip.png',
+    img: '/memorip_history.png',
   },
   {
     date: '2019年 3月',
@@ -215,9 +226,11 @@ export default function History() {
     <Box className={classes.coverBox}>
       <Box className={classes.innerBox} display="flex" justifyContent="center">
         <Box p={10} className={classes.whiteBox}>
-          <Typography variant="h3" className={classes.headline} gutterBottom>
-            bamboooo のこれまでとこれから
-          </Typography>
+          <Box className={classes.headlineBox}>
+            <Typography variant="h3" className={classes.headline} gutterBottom>
+              bamboooo のこれまでとこれから
+            </Typography>
+          </Box>
           <Typography variant="h6" className={classes.description}>
           {`「みんなを笑顔にする」。
 小さい頃から抱いていた長年の夢を実現させたい、その想いで2019年2人の学生によって bamboooo の活動は始まりました。
@@ -264,7 +277,7 @@ const EventSP = (props) => {
             </div>
           </Grid>
           <Grid item xs={10} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={event.img} className={classes.bambooImageSP} style={ event.img=="/waiwai.png" ? { border: 'none' } : {} } />
+            <img src={event.img} className={classes.bambooImageSP} style={ event.img=="/waiwai_history.png" ? { border: 'none' } : {} } />
           </Grid> 
         </>
       )}
