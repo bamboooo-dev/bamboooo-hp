@@ -8,7 +8,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Toolbar from '@material-ui/core/Toolbar';
-import CloseIcon from '@material-ui/icons/Close';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useRouter } from 'next/router';
@@ -97,7 +96,7 @@ export default function Header(props) {
             aria-label="close drawer"
             onClick={toggleDrawer(false)}
           >
-            <CloseIcon style={{fontSize: '4rem', color: '#19807B'}} />
+            <CloseIcon style={{fontSize: '2rem'}} />
           </IconButton>
         </Box>
         <div
@@ -161,6 +160,17 @@ const MenuIcon = (props) => {
           <line id="線_2" data-name="線 2" x2="25.549" transform="translate(8.985 12.954)" fill="none" stroke="#fff" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="3"/>
           <line id="線_3" data-name="線 3" x2="25.549" transform="translate(8.985 20.608)" fill="none" stroke="#fff" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="3"/>
         </g>
+      </g>
+    </SvgIcon>
+  )
+}
+
+const CloseIcon = (props) => {
+  return (
+    <SvgIcon viewBox="0 0 39.507 41.743" {...props}>
+      <g id="グループ_103" data-name="グループ 103" transform="translate(2.12 2.12)">
+        <line id="線_4" data-name="線 4" x2="35.266" y2="37.502" transform="translate(0)" fill="none" stroke="#19807B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+        <line id="線_5" data-name="線 5" x1="35.266" y2="37.502" transform="translate(0)" fill="none" stroke="#19807B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
       </g>
     </SvgIcon>
   )
