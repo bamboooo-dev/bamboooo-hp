@@ -52,80 +52,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   bambooSection: {
-    width: '90px',
-    height: '300px',
-    position: 'relative',
-    marginTop: '-40px',
     marginLeft: 'auto',
     marginRight: 'auto',
-    [theme.breakpoints.down(777)]: {
-      width: '45px',
-      height: '200px',
-      marginTop: '-55px',
-    },
-  },
-  bambooSectionTop: {
-    width: '130%',
-    height: '30%',
-    backgroundColor: 'white', 
-    borderRadius: '50%',
-    position: 'relative',
-    left: '-15%',
-    zIndex: 1,
-  },
-  bambooSectionTopFirst: {
-    width: '100%',
-    height: '25%',
-    backgroundColor: '#1D6E69', 
-    borderRadius: '15% 85% 15% 85% / 15% 85% 15% 85% ',
-    position: 'relative',
-    border: '3px solid white',
-    top: '20%',
-    zIndex: 1,
-  },
-  bambooSectionTopFirstInner: {
-    width: '86%',
-    height: '86%',
-    backgroundColor: '#64A5A0', 
-    borderRadius: '15% 85% 15% 85% / 15% 85% 15% 85% ',
-    position: 'absolute',
-    top: '7%',
-    left: '7%',
-    zIndex: 2,
-  },
-  bambooSectionBody: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#1D6E69', 
-    borderRadius: '0 0 50% 50% / 0 0 calc(900% / 120) calc(900% / 120)',
-    position: 'absolute',
-    top: '15%',
-    zIndex: 0,
-    [theme.breakpoints.down(777)]: {
-      top: 0,
-    },
-  },
-  bambooSectionBodyFirst: {
-    width: '100%',
-    height: '88%',
-    backgroundColor: '#1D6E69', 
-    borderRadius: '0 100% 50% 50% / 0 20% calc(900% / 100) calc(900% / 100)',
-    position: 'absolute',
-    top: '27%',
-    zIndex: 0,
-    [theme.breakpoints.down(777)]: {
-      height: '70%',
-      top: '30%',
+    marginTop: '-15px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '-8px',
     },
   },
   bambooImageBox: {
-    paddingTop: '80px',
     paddingRight: '50px',
-    textAlign: 'right',
-    [theme.breakpoints.down(777)]: {
-      paddingRight: 0,
-      paddingTop: 30,
-    },
+    justifyContent: 'flex-end',
+    display: 'flex',
+    alignItems: 'center',
   },
   bambooImage: {
     border: '1px solid #c7c7c7',
@@ -139,14 +77,15 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid #c7c7c7',
     borderRadius: '7px',
     objectFit: 'contain',
-    width: '206px',
+    width: '130px',
   },
   bambooText: {
-    paddingTop: '100px',
+    display: 'flex',
+    alignItems: 'center',
     [theme.breakpoints.down(777)]: {
-      paddingTop: 20,
+      paddingTop: 0,
       paddingLeft: 20,
-      // borderBottom: '1px solid #c7c7c785',
+      alignItems: 'flex-start',
     },
   },
   bambooDescription: {
@@ -154,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(777)]: {
       fontSize: '0.75rem',
       whiteSpace: 'normal',
-      lineHeight: '1.5rem',
+      lineHeight: '1.25rem',
     },
   },
   eventsBox: {
@@ -262,17 +201,9 @@ const EventSP = (props) => {
           <Grid item xs={2}>
             <div className={classes.bambooSection} style={{zIndex: zIndex+1}}>
               {index !== 0 ? (
-                <>
-                  <div className={classes.bambooSectionTop} />
-                  <div className={classes.bambooSectionBody} />
-                </>
+                <img src="/bamboo_section.png" width={45} />
               ) : (
-                <>
-                  <div className={classes.bambooSectionTopFirst}>
-                    <div className={classes.bambooSectionTopFirstInner} />
-                  </div>
-                  <div className={classes.bambooSectionBodyFirst} />
-                </>
+                <img src="/bamboo_section_first.png" width={45} />
               )}
             </div>
           </Grid>
@@ -284,27 +215,21 @@ const EventSP = (props) => {
       <Grid item xs={2}>
         <div className={classes.bambooSection} style={{zIndex: zIndex}}>
           {!event.img && index === 0 ? (
-            <>
-              <div className={classes.bambooSectionTopFirst}>
-                <div className={classes.bambooSectionTopFirstInner} />
-              </div>
-              <div className={classes.bambooSectionBodyFirst} />
-            </>
+            <img src="/bamboo_section_first.png" width={45} />
           ) : (
-            <>
-              <div className={classes.bambooSectionTop} />
-              <div className={classes.bambooSectionBody} />
-            </>
+            <img src="/bamboo_section.png" width={45} />
           )}
         </div>
       </Grid>
       <Grid item xs={10} className={classes.bambooText}>
-        <Typography variant="h4" gutterBottom className={classes.date}>
-          {event.date}
-        </Typography>
-        <Typography variant="body1" className={classes.bambooDescription}>
-          {event.content}
-        </Typography>
+        <Box style={{width: '100%'}}>
+          <Typography variant="h4" gutterBottom className={classes.date}>
+            {event.date}
+          </Typography>
+          <Typography variant="body1" className={classes.bambooDescription}>
+            {event.content}
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   )
@@ -325,28 +250,22 @@ const EventPC = (props) => {
       </Grid>
       <Grid item xs={2}>
         <div className={classes.bambooSection} style={{zIndex: zIndex}}>
-          {index ? (
-            <>
-              <div className={classes.bambooSectionTop} />
-              <div className={classes.bambooSectionBody} />
-            </>
+          {index !== 0 ? (
+            <img src="/bamboo_section.png" width={100} />
           ) : (
-            <>
-              <div className={classes.bambooSectionTopFirst}>
-                <div className={classes.bambooSectionTopFirstInner} />
-              </div>
-              <div className={classes.bambooSectionBodyFirst} />
-            </>
+            <img src="/bamboo_section_first.png" width={100} />
           )}
         </div>
       </Grid>
       <Grid item xs={5} className={classes.bambooText}>
-        <Typography variant="h4" gutterBottom className={classes.date}>
-          {event.date}
-        </Typography>
-        <Typography variant="body1" className={classes.bambooDescription}>
-          {event.content}
-        </Typography>
+        <Box style={{width: '100%'}}>
+          <Typography variant="h4" gutterBottom className={classes.date}>
+            {event.date}
+          </Typography>
+          <Typography variant="body1" className={classes.bambooDescription}>
+            {event.content}
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   )
