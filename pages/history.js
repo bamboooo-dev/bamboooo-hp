@@ -213,7 +213,7 @@ const events = [
   },
   {
     date: '2019年 3月',
-    content: "山本と住江で\n「bamboo」としてスタート",
+    content: "山本と住江で「bamboo」としてスタート、後にメンバーが4人になり「bamboooo」となる",
   },
 ]
 
