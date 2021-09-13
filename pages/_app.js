@@ -3,17 +3,18 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Footer from '../src/Footer';
 import Header from '../src/Header';
 import { lightTheme } from '../src/theme';
 
 const sections = [
-  { title: 'About', url: 'about' },
-  { title: 'Members', url: 'members' },
-  { title: 'Works', url: 'works' },
-  { title: 'Skills', url: 'skills' },
-  { title: 'History', url: 'history' },
-  { title: 'Blog', url: 'blog' },
-  { title: 'Contact', url: 'contact' },
+  { title: 'About', url: '/about' },
+  { title: 'Members', url: '/members' },
+  { title: 'Works', url: '/works' },
+  { title: 'Skills', url: '/skills' },
+  { title: 'History', url: '/history' },
+  { title: 'Blog', url: '/blog/1' },
+  { title: 'Contact', url: '/contact' },
 ];
 
 export default function MyApp(props) {
@@ -38,6 +39,7 @@ export default function MyApp(props) {
         <CssBaseline />
         <Header sections={sections} />
         <Component {...pageProps} />
+        <Footer sections={sections} />
       </ThemeProvider>
     </React.Fragment>
   );

@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="fonts/fonts.css"
+            href="/fonts/fonts.css"
           />
         </Head>
         <body>

@@ -1,7 +1,19 @@
 import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const coreThemeObj = {
+export const lightTheme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      '"Helvetica Neue"',
+      '"Helvetica"',
+      '"Hiragino Sans"',
+      '"Hiragino Kaku Gothic ProN"',
+      '"Arial"',
+      '"Yu Gothic"',
+      '"Meiryo"',
+      'sans-serif',
+    ].join(','),
+  },
   palette: {
     primary: {
       main: '#6fff00',
@@ -15,31 +27,21 @@ const coreThemeObj = {
     error: {
       main: red.A400,
     },
-  },
-  typography: {
-    h2 : {
-      '@media (max-width:1280px)': {
-        fontSize: '1.2rem',
-      },
-    }
-  },
-}
-
-export const lightTheme = createMuiTheme({
-  ...coreThemeObj,
-  palette: {
-    ...coreThemeObj.palette,
     background: {
       default: '#fff',
     },
     type: 'light',
-  }
-});
-
-export const darkTheme = createMuiTheme({
-  ...coreThemeObj,
-  palette: {
-    ...coreThemeObj.palette,
-    type: 'dark'
-  }
+  },
+  overrides: {
+    MuiBackdrop: {
+      root: {
+        backgroundColor: '#19807BB3',
+      },
+    },
+    MuiDialog: {
+      paper: {
+        margin: "0",
+      }
+    },
+  },
 });
