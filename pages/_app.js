@@ -11,7 +11,6 @@ const sections = [
   { title: 'About', url: '/about' },
   { title: 'Members', url: '/members' },
   { title: 'Works', url: '/works' },
-  { title: 'Skills', url: '/skills' },
   { title: 'History', url: '/history' },
   { title: 'Blog', url: '/blog/1' },
   { title: 'Contact', url: '/contact' },
