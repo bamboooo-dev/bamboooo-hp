@@ -119,7 +119,6 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     [theme.breakpoints.down('sm')]: {
-      fontSize: 12,
       lineHeight: '25px',
     },
   },

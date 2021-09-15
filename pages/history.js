@@ -52,48 +52,41 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   bambooSection: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
     marginTop: '-15px',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '-8px',
+      marginTop: '-10px',
     },
   },
   bambooImageBox: {
-    paddingRight: '50px',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     display: 'flex',
-    alignItems: 'center',
+    flexDirection: 'column',
+    paddingLeft: 50,
   },
   bambooImage: {
     border: '1px solid #c7c7c7',
     borderRadius: '7px',
-    width: '250px',
-    [theme.breakpoints.down(777)]: {
-      width: '130px',
-    },
+    width: '350px',
   },
   bambooImageSP: {
     border: '1px solid #c7c7c7',
     borderRadius: '7px',
     objectFit: 'contain',
-    width: '130px',
+    width: '200px',
   },
   bambooText: {
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.down(777)]: {
-      paddingTop: 0,
       paddingLeft: 20,
-      alignItems: 'flex-start',
     },
   },
   bambooDescription: {
     whiteSpace: 'pre-line',
+    marginTop: 20,
     [theme.breakpoints.down(777)]: {
-      fontSize: '0.75rem',
       whiteSpace: 'normal',
-      lineHeight: '1.25rem',
+      lineHeight: '1.5rem',
     },
   },
   eventsBox: {
@@ -102,16 +95,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   date: {
+    color: '#1D6E69',
+    fontSize: 25,
+    fontWeight: 600,
     [theme.breakpoints.down(777)]: {
       fontSize: '1rem',
-      color: '#1D6E69',
-      fontWeight: 600,
     },
   },
   description: {
     whiteSpace: 'pre-line',
     [theme.breakpoints.down('sm')]: {
-      fontSize: 14,
       marginTop: 58,
       lineHeight: '25px',
     },
@@ -121,33 +114,33 @@ const useStyles = makeStyles((theme) => ({
 const events = [
   {
     date: '2021年 4月',
-    content: "パーティゲーム『ワイワイ』\nリリース",
+    content: "オンラインコミュニケーションゲームアプリ『ワイワイ』リリース\nYouTuber に取り上げてもらう",
     img: '/waiwai_history.png',
   },
   {
     date: '2021年 1月',
-    content: "パーティゲーム『ワイワイ』\n開発開始",
+    content: "初のゲームアプリ『ワイワイ』開発開始",
   },
   {
     date: '2021年 1月',
-    content: "HP 作成",
+    content: "チームメンバーが増えたことや、作品をまとめる場所があればということで HP を作成",
   },
   {
     date: '2020年 11月',
-    content: "仮想世界で出会うサイト\n『Alcatraz』開発開始",
+    content: "仮想世界で出会うサイト『Alcatraz』開発開始・中止",
   },
   {
     date: '2020年 9月',
-    content: "アウトプットを展示する\n学生向けテックカンファレンス「技育展」に『memopic』で登壇",
+    content: "アウトプットを展示する学生向けテックカンファレンス「技育展」に『memopic』で登壇",
   },
   {
     date: '2020年 9月',
-    content: "旅行の思い出共有サイト『memopic』\nリリース",
+    content: "旅行の思い出共有サイト『memopic』リリース、App Store や Google Play Store でも公開",
     img: '/memopic_history.png',
   },
   {
     date: '2019年 12月',
-    content: "旅行プラン共有サイト『Memorip』\nリリース",
+    content: "bamboooo として初めての Web サービス、旅行プラン共有サイト『Memorip』リリース",
     img: '/memorip_history.png',
   },
   {
@@ -170,7 +163,7 @@ export default function History() {
               bamboooo のこれまでとこれから
             </Typography>
           </Box>
-          <Typography variant="h6" className={classes.description}>
+          <Typography className={classes.description}>
           {`「みんなを笑顔にする」。
 小さい頃から抱いていた長年の夢を実現させたい、その想いで2019年2人の学生によって bamboooo の活動は始まりました。
 bamboooo という名前には「"伸び代しかない"エンタメクリエイターチームを目指す」という願いが込められています。
@@ -221,12 +214,12 @@ const EventSP = (props) => {
           )}
         </div>
       </Grid>
-      <Grid item xs={10} className={classes.bambooText}>
+      <Grid item xs={10} className={classes.bambooText} style={ event.img ? { alignItems: 'flex-start' } : {} }>
         <Box style={{width: '100%'}}>
           <Typography variant="h4" gutterBottom className={classes.date}>
             {event.date}
           </Typography>
-          <Typography variant="body1" className={classes.bambooDescription}>
+          <Typography className={classes.bambooDescription}>
             {event.content}
           </Typography>
         </Box>
@@ -243,13 +236,8 @@ const EventPC = (props) => {
   
   return (
     <Grid container>
-      <Grid item xs={5} className={classes.bambooImageBox}>
-        {event.img && (
-          <img src={event.img} className={classes.bambooImage} style={ event.img=="/waiwai.png" ? { border: 'none' } : {} } />
-        )}
-      </Grid>
-      <Grid item xs={2}>
-        <div className={classes.bambooSection} style={{zIndex: zIndex}}>
+      <Grid item xs={4}>
+        <div className={classes.bambooSection} style={{zIndex: zIndex, display: 'flex', justifyContent: 'flex-end'}}>
           {index !== 0 ? (
             <img src="/bamboo_section.png" width={100} />
           ) : (
@@ -257,12 +245,15 @@ const EventPC = (props) => {
           )}
         </div>
       </Grid>
-      <Grid item xs={5} className={classes.bambooText}>
+      <Grid item xs={8} className={classes.bambooImageBox}>
+        {event.img && (
+          <img src={event.img} className={classes.bambooImage} style={ event.img=="/waiwai.png" ? { border: 'none', marginBottom: 20} : {marginBottom: 20} } />
+        )}
         <Box style={{width: '100%'}}>
           <Typography variant="h4" gutterBottom className={classes.date}>
             {event.date}
           </Typography>
-          <Typography variant="body1" className={classes.bambooDescription}>
+          <Typography className={classes.bambooDescription}>
             {event.content}
           </Typography>
         </Box>
