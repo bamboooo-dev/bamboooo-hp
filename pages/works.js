@@ -10,10 +10,30 @@ import React from 'react';
 import paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
-  header:{
-    width:'100%',
-    paddingLeft: '0',
-    paddingRight: '0',
+  mainDiv:{
+    zIndex:'1',
+    backgroundImage: "url(/member_top.png)",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down('777')]: {
+      backgroundImage: "url(/member_topSP.png)",
+    },
+  },
+
+  TopContainer: {
+    maxWidth:'1000px',
+    margin:"0 auto",
+    paddingTop:"25vw",
+    
+  },
+
+
+  shadowBox: {
+    boxShadow: "0 1px 3px 0 rgba(0, 0, 0, .3)",
+    marginBottom: "100px",
+    [theme.breakpoints.down('777')]: {
+      marginBottom: "50px",
+    },
   },
 
   content: {
@@ -47,10 +67,21 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {
     marginTop: theme.spacing(5),
-    /*
+
+/*
+    maxWidth:'1000px',
+    margin:"0 auto",
+    paddingTop:"25vw",
+    [theme.breakpoints.down('777')]: {
+      width:"90%",
+      paddingTop:"50vw",
+    
     position:'auto',
-    ここらへんの位置をかえればいい感じになると思う*/
+    ここらへんの位置をかえればいい感じになると思う
   },
+  */
+
+},
   description: {
 
 /*これがないほうが改行は変かもしれないけどすっきりする
@@ -63,13 +94,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Header=() =>{
-  const classes = useStyles();
-  
-  return(
-    <img src='/header.png' className={classes.header}/>
-  )
-}
+
 
 
 const works = [
@@ -203,16 +228,19 @@ export default function Works() {
 
   return (
     <>
-    <Header />
-    <Paper>
-    <Container className={classes.mainContainer} >
-      <Grid container spacing={4} >
-        {works.map((work) => (
-          <Work key={work.name} work={work}/>
-        ))}
-      </Grid> 
-    </Container>
-    </Paper>
+    <Box className={classes.mainDiv}>
+     <Box className={classes.TopContainer}>
+      <Box className={classes.shadowBox}>
+       <Container className={classes.mainContainer} >
+        <Grid container spacing={4} >
+          {works.map((work) => (
+           <Work key={work.name} work={work}/>
+          ))}
+         </Grid> 
+        </Container>
+       </Box>
+      </Box>
+     </Box>
     </>
   )
 }
