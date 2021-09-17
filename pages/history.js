@@ -8,7 +8,7 @@ import React from 'react';
 const useStyles = makeStyles((theme) => ({
   headline: {
     fontFamily: "Corporate-Logo-Medium-ver2",
-    borderLeft: '5px solid #76B3AF',
+    borderLeft: '4px solid #76B3AFCF',
     paddingLeft: 20,
     [theme.breakpoints.down('sm')]: {
       fontSize: 24,
@@ -104,6 +104,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     whiteSpace: 'pre-line',
+    lineHeight: 1.75,
     [theme.breakpoints.down('sm')]: {
       marginTop: 58,
       lineHeight: '25px',
@@ -112,6 +113,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const events = [
+  {
+    date: 'いままでの歴史を書いていきますいっぱい',
+  },
   {
     date: '2021年 4月',
     content: "オンラインコミュニケーションゲームアプリ『ワイワイ』リリース\nYouTuber に取り上げてもらう",
@@ -159,7 +163,7 @@ export default function History() {
       <Box className={classes.innerBox} display="flex" justifyContent="center">
         <Box p={10} className={classes.whiteBox}>
           <Box className={classes.headlineBox}>
-            <Typography variant="h3" className={classes.headline} gutterBottom>
+            <Typography variant="h4" className={classes.headline} gutterBottom>
               bamboooo のこれまでとこれから
             </Typography>
           </Box>
@@ -216,10 +220,10 @@ const EventSP = (props) => {
       </Grid>
       <Grid item xs={10} className={classes.bambooText} style={ event.img ? { alignItems: 'flex-start' } : {} }>
         <Box style={{width: '100%'}}>
-          <Typography variant="h4" gutterBottom className={classes.date}>
+          <Typography variant="h4" className={classes.date} style={ event.content ? {} : { lineHeight: 1.75 }}>
             {event.date}
           </Typography>
-          <Typography className={classes.bambooDescription}>
+          <Typography className={classes.bambooDescription} style={ event.content ? {} : { marginTop: 0 }}>
             {event.content}
           </Typography>
         </Box>
