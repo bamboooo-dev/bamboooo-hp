@@ -180,7 +180,7 @@ function Work(props) {
   const classes = useStyles();
   const { work } = props; 
   return (
-    <>
+   <>
     <Grid item container xs={12} display="flex" >
         <Grid item className={classes.content}>
           <Box display="flex">
@@ -251,7 +251,7 @@ function Work(props) {
             </Box>
         </Grid>
     </Grid>
-    </>
+   </>
   )
 }
 
@@ -260,13 +260,13 @@ export default function Works() {
 
   return (
     <>
-    <Box className={classes.mainDiv}>
-     <Box className={classes.TopContainer}>
-      <Box className={classes.shadowBox}>
-       <Container className={classes.mainContainer} >
-        <Grid container spacing={4} >
+     <Box className={classes.mainDiv}>
+      <Box className={classes.TopContainer}>
+       <Box className={classes.shadowBox}>
+        <Container className={classes.mainContainer} >
+         <Grid container spacing={4} >
           {works.map((work) => (
-           <Work key={work.name} work={work}/>
+            <Work key={work.name} work={work}/>
           ))}
          </Grid> 
         </Container>
