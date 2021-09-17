@@ -94,25 +94,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
 
-  /*
-  gameButton:{
-    border:"1px solid black",
-    borderRadius:"20px",
-    width:"80%",
-    backgroundColor:"white",
-    fontSize:"14px",
-    textAlign:'center',
-    paddingTop:"0px",
-    paddingLeft:"23px",
-    fontWeight:"100",
-    [theme.breakpoints.down('777')]: {
-      fontSize: "10px",
-      paddingLeft: "15px",
-  }},
-  */
-
-  /*ワイワイのジャンルのとこ */
-  gameButtonIcon:{
+  genreIcon:{
 
     borderRadius:"20px",
     border:"1px solid black",
@@ -121,21 +103,7 @@ const useStyles = makeStyles((theme) => ({
     float:"right",
     paddingTop:"3px",
     fontSize:"15px",
-    [theme.breakpoints.down('777')]: {
-      paddingTop:"2px",
-      fontSize:"10px",
-    },
-  },
-
-  cvnButtonIcon:{
-
-    borderRadius:"20px",
-    border:"1px solid black",
-    width:"40%",
-    backgroundColor:"#FF9966",
-    float:"right",
-    paddingTop:"3px",
-    fontSize:"15px",
+    textAlign:"center",
     [theme.breakpoints.down('777')]: {
       paddingTop:"2px",
       fontSize:"10px",
@@ -161,6 +129,8 @@ const works = [
     release:'リリース　　2021年 4月',
     appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
     googleUrl: "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
+    backgroundColor:'#CC33FF',
+    genre:'ゲームジャンル',
   },
   { 
     name: 'memopic',
@@ -177,6 +147,8 @@ const works = [
     release:'リリース　　2020年 9月',
     appleUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
+    backgroundColor:'#FF9966',
+    genre:'便利系ジャンル',
   },
   { 
     name: 'Memorip',
@@ -190,12 +162,16 @@ const works = [
       これからの旅行のしおりとして、また
       他の人のプランを参考にして作成できます`,
     release:'リリース　　2019年 12月',
+    backgroundColor:'#99FFFF',
+    genre:'連絡系ジャンル',
   },
   { 
     name: 'MESHIBUGYO',
     catchphrase: 'あなただけのサブカル発掘アプリ',
     alt: 'Picture of MESHIBUGYO',
-    description: 'あなただけのサブカルを見つけるには間違いなし！'
+    description: 'あなただけのサブカルを見つけるには間違いなし！',
+    backgroundColor:'#FF3333',
+    genre:'文化系ジャンル',
     
   },
 ];
@@ -228,9 +204,9 @@ function Work(props) {
             )}
           
             <Box>
-              <button className={classes.gameButtonIcon}>
-               ジャンル
-              </button>
+              <div className={classes.genreIcon} style={{backgroundColor: work.backgroundColor}}>
+               {work.genre}
+              </div>
               <Typography gutterBottom variant="h4" component="h2">
                 {work.name}
               </Typography>
