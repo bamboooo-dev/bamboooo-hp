@@ -129,7 +129,7 @@ const works = [
     release:'リリース　　2021年 4月',
     appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
     googleUrl: "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
-    backgroundColor:'#CC33FF',
+    backgroundColor:'#D4A7D9',
     genre:'ゲームジャンル',
   },
   { 
@@ -147,7 +147,7 @@ const works = [
     release:'リリース　　2020年 9月',
     appleUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
-    backgroundColor:'#FF9966',
+    backgroundColor:'#F5BD70',
     genre:'便利系ジャンル',
   },
   { 
@@ -170,7 +170,7 @@ const works = [
     catchphrase: 'あなただけのサブカル発掘アプリ',
     alt: 'Picture of MESHIBUGYO',
     description: 'あなただけのサブカルを見つけるには間違いなし！',
-    backgroundColor:'#FF3333',
+    backgroundColor:'#FF6666',
     genre:'文化系ジャンル',
     
   },
