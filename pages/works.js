@@ -1,4 +1,4 @@
-import { FormHelperText, Paper } from '@material-ui/core';
+import { FormHelperText, Icon, Paper } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import grey from "@material-ui/core/colors/grey";
@@ -12,11 +12,11 @@ import paper from '@material-ui/core/Paper';
 const useStyles = makeStyles((theme) => ({
   mainDiv:{
     zIndex:'1',
-    backgroundImage: "url(/member_top.png)",
+    backgroundImage: "url(/header.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     [theme.breakpoints.down('777')]: {
-      backgroundImage: "url(/member_topSP.png)",
+      backgroundImage: "url(/header.png)",
     },
   },
 
@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('777')]: {
       marginBottom: "50px",
     },
+    backgroundColor:"white",
   },
 
   content: {
@@ -91,11 +92,56 @@ const useStyles = makeStyles((theme) => ({
     width: 400,
     height: 170,
     display: 'flex',
-  }
+  },
+
+  /*
+  gameButton:{
+    border:"1px solid black",
+    borderRadius:"20px",
+    width:"80%",
+    backgroundColor:"white",
+    fontSize:"14px",
+    textAlign:'center',
+    paddingTop:"0px",
+    paddingLeft:"23px",
+    fontWeight:"100",
+    [theme.breakpoints.down('777')]: {
+      fontSize: "10px",
+      paddingLeft: "15px",
+  }},
+  */
+
+  /*ワイワイのジャンルのとこ */
+  gameButtonIcon:{
+
+    borderRadius:"20px",
+    border:"1px solid black",
+    width:"40%",
+    backgroundColor:"#CC33FF",
+    float:"right",
+    paddingTop:"3px",
+    fontSize:"15px",
+    [theme.breakpoints.down('777')]: {
+      paddingTop:"2px",
+      fontSize:"10px",
+    },
+  },
+
+  cvnButtonIcon:{
+
+    borderRadius:"20px",
+    border:"1px solid black",
+    width:"40%",
+    backgroundColor:"#FF9966",
+    float:"right",
+    paddingTop:"3px",
+    fontSize:"15px",
+    [theme.breakpoints.down('777')]: {
+      paddingTop:"2px",
+      fontSize:"10px",
+    },
+  },
 }));
-
-
-
 
 const works = [
   { 
@@ -111,7 +157,8 @@ const works = [
       Among Us の次に流行ると巷で噂されてます。
       キャラクター(エモー)もかわいいので、テンションも上がること間違いなし！
       自分の性格、センス、価値観が問われるので仲間内はもちろん、
-      初対面の人の事も手っ取り早く知ることが出来ます。`,
+      初対面の人の事も手っ取り早く知る日ことが出来ます。`,
+    release:'リリース　　2021年 4月',
     appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
     googleUrl: "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
   },
@@ -127,6 +174,7 @@ const works = [
       思い出を振り返ってみませんか？
       『memopic』はプレイリストで旅を記録する
       新しいサービスです`,
+    release:'リリース　　2020年 9月',
     appleUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
   },
@@ -140,14 +188,15 @@ const works = [
       『Memorip』では直感的にプランを作成したり
       簡単にプランを共有したりすることができます
       これからの旅行のしおりとして、また
-      他の人のプランを参考にして作成できます
-    `,
+      他の人のプランを参考にして作成できます`,
+    release:'リリース　　2019年 12月',
   },
   { 
     name: 'MESHIBUGYO',
     catchphrase: 'あなただけのサブカル発掘アプリ',
     alt: 'Picture of MESHIBUGYO',
     description: 'あなただけのサブカルを見つけるには間違いなし！'
+    
   },
 ];
 
@@ -177,7 +226,11 @@ function Work(props) {
                 </Typography>
               </Box>
             )}
+          
             <Box>
+              <button className={classes.gameButtonIcon}>
+               ジャンル
+              </button>
               <Typography gutterBottom variant="h4" component="h2">
                 {work.name}
               </Typography>
@@ -186,6 +239,9 @@ function Work(props) {
               </Typography>
               <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
                 {work.description}
+              </Typography>
+              <Typography variant="body3" color="textSecondary" component="p" gutterBottom className={classes.release}>
+                {work.release}
               </Typography>
               {work.url && (
                 <Box my={1}>
@@ -215,8 +271,8 @@ function Work(props) {
                   )}
                 </Box>
               )}
+              </Box>
             </Box>
-          </Box>
         </Grid>
     </Grid>
     </>
