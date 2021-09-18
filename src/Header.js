@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     padding: '10px 50px 10px 50px',
     justifyContent: "space-between",
+    backgroundColor:'transparent',
     [theme.breakpoints.down(777)]: {
       padding: '0px 5px 0px 20px',
     },

@@ -10,17 +10,21 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
+  mainImage:{
+    zIndex:'1',
+    backgroundImage: "url(/top_main_image.png)",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    marginLeft:'300px',
+    marginRight:'300px',
+    [theme.breakpoints.down('777')]: {
+      backgroundImage: "url(/top_main_imageSP.png)",
+    },
+  },
   mainContainer: {
-    borderWidth: '0 30px 0 30px',
-    borderColor: '#DFFFD7',
-    borderStyle: 'solid',
+    paddingTop:'1800px',
     paddingLeft: '30px',
     paddingRight: '30px',
-  },
-  mainImage:{
-    width:'100%',
-    paddingLeft: '0',
-    paddingRight: '0',
   },
   mediaWorks:{
     width:"350px"
@@ -52,26 +56,32 @@ export default function Index() {
   const classes = useStyles();
 
   return (
-    <>
-      <MainImage />
-        <Box className={classes.mainContainer}>
+    <Box className={classes.mainImage}>
+      <Box className={classes.mainContainer}>
           <Applications />
           <Grid container>
             <News />
             <Grid item xs={1} />
             <Twitter />  
           </Grid>
-        </Box>
+      </Box>
       <ReturnTopButton />
-    </>
+    </Box>
   );
 }
 
-const MainImage = () =>{
+const mainTextBox = () =>{
   const classes = useStyles();
-    
-  return(
-    <img src='/home_top.png' className={classes.mainImage} />
+
+  return (
+    <Box>
+      <Typography style={{fontFamily:'Corporate-Logo-Medium-ver2', color:'#19807B'}}>
+        Colors your life.
+      </Typography>
+      <Typography>
+
+      </Typography>
+    </Box>
   )
 }
 
