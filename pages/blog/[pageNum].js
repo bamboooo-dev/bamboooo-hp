@@ -121,11 +121,14 @@ function PostBox(props){
   const { post } = props;
   const classes = useStyles();
 
+  const theme = useTheme();
+  const isSP = useMediaQuery(theme.breakpoints.down('sm'));
+
   return(
     <Grid item xs={12} sm={4} className={classes.postBox}>
       <Box display="flex" flexDirection="column">
-        <img src={post.image} width="100%" style={{marginBottom: 20, borderRadius: 5}}/>
-        <Box display="flex" alignItems="center" width="100%" mt={1} mb={2}>
+        <img src={post.image} width="100%" style={isSP ? {borderRadius: 5} : {marginBottom: 20, borderRadius: 5}}/>
+        <Box display="flex" alignItems="center" width="100%" mt={1} mb={isSP ? 0 : 2}>
           <Box width="40%">
             <Typography variant="subtitle1">
               {post.date}
