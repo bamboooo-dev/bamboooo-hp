@@ -38,14 +38,15 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '90%',
     },
   },
-  titleTypgraphy: {
+  titleTypography: {
+    fontWeight: 'bold',
     [theme.breakpoints.up(777)]: {
       minHeight: 128,
     },
   },
   postBox: {
     [theme.breakpoints.down(777)]: {
-      marginBottom: 100,
+      marginBottom: 70,
     },
   },
 }));
@@ -124,9 +125,6 @@ function PostBox(props){
     <Grid item xs={12} sm={4} className={classes.postBox}>
       <Box display="flex" flexDirection="column">
         <img src={post.image} width="100%" style={{marginBottom: 20, borderRadius: 5}}/>
-        <Typography variant="h6" className={classes.titleTypgraphy}>
-          {post.title}
-        </Typography>
         <Box display="flex" alignItems="center" width="100%" mt={1} mb={2}>
           <Box width="40%">
             <Typography variant="subtitle1">
@@ -137,13 +135,15 @@ function PostBox(props){
             <span>{post.category}</span>
           </Box>
         </Box>
-        <Divider style={{backgroundColor: "grey", marginBottom: 10}} />
-        <Box position="relative">
-          <Typography variant="subtitle1">
-            {post.lead}...
-          </Typography>
-          <a href={post.url} target="_blank" style={{position: "absolute", right: 10, bottom: 5, color: "#19807B", textDecoration: "none"}}>{">>"}</a>
-        </Box>
+        <Typography variant="h6" className={classes.titleTypography}>
+          <a
+            href={post.url}
+            target="_blank"
+            style={{color: "black", textDecoration: "none"}}
+          >
+            {post.title}
+          </a>
+        </Typography>
       </Box>
     </Grid>
   )
