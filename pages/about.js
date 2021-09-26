@@ -237,8 +237,7 @@ export default function About() {
                   新しいエンタメを届ける
                 </Typography>
                 <Typography className={classes.description}>
-                  効率化には様々な手段があります。
-                  その中でも我々はコミュニケーションを円滑にし、チームのモチベーションをあげることで社会の効率化を目指します。
+                  既存のものに囚われず、ユーザーにとって新鮮で、生活を面白くする『新しいエンタメを』つくり続けます。
                 </Typography>
               </Grid>
             </Grid>
