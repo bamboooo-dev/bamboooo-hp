@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     flexFlow:'column',
     justifyContent:'sapce-around',
     alignItems:'center',
-    padding:50,
+    paddingTop:130,
   },
   media: {
     borderWidth: 1,
@@ -115,8 +115,8 @@ const works = [
   { 
     name: 'ワイワイ',
     catchphrase: 'あなたの価値観でみんながワイワイ',
-    url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
-   /*公式HP載せたい*/
+   /* url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
+   公式HP載せたい*/
     alt: 'Picture of waiwai',
     image: '/waiwai.png',
     description: `
@@ -130,7 +130,8 @@ const works = [
     appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
     googleUrl: "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
     backgroundColor:'#D4A7D9',
-    genre:'ゲームジャンル',
+    genre:'ゲーム',
+    gameUrl:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
   },
   { 
     name: 'memopic',
@@ -148,7 +149,7 @@ const works = [
     appleUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
     backgroundColor:'#F5BD70',
-    genre:'便利系ジャンル',
+    genre:'便利系',
   },
   { 
     name: 'Memorip',
@@ -163,7 +164,7 @@ const works = [
       他の人のプランを参考にして作成できます`,
     release:'リリース　　2019年 12月',
     backgroundColor:'#99FFFF',
-    genre:'連絡系ジャンル',
+    genre:'連絡系',
   },
   { 
     name: 'MESHIBUGYO',
@@ -171,7 +172,7 @@ const works = [
     alt: 'Picture of MESHIBUGYO',
     description: 'あなただけのサブカルを見つけるには間違いなし！',
     backgroundColor:'#FF6666',
-    genre:'文化系ジャンル',
+    genre:'文化系',
     
   },
 ];
@@ -180,10 +181,10 @@ function Work(props) {
   const classes = useStyles();
   const { work } = props; 
   return (
-   <>
-    <Grid item container xs={12} display="flex" >
-        <Grid item className={classes.content}>
-          <Box display="flex">
+   <Grid container>
+     <Grid item container xs={4} md={12} display="flex" >
+        <Grid item className={classes.content} md={12} >
+          <Box display="flex" >
             {work.image ? (
               <Box>
                 <img
@@ -203,7 +204,7 @@ function Work(props) {
               </Box>
             )}
           
-            <Box>
+            <Box xs={4}>
               <div className={classes.genreIcon} style={{backgroundColor: work.backgroundColor}}>
                {work.genre}
               </div>
@@ -219,6 +220,12 @@ function Work(props) {
               <Typography variant="body3" color="textSecondary" component="p" gutterBottom className={classes.release}>
                 {work.release}
               </Typography>
+              {work.gameUrl &&(
+                <Box my={1}>
+                  <a href={work.gameUrl} target="_blank">
+                  </a>
+                </Box>
+              )}
               {work.url && (
                 <Box my={1}>
                   <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
@@ -251,7 +258,7 @@ function Work(props) {
             </Box>
         </Grid>
     </Grid>
-   </>
+   </Grid>
   )
 }
 
@@ -259,21 +266,23 @@ export default function Works() {
   const classes = useStyles();
 
   return (
-    <>
-     <Box className={classes.mainDiv}>
-      <Box className={classes.TopContainer}>
+   <Box className={classes.mainDiv}>
+    <Grid container>
+     <Grid item xs={4}  md={12}> 
+      <Box className={classes.TopContainer}  >
        <Box className={classes.shadowBox}>
         <Container className={classes.mainContainer} >
          <Grid container spacing={4} >
           {works.map((work) => (
             <Work key={work.name} work={work}/>
           ))}
-         </Grid> 
-        </Container>
+          </Grid> 
+         </Container>
+        </Box>
        </Box>
-      </Box>
-     </Box>
-    </>
+      </Grid>
+     </Grid>
+    </Box>
   )
 }
 
