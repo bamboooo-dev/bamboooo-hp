@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('777')]: {
       height:'70vh',
       backgroundSize:'100vw 70vh',
+      marginTop:'10vh',
       paddingTop:'7vh',
     },
   },
@@ -66,9 +67,9 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {
     paddingTop:'10px',
-    paddingLeft: '100px',
-    paddingRight: '100px',
-    paddingBottom:'50px',
+    paddingLeft: '50px',
+    paddingRight: '75px',
+    paddingBottom:'75px',
     [theme.breakpoints.down('777')]: {
       paddingLeft:'10px',
       paddingRight:'10px',
@@ -97,6 +98,62 @@ const useStyles = makeStyles((theme) => ({
     marginBottom:"1.8vw",
     [theme.breakpoints.down('777')]: {
       width:'25vh',
+    },
+  },
+  newsMainBox:{
+    height:'300px',
+    display:'flex',
+    flexFlow:'column',
+    overflow:'scroll',
+    [theme.breakpoints.down('777')]: {
+      marginTop:'0',
+      marginBottom:'50px',
+      paddingLeft:'5px',
+    },
+  },
+  newsItemBox:{
+    height:'75px',
+    display:'flex',
+    alignItems:'center',
+    borderBottom:'1px solid #E6E6E6',
+  },
+  newsItemButton:{
+    display:'flex',
+    flexFlow:'row',
+    alignItems:'center',
+    textDecoration:'none',
+    color:'black',
+
+    '&:hover': {
+      opacity:'0.5',
+      backgroundColor:'#E7EAED',
+      cursor:'pointer',
+    },
+  },
+  newsDateBox:{
+    width:'8vw',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'10px',
+      width:'15vw',
+    },
+  },
+  newsCategoryBox:{
+    border:'1px solid #19807B',
+    borderRadius:'20px',
+    color:'#19807B',
+    textAlign:'center',
+    width:'10vw',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'10px',
+      width:'20vw',
+    },
+  },
+  newsTextBox:{
+    width:'32vw', 
+    marginLeft:'15px',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'10px',
+      width:'53vw'
     },
   },
   twitterFollowIcon:{
@@ -131,19 +188,19 @@ const useStyles = makeStyles((theme) => ({
 export default function Index() {
   const classes = useStyles();
   const theme = useTheme();
-  const isSP = useMediaQuery(theme.breakpoints.up('777'));
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
  
 
 
   return (
     <Box>
-      <img src={isSP ? 'top_main_image1.png' : 'top_main_imageSP.png'} className={classes.mainImage} />
+      <img src={isPC ? 'top_main_image1.png' : 'top_main_imageSP.png'} className={classes.mainImage} />
       <MainTextBox />
         <Box className={classes.mainContainer}>
             <Applications />
             <Grid container>
               <News />
-              <Grid item xs={1} />
+              <Grid item sm={1} />
               <Twitter />  
             </Grid>
         </Box>
@@ -182,7 +239,7 @@ const MainTextBox = () =>{
 const Applications = () =>{ 
   const classes = useStyles(); 
   const theme = useTheme();
-  const isSP = useMediaQuery(theme.breakpoints.up('777'));
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   return(
     <Box pt="40px" pb="75px" mb="75px" borderBottom="1px solid grey">
@@ -219,21 +276,76 @@ const Applications = () =>{
   )
 }
 
-const ListItemLink = (props) => {
+const newsItems = [
+  // 上に新しいnewsを追加していく
+  {
+    date: '2021.7.14',
+    category: 'カテゴリ',
+    text: '『ワイワイ』ver1.83をリリースしました。',
+    link: 'https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20',
+  },
+  {
+    date: '2021.7.8',
+    category: 'カテゴリ',
+    text: '『ワイワイ』ver1.82をリリースしました。',
+    link: 'https://twitter.com/bamboooo_inc/status/1407546420920414210?s=20',
+  },
+  {
+    date: '2021.7.6',
+    category: 'カテゴリ',
+    text: '『ワイワイ』のユーザー数が1000人を超えました！！',
+    link: 'https://twitter.com/bamboooo_inc/status/1412371686511448071?s=20',
+  },
+  {
+    date: '2021.6.23',
+    category: 'カテゴリ',
+    text: '『ワイワイ』ver1.80をリリースしました。',
+    link: 'https://twitter.com/bamboooo_inc/status/1382198040774078464?s=20',
+  },
+  {
+    date: '2021.4.14',
+    category: 'カテゴリ',
+    text: 'スマホ向けアプリ『ワイワイ』をリリースしました。',
+    link: 'https://twitter.com/bamboooo_inc/status/1407546420920414210?s=20',
+  },
+];
+
+function NewsItem(props) {
+  const {newsItem} = props;
+  const classes = useStyles();
+  const theme = useTheme();
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
+
   return (
-    <ListItem button component="a" {...props} />
+    <a href={newsItem.link} target='_blank' className={classes.newsItemButton}>
+    <Box className={classes.newsItemBox}>
+
+        <Typography className={classes.newsDateBox}>
+          {newsItem.date}
+        </Typography>
+
+          <Typography className={classes.newsCategoryBox}>
+            {newsItem.category}
+          </Typography>
+
+        <Typography className={classes.newsTextBox}>
+          {newsItem.text}
+        </Typography>
+      
+    </Box>
+    </a>
   )
 }
 
 const News = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const isSP = useMediaQuery(theme.breakpoints.up('777'));
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   return(
     <Grid item xs={12} sm={7} container>
-      <Box width='60%'>
-        <a href='https://bamboooo.net/works' className={classes.applicationIcon} style={{target:'brank'}}>
+      <Box width='100%'>
+        <a href='https://bamboooo.net/works' className={classes.applicationIcon}>
           <AnnouncementIcon style={{fontSize:'50px'}}/>
           <Typography style={{fontFamily:'Corporate-Logo-Medium-ver2', fontSize:'35px', marginLeft:'10px', marginRight:'10px'}}>
             News
@@ -241,41 +353,11 @@ const News = () => {
           <ArrowForwardIosIcon style={{fontSize:'20px'}}/>
         </a>
       </Box>
-      {/*本来はblogの埋め込みとか*/}
-      <Box mt={isSP ? '-100px' : '0'} mb={isSP ? '0' : '50px'}>
-        <List component="nav">
-
-          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20">
-            <ListItemText primary="2021.7.14   『ワイワイ』ver1.83をリリースしました。" />
-          </ListItemLink>
-
-          <Divider />
-        
-          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1413114702423420931?s=20">   
-            <ListItemText primary="2021.7.8   『ワイワイ』ver1.82をリリースしました。" />
-          </ListItemLink>
-
-          <Divider />
-
-          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1412371686511448071?s=20">
-            <ListItemText primary="2021.7.6   『ワイワイ』のユーザー数が1000人を超えました！！" />
-          </ListItemLink>
-
-          <Divider />
-
-          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1382198040774078464?s=20">
-            <ListItemText primary="2021.6.23  『ワイワイ』ver1.80をリリースしました。" />
-          </ListItemLink>
-
-          <Divider />
-
-          <ListItemLink target="_blank" href="https://twitter.com/bamboooo_inc/status/1407546420920414210?s=20">
-            <ListItemText primary="2021.4.14  スマホ向けアプリ『ワイワイ』をリリースしました。" />
-          </ListItemLink>
-
-          <Divider />
-
-        </List>
+      {/*newsItemsをmapで*/}
+      <Box className={classes.newsMainBox}>
+        {newsItems.map((newsItem) => (
+          <NewsItem key={newsItem.text} newsItem={newsItem} />
+        ))}
       </Box>
     </Grid>
   )
@@ -296,11 +378,11 @@ const Twitter = () =>{
         </a>
       </Box>
       <Box mt="30px" align="center" >    
-        <Box border='1px solid #E4ECEE'>
+        <Box border='1px solid #E4ECEE' width='330px'>
           <a className="twitter-timeline" 
             data-lang="ja" 
-            data-width="350" 
-            data-height="350" 
+            data-width="300" 
+            data-height="300" 
             data-chrome="nofooter noheader"
             href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw">
               Tweets by bamboooo_inc
@@ -316,7 +398,8 @@ const Twitter = () =>{
               <Typography>フォローする</Typography>
             </a>
           </button>
-          {/* <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
+          {/* 公式のフォローボタン参考までに
+          <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
             className="twitter-follow-button" 
             data-width="large" 
             data-show-screen-name="false" 
