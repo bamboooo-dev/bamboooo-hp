@@ -150,6 +150,7 @@ const works = [
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
     backgroundColor:'#F5BD70',
     genre:'便利系',
+    gameUrl:"https://apps.apple.com/us/app/memopic/id1527852844",
   },
   { 
     name: 'Memorip',
@@ -207,9 +208,16 @@ function Work(props) {
             <Box xs={4}>
               <div className={classes.genreIcon} style={{backgroundColor: work.backgroundColor}}>
                {work.genre}
-              </div>
+              </div>            
               <Typography gutterBottom variant="h4" component="h2">
-                {work.name}
+                <a href={work.gameUrl}
+                   target="_blank"
+                   style={{
+                     color:"black",
+                     textDecoration:"none"
+                   }}>
+                 {work.name}
+                </a>
               </Typography>
               <Typography variant="body1" color="textSecondary" component="p">
                 {work.catchphrase}
@@ -220,12 +228,6 @@ function Work(props) {
               <Typography variant="body3" color="textSecondary" component="p" gutterBottom className={classes.release}>
                 {work.release}
               </Typography>
-              {work.gameUrl &&(
-                <Box my={1}>
-                  <a href={work.gameUrl} target="_blank">
-                  </a>
-                </Box>
-              )}
               {work.url && (
                 <Box my={1}>
                   <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
