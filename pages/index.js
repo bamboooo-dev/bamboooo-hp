@@ -1,14 +1,9 @@
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
-import { PieChartTwoTone } from '@material-ui/icons';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
@@ -238,14 +233,12 @@ const MainTextBox = () =>{
 
 const Applications = () =>{ 
   const classes = useStyles(); 
-  const theme = useTheme();
-  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   return(
     <Box pt="40px" pb="75px" mb="75px" borderBottom="1px solid grey">
       <Grid container> 
         <Grid item xs={12} style={{paddingBottom:'50px'}}>
-          <a href='https://bamboooo.net/works' className={classes.applicationIcon}>
+          <a href='/works' className={classes.applicationIcon}>
             <PhoneIphoneIcon style={{fontSize:'50px'}}/>
             <Typography style={{fontFamily:'Corporate-Logo-Medium-ver2', fontSize:'35px', marginRight:'10px'}}>
               Applications
@@ -313,8 +306,6 @@ const newsItems = [
 function NewsItem(props) {
   const {newsItem} = props;
   const classes = useStyles();
-  const theme = useTheme();
-  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   return (
     <a href={newsItem.link} target='_blank' className={classes.newsItemButton}>
@@ -339,13 +330,11 @@ function NewsItem(props) {
 
 const News = () => {
   const classes = useStyles();
-  const theme = useTheme();
-  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   return(
     <Grid item xs={12} sm={7} container>
       <Box width='100%'>
-        <a href='https://bamboooo.net/works' className={classes.applicationIcon}>
+        <a href='/works/1' className={classes.applicationIcon}>
           <AnnouncementIcon style={{fontSize:'50px'}}/>
           <Typography style={{fontFamily:'Corporate-Logo-Medium-ver2', fontSize:'35px', marginLeft:'10px', marginRight:'10px'}}>
             News
@@ -398,16 +387,6 @@ const Twitter = () =>{
               <Typography>フォローする</Typography>
             </a>
           </button>
-          {/* 公式のフォローボタン参考までに
-          <a href="https://twitter.com/bamboooo_inc?ref_src=twsrc%5Etfw" 
-            className="twitter-follow-button" 
-            data-width="large" 
-            data-show-screen-name="false" 
-            data-lang="ja" 
-            data-show-count="false">
-              Follow @bamboooo_inc
-          </a>
-          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script> */}
         </Box>
       </Box>
     </Grid>
