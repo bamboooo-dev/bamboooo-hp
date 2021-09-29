@@ -44,8 +44,23 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:'sapce-around',
     alignItems:'center',
     paddingTop:130,
+    paddingBottom:100,
   },
   media: {
+    borderWidth: 1,
+   /* border: "solid", */
+    borderRadius: 10,
+    borderColor: grey[300],
+    width: '100%',
+
+    [theme.breakpoints.up('sm')]: {
+      width: 400,
+      height: 260,
+      display: 'flex',
+      paddind:10,
+    },
+  },
+  mediaWaiwai: {
     borderWidth: 1,
     border: "solid",
     borderRadius: 10,
@@ -56,14 +71,7 @@ const useStyles = makeStyles((theme) => ({
       width: 400,
       height: 260,
       display: 'flex',
-    },
-  },
-  mediaWaiwai: {
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: 400,
-      height: 260,
-      display: 'flex',
+      padding:10,
     },
   },
   mainContainer: {
@@ -118,7 +126,7 @@ const works = [
    /* url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
    公式HP載せたい*/
     alt: 'Picture of waiwai',
-    image: '/waiwai.png',
+    image: '/waiwai_work.png',
     description: `
       オンラインでオフライン以上にワイワイする。
       「ワイワイ」はおしゃべりしながらオンライン対戦できる心理ゲームで、
@@ -167,6 +175,7 @@ const works = [
     backgroundColor:'#99FFFF',
     genre:'連絡系',
   },
+  /* 新しいアプリがリリースor決定したら追加
   { 
     name: 'MESHIBUGYO',
     catchphrase: 'あなただけのサブカル発掘アプリ',
@@ -176,6 +185,7 @@ const works = [
     genre:'文化系',
     
   },
+  */
 ];
 
 function Work(props) {
