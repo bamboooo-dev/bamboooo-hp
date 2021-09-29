@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     flexFlow:'column',
     justifyContent:'sapce-around',
     alignItems:'center',
-    paddingTop:130,
+    paddingTop:120,
     paddingBottom:100,
   },
   media: {
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
       width: 400,
       height: 260,
       display: 'flex',
-      paddind:10,
+      padding:10,
     },
   },
   mediaWaiwai: {
@@ -147,7 +147,7 @@ const works = [
     catchphrase: '旅の思い出をプレイリストで振り返ろう',
     url: 'https://www.memopic.net',
     alt: 'Picture of memopic',
-    image: '/memopic.png',
+    image: '/memopic_work.png',
     description: `
       旅行中ドライブで聴いてた曲
       あの時流行っていた、好きだった曲から
@@ -166,7 +166,7 @@ const works = [
     catchphrase: '旅行プラン作成・共有サイト',
     url: 'https://memorip.net',
     alt: 'Picture of Memorip',
-    image: '/memorip.png',
+    image: '/memorip_work.png',
     description: `
       『Memorip』では直感的にプランを作成したり
       簡単にプランを共有したりすることができます
