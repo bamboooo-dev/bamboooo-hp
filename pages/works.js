@@ -48,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     borderWidth: 1,
-   /* border: "solid", */
-    borderRadius: 10,
+    border: "none", 
+    borderRadius: 20,
     borderColor: grey[300],
     width: '100%',
 
@@ -62,10 +62,11 @@ const useStyles = makeStyles((theme) => ({
   },
   mediaWaiwai: {
     borderWidth: 1,
-    border: "solid",
-    borderRadius: 10,
+    border: "none",
+    borderRadius: 20,
     borderColor: grey[300],
     width: '100%',
+    
 
     [theme.breakpoints.up('sm')]: {
       width: 400,
