@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
     borderWidth: 1,
     border: "none", 
-    borderRadius: 40,
+    borderRadius: 5,
     borderColor: grey[300],
     width: '100%',
 
@@ -59,16 +59,14 @@ const useStyles = makeStyles((theme) => ({
       width: 400,
       height: 260,
       display: 'flex',
-      paddingTop:30,
-      paddingBottom:30,
-      paddingRight:35,
-      paddingLeft:35,
     },
   },
+  
+  /*
   mediaWaiwai: {
     borderWidth: 1,
     border: "none",
-    borderRadius: 40,
+    borderRadius: 5,
     borderColor: grey[300],
     width: '100%',
     
@@ -77,12 +75,8 @@ const useStyles = makeStyles((theme) => ({
       width: 400,
       height: 260,
       display: 'flex',
-      paddingTop:30,
-      paddingBottom:30,
-      paddingRight:35,
-      paddingLeft:35,
     },
-  },
+  },*/
   mainContainer: {
     marginTop: theme.spacing(5),
 
@@ -206,11 +200,13 @@ function Work(props) {
         <Grid item className={classes.content} md={12} >
           <Box display="flex" >
             {work.image ? (
-              <Box>
+              <Box
+              paddingRight={5}
+              paddingLeft={5}>
                 <img
                   src={work.image}
                   alt={work.alt}
-                  className={work.name == "ワイワイ" ? classes.mediaWaiwai : classes.media} />
+                    className={classes.media} />
               </Box>
             ) : (
               <Box

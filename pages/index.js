@@ -33,10 +33,12 @@ const useStyles = makeStyles((theme) => ({
     width:"370px",
     marginBottom:"40px",
   },
+  /*
   mediaWaiwai:{
     width:"250px",
     marginBottom:"55px"
   },
+  */
   topButton:{
     position:"fixed",
     right:"0px", 
@@ -85,7 +87,7 @@ const Applications = () =>{
           <img src='/application.png' className={classes.mediaApplication} />
         </Grid>
         <Grid item xs={4} align="center">
-          <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
+          <img src='/waiwai.png' alt='picture of waiwai' className={classes.media} />
           <Typography variant="h5" gutterBottom>ワイワイ</Typography>
           <Typography>あなたの価値観でみんながワイワイ</Typography>
         </Grid>
