@@ -46,10 +46,12 @@ const useStyles = makeStyles((theme) => ({
     paddingTop:120,
     paddingBottom:100,
   },
+
+  /*上寄せにしたい*/
   media: {
     borderWidth: 1,
     border: "none", 
-    borderRadius: 20,
+    borderRadius: 40,
     borderColor: grey[300],
     width: '100%',
 
@@ -57,13 +59,16 @@ const useStyles = makeStyles((theme) => ({
       width: 400,
       height: 260,
       display: 'flex',
-      padding:10,
+      paddingTop:30,
+      paddingBottom:30,
+      paddingRight:35,
+      paddingLeft:35,
     },
   },
   mediaWaiwai: {
     borderWidth: 1,
     border: "none",
-    borderRadius: 20,
+    borderRadius: 40,
     borderColor: grey[300],
     width: '100%',
     
@@ -72,7 +77,10 @@ const useStyles = makeStyles((theme) => ({
       width: 400,
       height: 260,
       display: 'flex',
-      padding:10,
+      paddingTop:30,
+      paddingBottom:30,
+      paddingRight:35,
+      paddingLeft:35,
     },
   },
   mainContainer: {
