@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily:'Corporate-Logo-Medium-ver2', 
     color:'#19807B',
     [theme.breakpoints.down('777')]: {
-      fontSize:'40px'
+      fontSize:'25px'
     },
   },
   mainText2:{
@@ -61,13 +61,38 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainContainer: {
-    paddingTop:'10px',
+    paddingTop:'30px',
     paddingLeft: '50px',
     paddingRight: '75px',
     paddingBottom:'75px',
     [theme.breakpoints.down('777')]: {
       paddingLeft:'10px',
       paddingRight:'10px',
+    },
+  },
+  moreText:{
+    fontFamily:'Corporate-Logo-Medium-ver2', 
+    fontSize:'18px',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'14px',
+    },
+  },
+  moreArrowIcon:{
+    color:'#19807B', 
+    marginLeft:'10px',
+    fontSize:'18px',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'12px',
+    },
+  },
+  applicationBox:{
+    paddingTop:'40px', 
+    paddingBottom:'150px', 
+    marginBottom:'150px', 
+    borderBottom:'1px solid #CACACA',
+    [theme.breakpoints.down('777')]: {
+      paddingBottom:'75px',
+      marginBottom:'75px',
     },
   },
   applicationIcon:{
@@ -78,21 +103,41 @@ const useStyles = makeStyles((theme) => ({
     padding:'10px', 
     margin:'-10px',
   },
+  applicationName:{
+    fontSize:'24px',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'18px',
+    },
+  },
+  applicationText:{
+    fontSize:'16px',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'14px',
+    },
+  },
   mediaWorks:{
     width:"23vw",
+    border:'1px solid #CACACA',
+    borderRadius:'5px',
     [theme.breakpoints.down('777')]: {
       width:'25vh',
     },
   },
-  mediaSection:{
-    width:"250px",
-    marginBottom:"40px",
-  },
   mediaWaiwai:{
-    width:"19.5vw",
-    marginBottom:"1.8vw",
+    width:"24.5vw",
+    marginBottom:"1vw",
+    border:'1px solid #CACACA',
+    borderRadius:'5px',
     [theme.breakpoints.down('777')]: {
-      width:'25vh',
+      width:'26.5vh',
+    },
+  },
+  logoText:{
+    fontFamily:'Corporate-Logo-Medium-ver2', 
+    fontSize:'35px', 
+    marginRight:'10px',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'25px',
     },
   },
   newsMainBox:{
@@ -102,7 +147,7 @@ const useStyles = makeStyles((theme) => ({
     overflow:'scroll',
     [theme.breakpoints.down('777')]: {
       marginTop:'0',
-      marginBottom:'50px',
+      marginBottom:'100px',
       paddingLeft:'5px',
     },
   },
@@ -127,6 +172,7 @@ const useStyles = makeStyles((theme) => ({
   },
   newsDateBox:{
     width:'8vw',
+    paddingLeft:'5px',
     [theme.breakpoints.down('777')]: {
       fontSize:'10px',
       width:'15vw',
@@ -147,7 +193,7 @@ const useStyles = makeStyles((theme) => ({
     width:'32vw', 
     marginLeft:'15px',
     [theme.breakpoints.down('777')]: {
-      fontSize:'10px',
+      fontSize:'12px',
       width:'53vw'
     },
   },
@@ -172,6 +218,7 @@ const useStyles = makeStyles((theme) => ({
     right:"0px", 
     bottom:"25px",
     opacity:"0.6", 
+    zIndex:'10',
   "&:hover":{
     opacity:1,
     }
@@ -222,8 +269,8 @@ const MainTextBox = () =>{
 
         <button class={classes.toAboutButton}>
           <a href='https://bamboooo.net/about' style={{textDecoration:'none', color:'black', padding:'20px', margin:'-20px'}}>
-            <span style={{fontFamily:'Corporate-Logo-Medium-ver2', fontSize:'30px'}}>More</span>
-            <ArrowForwardIosIcon style={{color:'#19807B', marginLeft:'10px'}}/>
+            <span className={classes.moreText}>More</span>
+            <ArrowForwardIosIcon className={classes.moreArrowIcon}/>
           </a>
         </button>
       </Box>
@@ -233,35 +280,37 @@ const MainTextBox = () =>{
 
 const Applications = () =>{ 
   const classes = useStyles(); 
+  const theme = useTheme();
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   return(
-    <Box pt="40px" pb="75px" mb="75px" borderBottom="1px solid grey">
+    <Box className={classes.applicationBox}>
       <Grid container> 
         <Grid item xs={12} style={{paddingBottom:'50px'}}>
           <a href='/works' className={classes.applicationIcon}>
-            <PhoneIphoneIcon style={{fontSize:'50px'}}/>
-            <Typography style={{fontFamily:'Corporate-Logo-Medium-ver2', fontSize:'35px', marginRight:'10px'}}>
+            <PhoneIphoneIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
+            <Typography className={classes.logoText}>
               Applications
             </Typography>
-            <ArrowForwardIosIcon style={{fontSize:'20px'}}/>
+            <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
           </a>
         </Grid>
         <Grid item xs={12} sm={4} align="center" style={{paddingBottom:'30px'}}>
-          <img src='/waiwai.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
-          <Typography variant="h5" gutterBottom>ワイワイ</Typography>
-          <Typography>あなたの価値観でみんながワイワイ</Typography>
+          <img src='/waiwai_history.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
+          <Typography className={classes.applicationName} gutterBottom>ワイワイ</Typography>
+          <Typography className={classes.applicationText}>あなたの価値観でみんながワイワイ</Typography>
         </Grid>
 
         <Grid item xs={12} sm={4} align="center" style={{paddingBottom:'30px'}}>
           <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
-          <Typography variant="h5" gutterBottom>memopic</Typography>
-          <Typography>旅の思い出をプレイリストで振り返ろう</Typography>
+          <Typography className={classes.applicationName} gutterBottom>memopic</Typography>
+          <Typography className={classes.applicationText}>旅の思い出をプレイリストで振り返ろう</Typography>
         </Grid>
 
         <Grid item xs={12} sm={4} align="center">
           <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
-          <Typography variant="h5" gutterBottom>Memorip</Typography>
-          <Typography>旅行プラン作成・共有サイト</Typography>
+          <Typography className={classes.applicationName} gutterBottom>Memorip</Typography>
+          <Typography className={classes.applicationText}>旅行プラン作成・共有サイト</Typography>
         </Grid>
 
       </Grid>     
@@ -330,16 +379,18 @@ function NewsItem(props) {
 
 const News = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   return(
     <Grid item xs={12} sm={7} container>
       <Box width='100%'>
         <a href='/works/1' className={classes.applicationIcon}>
-          <AnnouncementIcon style={{fontSize:'50px'}}/>
-          <Typography style={{fontFamily:'Corporate-Logo-Medium-ver2', fontSize:'35px', marginLeft:'10px', marginRight:'10px'}}>
+          <AnnouncementIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
+          <Typography className={classes.logoText} style={{marginLeft:'10px', marginRight:'10px'}}>
             News
           </Typography>
-          <ArrowForwardIosIcon style={{fontSize:'20px'}}/>
+          <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
         </a>
       </Box>
       {/*newsItemsをmapで*/}
@@ -354,16 +405,19 @@ const News = () => {
 
 const Twitter = () =>{
   const classes = useStyles();
+  const theme = useTheme();
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
+
 
   return(
     <Grid item xs={12} sm={4}>
       <Box>
         <a href='https://twitter.com/bamboooo_inc' target='_blank' className={classes.applicationIcon} >
-          <TwitterIcon style={{fontSize:'50px'}}/>
-          <Typography style={{fontFamily:'Corporate-Logo-Medium-ver2', fontSize:'35px', marginLeft:'10px', marginRight:'10px'}}>
+          <TwitterIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
+          <Typography className={classes.logoText} style={{marginLeft:'10px', marginRight:'10px'}}>
             Twitter
           </Typography>
-          <ArrowForwardIosIcon style={{fontSize:'20px'}}/>
+          <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
         </a>
       </Box>
       <Box mt="30px" align="center" >    
@@ -378,6 +432,8 @@ const Twitter = () =>{
           </a> 
           <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
         </Box>
+
+        {/* twitterフォローボタン（実装するなら）
         <Box>
           <button className={classes.twitterFollowButton}>
             <a href="https://twitter.com/intent/follow?screen_name=bamboooo_inc"
@@ -387,7 +443,7 @@ const Twitter = () =>{
               <Typography>フォローする</Typography>
             </a>
           </button>
-        </Box>
+        </Box> */}
       </Box>
     </Grid>
   )
