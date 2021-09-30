@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   /*上寄せにしたい*/
   media: {
     borderWidth: 1,
-    border: "none", 
+    border: "solid", 
     borderRadius: 5,
     borderColor: grey[300],
     width: '100%',
@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
   genreIcon:{
 
     borderRadius:"20px",
-    border:"1px solid black",
+    border:"none",
     width:"40%",
     backgroundColor:"#CC33FF",
     float:"right",
