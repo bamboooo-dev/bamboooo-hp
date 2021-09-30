@@ -52,12 +52,14 @@ const useStyles = makeStyles((theme) => ({
   toAboutButton:{
     marginTop:'4.5vw',
     fontFamily:'Corporate-Logo-Medium-ver2',
-    display:'inline-block',
     border:'0px none',
     background:'transparent',
     [theme.breakpoints.down('777')]: {
       fontSize:'14px',
       marginTop:'4.5vh',
+    },
+    '&:hover': {
+      opacity:'0.5',
     },
   },
   mainContainer: {
@@ -95,13 +97,35 @@ const useStyles = makeStyles((theme) => ({
       marginBottom:'75px',
     },
   },
-  applicationIcon:{
+  logoButton:{
+    border:'0px none',
+    background:'transparent',
+    '&:hover': {
+      opacity:'0.8',
+    },
+  },
+  logoIcon:{
     color:'#19807B',
     display:'flex',
     alignItems:'center',
     textDecoration:'none',
     padding:'10px', 
     margin:'-10px',
+    '&:hover': {
+      opacity:'0.5',
+    },
+  },
+  logoText:{
+    fontFamily:'Corporate-Logo-Medium-ver2', 
+    fontSize:'35px', 
+    marginRight:'10px',
+    [theme.breakpoints.down('777')]: {
+      fontSize:'25px',
+    },
+  },
+  applicationScrollBox:{
+    display:'flex',
+    overflow:'scroll',
   },
   applicationName:{
     fontSize:'24px',
@@ -120,7 +144,8 @@ const useStyles = makeStyles((theme) => ({
     border:'1px solid #CACACA',
     borderRadius:'5px',
     [theme.breakpoints.down('777')]: {
-      width:'25vh',
+      width:'auto',
+      height:'15.7vh',
     },
   },
   mediaWaiwai:{
@@ -129,15 +154,8 @@ const useStyles = makeStyles((theme) => ({
     border:'1px solid #CACACA',
     borderRadius:'5px',
     [theme.breakpoints.down('777')]: {
-      width:'26.5vh',
-    },
-  },
-  logoText:{
-    fontFamily:'Corporate-Logo-Medium-ver2', 
-    fontSize:'35px', 
-    marginRight:'10px',
-    [theme.breakpoints.down('777')]: {
-      fontSize:'25px',
+      width:'auto',
+      height:'15.7vh',
     },
   },
   newsMainBox:{
@@ -163,7 +181,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     textDecoration:'none',
     color:'black',
-
     '&:hover': {
       opacity:'0.5',
       backgroundColor:'#E7EAED',
@@ -221,7 +238,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex:'10',
   "&:hover":{
     opacity:1,
-    }
+    },
   }
 }));
 
@@ -285,15 +302,19 @@ const Applications = () =>{
 
   return(
     <Box className={classes.applicationBox}>
+      {isPC ? 
+      // PCでのアプリ横並べ（非横スクロール）
       <Grid container> 
         <Grid item xs={12} style={{paddingBottom:'50px'}}>
-          <a href='/works' className={classes.applicationIcon}>
+        <button className={classes.logoButton}>
+          <a href='/works' className={classes.logoIcon}>
             <PhoneIphoneIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
             <Typography className={classes.logoText}>
               Applications
             </Typography>
             <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
           </a>
+        </button>
         </Grid>
         <Grid item xs={12} sm={4} align="center" style={{paddingBottom:'30px'}}>
           <img src='/waiwai_history.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
@@ -314,6 +335,42 @@ const Applications = () =>{
         </Grid>
 
       </Grid>     
+:
+        // SPでのアプリ横スクロール
+       <>
+        <Box style={{paddingBottom:'50px'}}>
+          <button className={classes.logoButton}>
+            <a href='/works' className={classes.logoIcon}>
+              <PhoneIphoneIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
+              <Typography className={classes.logoText}>
+                Applications
+              </Typography>
+              <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
+            </a>
+          </button>
+        </Box>
+        <Box className={classes.applicationScrollBox}>
+          <Box align="center" style={{paddingBottom:'30px'}}>
+            <img src='/waiwai_history.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
+            <Typography className={classes.applicationName} gutterBottom>ワイワイ</Typography>
+            <Typography className={classes.applicationText}>あなたの価値観でみんながワイワイ</Typography>
+          </Box>
+
+          <Box align="center" style={{paddingBottom:'30px'}}>
+            <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
+            <Typography className={classes.applicationName} gutterBottom>memopic</Typography>
+            <Typography className={classes.applicationText}>旅の思い出をプレイリストで振り返ろう</Typography>
+          </Box>
+
+          <Box align="center">
+            <img src='/memorip.png' alt='picture of memorip' className={classes.mediaWorks} />
+            <Typography className={classes.applicationName} gutterBottom>Memorip</Typography>
+            <Typography className={classes.applicationText}>旅行プラン作成・共有サイト</Typography>
+          </Box>
+        </Box>
+        </>
+      }
+
     </Box>
   )
 }
@@ -322,31 +379,31 @@ const newsItems = [
   // 上に新しいnewsを追加していく
   {
     date: '2021.7.14',
-    category: 'カテゴリ',
+    category: 'アップデート',
     text: '『ワイワイ』ver1.83をリリースしました。',
     link: 'https://twitter.com/bamboooo_inc/status/1415249202657972229?s=20',
   },
   {
     date: '2021.7.8',
-    category: 'カテゴリ',
+    category: 'アップデート',
     text: '『ワイワイ』ver1.82をリリースしました。',
     link: 'https://twitter.com/bamboooo_inc/status/1407546420920414210?s=20',
   },
   {
     date: '2021.7.6',
-    category: 'カテゴリ',
+    category: 'お知らせ',
     text: '『ワイワイ』のユーザー数が1000人を超えました！！',
     link: 'https://twitter.com/bamboooo_inc/status/1412371686511448071?s=20',
   },
   {
     date: '2021.6.23',
-    category: 'カテゴリ',
+    category: 'アップデート',
     text: '『ワイワイ』ver1.80をリリースしました。',
     link: 'https://twitter.com/bamboooo_inc/status/1382198040774078464?s=20',
   },
   {
     date: '2021.4.14',
-    category: 'カテゴリ',
+    category: 'お知らせ',
     text: 'スマホ向けアプリ『ワイワイ』をリリースしました。',
     link: 'https://twitter.com/bamboooo_inc/status/1407546420920414210?s=20',
   },
@@ -384,14 +441,16 @@ const News = () => {
 
   return(
     <Grid item xs={12} sm={7} container>
-      <Box width='100%'>
-        <a href='/works/1' className={classes.applicationIcon}>
-          <AnnouncementIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
-          <Typography className={classes.logoText} style={{marginLeft:'10px', marginRight:'10px'}}>
-            News
-          </Typography>
-          <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
-        </a>
+      <Box >
+        <button className={classes.logoButton}>
+          <a href='/works/1' className={classes.logoIcon}>
+            <AnnouncementIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
+            <Typography className={classes.logoText} style={{marginLeft:'10px', marginRight:'10px'}}>
+              News
+            </Typography>
+            <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
+          </a>
+        </button>
       </Box>
       {/*newsItemsをmapで*/}
       <Box className={classes.newsMainBox}>
@@ -411,14 +470,16 @@ const Twitter = () =>{
 
   return(
     <Grid item xs={12} sm={4}>
-      <Box>
-        <a href='https://twitter.com/bamboooo_inc' target='_blank' className={classes.applicationIcon} >
+      <Box >
+      <button className={classes.logoButton}>
+        <a href='https://twitter.com/bamboooo_inc' target='_blank' className={classes.logoIcon} >
           <TwitterIcon style={isPC ? {fontSize:'50px'} : {fontSize:'35px'}}/>
           <Typography className={classes.logoText} style={{marginLeft:'10px', marginRight:'10px'}}>
             Twitter
           </Typography>
           <ArrowForwardIosIcon style={isPC ? {fontSize:'20px'} : {fontSize:'12px'}}/>
         </a>
+      </button>
       </Box>
       <Box mt="30px" align="center" >    
         <Box border='1px solid #E4ECEE' width='330px'>
@@ -451,6 +512,8 @@ const Twitter = () =>{
 
 const ReturnTopButton = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const isPC = useMediaQuery(theme.breakpoints.up('777'));
 
   const returnTop = () => {
     window.scrollTo({
@@ -461,7 +524,7 @@ const ReturnTopButton = () => {
 
   return (
     <Button onClick={returnTop} className={classes.topButton}>
-      <img src="TOP.jpg" width="50px" />
+      <img src="TOP.jpg" width={isPC ? "50px" : '35px'} />
     </Button>
   )
 }
