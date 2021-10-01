@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
 
     lineHeight: 2,
     width: 400,
-    height: 170,
+   /* height: 170,*/ 
     display: 'flex',
   },
 
