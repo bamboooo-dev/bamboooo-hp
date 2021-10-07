@@ -25,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop:'7vw',
     textAlign:'center',
     [theme.breakpoints.down('777')]: {
-      height:'70vh',
+      backgroundImage:'none',
+      textAlign:'left',
+      height:'60vh',
       backgroundSize:'100vw 70vh',
       marginTop:'10vh',
       paddingTop:'7vh',
@@ -35,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily:'Corporate-Logo-Medium-ver2', 
     color:'#19807B',
     [theme.breakpoints.down('777')]: {
-      fontSize:'25px'
+      fontSize:'25px',
+      marginLeft:'20px',
     },
   },
   mainText2:{
@@ -43,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop:'4.5vw', 
     lineHeight:'2.5',
     [theme.breakpoints.down('777')]: {
-      paddingLeft:'10px',
-      paddingRight:'10px',
+      paddingLeft:'15px',
+      paddingRight:'15px',
       fontSize:'14px',
       marginTop:'4.5vh',
     },
@@ -56,7 +59,9 @@ const useStyles = makeStyles((theme) => ({
     background:'transparent',
     [theme.breakpoints.down('777')]: {
       fontSize:'14px',
-      marginTop:'4.5vh',
+      marginTop:'2vh',
+      float:'right',
+      marginRight:'15px',
     },
     '&:hover': {
       opacity:'0.5',
@@ -93,8 +98,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom:'150px', 
     borderBottom:'1px solid #CACACA',
     [theme.breakpoints.down('777')]: {
-      paddingBottom:'75px',
-      marginBottom:'75px',
+      paddingBottom:'0',
+      marginBottom:'100px',
+      borderBottom:'none',
     },
   },
   logoButton:{
@@ -145,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:'5px',
     [theme.breakpoints.down('777')]: {
       width:'auto',
-      height:'15.7vh',
+      height:'20vh',
     },
   },
   mediaWaiwai:{
@@ -155,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:'5px',
     [theme.breakpoints.down('777')]: {
       width:'auto',
-      height:'15.7vh',
+      height:'20vh',
     },
   },
   newsMainBox:{
@@ -172,6 +178,7 @@ const useStyles = makeStyles((theme) => ({
   newsItemBox:{
     height:'75px',
     display:'flex',
+    flexWrap:'wrap',
     alignItems:'center',
     borderBottom:'1px solid #E6E6E6',
   },
@@ -202,6 +209,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign:'center',
     width:'10vw',
     [theme.breakpoints.down('777')]: {
+      marginLeft:'5px',
       fontSize:'10px',
       width:'20vw',
     },
@@ -210,8 +218,10 @@ const useStyles = makeStyles((theme) => ({
     width:'32vw', 
     marginLeft:'15px',
     [theme.breakpoints.down('777')]: {
+      marginTop:'-10px',
       fontSize:'12px',
-      width:'53vw'
+      marginLeft:'0',
+      width:'90vw'
     },
   },
   twitterFollowIcon:{
@@ -236,6 +246,7 @@ const useStyles = makeStyles((theme) => ({
     bottom:"25px",
     opacity:"0.6", 
     zIndex:'10',
+    backgroundColor:'transparent',
   "&:hover":{
     opacity:1,
     },
@@ -316,13 +327,13 @@ const Applications = () =>{
           </a>
         </button>
         </Grid>
-        <Grid item xs={12} sm={4} align="center" style={{paddingBottom:'30px'}}>
+        <Grid item xs={12} sm={4} align="center">
           <img src='/waiwai_history.png' alt='picture of waiwai' className={classes.mediaWaiwai} />
           <Typography className={classes.applicationName} gutterBottom>ワイワイ</Typography>
           <Typography className={classes.applicationText}>あなたの価値観でみんながワイワイ</Typography>
         </Grid>
 
-        <Grid item xs={12} sm={4} align="center" style={{paddingBottom:'30px'}}>
+        <Grid item xs={12} sm={4} align="center">
           <img src='/memopic.png' alt='picture of memopic' className={classes.mediaWorks} />
           <Typography className={classes.applicationName} gutterBottom>memopic</Typography>
           <Typography className={classes.applicationText}>旅の思い出をプレイリストで振り返ろう</Typography>
@@ -524,7 +535,7 @@ const ReturnTopButton = () => {
 
   return (
     <Button onClick={returnTop} className={classes.topButton}>
-      <img src="TOP.jpg" width={isPC ? "50px" : '35px'} />
+      <img src="TOP.png" width={isPC ? "60px" : '35px'} />
     </Button>
   )
 }
