@@ -242,11 +242,16 @@ const useStyles = makeStyles((theme) => ({
   },
   topButton:{
     position:"fixed",
-    right:"0px", 
+    right:"54px", 
     bottom:"25px",
     opacity:"0.6", 
     zIndex:'10',
     backgroundColor:'transparent',
+    borderRadius:'50%',
+    [theme.breakpoints.down('777')]: {
+      opacity:1,
+      right:'9px',
+    },
   "&:hover":{
     opacity:1,
     },
@@ -535,7 +540,7 @@ const ReturnTopButton = () => {
 
   return (
     <Button onClick={returnTop} className={classes.topButton}>
-      <img src="TOP.png" width={isPC ? "60px" : '35px'} />
+      <img src="TOP.png" width={isPC ? "56px" : '48px'} />
     </Button>
   )
 }
