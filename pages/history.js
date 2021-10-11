@@ -114,42 +114,34 @@ const useStyles = makeStyles((theme) => ({
 
 const events = [
   {
-    date: 'いままでの歴史を書いていきますいっぱい',
+    date: 'いままでの歴史',
+  },
+  {
+    date: '2021年 10月',
+    content: "bamboooo ホームページが完成",
   },
   {
     date: '2021年 4月',
-    content: "オンラインコミュニケーションゲームアプリ『ワイワイ』リリース\nYouTuber に取り上げてもらう",
+    content: "「あなたの価値観でみんながワイワイ」をテーマにしたパーティゲーム『ワイワイ』をリリース",
     img: '/waiwai_history.png',
   },
   {
-    date: '2021年 1月',
-    content: "初のゲームアプリ『ワイワイ』開発開始",
-  },
-  {
-    date: '2021年 1月',
-    content: "チームメンバーが増えたことや、作品をまとめる場所があればということで HP を作成",
-  },
-  {
-    date: '2020年 11月',
-    content: "仮想世界で出会うサイト『Alcatraz』開発開始・中止",
+    date: '2020年 9月',
+    content: "学生エンジニアのアウトプットを展示するテックカンファレンス「技育展」に『memopic』で登壇",
   },
   {
     date: '2020年 9月',
-    content: "アウトプットを展示する学生向けテックカンファレンス「技育展」に『memopic』で登壇",
-  },
-  {
-    date: '2020年 9月',
-    content: "旅行の思い出共有サイト『memopic』リリース、App Store や Google Play Store でも公開",
+    content: "「旅の思い出をプレイリストで振り返ろう」をテーマにした旅行の思い出共有サイト『memopic』をリリース",
     img: '/memopic_history.png',
   },
   {
     date: '2019年 12月',
-    content: "bamboooo として初めての Web サービス、旅行プラン共有サイト『Memorip』リリース",
+    content: "「旅行のプランを計画して共有しよう」をテーマにした旅行プラン共有サイト『Memorip』をリリース",
     img: '/memorip_history.png',
   },
   {
     date: '2019年 3月',
-    content: "山本と住江で「bamboo」としてスタート、後にメンバーが4人になり「bamboooo」となる",
+    content: "当時大学3年生の山本と4年生の住江で「bamboo」としてスタート、後にメンバーが4人になり「bamboooo」となる",
   },
 ]
 
