@@ -38,6 +38,11 @@ const theme = createMuiTheme({
         backgroundColor: '#19807BB3',
       },
     },
+    MuiDialog: {
+      paper: {
+        margin: "0",
+      }
+    },
   },
 });
 
