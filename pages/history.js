@@ -83,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
   },
   bambooDescription: {
     whiteSpace: 'pre-line',
-    marginTop: 20,
     [theme.breakpoints.down(777)]: {
       whiteSpace: 'normal',
       lineHeight: '1.5rem',
@@ -113,9 +112,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const events = [
-  {
-    date: 'いままでの歴史',
-  },
   {
     date: '2021年 10月',
     content: "bamboooo ホームページが完成",
