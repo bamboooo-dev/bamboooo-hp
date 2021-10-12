@@ -103,7 +103,7 @@ export default function Contact(){
         <Typography component="h1" variant="h5" gutterBottom>
           お問い合わせ
         </Typography>
-        <Typography variant="body1" gutterBottom>
+        <Typography gutterBottom>
           bamboooo は Mission・Philosophy に共感してくれる新しいメンバーを探しています。<br/>興味を持った方はこちらからご連絡お願いします。
         </Typography>
         <form className={classes.form} onSubmit={handleOnSubmit}>

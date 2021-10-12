@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Footer from '../src/Footer';
 import Header from '../src/Header';
-import { lightTheme } from '../src/theme';
+import theme from '../src/theme';
 
 const sections = [
   { title: 'About', url: '/about' },
@@ -34,7 +34,7 @@ export default function MyApp(props) {
         <title>bamboooo | Colors your life</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Header sections={sections} />
