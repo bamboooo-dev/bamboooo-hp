@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     flexFlow:'column',
     justifyContent:'sapce-around',
     alignItems:'center',
-    paddingTop:120,
+    paddingTop:80,
     paddingBottom:100,
   },
 
@@ -108,23 +108,27 @@ const useStyles = makeStyles((theme) => ({
   genreIcon:{
 
     borderRadius:"20px",
-    border:"none",
+    border:"solid 2px",
     width:"40%",
-    backgroundColor:"#CC33FF",
+    borderColor:"green",
     float:"right",
     paddingTop:"3px",
-    fontSize:"15px",
+    fontSize:"12px",
     textAlign:"center",
     [theme.breakpoints.down('777')]: {
       paddingTop:"2px",
       fontSize:"10px",
     },
+
+    title:{
+      fontSize:"150px",
+    }
   },
 }));
 
 const works = [
   { 
-    name: 'ワイワイ',
+    title: 'ワイワイ',
     catchphrase: 'あなたの価値観でみんながワイワイ',
    /* url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
    公式HP載せたい*/
@@ -140,12 +144,12 @@ const works = [
     release:'リリース　　2021年 4月',
     appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
     googleUrl: "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
-    backgroundColor:'#D4A7D9',
-    genre:'ゲーム',
+    /*backgroundColor:'#D4A7D9',*/
+    genre:'対戦型協力ゲームアプリ',
     gameUrl:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
   },
   { 
-    name: 'memopic',
+    title: 'memopic',
     catchphrase: '旅の思い出をプレイリストで振り返ろう',
     url: 'https://www.memopic.net',
     alt: 'Picture of memopic',
@@ -159,12 +163,12 @@ const works = [
     release:'リリース　　2020年 9月',
     appleUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
-    backgroundColor:'#F5BD70',
-    genre:'便利系',
+    /*backgroundColor:'#F5BD70',*/
+    genre:'旅行の思い出共有アプリ',
     gameUrl:"https://apps.apple.com/us/app/memopic/id1527852844",
   },
   { 
-    name: 'Memorip',
+    title: 'Memorip',
     catchphrase: '旅行プラン作成・共有サイト',
     url: 'https://memorip.net',
     alt: 'Picture of Memorip',
@@ -175,8 +179,8 @@ const works = [
       これからの旅行のしおりとして、また
       他の人のプランを参考にして作成できます`,
     release:'リリース　　2019年 12月',
-    backgroundColor:'#99FFFF',
-    genre:'連絡系',
+    /*backgroundColor:'#99FFFF',*/
+    genre:'旅行プラン作成アプリ',
   },
   /* 新しいアプリがリリースor決定したら追加
   { 
@@ -228,13 +232,17 @@ function Work(props) {
                 <a href={work.gameUrl}
                    target="_blank"
                    style={{
-                     color:"black",
-                     textDecoration:"none"
+                     color:"green",
+                     textDecoration:"none",
+                     fontWeight:"bold",
                    }}>
-                 {work.name}
+                 {work.title}
                 </a>
               </Typography>
-              <Typography variant="body1" color="textSecondary" component="p">
+              <Typography variant="body1" color="textPrimary" component="p"
+               style={{
+                 fontWeight:"bold",
+               }}>
                 {work.catchphrase}
               </Typography>
               <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
