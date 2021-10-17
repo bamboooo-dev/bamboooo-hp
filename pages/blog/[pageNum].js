@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(10),
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
-    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, .3)',
+    boxShadow: '0 3px 5px 0 rgba(0, 0, 0, .1)',
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingLeft: 40,
@@ -38,14 +38,15 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '90%',
     },
   },
-  titleTypgraphy: {
+  titleTypography: {
+    fontWeight: 'bold',
     [theme.breakpoints.up(777)]: {
       minHeight: 128,
     },
   },
   postBox: {
     [theme.breakpoints.down(777)]: {
-      marginBottom: 100,
+      marginBottom: 70,
     },
   },
 }));
@@ -120,14 +121,14 @@ function PostBox(props){
   const { post } = props;
   const classes = useStyles();
 
+  const theme = useTheme();
+  const isSP = useMediaQuery(theme.breakpoints.down('sm'));
+
   return(
     <Grid item xs={12} sm={4} className={classes.postBox}>
       <Box display="flex" flexDirection="column">
-        <img src={post.image} width="100%" style={{marginBottom: 20, borderRadius: 5}}/>
-        <Typography variant="h6" className={classes.titleTypgraphy}>
-          {post.title}
-        </Typography>
-        <Box display="flex" alignItems="center" width="100%" mt={1} mb={2}>
+        <img src={post.image} width="100%" style={isSP ? {borderRadius: 5} : {marginBottom: 20, borderRadius: 5}}/>
+        <Box display="flex" alignItems="center" width="100%" mt={1} mb={isSP ? 0 : 2}>
           <Box width="40%">
             <Typography variant="subtitle1">
               {post.date}
@@ -137,13 +138,15 @@ function PostBox(props){
             <span>{post.category}</span>
           </Box>
         </Box>
-        <Divider style={{backgroundColor: "grey", marginBottom: 10}} />
-        <Box position="relative">
-          <Typography variant="subtitle1">
-            {post.lead}...
-          </Typography>
-          <a href={post.url} target="_blank" style={{position: "absolute", right: 10, bottom: 5, color: "#19807B", textDecoration: "none"}}>{">>"}</a>
-        </Box>
+        <Typography variant="h6" className={classes.titleTypography}>
+          <a
+            href={post.url}
+            target="_blank"
+            style={{color: "black", textDecoration: "none"}}
+          >
+            {post.title}
+          </a>
+        </Typography>
       </Box>
     </Grid>
   )
