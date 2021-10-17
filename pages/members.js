@@ -99,8 +99,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft:"23px",
     fontWeight:"100",
     [theme.breakpoints.down('777')]: {
-      fontSize: "10px",
       paddingLeft: "15px",
+      width: "100%",
     },
     '&:hover': {
       opacity:"0.5",
@@ -112,8 +112,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop:"3px",
     fontSize:"15px",
     [theme.breakpoints.down('777')]: {
-      paddingTop:"2px",
-      fontSize:"10px",
+      paddingTop:"4px",
+      fontSize:"15px",
     },
   },
   dialogSize: {
