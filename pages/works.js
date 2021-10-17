@@ -1,3 +1,4 @@
+import { FormHelperText, Paper } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import grey from "@material-ui/core/colors/grey";
@@ -6,10 +7,22 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
+import paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
+  header:{
+    width:'100%',
+    paddingLeft: '0',
+    paddingRight: '0',
+  },
+
   content: {
     width: '100%',
+    display:'flex' ,
+    flexFlow:'column',
+    justifyContent:'sapce-around',
+    alignItems:'center',
+    padding:50,
   },
   media: {
     borderWidth: 1,
@@ -17,9 +30,11 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     borderColor: grey[300],
     width: '100%',
+
     [theme.breakpoints.up('sm')]: {
       width: 400,
       height: 260,
+      display: 'flex',
     },
   },
   mediaWaiwai: {
@@ -27,21 +42,42 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: 400,
       height: 260,
+      display: 'flex',
     },
   },
   mainContainer: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(5),
+    /*
+    position:'auto',
+    ここらへんの位置をかえればいい感じになると思う*/
   },
   description: {
-    whiteSpace: "pre-line",
+
+/*これがないほうが改行は変かもしれないけどすっきりする
+    whiteSpace: "pre-line",*/
+
     lineHeight: 2,
+    width: 400,
+    height: 170,
+    display: 'flex',
   }
 }));
+
+const Header=() =>{
+  const classes = useStyles();
+  
+  return(
+    <img src='/header.png' className={classes.header}/>
+  )
+}
+
 
 const works = [
   { 
     name: 'ワイワイ',
     catchphrase: 'あなたの価値観でみんながワイワイ',
+    url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
+   /*公式HP載せたい*/
     alt: 'Picture of waiwai',
     image: '/waiwai.png',
     description: `
@@ -84,82 +120,81 @@ const works = [
   },
   { 
     name: 'MESHIBUGYO',
-    catchphrase: '「きょう何食べよう？」を楽しく',
+    catchphrase: 'あなただけのサブカル発掘アプリ',
     alt: 'Picture of MESHIBUGYO',
+    description: 'あなただけのサブカルを見つけるには間違いなし！'
   },
 ];
 
 function Work(props) {
   const classes = useStyles();
   const { work } = props; 
-
   return (
-    <Grid item container xs={12} md={6} justify="center">
-      <Grid item className={classes.content}>
-        {work.image ? (
-          <img
-            src={work.image}
-            alt={work.alt}
-            className={work.name=="ワイワイ" ? classes.mediaWaiwai : classes.media}
-          />
-        ):(
-          <Box
-            className={classes.media}
-            height={260}
-            mb={1}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Typography variant="h4">
-              COMING SOON...
-            </Typography> 
-          </Box>
-        )}
-        <Typography gutterBottom variant="h4" component="h2">
-          {work.name}
-        </Typography>
-        <Typography variant="body1" color="textSecondary" component="p">
-          {work.catchphrase}
-        </Typography>
-        <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
-          {work.description}
-        </Typography>
-        {work.url && (
-          <Box my={1}>
-            <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
-          </Box>
-        )}
-        {(work.appleUrl || work.googleUrl) &&(
-          <Box 
-            display="flex"
-            alignItems="center"
-          >
-            {work.appleUrl && (
+    <>
+    <Grid item container xs={12} display="flex" >
+        <Grid item className={classes.content}>
+          <Box display="flex">
+            {work.image ? (
               <Box>
-                <a href={work.appleUrl} target="_blank">
-                  <img
-                    src="/app-store-badge.png"
-                    alt="App Store Badge"
-                  />
-                </a>
+                <img
+                  src={work.image}
+                  alt={work.alt}
+                  className={work.name == "ワイワイ" ? classes.mediaWaiwai : classes.media} />
+              </Box>
+            ) : (
+              <Box
+                className={classes.media}
+                height={260}
+                mb={1}
+              >
+                <Typography variant="h4">
+                  COMING SOON...
+                </Typography>
               </Box>
             )}
-            {work.googleUrl && (
-              <Box>
-                <a href={work.googleUrl} target="_blank">
-                  <img
-                    src="/google-play-badge.png"
-                    alt="Google Play Store Badge"
-                    height={60}
-                  />
-                </a>
-              </Box>
-            )}
+            <Box>
+              <Typography gutterBottom variant="h4" component="h2">
+                {work.name}
+              </Typography>
+              <Typography variant="body1" color="textSecondary" component="p">
+                {work.catchphrase}
+              </Typography>
+              <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
+                {work.description}
+              </Typography>
+              {work.url && (
+                <Box my={1}>
+                  <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
+                </Box>
+              )}
+              {(work.appleUrl || work.googleUrl) && (
+                <Box display="flex" alignItems="center">
+                  {work.appleUrl && (
+                    <Box>
+                      <a href={work.appleUrl} target="_blank">
+                        <img
+                          src="/app-store-badge.png"
+                          alt="App Store Badge" />
+                      </a>
+                    </Box>
+                  )}
+                  {work.googleUrl && (
+                    <Box>
+                      <a href={work.googleUrl} target="_blank">
+                        <img
+                          src="/google-play-badge.png"
+                          alt="Google Play Store Badge"
+                          height={60} />
+                      </a>
+                    </Box>
+                  )}
+                </Box>
+              )}
+            </Box>
           </Box>
-        )}
-      </Grid>
+        </Grid>
     </Grid>
+    </>
   )
 }
 
@@ -167,12 +202,18 @@ export default function Works() {
   const classes = useStyles();
 
   return (
-    <Container className={classes.mainContainer}>
-      <Grid container spacing={4}>
+    <>
+    <Header />
+    <Paper>
+    <Container className={classes.mainContainer} >
+      <Grid container spacing={4} >
         {works.map((work) => (
           <Work key={work.name} work={work}/>
         ))}
-      </Grid>
+      </Grid> 
     </Container>
+    </Paper>
+    </>
   )
 }
+
