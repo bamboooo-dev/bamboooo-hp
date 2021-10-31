@@ -103,17 +103,20 @@ const useStyles = makeStyles((theme) => ({
     width: 400,
    /* height: 170,*/ 
     display: 'flex',
+    fontFamily:"ヒラギノ角ゴシック",
   },
 
   genreIcon:{
 
     borderRadius:"20px",
     border:"solid 2px",
-    width:"40%",
-    borderColor:"green",
+    width:"50%",
+    borderColor:"#19807B",
     float:"right",
-    paddingTop:"3px",
-    fontSize:"12px",
+    padding:"4px",
+    fontSize:"14px",
+    fontFamily:"ヒラギノ角ゴシック",
+  
     textAlign:"center",
     [theme.breakpoints.down('777')]: {
       paddingTop:"2px",
@@ -225,14 +228,14 @@ function Work(props) {
             )}
           
             <Box xs={4}>
-              <div className={classes.genreIcon} style={{backgroundColor: work.backgroundColor}}>
+              <div className={classes.genreIcon} /*style={{font: work.font}}*/>
                {work.genre}
               </div>            
               <Typography gutterBottom variant="h4" component="h2">
                 <a href={work.gameUrl}
                    target="_blank"
                    style={{
-                     color:"green",
+                     color:"#19807B",
                      textDecoration:"none",
                      fontWeight:"bold",
                    }}>
