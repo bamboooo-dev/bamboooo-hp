@@ -4,10 +4,12 @@ import Button from '@material-ui/core/Button';
 import grey from "@material-ui/core/colors/grey";
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import paper from '@material-ui/core/Paper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+
 
 const useStyles = makeStyles((theme) => ({
   mainDiv:{
@@ -40,11 +42,19 @@ const useStyles = makeStyles((theme) => ({
   content: {
     width: '100%',
     display:'flex' ,
+    [theme.breakpoints.down('sm')]: {
+    
+    },
     flexFlow:'column',
-    justifyContent:'sapce-around',
+    /*flexWrap:'nowraop',
+    justifyContent:'sapce-around',*/
     alignItems:'center',
     paddingTop:80,
     paddingBottom:100,
+    [theme.breakpoints.down('sm')]: {
+    paddingTop:10,
+    paddingBottom:10,
+    },
   },
 
   /*上寄せにしたい*/
@@ -101,6 +111,9 @@ const useStyles = makeStyles((theme) => ({
 
     lineHeight: 2,
     width: 400,
+    [theme.breakpoints.down('sm')]: {
+      width:300,
+    },
    /* height: 170,*/ 
     display: 'flex',
     fontFamily:"ヒラギノ角ゴシック",
@@ -125,6 +138,10 @@ const useStyles = makeStyles((theme) => ({
 
     title:{
       fontSize:"150px",
+    },
+
+    content:{
+      paddingRight:"40px",
     }
   },
 }));
@@ -200,12 +217,13 @@ const works = [
 
 function Work(props) {
   const classes = useStyles();
+  const theme = useTheme();
   const { work } = props; 
   return (
    <Grid container>
-     <Grid item container xs={4} md={12} display="flex" >
+     <Grid item container xs={12} md={12} display="flex" >
         <Grid item className={classes.content} md={12} >
-          <Box display="flex" >
+          <Box display="flex" flexDirection="column">
             {work.image ? (
               <Box
               paddingRight={5}
@@ -227,7 +245,9 @@ function Work(props) {
               </Box>
             )}
           
-            <Box xs={4}>
+            <Box xs={12}
+             className={classes.content}>
+              
               <div className={classes.genreIcon} /*style={{font: work.font}}*/>
                {work.genre}
               </div>            
@@ -294,23 +314,28 @@ export default function Works() {
   const classes = useStyles();
 
   return (
+    <Grid container>
+      <Grid item xs={12} md={12}>
    <Box className={classes.mainDiv}>
     <Grid container>
-     <Grid item xs={4}  md={12}> 
+     <Grid item xs={12}  md={12}> 
       <Box className={classes.TopContainer}  >
+   
        <Box className={classes.shadowBox}>
-        <Container className={classes.mainContainer} >
+        <Box className={classes.mainContainer} >
          <Grid container spacing={4} >
           {works.map((work) => (
             <Work key={work.name} work={work}/>
           ))}
           </Grid> 
-         </Container>
+         </Box>
         </Box>
        </Box>
       </Grid>
      </Grid>
     </Box>
+    </Grid>
+    </Grid>
   )
 }
 
