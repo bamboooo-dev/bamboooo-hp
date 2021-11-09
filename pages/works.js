@@ -42,14 +42,11 @@ const useStyles = makeStyles((theme) => ({
   content: {
     width: '100%',
     display:'flex' ,
-    [theme.breakpoints.down('sm')]: {
-    
-    },
     flexFlow:'column',
     /*flexWrap:'nowraop',
     justifyContent:'sapce-around',*/
     alignItems:'center',
-    paddingTop:80,
+    paddingTop:60,
     paddingBottom:100,
     [theme.breakpoints.down('sm')]: {
     paddingTop:10,
@@ -64,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 5,
     borderColor: grey[300],
     width: '100%',
+    marginTop:55,
 
     [theme.breakpoints.up('sm')]: {
       width: 400,
@@ -135,6 +133,7 @@ const useStyles = makeStyles((theme) => ({
       paddingTop:"2px",
       fontSize:"10px",
     },
+  
 
     title:{
       fontSize:"150px",
@@ -142,8 +141,14 @@ const useStyles = makeStyles((theme) => ({
 
     content:{
       paddingRight:"40px",
-    }
-  },
+    },},
+
+    contentBox:{
+          display:"flex",
+        [theme.breakpoints.down('sm')]: {
+          display:"flex" ,
+          flexDirection:"column",
+    },},
 }));
 
 const works = [
@@ -223,7 +228,7 @@ function Work(props) {
    <Grid container>
      <Grid item container xs={12} md={12} display="flex" >
         <Grid item className={classes.content} md={12} >
-          <Box display="flex" flexDirection="column">
+          <Box className={classes.contentBox}>
             {work.image ? (
               <Box
               paddingRight={5}
