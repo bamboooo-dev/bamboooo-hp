@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useMediaQuery } from '@material-ui/core';
 
 
 
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 5,
     borderColor: grey[300],
     width: '100%',
-    marginTop:55,
+    marginTop:10,
 
     [theme.breakpoints.up('sm')]: {
       width: 400,
@@ -127,21 +128,26 @@ const useStyles = makeStyles((theme) => ({
     padding:"4px",
     fontSize:"14px",
     fontFamily:"ヒラギノ角ゴシック",
-  
     textAlign:"center",
     [theme.breakpoints.down('777')]: {
       paddingTop:"2px",
       fontSize:"10px",
     },
-  
+  },
 
     title:{
-      fontSize:"150px",
-    },
+      fontSize:"30px",
+      [theme.breakpoints.down('sm')]: {
+       fontSize:"20px",
+    }},
 
     content:{
-      paddingRight:"40px",
-    },},
+      padding:"40px",
+      [theme.breakpoints.down('sm')]: {
+        paddingLeft:"25px",
+        paddingTop:"30px",
+
+      }},
 
     contentBox:{
           display:"flex",
@@ -149,6 +155,14 @@ const useStyles = makeStyles((theme) => ({
           display:"flex" ,
           flexDirection:"column",
     },},
+
+    Icon:{
+      [theme.breakpoints.down('sm')]: {
+      display:"flex",
+      flexDirection:"column",
+      textAlign:"center",
+      alignItems:"center",
+    }},
 }));
 
 const works = [
@@ -159,6 +173,7 @@ const works = [
    公式HP載せたい*/
     alt: 'Picture of waiwai',
     image: '/waiwai_work.png',
+    smartphoneimage:'/waiwai.png',
     description: `
       オンラインでオフライン以上にワイワイする。
       「ワイワイ」はおしゃべりしながらオンライン対戦できる心理ゲームで、
@@ -179,6 +194,7 @@ const works = [
     url: 'https://www.memopic.net',
     alt: 'Picture of memopic',
     image: '/memopic_work.png',
+    smartphoneimage: '/memopic_work.png',
     description: `
       旅行中ドライブで聴いてた曲
       あの時流行っていた、好きだった曲から
@@ -198,6 +214,7 @@ const works = [
     url: 'https://memorip.net',
     alt: 'Picture of Memorip',
     image: '/memorip_work.png',
+    smartphoneimage: '/memorip_work.png',
     description: `
       『Memorip』では直感的にプランを作成したり
       簡単にプランを共有したりすることができます
@@ -224,19 +241,28 @@ function Work(props) {
   const classes = useStyles();
   const theme = useTheme();
   const { work } = props; 
+  const Issmartphone = useMediaQuery((theme)=>
+    theme.breakpoints.down('xs')
+  );
   return (
    <Grid container>
      <Grid item container xs={12} md={12} display="flex" >
-        <Grid item className={classes.content} md={12} >
+        <Grid item className={classes.content} md={12}>
           <Box className={classes.contentBox}>
             {work.image ? (
               <Box
               paddingRight={5}
               paddingLeft={5}>
-                <img
-                  src={work.image}
+                <img  className={classes.media}
+                  /*src ={work.image}*/
+
+              src = {Issmartphone? (
+                   work.smartphoneimage
+                    ):(
+                   work.image)}
+
                   alt={work.alt}
-                    className={classes.media} />
+                />
               </Box>
             ) : (
               <Box
@@ -252,24 +278,26 @@ function Work(props) {
           
             <Box xs={12}
              className={classes.content}>
-              
+              <div className={classes.Icon}>
               <div className={classes.genreIcon} /*style={{font: work.font}}*/>
                {work.genre}
               </div>            
-              <Typography gutterBottom variant="h4" component="h2">
+              <Typography gutterBottom variant="h4" component="h2" >
                 <a href={work.gameUrl}
                    target="_blank"
                    style={{
                      color:"#19807B",
                      textDecoration:"none",
                      fontWeight:"bold",
-                   }}>
+                   }} className={classes.title}>
                  {work.title}
                 </a>
               </Typography>
+              </div>
               <Typography variant="body1" color="textPrimary" component="p"
                style={{
                  fontWeight:"bold",
+                 textAlign:"center",
                }}>
                 {work.catchphrase}
               </Typography>
