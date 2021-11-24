@@ -1,219 +1,261 @@
-import { FormHelperText, Paper } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
+import { Typography, useMediaQuery } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 import grey from "@material-ui/core/colors/grey";
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import React from 'react';
-import paper from '@material-ui/core/Paper';
+import Grid from "@material-ui/core/Grid";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
-  header:{
-    width:'100%',
-    paddingLeft: '0',
-    paddingRight: '0',
+  coverBox: {
+    backgroundImage: "url(/works_cover.png)",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down("sm")]: {
+      backgroundImage: "url(/works_cover_sp.png)",
+    },
   },
-
-  content: {
-    width: '100%',
-    display:'flex' ,
-    flexFlow:'column',
-    justifyContent:'sapce-around',
-    alignItems:'center',
-    padding:50,
+  innerBox: {
+    maxWidth: "1000px",
+    margin: "0 auto",
+    paddingTop: "25vw",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "35vw",
+    },
+  },
+  whiteBox: {
+    backgroundColor: "white",
+    paddingTop: theme.spacing(12),
+    paddingLeft: theme.spacing(12),
+    paddingRight: theme.spacing(12),
+    boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
+    marginBottom: 30,
+    [theme.breakpoints.down(777)]: {
+      paddingLeft: 40,
+      paddingRight: 40,
+      paddingTop: 40,
+      maxWidth: "90%",
+    },
   },
   media: {
     borderWidth: 1,
     border: "solid",
-    borderRadius: 10,
+    borderRadius: 5,
     borderColor: grey[300],
-    width: '100%',
-
-    [theme.breakpoints.up('sm')]: {
-      width: 400,
-      height: 260,
-      display: 'flex',
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: 350,
+      display: "flex",
     },
   },
-  mediaWaiwai: {
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: 400,
-      height: 260,
-      display: 'flex',
+  title: {
+    fontSize: "30px",
+    fontFamily: "ヒラギノ角ゴシック",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "20px",
     },
   },
-  mainContainer: {
-    marginTop: theme.spacing(5),
-    /*
-    position:'auto',
-    ここらへんの位置をかえればいい感じになると思う*/
+  catchphrase: {
+    fontFamily: "ヒラギノ角ゴシック",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "20px",
+    },
+  },
+  genreIcon: {
+    borderRadius: "20px",
+    border: "solid 2px",
+    width: "80%",
+    borderColor: "#19807B",
+    padding: "8px",
+    fontSize: "14px",
+    fontFamily: "ヒラギノ角ゴシック",
+    textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      padding: "4px",
+      margin: "0 auto",
+    },
   },
   description: {
-
-/*これがないほうが改行は変かもしれないけどすっきりする
-    whiteSpace: "pre-line",*/
-
-    lineHeight: 2,
-    width: 400,
-    height: 170,
-    display: 'flex',
-  }
+    lineHeight: 1.8,
+    fontFamily: "ヒラギノ角ゴシック",
+  },
 }));
 
-const Header=() =>{
-  const classes = useStyles();
-  
-  return(
-    <img src='/header.png' className={classes.header}/>
-  )
-}
-
-
 const works = [
-  { 
-    name: 'ワイワイ',
-    catchphrase: 'あなたの価値観でみんながワイワイ',
-    url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
-   /*公式HP載せたい*/
-    alt: 'Picture of waiwai',
-    image: '/waiwai.png',
+  {
+    title: "ワイワイ",
+    catchphrase: "あなたの価値観でみんながワイワイ",
+    url: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
+    alt: "Picture of waiwai",
+    image: "/waiwai_work.png",
+    smartphoneimage: "/waiwai.png",
     description: `
       オンラインでオフライン以上にワイワイする。
       「ワイワイ」はおしゃべりしながらオンライン対戦できる心理ゲームで、
       Among Us の次に流行ると巷で噂されてます。
       キャラクター(エモー)もかわいいので、テンションも上がること間違いなし！
       自分の性格、センス、価値観が問われるので仲間内はもちろん、
-      初対面の人の事も手っ取り早く知ることが出来ます。`,
-    appleUrl: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
-    googleUrl: "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
+      初対面の人の事も手っ取り早く知る日ことが出来ます。`,
+    release: "リリース　　2021年 4月",
+    appleUrl:
+      "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
+    googleUrl:
+      "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
+    genre: "対戦型協力ゲームアプリ",
   },
-  { 
-    name: 'memopic',
-    catchphrase: '旅の思い出をプレイリストで振り返ろう',
-    url: 'https://www.memopic.net',
-    alt: 'Picture of memopic',
-    image: '/memopic.png',
+  {
+    title: "memopic",
+    catchphrase: "旅の思い出をプレイリストで振り返ろう",
+    url: "https://www.memopic.net",
+    alt: "Picture of memopic",
+    image: "/memopic_work.png",
+    smartphoneimage: "/memopic_work.png",
     description: `
       旅行中ドライブで聴いてた曲
       あの時流行っていた、好きだった曲から
       思い出を振り返ってみませんか？
       『memopic』はプレイリストで旅を記録する
       新しいサービスです`,
+    release: "リリース　　2020年 9月",
     appleUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
+    genre: "旅行の思い出共有アプリ",
   },
-  { 
-    name: 'Memorip',
-    catchphrase: '旅行プラン作成・共有サイト',
-    url: 'https://memorip.net',
-    alt: 'Picture of Memorip',
-    image: '/memorip.png',
+  {
+    title: "Memorip",
+    catchphrase: "旅行プラン作成・共有サイト",
+    url: "https://memorip.net",
+    alt: "Picture of Memorip",
+    image: "/memorip_work.png",
+    smartphoneimage: "/memorip_work.png",
     description: `
       『Memorip』では直感的にプランを作成したり
       簡単にプランを共有したりすることができます
       これからの旅行のしおりとして、また
-      他の人のプランを参考にして作成できます
-    `,
-  },
-  { 
-    name: 'MESHIBUGYO',
-    catchphrase: 'あなただけのサブカル発掘アプリ',
-    alt: 'Picture of MESHIBUGYO',
-    description: 'あなただけのサブカルを見つけるには間違いなし！'
+      他の人のプランを参考にして作成できます`,
+    release: "リリース　　2019年 12月",
+    genre: "旅行プラン作成アプリ",
   },
 ];
 
 function Work(props) {
   const classes = useStyles();
-  const { work } = props; 
+  const theme = useTheme();
+  const { work } = props;
+  const isSP = useMediaQuery(theme.breakpoints.down("xs"));
+
   return (
-    <>
-    <Grid item container xs={12} display="flex" >
-        <Grid item className={classes.content}>
-          <Box display="flex">
-            {work.image ? (
-              <Box>
-                <img
-                  src={work.image}
-                  alt={work.alt}
-                  className={work.name == "ワイワイ" ? classes.mediaWaiwai : classes.media} />
-              </Box>
-            ) : (
-              <Box
-                className={classes.media}
-                height={260}
-                mb={1}
+    <Grid item xs={12} style={{ marginBottom: 100 }}>
+      <Box display="flex" flexDirection={isSP ? "column" : "row"}>
+        {work.image ? (
+          <Box>
+            <img
+              className={classes.media}
+              src={isSP ? work.smartphoneimage : work.image}
+              alt={work.alt}
+              style={work.title === "ワイワイ" ? { border: "none" } : {}}
+            />
+          </Box>
+        ) : (
+          <Box className={classes.media} height={260} mb={1}>
+            <Typography variant="h4">COMING SOON...</Typography>
+          </Box>
+        )}
+        <Box display="flex" flexDirection="column" flex={1} ml={isSP ? 0 : 6}>
+          <Grid container style={{ width: "100%" }}>
+            <Grid item xs={12} sm={5} style={isSP ? { marginBottom: 6 } : {}}>
+              <Typography
+                variant="h4"
+                style={isSP ? { textAlign: "center" } : {}}
               >
-                <Typography variant="h4">
-                  COMING SOON...
-                </Typography>
-              </Box>
-            )}
-            <Box>
-              <Typography gutterBottom variant="h4" component="h2">
-                {work.name}
+                <a
+                  href={work.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    color: "#19807B",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
+                  className={classes.title}
+                >
+                  {work.title}
+                </a>
               </Typography>
-              <Typography variant="body1" color="textSecondary" component="p">
-                {work.catchphrase}
-              </Typography>
-              <Typography variant="body2" color="textPrimary" component="p" gutterBottom className={classes.description}>
-                {work.description}
-              </Typography>
-              {work.url && (
-                <Box my={1}>
-                  <Button variant="outlined" href={work.url} target="_blank">公式サイトへ</Button>
+            </Grid>
+            <Grid item xs={12} sm={7}>
+              <Box className={classes.genreIcon}>{work.genre}</Box>
+            </Grid>
+          </Grid>
+          <Box mt={1}>
+            <Typography
+              className={classes.catchphrase}
+              gutterBottom
+              style={
+                isSP
+                  ? {
+                      fontWeight: "bold",
+                      textAlign: "center",
+                    }
+                  : { fontWeight: "bold" }
+              }
+            >
+              {work.catchphrase}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="body2"
+              gutterBottom
+              className={classes.description}
+            >
+              {work.description}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="body2" color="textSecondary" gutterBottom>
+              {work.release}
+            </Typography>
+          </Box>
+          {(work.appleUrl || work.googleUrl) && (
+            <Box display="flex" alignItems="center">
+              {work.appleUrl && (
+                <Box>
+                  <a href={work.appleUrl} target="_blank" rel="noreferrer">
+                    <img src="/app-store-badge.png" alt="App Store Badge" />
+                  </a>
                 </Box>
               )}
-              {(work.appleUrl || work.googleUrl) && (
-                <Box display="flex" alignItems="center">
-                  {work.appleUrl && (
-                    <Box>
-                      <a href={work.appleUrl} target="_blank">
-                        <img
-                          src="/app-store-badge.png"
-                          alt="App Store Badge" />
-                      </a>
-                    </Box>
-                  )}
-                  {work.googleUrl && (
-                    <Box>
-                      <a href={work.googleUrl} target="_blank">
-                        <img
-                          src="/google-play-badge.png"
-                          alt="Google Play Store Badge"
-                          height={60} />
-                      </a>
-                    </Box>
-                  )}
+              {work.googleUrl && (
+                <Box>
+                  <a href={work.googleUrl} target="_blank" rel="noreferrer">
+                    <img
+                      src="/google-play-badge.png"
+                      alt="Google Play Store Badge"
+                      height={60}
+                    />
+                  </a>
                 </Box>
               )}
             </Box>
-          </Box>
-        </Grid>
+          )}
+        </Box>
+      </Box>
     </Grid>
-    </>
-  )
+  );
 }
 
 export default function Works() {
   const classes = useStyles();
 
   return (
-    <>
-    <Header />
-    <Paper>
-    <Container className={classes.mainContainer} >
-      <Grid container spacing={4} >
-        {works.map((work) => (
-          <Work key={work.name} work={work}/>
-        ))}
-      </Grid> 
-    </Container>
-    </Paper>
-    </>
-  )
+    <Box className={classes.coverBox}>
+      <Box className={classes.innerBox} display="flex" justifyContent="center">
+        <Grid container className={classes.whiteBox}>
+          {works.map((work) => (
+            <Work key={work.title} work={work} />
+          ))}
+        </Grid>
+      </Box>
+    </Box>
+  );
 }
-
