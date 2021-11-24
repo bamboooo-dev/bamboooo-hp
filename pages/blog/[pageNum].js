@@ -151,6 +151,7 @@ function PostBox(props) {
     <Grid item xs={12} sm={4} className={classes.postBox}>
       <Box display="flex" flexDirection="column">
         <img
+          alt={post.title}
           src={post.image}
           width="100%"
           style={
@@ -183,6 +184,7 @@ function PostBox(props) {
           <a
             href={post.url}
             target="_blank"
+            rel="noreferrer"
             style={{ color: "black", textDecoration: "none" }}
           >
             {post.title}

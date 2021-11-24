@@ -206,9 +206,9 @@ const EventSP = (props) => {
               style={{ zIndex: zIndex + 1 }}
             >
               {index !== 0 ? (
-                <img src="/bamboo_section.png" width={45} />
+                <img src="/bamboo_section.png" alt="" width={45} />
               ) : (
-                <img src="/bamboo_section_first.png" width={45} />
+                <img src="/bamboo_section_first.png" alt="" width={45} />
               )}
             </div>
           </Grid>
@@ -222,6 +222,7 @@ const EventSP = (props) => {
             }}
           >
             <img
+              alt={event.content}
               src={event.img}
               className={classes.bambooImageSP}
               style={
@@ -234,9 +235,9 @@ const EventSP = (props) => {
       <Grid item xs={2}>
         <div className={classes.bambooSection} style={{ zIndex: zIndex }}>
           {!event.img && index === 0 ? (
-            <img src="/bamboo_section_first.png" width={45} />
+            <img src="/bamboo_section_first.png" alt="" width={45} />
           ) : (
-            <img src="/bamboo_section.png" width={45} />
+            <img src="/bamboo_section.png" alt="" width={45} />
           )}
         </div>
       </Grid>
@@ -283,9 +284,9 @@ const EventPC = (props) => {
           }}
         >
           {index !== 0 ? (
-            <img src="/bamboo_section.png" width={100} />
+            <img src="/bamboo_section.png" alt="" width={100} />
           ) : (
-            <img src="/bamboo_section_first.png" width={100} />
+            <img src="/bamboo_section_first.png" alt="" width={100} />
           )}
         </div>
       </Grid>
@@ -294,6 +295,7 @@ const EventPC = (props) => {
           <img
             src={event.img}
             className={classes.bambooImage}
+            alt={event.content}
             style={
               event.img == "/waiwai.png"
                 ? { border: "none", marginBottom: 20 }

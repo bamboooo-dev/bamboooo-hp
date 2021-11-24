@@ -170,6 +170,7 @@ function Work(props) {
                 <a
                   href={work.url}
                   target="_blank"
+                  rel="noreferrer"
                   style={{
                     color: "#19807B",
                     textDecoration: "none",
@@ -219,14 +220,14 @@ function Work(props) {
             <Box display="flex" alignItems="center">
               {work.appleUrl && (
                 <Box>
-                  <a href={work.appleUrl} target="_blank">
+                  <a href={work.appleUrl} target="_blank" rel="noreferrer">
                     <img src="/app-store-badge.png" alt="App Store Badge" />
                   </a>
                 </Box>
               )}
               {work.googleUrl && (
                 <Box>
-                  <a href={work.googleUrl} target="_blank">
+                  <a href={work.googleUrl} target="_blank" rel="noreferrer">
                     <img
                       src="/google-play-badge.png"
                       alt="Google Play Store Badge"

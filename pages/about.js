@@ -181,6 +181,7 @@ export default function About() {
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={5} sm={3}>
                 <img
+                  alt="vision 1"
                   src="/vision_1.png"
                   width="70%"
                   style={{ objectFit: "contain", maxWidth: 300 }}
@@ -205,6 +206,7 @@ export default function About() {
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={5} sm={3}>
                 <img
+                  alt="mission 1"
                   src="/mission_1.png"
                   width="70%"
                   style={{ objectFit: "contain", maxWidth: 300 }}
@@ -233,6 +235,7 @@ export default function About() {
             >
               <Grid container justify="center" item xs={5} sm={3}>
                 <img
+                  alt="mission 2"
                   src="/mission_2.png"
                   width="70%"
                   style={{ objectFit: "contain", maxWidth: 300 }}
@@ -265,6 +268,7 @@ export default function About() {
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={5} sm={3}>
                 <img
+                  alt="philosophy 1"
                   src="/philosophy_1.png"
                   width="50%"
                   className={classes.philosophyImg}
@@ -292,6 +296,7 @@ export default function About() {
             >
               <Grid container justify="center" item xs={5} sm={3}>
                 <img
+                  alt="philosophy 2"
                   src="/philosophy_2.png"
                   width="60%"
                   className={classes.philosophyImg}
@@ -319,6 +324,7 @@ export default function About() {
             >
               <Grid container justify="center" item xs={5} sm={3}>
                 <img
+                  alt="philosophy 3"
                   src="/philosophy_3.png"
                   width="65%"
                   className={classes.philosophyImg}
