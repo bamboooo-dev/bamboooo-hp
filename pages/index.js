@@ -302,19 +302,18 @@ const MainTextBox = () => {
         </Typography>
 
         <button className={classes.toAboutButton}>
-          <Link
-            href="/about"
-            style={{
-              textDecoration: "none",
-              color: "black",
-              padding: "20px",
-              margin: "-20px",
-            }}
-          >
-            <>
+          <Link href="/about">
+            <a
+              style={{
+                textDecoration: "none",
+                color: "black",
+                padding: "20px",
+                margin: "-20px",
+              }}
+            >
               <span className={classes.moreText}>More</span>
               <ArrowForwardIosIcon className={classes.moreArrowIcon} />
-            </>
+            </a>
           </Link>
         </button>
       </Box>
