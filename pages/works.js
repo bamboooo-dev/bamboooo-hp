@@ -8,31 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
-  mainDiv: {
-    zIndex: "1",
-    backgroundImage: "url(/header.png)",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-    [theme.breakpoints.down("777")]: {
-      backgroundImage: "url(/header.png)",
-    },
-  },
-
-  TopContainer: {
-    maxWidth: "1000px",
-    margin: "0 auto",
-    paddingTop: "25vw",
-  },
-
-  shadowBox: {
-    boxShadow: "0 1px 3px 0 rgba(0, 0, 0, .3)",
-    marginBottom: "100px",
-    [theme.breakpoints.down("777")]: {
-      marginBottom: "50px",
-    },
-    backgroundColor: "white",
-  },
-
   content: {
     width: "100%",
     display: "flex",
@@ -79,22 +54,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
     },
   },*/
-  mainContainer: {
-    marginTop: theme.spacing(5),
 
-    /*
-    maxWidth:'1000px',
-    margin:"0 auto",
-    paddingTop:"25vw",
-    [theme.breakpoints.down('777')]: {
-      width:"90%",
-      paddingTop:"50vw",
-    
-    position:'auto',
-    ここらへんの位置をかえればいい感じになると思う
-  },
-  */
-  },
   description: {
     /*これがないほうが改行は変かもしれないけどすっきりする
     whiteSpace: "pre-line",*/
@@ -133,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   content: {
-    padding: "40px",
+    // padding: "40px",
     [theme.breakpoints.down("sm")]: {
       paddingLeft: "25px",
       paddingTop: "30px",
@@ -154,6 +114,37 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       textAlign: "center",
       alignItems: "center",
+    },
+  },
+
+  coverBox: {
+    backgroundImage: "url(/works_cover.png)",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down("sm")]: {
+      backgroundImage: "url(/works_cover_sp.png)",
+    },
+  },
+  innerBox: {
+    maxWidth: "1000px",
+    margin: "0 auto",
+    paddingTop: "25vw",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "35vw",
+    },
+  },
+  whiteBox: {
+    backgroundColor: "white",
+    paddingTop: theme.spacing(10),
+    paddingLeft: theme.spacing(10),
+    paddingRight: theme.spacing(10),
+    boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
+    marginBottom: 30,
+    [theme.breakpoints.down(777)]: {
+      paddingLeft: 40,
+      paddingRight: 40,
+      paddingTop: 40,
+      maxWidth: "90%",
     },
   },
 }));
@@ -237,19 +228,18 @@ function Work(props) {
   const classes = useStyles();
   const theme = useTheme();
   const { work } = props;
-  const Issmartphone = useMediaQuery((theme) => theme.breakpoints.down("xs"));
+  const isSP = useMediaQuery(theme.breakpoints.down("xs"));
+
   return (
     <Grid container>
       <Grid item container xs={12} md={12} display="flex">
-        <Grid item className={classes.content} md={12}>
+        <Grid item className={classes.content} style={{ padding: 40 }} md={12}>
           <Box className={classes.contentBox}>
             {work.image ? (
               <Box paddingRight={5} paddingLeft={5}>
                 <img
                   className={classes.media}
-                  /*src ={work.image}*/
-
-                  src={Issmartphone ? work.smartphoneimage : work.image}
+                  src={isSP ? work.smartphoneimage : work.image}
                   alt={work.alt}
                 />
               </Box>
@@ -261,11 +251,7 @@ function Work(props) {
 
             <Box xs={12} className={classes.content}>
               <div className={classes.Icon}>
-                <div
-                  className={classes.genreIcon} /*style={{font: work.font}}*/
-                >
-                  {work.genre}
-                </div>
+                <div className={classes.genreIcon}>{work.genre}</div>
                 <Typography gutterBottom variant="h4" component="h2">
                   <a
                     href={work.gameUrl}
@@ -302,7 +288,7 @@ function Work(props) {
                 {work.description}
               </Typography>
               <Typography
-                variant="body3"
+                variant="body2"
                 color="textSecondary"
                 component="p"
                 gutterBottom
@@ -351,26 +337,14 @@ export default function Works() {
   const classes = useStyles();
 
   return (
-    <Grid container>
-      <Grid item xs={12} md={12}>
-        <Box className={classes.mainDiv}>
-          <Grid container>
-            <Grid item xs={12} md={12}>
-              <Box className={classes.TopContainer}>
-                <Box className={classes.shadowBox}>
-                  <Box className={classes.mainContainer}>
-                    <Grid container spacing={4}>
-                      {works.map((work) => (
-                        <Work key={work.name} work={work} />
-                      ))}
-                    </Grid>
-                  </Box>
-                </Box>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
-      </Grid>
-    </Grid>
+    <Box className={classes.coverBox}>
+      <Box className={classes.innerBox} display="flex" justifyContent="center">
+        <Grid container className={classes.whiteBox}>
+          {works.map((work) => (
+            <Work key={work.title} work={work} />
+          ))}
+        </Grid>
+      </Box>
+    </Box>
   );
 }
