@@ -54,6 +54,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "20px",
     },
   },
+  catchphrase: {
+    fontFamily: "ヒラギノ角ゴシック",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "20px",
+    },
+  },
   genreIcon: {
     borderRadius: "20px",
     border: "solid 2px",
@@ -157,7 +163,10 @@ function Work(props) {
         <Box display="flex" flexDirection="column" flex={1} ml={isSP ? 0 : 6}>
           <Grid container style={{ width: "100%" }}>
             <Grid item xs={12} sm={5} style={isSP ? { marginBottom: 6 } : {}}>
-              <Typography variant="h4">
+              <Typography
+                variant="h4"
+                style={isSP ? { textAlign: "center" } : {}}
+              >
                 <a
                   href={work.url}
                   target="_blank"
@@ -178,12 +187,13 @@ function Work(props) {
           </Grid>
           <Box mt={1}>
             <Typography
+              className={classes.catchphrase}
               gutterBottom
               style={
                 isSP
                   ? {
                       fontWeight: "bold",
-                      textAlign: "right",
+                      textAlign: "center",
                     }
                   : { fontWeight: "bold" }
               }
