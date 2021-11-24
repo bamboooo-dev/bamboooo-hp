@@ -1,15 +1,24 @@
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import { useEffect } from 'react';
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import React, { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   detail: {
-    fontFamily: ['"Helvetica Neue"', '"Helvetica"', '"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', '"Arial"', '"Yu Gothic"', '"Meiryo"', 'sans-serif'],
+    fontFamily: [
+      '"Helvetica Neue"',
+      '"Helvetica"',
+      '"Hiragino Sans"',
+      '"Hiragino Kaku Gothic ProN"',
+      '"Arial"',
+      '"Yu Gothic"',
+      '"Meiryo"',
+      "sans-serif",
+    ],
     fontWeight: 500,
-    [theme.breakpoints.up('lg')]: {
-      fontSize: '1.5rem',
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "1.5rem",
     },
     whiteSpace: "pre-line",
   },
@@ -17,31 +26,31 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
   },
   speakerDeckEmbed: {
-    width:'80%',
-    margin: 'auto',
+    width: "80%",
+    margin: "auto",
   },
   coverBox: {
-    backgroundImage: 'url(/about_cover.png)',
+    backgroundImage: "url(/about_cover.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    [theme.breakpoints.down('sm')]: {
-      backgroundImage: 'url(/about_cover_sp.png)',
+    [theme.breakpoints.down("sm")]: {
+      backgroundImage: "url(/about_cover_sp.png)",
     },
   },
   innerBox: {
-    maxWidth: '1000px',
-    margin: '0 auto',
-    [theme.breakpoints.down('sm')]: {
-      paddingTop: '50vw',
+    maxWidth: "1000px",
+    margin: "0 auto",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "50vw",
     },
   },
   whiteBox: {
-    backgroundColor: 'white',
-    boxShadow: '0 3px 5px 0 rgba(0, 0, 0, .1)',
+    backgroundColor: "white",
+    boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
       paddingTop: 20,
-      maxWidth: '90%',
+      maxWidth: "90%",
     },
   },
   visionBox: {
@@ -59,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   missionBox: {
-    backgroundColor: '#F6FAF0',
+    backgroundColor: "#F6FAF0",
     [theme.breakpoints.down(777)]: {
       paddingLeft: 20,
       paddingRight: 20,
@@ -78,18 +87,18 @@ const useStyles = makeStyles((theme) => ({
   number: {
     fontFamily: "Corporate-Logo-Medium-ver2",
     fontSize: 150,
-    position: 'absolute',
-    color: '#AED1CE',
+    position: "absolute",
+    color: "#AED1CE",
     [theme.breakpoints.down(777)]: {
       fontSize: 80,
     },
   },
   headline: {
     fontFamily: "Corporate-Logo-Medium-ver2",
-    position: 'relative',
+    position: "relative",
     top: 120,
     left: 130,
-    display: 'inline',
+    display: "inline",
     [theme.breakpoints.down(777)]: {
       top: 62,
       left: 65,
@@ -97,10 +106,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   diagonalLine: {
-    position: 'relative',
+    position: "relative",
     width: 130,
     height: 130,
-    backgroundImage: 'linear-gradient(to right bottom, transparent 50%, black 50%, black 51%, transparent 51%)',
+    backgroundImage:
+      "linear-gradient(to right bottom, transparent 50%, black 50%, black 51%, transparent 51%)",
     top: -15,
     left: 62,
     [theme.breakpoints.down(777)]: {
@@ -108,67 +118,73 @@ const useStyles = makeStyles((theme) => ({
       height: 60,
       top: 0,
       left: 37,
-      backgroundImage: 'linear-gradient(to right bottom, transparent 49%, black 49%, black 51%, transparent 51%)',
+      backgroundImage:
+        "linear-gradient(to right bottom, transparent 49%, black 49%, black 51%, transparent 51%)",
     },
   },
   catchphrase: {
     fontFamily: "Corporate-Logo-Medium-ver2",
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: 18,
     },
   },
   description: {
-    [theme.breakpoints.down('sm')]: {
-      lineHeight: '25px',
+    [theme.breakpoints.down("sm")]: {
+      lineHeight: "25px",
     },
   },
   mission2Container: {
     marginTop: 100,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       marginTop: 50,
     },
   },
   philosophyImg: {
     objectFit: "contain",
     maxWidth: 300,
-    [theme.breakpoints.up('sm')]: {
-      width: '50%',
+    [theme.breakpoints.up("sm")]: {
+      width: "50%",
     },
   },
 }));
 
 export default function About() {
   const classes = useStyles();
-  
+
   useEffect(() => {
-    const script = document.createElement('script');
-  
+    const script = document.createElement("script");
+
     script.src = "//speakerdeck.com/assets/embed.js";
-  
+
     document.body.appendChild(script);
-  
-    return () => {
-    }
+
+    return () => {};
   }, []);
 
   return (
     <Box className={classes.coverBox}>
-      <Box pt="25vw" className={classes.innerBox} display="flex" justifyContent="center">
+      <Box
+        pt="25vw"
+        className={classes.innerBox}
+        display="flex"
+        justifyContent="center"
+      >
         <Box className={classes.whiteBox}>
-
           <Box p={10} className={classes.visionBox}>
             <Box className={classes.sectionBox}>
-              <Typography className={classes.number}>
-                01
-              </Typography>
+              <Typography className={classes.number}>01</Typography>
               <Typography variant="h3" className={classes.headline}>
                 Vision
               </Typography>
-              <Box className={classes.diagonalLine}/>
+              <Box className={classes.diagonalLine} />
             </Box>
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/vision_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img
+                  src="/vision_1.png"
+                  width="70%"
+                  style={{ objectFit: "contain", maxWidth: 300 }}
+                />
               </Grid>
               <Grid item xs={7} sm={9}>
                 <Typography variant="h4" className={classes.catchphrase}>
@@ -180,20 +196,26 @@ export default function About() {
 
           <Box p={10} className={classes.missionBox}>
             <Box className={classes.sectionBox}>
-              <Typography className={classes.number}>
-                02
-              </Typography>
+              <Typography className={classes.number}>02</Typography>
               <Typography variant="h3" className={classes.headline}>
                 Mission
               </Typography>
-              <Box className={classes.diagonalLine}/>
+              <Box className={classes.diagonalLine} />
             </Box>
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/mission_1.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img
+                  src="/mission_1.png"
+                  width="70%"
+                  style={{ objectFit: "contain", maxWidth: 300 }}
+                />
               </Grid>
               <Grid item xs={7} sm={9}>
-                <Typography variant="h4" className={classes.catchphrase} gutterBottom>
+                <Typography
+                  variant="h4"
+                  className={classes.catchphrase}
+                  gutterBottom
+                >
                   人々を笑顔に
                 </Typography>
                 <Typography className={classes.description}>
@@ -202,12 +224,26 @@ export default function About() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
+            <Grid
+              container
+              item
+              xs={12}
+              alignItems="center"
+              className={classes.mission2Container}
+            >
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/mission_2.png' width="70%" style={{objectFit: "contain", maxWidth: 300 }} />
+                <img
+                  src="/mission_2.png"
+                  width="70%"
+                  style={{ objectFit: "contain", maxWidth: 300 }}
+                />
               </Grid>
               <Grid item xs={7} sm={9}>
-                <Typography variant="h4" className={classes.catchphrase} gutterBottom>
+                <Typography
+                  variant="h4"
+                  className={classes.catchphrase}
+                  gutterBottom
+                >
                   社会の効率化を
                 </Typography>
                 <Typography className={classes.description}>
@@ -220,20 +256,26 @@ export default function About() {
 
           <Box p={10} className={classes.philosophyBox}>
             <Box className={classes.sectionBox}>
-              <Typography className={classes.number}>
-                03
-              </Typography>
+              <Typography className={classes.number}>03</Typography>
               <Typography variant="h3" className={classes.headline}>
                 Philosophy
               </Typography>
-              <Box className={classes.diagonalLine}/>
+              <Box className={classes.diagonalLine} />
             </Box>
             <Grid container item xs={12} alignItems="center">
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/philosophy_1.png' width="50%" className={classes.philosophyImg} />
+                <img
+                  src="/philosophy_1.png"
+                  width="50%"
+                  className={classes.philosophyImg}
+                />
               </Grid>
               <Grid item xs={7} sm={9}>
-                <Typography variant="h4" className={classes.catchphrase} gutterBottom>
+                <Typography
+                  variant="h4"
+                  className={classes.catchphrase}
+                  gutterBottom
+                >
                   新しいエンタメを届ける
                 </Typography>
                 <Typography className={classes.description}>
@@ -241,12 +283,26 @@ export default function About() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
+            <Grid
+              container
+              item
+              xs={12}
+              alignItems="center"
+              className={classes.mission2Container}
+            >
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/philosophy_2.png' width="60%" className={classes.philosophyImg} />
+                <img
+                  src="/philosophy_2.png"
+                  width="60%"
+                  className={classes.philosophyImg}
+                />
               </Grid>
               <Grid item xs={7} sm={9}>
-                <Typography variant="h4" className={classes.catchphrase} gutterBottom>
+                <Typography
+                  variant="h4"
+                  className={classes.catchphrase}
+                  gutterBottom
+                >
                   やりたいことをやりたいだけ
                 </Typography>
                 <Typography className={classes.description}>
@@ -254,12 +310,26 @@ export default function About() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item xs={12} alignItems="center" className={classes.mission2Container}>
+            <Grid
+              container
+              item
+              xs={12}
+              alignItems="center"
+              className={classes.mission2Container}
+            >
               <Grid container justify="center" item xs={5} sm={3}>
-                <img src='/philosophy_3.png' width="65%" className={classes.philosophyImg} />
+                <img
+                  src="/philosophy_3.png"
+                  width="65%"
+                  className={classes.philosophyImg}
+                />
               </Grid>
               <Grid item xs={7} sm={9}>
-                <Typography variant="h4" className={classes.catchphrase} gutterBottom>
+                <Typography
+                  variant="h4"
+                  className={classes.catchphrase}
+                  gutterBottom
+                >
                   ユーザーとともに
                 </Typography>
                 <Typography className={classes.description}>
@@ -268,7 +338,6 @@ export default function About() {
               </Grid>
             </Grid>
           </Box>
-
         </Box>
       </Box>
       {/* <div className={classes.speakerDeckEmbed}>
