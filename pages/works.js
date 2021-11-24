@@ -1,122 +1,11 @@
-import { useMediaQuery } from "@material-ui/core";
+import { Typography, useMediaQuery } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import grey from "@material-ui/core/colors/grey";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
-  content: {
-    width: "100%",
-    display: "flex",
-    flexFlow: "column",
-    /*flexWrap:'nowraop',
-    justifyContent:'sapce-around',*/
-    alignItems: "center",
-    paddingTop: 60,
-    paddingBottom: 100,
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: 10,
-      paddingBottom: 10,
-    },
-  },
-
-  /*上寄せにしたい*/
-  media: {
-    borderWidth: 1,
-    border: "solid",
-    borderRadius: 5,
-    borderColor: grey[300],
-    width: "100%",
-    marginTop: 10,
-
-    [theme.breakpoints.up("sm")]: {
-      width: 400,
-      height: 260,
-      display: "flex",
-    },
-  },
-
-  /*
-  mediaWaiwai: {
-    borderWidth: 1,
-    border: "none",
-    borderRadius: 5,
-    borderColor: grey[300],
-    width: '100%',
-    
-
-    [theme.breakpoints.up('sm')]: {
-      width: 400,
-      height: 260,
-      display: 'flex',
-    },
-  },*/
-
-  description: {
-    /*これがないほうが改行は変かもしれないけどすっきりする
-    whiteSpace: "pre-line",*/
-
-    lineHeight: 2,
-    width: 400,
-    [theme.breakpoints.down("sm")]: {
-      width: 300,
-    },
-    /* height: 170,*/
-    display: "flex",
-    fontFamily: "ヒラギノ角ゴシック",
-  },
-
-  genreIcon: {
-    borderRadius: "20px",
-    border: "solid 2px",
-    width: "50%",
-    borderColor: "#19807B",
-    float: "right",
-    padding: "4px",
-    fontSize: "14px",
-    fontFamily: "ヒラギノ角ゴシック",
-    textAlign: "center",
-    [theme.breakpoints.down("777")]: {
-      paddingTop: "2px",
-      fontSize: "10px",
-    },
-  },
-
-  title: {
-    fontSize: "30px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "20px",
-    },
-  },
-
-  content: {
-    // padding: "40px",
-    [theme.breakpoints.down("sm")]: {
-      paddingLeft: "25px",
-      paddingTop: "30px",
-    },
-  },
-
-  contentBox: {
-    display: "flex",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      flexDirection: "column",
-    },
-  },
-
-  Icon: {
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "center",
-      alignItems: "center",
-    },
-  },
-
   coverBox: {
     backgroundImage: "url(/works_cover.png)",
     backgroundSize: "contain",
@@ -135,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteBox: {
     backgroundColor: "white",
-    paddingTop: theme.spacing(10),
-    paddingLeft: theme.spacing(10),
-    paddingRight: theme.spacing(10),
+    paddingTop: theme.spacing(12),
+    paddingLeft: theme.spacing(12),
+    paddingRight: theme.spacing(12),
     boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
     marginBottom: 30,
     [theme.breakpoints.down(777)]: {
@@ -147,14 +36,49 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "90%",
     },
   },
+  media: {
+    borderWidth: 1,
+    border: "solid",
+    borderRadius: 5,
+    borderColor: grey[300],
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: 350,
+      display: "flex",
+    },
+  },
+  title: {
+    fontSize: "30px",
+    fontFamily: "ヒラギノ角ゴシック",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "20px",
+    },
+  },
+  genreIcon: {
+    borderRadius: "20px",
+    border: "solid 2px",
+    width: "80%",
+    borderColor: "#19807B",
+    padding: "8px",
+    fontSize: "14px",
+    fontFamily: "ヒラギノ角ゴシック",
+    textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      padding: "4px",
+      margin: "0 auto",
+    },
+  },
+  description: {
+    lineHeight: 1.8,
+    fontFamily: "ヒラギノ角ゴシック",
+  },
 }));
 
 const works = [
   {
     title: "ワイワイ",
     catchphrase: "あなたの価値観でみんながワイワイ",
-    /* url:"https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
-   公式HP載せたい*/
+    url: "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
     alt: "Picture of waiwai",
     image: "/waiwai_work.png",
     smartphoneimage: "/waiwai.png",
@@ -170,10 +94,7 @@ const works = [
       "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
     googleUrl:
       "https://play.google.com/store/apps/details?id=com.bamboooo.waiwai",
-    /*backgroundColor:'#D4A7D9',*/
     genre: "対戦型協力ゲームアプリ",
-    gameUrl:
-      "https://apps.apple.com/jp/app/%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4/id1561027910",
   },
   {
     title: "memopic",
@@ -191,9 +112,7 @@ const works = [
     release: "リリース　　2020年 9月",
     appleUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
     googleUrl: "https://play.google.com/store/apps/details?id=com.memopic",
-    /*backgroundColor:'#F5BD70',*/
     genre: "旅行の思い出共有アプリ",
-    gameUrl: "https://apps.apple.com/us/app/memopic/id1527852844",
   },
   {
     title: "Memorip",
@@ -208,20 +127,8 @@ const works = [
       これからの旅行のしおりとして、また
       他の人のプランを参考にして作成できます`,
     release: "リリース　　2019年 12月",
-    /*backgroundColor:'#99FFFF',*/
     genre: "旅行プラン作成アプリ",
   },
-  /* 新しいアプリがリリースor決定したら追加
-  { 
-    name: 'MESHIBUGYO',
-    catchphrase: 'あなただけのサブカル発掘アプリ',
-    alt: 'Picture of MESHIBUGYO',
-    description: 'あなただけのサブカルを見つけるには間違いなし！',
-    backgroundColor:'#FF6666',
-    genre:'文化系',
-    
-  },
-  */
 ];
 
 function Work(props) {
@@ -231,104 +138,97 @@ function Work(props) {
   const isSP = useMediaQuery(theme.breakpoints.down("xs"));
 
   return (
-    <Grid container>
-      <Grid item container xs={12} md={12} display="flex">
-        <Grid item className={classes.content} style={{ padding: 40 }} md={12}>
-          <Box className={classes.contentBox}>
-            {work.image ? (
-              <Box paddingRight={5} paddingLeft={5}>
-                <img
-                  className={classes.media}
-                  src={isSP ? work.smartphoneimage : work.image}
-                  alt={work.alt}
-                />
-              </Box>
-            ) : (
-              <Box className={classes.media} height={260} mb={1}>
-                <Typography variant="h4">COMING SOON...</Typography>
-              </Box>
-            )}
-
-            <Box xs={12} className={classes.content}>
-              <div className={classes.Icon}>
-                <div className={classes.genreIcon}>{work.genre}</div>
-                <Typography gutterBottom variant="h4" component="h2">
-                  <a
-                    href={work.gameUrl}
-                    target="_blank"
-                    style={{
-                      color: "#19807B",
-                      textDecoration: "none",
+    <Grid item xs={12} style={{ marginBottom: 100 }}>
+      <Box display="flex" flexDirection={isSP ? "column" : "row"}>
+        {work.image ? (
+          <Box>
+            <img
+              className={classes.media}
+              src={isSP ? work.smartphoneimage : work.image}
+              alt={work.alt}
+              style={work.title === "ワイワイ" ? { border: "none" } : {}}
+            />
+          </Box>
+        ) : (
+          <Box className={classes.media} height={260} mb={1}>
+            <Typography variant="h4">COMING SOON...</Typography>
+          </Box>
+        )}
+        <Box display="flex" flexDirection="column" flex={1} ml={isSP ? 0 : 6}>
+          <Grid container style={{ width: "100%" }}>
+            <Grid item xs={12} sm={5} style={isSP ? { marginBottom: 6 } : {}}>
+              <Typography variant="h4">
+                <a
+                  href={work.url}
+                  target="_blank"
+                  style={{
+                    color: "#19807B",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
+                  className={classes.title}
+                >
+                  {work.title}
+                </a>
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={7}>
+              <Box className={classes.genreIcon}>{work.genre}</Box>
+            </Grid>
+          </Grid>
+          <Box mt={1}>
+            <Typography
+              gutterBottom
+              style={
+                isSP
+                  ? {
                       fontWeight: "bold",
-                    }}
-                    className={classes.title}
-                  >
-                    {work.title}
+                      textAlign: "right",
+                    }
+                  : { fontWeight: "bold" }
+              }
+            >
+              {work.catchphrase}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="body2"
+              gutterBottom
+              className={classes.description}
+            >
+              {work.description}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="body2" color="textSecondary" gutterBottom>
+              {work.release}
+            </Typography>
+          </Box>
+          {(work.appleUrl || work.googleUrl) && (
+            <Box display="flex" alignItems="center">
+              {work.appleUrl && (
+                <Box>
+                  <a href={work.appleUrl} target="_blank">
+                    <img src="/app-store-badge.png" alt="App Store Badge" />
                   </a>
-                </Typography>
-              </div>
-              <Typography
-                variant="body1"
-                color="textPrimary"
-                component="p"
-                style={{
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}
-              >
-                {work.catchphrase}
-              </Typography>
-              <Typography
-                variant="body2"
-                color="textPrimary"
-                component="p"
-                gutterBottom
-                className={classes.description}
-              >
-                {work.description}
-              </Typography>
-              <Typography
-                variant="body2"
-                color="textSecondary"
-                component="p"
-                gutterBottom
-                className={classes.release}
-              >
-                {work.release}
-              </Typography>
-              {work.url && (
-                <Box my={1}>
-                  <Button variant="outlined" href={work.url} target="_blank">
-                    公式サイトへ
-                  </Button>
                 </Box>
               )}
-              {(work.appleUrl || work.googleUrl) && (
-                <Box display="flex" alignItems="center">
-                  {work.appleUrl && (
-                    <Box>
-                      <a href={work.appleUrl} target="_blank">
-                        <img src="/app-store-badge.png" alt="App Store Badge" />
-                      </a>
-                    </Box>
-                  )}
-                  {work.googleUrl && (
-                    <Box>
-                      <a href={work.googleUrl} target="_blank">
-                        <img
-                          src="/google-play-badge.png"
-                          alt="Google Play Store Badge"
-                          height={60}
-                        />
-                      </a>
-                    </Box>
-                  )}
+              {work.googleUrl && (
+                <Box>
+                  <a href={work.googleUrl} target="_blank">
+                    <img
+                      src="/google-play-badge.png"
+                      alt="Google Play Store Badge"
+                      height={60}
+                    />
+                  </a>
                 </Box>
               )}
             </Box>
-          </Box>
-        </Grid>
-      </Grid>
+          )}
+        </Box>
+      </Box>
     </Grid>
   );
 }
