@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   footer: {
-    paddingTop: 40,
+    paddingTop: 80,
     paddingBottom: 40,
     backgroundColor: '#f5ffec',
   },
