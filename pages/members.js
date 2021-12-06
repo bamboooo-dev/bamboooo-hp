@@ -183,7 +183,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function Member(props) {
-  const { member, index, handleClickOpen } = props;
+  const { member, index, handleClickOpen,} = props;
   const classes = useStyles();
   
   return (
@@ -208,6 +208,40 @@ function Member(props) {
               <ExpandMoreIcon className={classes.moreButtonIcon} />
             </button>
           </Box>
+
+        </Grid>
+      </Grid>
+    </>
+  ) 
+}
+
+function RestMember(props) {
+  const { member, restindex, restHandleClickOpen,} = props;
+  const classes = useStyles();
+  
+  return (
+    <>
+        {/*ここにメンバーをmapで全て入れ込みたい*/}
+      <Grid item xs={4} container>
+        <Grid item sm={5} xs={12} className={classes.memberAvatarPosition}>
+          <Avatar alt={member.name} src={member.avatar} className={classes.memberAvatar} />
+        </Grid>
+        <Grid item sm={7} xs={12}>
+          <Box className={classes.memberList}>
+            <Typography variant="body2" gutterBottom className={classes.memberPositionBox} >
+              {member.position}
+            </Typography>
+            <Typography variant="body1" gutterBottom noWrap style={{textAlign: "center"}} >
+              {member.name}
+            </Typography>
+            <button
+              onClick={() => {restHandleClickOpen(restindex)}}
+              className={classes.moreButton}>
+              more 
+              <ExpandMoreIcon className={classes.moreButtonIcon} />
+            </button>
+          </Box>
+
         </Grid>
       </Grid>
     </>
@@ -286,32 +320,7 @@ const members = [
               毎日の生活で起こること、他人や自分の行動に何か気づこうとしたり、発見しようとする気持ちを大切にしていきたいです。`,
     imageColor: '#CABFDD',
   },
-  {
-    position: 'Frontend Engineer',
-    name: '髙木 公太郎',
-    avatar: 'takoyarou_icon.png',
-    twitter: 'https://twitter.com/takoyarou_VRC',
-    midashi: '我が道を往く',
-    ikigomi: `北海道札幌市在住。
-              2005年1月10日生まれ。
-              プログラミング、最先端の技術が大好物な学生です。運命の糸に引かれてbambooooに入ってきました。
-              自分のやりたいことを見失うことがないように、自分に正直な自分でいることをモットーにしています。
-              最年少のメンバーだからこそ、人一倍頑張ります。`,
-    imageColor: '#9DC9FD',
-  },
-  {
-    position: 'Frontend Engineer',
-    name: '北村 拓也',
-    avatar: 'kittan_icon.jpg',
-    github: 'https://github.com/kittan13',
-    midashi: '多趣味な器用貧乏',
-    ikigomi: `2002年京都府に生まれ、4度の引っ越しを経験し現在京都府に戻ってきました。
-              龍谷大学先端理工学部電子情報通信学科在学中。
-              さまざまな環境でさまざまな人と出会い、いろいろな経験、活動を行ってきました。
-              その中で将来的に仕事に就きたいなと思ったのがプログラミングでした。
-              プログラミングでの活動、実績はまだ全然ですがフロントエンドエンジニアとして少しずつ勉強をしていけたらと思ってます。`,
-    imageColor: '#4FDAF9',
-  },
+  
   {
     position: 'Frontend Engineer',
     name: '藤本 源',
@@ -325,6 +334,22 @@ const members = [
               自分の人生も賭け金だと思っているので死なない限り面白い方に挑戦していきます。`,
     imageColor: '#181B39',
   },
+];
+
+const rest = [
+{
+  position: 'Frontend Engineer',
+  name: '髙木 公太郎',
+  avatar: 'takoyarou_icon.png',
+  twitter: 'https://twitter.com/takoyarou_VRC',
+  midashi: '我が道を往く',
+  ikigomi: `北海道札幌市在住。
+            2005年1月10日生まれ。
+            プログラミング、最先端の技術が大好物な学生です。運命の糸に引かれてbambooooに入ってきました。
+            自分のやりたいことを見失うことがないように、自分に正直な自分でいることをモットーにしています。
+            最年少のメンバーだからこそ、人一倍頑張ります。`,
+  imageColor: '#9DC9FD',
+},
 ];
 
 {/*
@@ -376,6 +401,19 @@ const members = [
     twitter: 'https://twitter.com/wamiwa1126',
     instagram: 'https://www.instagram.com/wamiwa1126/',
   },
+  {
+    position: 'Frontend Engineer',
+    name: '北村 拓也',
+    avatar: 'kittan_icon.jpg',
+    github: 'https://github.com/kittan13',
+    midashi: '多趣味な器用貧乏',
+    ikigomi: `2002年京都府に生まれ、4度の引っ越しを経験し現在京都府に戻ってきました。
+              龍谷大学先端理工学部電子情報通信学科在学中。
+              さまざまな環境でさまざまな人と出会い、いろいろな経験、活動を行ってきました。
+              その中で将来的に仕事に就きたいなと思ったのがプログラミングでした。
+              プログラミングでの活動、実績はまだ全然ですがフロントエンドエンジニアとして少しずつ勉強をしていけたらと思ってます。`,
+    imageColor: '#4FDAF9',
+  },
 ]
 */}
 
@@ -388,6 +426,11 @@ export default function Members() {
   const handleClickOpen = (index) => {
     setOpen(true);
     setOpenMember(members[index])
+  };
+
+  const restHandleClickOpen = (restindex) => {
+    setOpen(true);
+    setOpenMember(rest[restindex])
   };
 
   const handleClose = () => {setOpen(false);};
@@ -408,6 +451,20 @@ export default function Members() {
                 <Member key={member.name} member={member} index={index} handleClickOpen={handleClickOpen}/> 
               ))}
             </Grid>
+
+            <Box pt="50px" pb="30px">
+              <Typography className={classes.title} >
+                <span style={{color:"#77C0BD", fontWeight:"900"}}>|</span>  Rest
+              </Typography>
+            </Box> 
+
+            <Grid container spacing={4}>    
+              {rest.map((member, index) => (
+                <RestMember key={member.name} member={member} restindex={index} restHandleClickOpen={restHandleClickOpen}/> 
+              ))}
+            </Grid>
+
+
 
             {/*以下ダイアログ部分*/}
             <Dialog open={open} onClose={handleClose} >

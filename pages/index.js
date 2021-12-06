@@ -395,6 +395,12 @@ const Applications = () =>{
 const newsItems = [
   // 上に新しいnewsを追加していく
   {
+    date: '2021.10.19',
+    category: 'ブログ',
+    text:'ブログを更新しました',
+    link:'https://mixil.mixi.co.jp/people/12794',
+  },
+  {
     date: '2021.7.14',
     category: 'アップデート',
     text: '『ワイワイ』ver1.83をリリースしました。',
