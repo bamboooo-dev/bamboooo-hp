@@ -1,19 +1,20 @@
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
-import Head from 'next/head';
-import PropTypes from 'prop-types';
-import React from 'react';
-import Footer from '../src/Footer';
-import Header from '../src/Header';
-import theme from '../src/theme';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/core/styles";
+import Head from "next/head";
+import PropTypes from "prop-types";
+import React from "react";
+import "../public/fonts/fonts.css";
+import Footer from "../src/Footer";
+import Header from "../src/Header";
+import theme from "../src/theme";
 
 const sections = [
-  { title: 'About', url: '/about' },
-  { title: 'Members', url: '/members' },
-  { title: 'Works', url: '/works' },
-  { title: 'History', url: '/history' },
-  { title: 'Blog', url: '/blog/1' },
-  { title: 'Contact', url: '/contact' },
+  { title: "About", url: "/about" },
+  { title: "Members", url: "/members" },
+  { title: "Works", url: "/works" },
+  { title: "History", url: "/history" },
+  { title: "Blog", url: "/blog/1" },
+  { title: "Contact", url: "/contact" },
 ];
 
 export default function MyApp(props) {
@@ -21,7 +22,7 @@ export default function MyApp(props) {
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
@@ -31,7 +32,10 @@ export default function MyApp(props) {
     <React.Fragment>
       <Head>
         <title>bamboooo | Colors your life</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
