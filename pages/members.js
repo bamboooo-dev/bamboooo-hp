@@ -1,18 +1,18 @@
-import { makeStyles } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import blue from "@material-ui/core/colors/blue";
-import Dialog from "@material-ui/core/Dialog";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import ClearIcon from "@material-ui/icons/Clear";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import HomeIcon from "@material-ui/icons/Home";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import makeStyles from '@mui/styles/makeStyles';
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import ClearIcon from "@mui/icons-material/Clear";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import HomeIcon from "@mui/icons-material/Home";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import React, { useState } from "react";
+import { blue } from '@mui/material/colors';
 
 const useStyles = makeStyles((theme) => ({
   mainDiv: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/member_top.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       backgroundImage: "url(/member_topSP.png)",
     },
   },
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "1000px",
     margin: "0 auto",
     paddingTop: "25vw",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       width: "90%",
       paddingTop: "50vw",
     },
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   shadowBox: {
     boxShadow: "0 1px 3px 0 rgba(0, 0, 0, .3)",
     marginBottom: "100px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       marginBottom: "50px",
     },
   },
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "100px",
     paddingRight: "100px",
     paddingBottom: "30px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       paddingLeft: "20px",
       paddingRight: "20px",
     },
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: "30px",
     fontFamily: "Corporate-Logo-Medium-ver2",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       fontSize: "20px",
     },
   },
@@ -74,13 +74,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     height: "160px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       height: "100px",
     },
   },
   memberPositionBox: {
     textAlign: "center",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       lineHeight: "16px",
       height: "30px",
       display: "flex",
@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "0px",
     paddingLeft: "23px",
     fontWeight: "100",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       paddingLeft: "15px",
       width: "100%",
     },
@@ -110,14 +110,14 @@ const useStyles = makeStyles((theme) => ({
     float: "right",
     paddingTop: "3px",
     fontSize: "15px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       paddingTop: "4px",
       fontSize: "15px",
     },
   },
   dialogSize: {
     width: "350px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       width: "350px",
     },
   },
@@ -149,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "100px",
     paddingRight: "100px",
     paddingBottom: "40px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       paddingLeft: "20px",
       paddingRight: "20px",
     },
@@ -163,19 +163,19 @@ const useStyles = makeStyles((theme) => ({
   },
   skillIcon: {
     height: "100px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       height: "65px",
     },
   },
   skillIconSmall: {
     width: "100px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       width: "60px",
     },
   },
   skillIconHeroku: {
     height: "100px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down(undefined)]: {
       height: "65px",
     },
   },

@@ -1,7 +1,7 @@
-import { red } from '@material-ui/core/colors';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { red } from '@mui/material/colors';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme(adaptV4Theme({
   typography: {
     fontFamily: [
       '"Hiragino Kaku Gothic ProN"',
@@ -44,11 +44,11 @@ const theme = createMuiTheme({
       }
     },
   },
-});
+}));
 
 theme.typography.body1 = {
   fontSize: 18,
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     fontSize: 13,
   },
 }

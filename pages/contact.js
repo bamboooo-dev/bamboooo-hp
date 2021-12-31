@@ -1,10 +1,10 @@
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import makeStyles from '@mui/styles/makeStyles';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import axios from 'axios';
 import React, { useState } from 'react';
 

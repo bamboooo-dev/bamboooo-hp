@@ -1,8 +1,9 @@
-import { Box, Divider } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Box, Divider } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useRouter } from "next/router";
 import React from "react";
 import { getSortedPostsData } from "../../lib/posts";
@@ -13,14 +14,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/blog_cover.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       backgroundImage: "url(/blog_cover_sp.png)",
     },
   },
   innerBox: {
     maxWidth: "1000px",
     margin: "0 auto",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       paddingTop: "35vw",
     },
   },
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(10),
     boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
     marginBottom: 30,
-    [theme.breakpoints.down(777)]: {
+    [theme.breakpoints.down(undefined)]: {
       paddingLeft: 40,
       paddingRight: 40,
       paddingTop: 40,
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   postBox: {
-    [theme.breakpoints.down(777)]: {
+    [theme.breakpoints.down(undefined)]: {
       marginBottom: 70,
     },
   },
@@ -75,7 +76,7 @@ export async function getStaticProps() {
 export default function Blog({ posts }) {
   const classes = useStyles();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down(777));
+  const matches = useMediaQuery(theme.breakpoints.down(undefined));
   const router = useRouter();
   const { pageNum } = router.query;
 
@@ -145,7 +146,7 @@ function PostBox(props) {
   const classes = useStyles();
 
   const theme = useTheme();
-  const isSP = useMediaQuery(theme.breakpoints.down("sm"));
+  const isSP = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Grid item xs={12} sm={4} className={classes.postBox}>
