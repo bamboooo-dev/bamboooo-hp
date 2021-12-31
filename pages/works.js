@@ -1,17 +1,17 @@
 import { Typography, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
+import { grey } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import React from "react";
-import { grey } from '@mui/material/colors';
 
 const useStyles = makeStyles((theme) => ({
   coverBox: {
     backgroundImage: "url(/works_cover.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       backgroundImage: "url(/works_cover_sp.png)",
     },
   },
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "1000px",
     margin: "0 auto",
     paddingTop: "25vw",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       paddingTop: "35vw",
     },
   },
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(12),
     boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
     marginBottom: 30,
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: 40,
       paddingRight: 40,
       paddingTop: 40,
@@ -51,13 +51,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: "30px",
     fontFamily: "ヒラギノ角ゴシック",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: "20px",
     },
   },
   catchphrase: {
     fontFamily: "ヒラギノ角ゴシック",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: "20px",
     },
   },
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     fontFamily: "ヒラギノ角ゴシック",
     textAlign: "center",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       padding: "4px",
       margin: "0 auto",
     },
@@ -142,7 +142,7 @@ function Work(props) {
   const classes = useStyles();
   const theme = useTheme();
   const { work } = props;
-  const isSP = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSP = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Grid item xs={12} style={{ marginBottom: 100 }}>

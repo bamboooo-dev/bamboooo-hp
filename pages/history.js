@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
-import makeStyles from '@mui/styles/makeStyles';
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import makeStyles from "@mui/styles/makeStyles";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -11,14 +11,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Corporate-Logo-Medium-ver2",
     borderLeft: "4px solid #76B3AFCF",
     paddingLeft: 20,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: 24,
       border: "none",
       paddingLeft: 15,
     },
   },
   headlineBox: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       borderLeft: "3px solid #76B3AF",
       height: 28,
       boxSizing: "border-box",
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "1000px",
     margin: "0 auto",
     paddingTop: "25vw",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       paddingTop: "35vw",
     },
   },
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/history_cover.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       backgroundImage: "url(/history_cover_sp.png)",
     },
   },
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/history_background.png)",
     boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
     marginBottom: 30,
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: 20,
       paddingRight: 20,
       paddingTop: 40,
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bambooSection: {
     marginTop: "-15px",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       marginTop: "-10px",
     },
   },
@@ -78,19 +78,19 @@ const useStyles = makeStyles((theme) => ({
   bambooText: {
     display: "flex",
     alignItems: "center",
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: 20,
     },
   },
   bambooDescription: {
     whiteSpace: "pre-line",
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       whiteSpace: "normal",
       lineHeight: "1.5rem",
     },
   },
   eventsBox: {
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       marginTop: 80,
     },
   },
@@ -98,14 +98,14 @@ const useStyles = makeStyles((theme) => ({
     color: "#1D6E69",
     fontSize: 25,
     fontWeight: 600,
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "1rem",
     },
   },
   description: {
     whiteSpace: "pre-line",
     lineHeight: 1.75,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       marginTop: 58,
       lineHeight: "25px",
     },
@@ -150,7 +150,7 @@ const events = [
 export default function History() {
   const classes = useStyles();
   const theme = useTheme();
-  const isSP = useMediaQuery(theme.breakpoints.down('md'));
+  const isSP = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box className={classes.coverBox}>

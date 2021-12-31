@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import makeStyles from '@mui/styles/makeStyles';
 import Typography from "@mui/material/Typography";
+import makeStyles from "@mui/styles/makeStyles";
 import React, { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,14 +33,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/about_cover.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       backgroundImage: "url(/about_cover_sp.png)",
     },
   },
   innerBox: {
     maxWidth: "1000px",
     margin: "0 auto",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       paddingTop: "50vw",
     },
   },
@@ -48,13 +48,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     boxShadow: "0 3px 5px 0 rgba(0, 0, 0, .1)",
     marginBottom: 30,
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       paddingTop: 20,
       maxWidth: "90%",
     },
   },
   visionBox: {
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: 20,
       paddingRight: 20,
       paddingTop: 0,
@@ -63,13 +63,13 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionBox: {
     height: 240,
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       height: 120,
     },
   },
   missionBox: {
     backgroundColor: "#F6FAF0",
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: 20,
       paddingRight: 20,
       paddingTop: 20,
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   philosophyBox: {
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: 20,
       paddingRight: 20,
       paddingTop: 20,
@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 150,
     position: "absolute",
     color: "#AED1CE",
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: 80,
     },
   },
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     top: 120,
     left: 130,
     display: "inline",
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       top: 62,
       left: 65,
       fontSize: 24,
@@ -113,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
       "linear-gradient(to right bottom, transparent 50%, black 50%, black 51%, transparent 51%)",
     top: -15,
     left: 62,
-    [theme.breakpoints.down(undefined)]: {
+    [theme.breakpoints.down("sm")]: {
       width: 60,
       height: 60,
       top: 0,
@@ -124,18 +124,18 @@ const useStyles = makeStyles((theme) => ({
   },
   catchphrase: {
     fontFamily: "Corporate-Logo-Medium-ver2",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: 18,
     },
   },
   description: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       lineHeight: "25px",
     },
   },
   mission2Container: {
     marginTop: 100,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       marginTop: 50,
     },
   },

@@ -1,7 +1,7 @@
 import { red } from '@mui/material/colors';
-import { createTheme, adaptV4Theme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme(adaptV4Theme({
+const theme = createTheme({
   typography: {
     fontFamily: [
       '"Hiragino Kaku Gothic ProN"',
@@ -32,19 +32,23 @@ const theme = createTheme(adaptV4Theme({
     },
     type: 'light',
   },
-  overrides: {
+  components: {
     MuiBackdrop: {
-      root: {
-        backgroundColor: '#19807BB3',
+      styleOverrides: {
+        root: {
+          backgroundColor: '#19807BB3',
+        },
       },
     },
     MuiDialog: {
-      paper: {
-        margin: "0",
-      }
+      styleOverrides: {
+        paper: {
+          margin: "0",
+        },
+      },
     },
   },
-}));
+});
 
 theme.typography.body1 = {
   fontSize: 18,
