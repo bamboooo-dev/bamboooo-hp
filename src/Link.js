@@ -58,7 +58,7 @@ function Link(props) {
       ref={innerRef}
       href={href}
       {...other}
-    />
+      underline="hover" />
   );
 }
 
