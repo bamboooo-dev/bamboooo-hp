@@ -462,6 +462,24 @@ const Applications = () => {
 const newsItems = [
   // 上に新しいnewsを追加していく
   {
+    date: "2021.12.10",
+    category: "お知らせ",
+    text: "『ワイワイ』のユーザー数が3500人を超えました！！",
+    link: "https://bamboooo.net/works",
+  },
+  {
+    date: "2021.12.7",
+    category: "お知らせ",
+    text: "『エモー』のLINEスタンプが登場しました！！",
+    link: "https://store.line.me/stickershop/product/16819182/ja",
+  },
+  {
+    date: "2021.10.19",
+    category: "ブログ",
+    text: "ブログを更新しました",
+    link: "https://mixil.mixi.co.jp/people/12794",
+  },
+  {
     date: "2021.7.14",
     category: "アップデート",
     text: "『ワイワイ』ver1.83をリリースしました。",
