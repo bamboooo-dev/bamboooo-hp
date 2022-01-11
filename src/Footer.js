@@ -1,10 +1,10 @@
-import { Typography } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import { Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import makeStyles from '@mui/styles/makeStyles';
+import Toolbar from "@mui/material/Toolbar";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import PropTypes from "prop-types";
 import React from "react";
 import Link from "./Link";
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 40,
       marginRight: 40,
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       width: "100%",
       display: "flex",
       justifyContent: "center",
@@ -73,7 +73,7 @@ export default function Footer(props) {
       <Toolbar>
         <Grid
           container
-          justify="center"
+          justifyContent="center"
           spacing={2}
           className={classes.gridContainer}
         >
@@ -96,7 +96,7 @@ export default function Footer(props) {
         </Grid>
       </Toolbar>
       <Toolbar className={classes.snsToolbar}>
-        <Grid container justify="center" spacing={3}>
+        <Grid container justifyContent="center" spacing={3}>
           <Grid item>
             <a
               href="https://twitter.com/bamboooo_inc"

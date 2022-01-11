@@ -1,13 +1,14 @@
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import AnnouncementIcon from "@material-ui/icons/Announcement";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import AnnouncementIcon from "@mui/icons-material/Announcement";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import makeStyles from "@mui/styles/makeStyles";
 import Link from "next/link";
 import React from "react";
 
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   mainImage: {
     width: "100%",
     marginTop: "-100px",
-    [theme.breakpoints.down("777")]: {},
+    [theme.breakpoints.down("sm")]: {},
   },
   mainTextBox: {
     backgroundImage: "url(/top_main_image2.png)",
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     height: "44vw",
     paddingTop: "7vw",
     textAlign: "center",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       backgroundImage: "none",
       textAlign: "left",
       height: "60vh",
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   mainText1: {
     fontFamily: "Corporate-Logo-Medium-ver2",
     color: "#19807B",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "25px",
       marginLeft: "20px",
     },
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "pre-line",
     marginTop: "4.5vw",
     lineHeight: "2.5",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: "15px",
       paddingRight: "15px",
       fontSize: "14px",
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Corporate-Logo-Medium-ver2",
     border: "0px none",
     background: "transparent",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "14px",
       marginTop: "2vh",
       float: "right",
@@ -72,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "50px",
     paddingRight: "75px",
     paddingBottom: "75px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       paddingLeft: "10px",
       paddingRight: "10px",
     },
@@ -80,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   moreText: {
     fontFamily: "Corporate-Logo-Medium-ver2",
     fontSize: "18px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "14px",
     },
   },
@@ -88,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#19807B",
     marginLeft: "10px",
     fontSize: "18px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "12px",
     },
   },
@@ -97,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "150px",
     marginBottom: "150px",
     borderBottom: "1px solid #CACACA",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       paddingBottom: "0",
       marginBottom: "100px",
       borderBottom: "none",
@@ -125,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Corporate-Logo-Medium-ver2",
     fontSize: "35px",
     marginRight: "10px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "25px",
     },
   },
@@ -135,13 +136,13 @@ const useStyles = makeStyles((theme) => ({
   },
   applicationName: {
     fontSize: "24px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "18px",
     },
   },
   applicationText: {
     fontSize: "16px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "14px",
     },
   },
@@ -149,7 +150,7 @@ const useStyles = makeStyles((theme) => ({
     width: "23vw",
     border: "1px solid #CACACA",
     borderRadius: "5px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "auto",
       height: "20vh",
     },
@@ -159,7 +160,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1vw",
     border: "1px solid #CACACA",
     borderRadius: "5px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "auto",
       height: "20vh",
     },
@@ -169,7 +170,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexFlow: "column",
     overflow: "scroll",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       marginTop: "0",
       marginBottom: "100px",
       paddingLeft: "5px",
@@ -197,7 +198,7 @@ const useStyles = makeStyles((theme) => ({
   newsDateBox: {
     width: "8vw",
     paddingLeft: "5px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
       width: "15vw",
     },
@@ -208,7 +209,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#19807B",
     textAlign: "center",
     width: "10vw",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       marginLeft: "5px",
       fontSize: "10px",
       width: "20vw",
@@ -217,7 +218,7 @@ const useStyles = makeStyles((theme) => ({
   newsTextBox: {
     width: "32vw",
     marginLeft: "15px",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       marginTop: "-10px",
       fontSize: "12px",
       marginLeft: "0",
@@ -248,7 +249,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: "10",
     backgroundColor: "transparent",
     borderRadius: "50%",
-    [theme.breakpoints.down("777")]: {
+    [theme.breakpoints.down("sm")]: {
       opacity: 1,
       right: "9px",
     },

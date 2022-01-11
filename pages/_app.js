@@ -1,5 +1,5 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import React from "react";
@@ -37,13 +37,15 @@ export default function MyApp(props) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Header sections={sections} />
-        <Component {...pageProps} />
-        <Footer sections={sections} />
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Header sections={sections} />
+          <Component {...pageProps} />
+          <Footer sections={sections} />
+        </ThemeProvider>
+      </StyledEngineProvider>
     </React.Fragment>
   );
 }

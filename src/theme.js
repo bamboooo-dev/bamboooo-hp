@@ -1,7 +1,7 @@
-import { red } from '@material-ui/core/colors';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { red } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   typography: {
     fontFamily: [
       '"Hiragino Kaku Gothic ProN"',
@@ -32,23 +32,27 @@ const theme = createMuiTheme({
     },
     type: 'light',
   },
-  overrides: {
+  components: {
     MuiBackdrop: {
-      root: {
-        backgroundColor: '#19807BB3',
+      styleOverrides: {
+        root: {
+          backgroundColor: '#19807BB3',
+        },
       },
     },
     MuiDialog: {
-      paper: {
-        margin: "0",
-      }
+      styleOverrides: {
+        paper: {
+          margin: "0",
+        },
+      },
     },
   },
 });
 
 theme.typography.body1 = {
   fontSize: 18,
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     fontSize: 13,
   },
 }

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import MuiLink from "@material-ui/core/Link";
+import MuiLink from "@mui/material/Link";
 import clsx from "clsx";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
@@ -58,7 +58,7 @@ function Link(props) {
       ref={innerRef}
       href={href}
       {...other}
-    />
+      underline="hover" />
   );
 }
 

@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.2.6",
+    "@mui/styles": "^5.2.3",
+    "@types/react": "^17.0.38",
     "axios": "^0.21.0",
     "cheerio": "^1.0.0-rc.5",
     "eslint": "^7.32.0",
