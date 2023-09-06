@@ -2,8 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # requirements
 
-- node.js 14.17.1
-- npm 6.14.13
+- node.js 18.17.1
+- npm 9.6.7
 
 ## Getting Started
 
