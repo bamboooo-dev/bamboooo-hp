@@ -104,7 +104,7 @@ export default function Contact(){
           お問い合わせ
         </Typography>
         <Typography gutterBottom>
-          bamboooo は Mission・Philosophy に共感してくれる新しいメンバーを探しています。<br/>興味を持った方はこちらからご連絡お願いします。
+          bamboooo のチームやアプリケーションについてのお問い合わせはこちらからお願いします。
         </Typography>
         <form className={classes.form} onSubmit={handleOnSubmit}>
           <TextField
