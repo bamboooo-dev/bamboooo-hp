@@ -349,6 +349,20 @@ const Applications = () => {
               </Link>
             </button>
           </Grid>
+          <Grid item xs={12} sm={4} align="center" marginBottom={10}>
+            <img
+              src="/memolink.png"
+              alt="picture of MemoLink"
+              className={classes.mediaWorks}
+            />
+            <Typography className={classes.applicationName} gutterBottom>
+              MemoLink
+            </Typography>
+            <Typography className={classes.applicationText}>
+              好きなコンテンツを投稿しよう
+            </Typography>
+          </Grid>
+
           <Grid item xs={12} sm={4} align="center">
             <img
               src="/waiwai_history.png"
@@ -414,6 +428,20 @@ const Applications = () => {
           <Box className={classes.applicationScrollBox}>
             <Box align="center" style={{ paddingBottom: "30px" }}>
               <img
+                src="/memolink.png"
+                alt="picture of MemoLink"
+                className={classes.mediaWorks}
+              />
+              <Typography className={classes.applicationName} gutterBottom>
+                MemoLink
+              </Typography>
+              <Typography className={classes.applicationText}>
+                好きなコンテンツを投稿しよう
+              </Typography>
+            </Box>
+
+            <Box align="center" style={{ paddingBottom: "30px" }}>
+              <img
                 src="/waiwai_history.png"
                 alt="picture of waiwai"
                 className={classes.mediaWaiwai}
@@ -462,6 +490,12 @@ const Applications = () => {
 
 const newsItems = [
   // 上に新しいnewsを追加していく
+  {
+    date: "2023.10.14",
+    category: "お知らせ",
+    text: "スマホ向けアプリ『MemoLink』をリリースしました！！",
+    link: "https://x.com/bamboooo_inc/status/1713162768810201440?s=20",
+  },
   {
     date: "2023.7.1",
     category: "お知らせ",
