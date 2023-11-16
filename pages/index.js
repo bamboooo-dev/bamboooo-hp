@@ -463,6 +463,12 @@ const Applications = () => {
 const newsItems = [
   // 上に新しいnewsを追加していく
   {
+    date: "2023.7.1",
+    category: "お知らせ",
+    text: "『ワイワイ』のユーザー数が10,000人を超えました！！",
+    link: "https://bamboooo.net/works",
+  },
+  {
     date: "2022.5.10",
     category: "お知らせ",
     text: "『ワイワイ』のユーザー数が7000人を超えました！！",
