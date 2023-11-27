@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   genreIcon: {
     borderRadius: "20px",
     border: "solid 2px",
-    width: "80%",
+    width: "100%",
     borderColor: "#19807B",
     padding: "8px",
     fontSize: "14px",
@@ -82,6 +82,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const works = [
+  {
+    title: "MemoLink",
+    catchphrase: "好きなコンテンツを投稿しよう",
+    url: "https://apps.apple.com/jp/app/memolink/id6444865734",
+    alt: "Picture of MemoLink",
+    image: "/memolink.png",
+    smartphoneimage: "/memolink.png",
+    description: `
+      MemoLinkは、好きな音楽や映画のURLを投稿して繋がるSNSです。
+      SpotifyやApple MusicやYouTubeの音楽コンテンツ、またNetflixやAmazonPrimeVideoの映画コンテンツを投稿できます。
+      各プラットフォームからコンテンツのURLを取得し、MemoLinkでURLを貼り付ければ、そのコンテンツを投稿できます。
+      そして、投稿したコンテンツをもとにおしゃれでカッコいいムードボードを作ることが出来ます。`,
+    release: "リリース　　2023年 10月",
+    appleUrl: "https://apps.apple.com/jp/app/memolink/id6444865734",
+    googleUrl:
+      "https://play.google.com/store/apps/details?id=com.bamboooo.coda",
+    genre: "好きで繋がるSNSアプリ",
+  },
   {
     title: "ワイワイ",
     catchphrase: "あなたの価値観でみんながワイワイ",
@@ -163,7 +181,7 @@ function Work(props) {
         )}
         <Box display="flex" flexDirection="column" flex={1} ml={isSP ? 0 : 6}>
           <Grid container style={{ width: "100%" }}>
-            <Grid item xs={12} sm={5} style={isSP ? { marginBottom: 6 } : {}}>
+            <Grid item xs={12} sm={6} style={isSP ? { marginBottom: 6 } : {}}>
               <Typography
                 variant="h4"
                 style={isSP ? { textAlign: "center" } : {}}
@@ -183,7 +201,7 @@ function Work(props) {
                 </a>
               </Typography>
             </Grid>
-            <Grid item xs={12} sm={7}>
+            <Grid item xs={12} sm={6}>
               <Box className={classes.genreIcon}>{work.genre}</Box>
             </Grid>
           </Grid>

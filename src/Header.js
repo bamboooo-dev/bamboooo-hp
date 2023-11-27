@@ -164,7 +164,7 @@ export default function Header(props) {
           <Grid item>
             <IconButton color="inherit" aria-label="open twitter" size="large">
               <a
-                href="https://www.instagram.com/bamboooo_inc"
+                href="https://www.instagram.com/memolink.jp/"
                 className={classes.iconLink}
                 target="_blank"
                 rel="noreferrer"

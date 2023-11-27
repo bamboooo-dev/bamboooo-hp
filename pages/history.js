@@ -114,6 +114,12 @@ const useStyles = makeStyles((theme) => ({
 
 const events = [
   {
+    date: "2023年 10月",
+    content:
+      "「さあ、好きを集めよう」センスでつながる新しいSNS『MemoLink』をリリース",
+    img: "/memolink.png",
+  },
+  {
     date: "2021年 10月",
     content: "bamboooo ホームページが完成",
   },

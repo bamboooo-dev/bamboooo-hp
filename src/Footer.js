@@ -1,10 +1,10 @@
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import makeStyles from '@mui/styles/makeStyles';
 import Toolbar from "@mui/material/Toolbar";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 import Link from "./Link";
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 40,
       marginRight: 40,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       width: "100%",
       display: "flex",
       justifyContent: "center",
@@ -109,7 +109,7 @@ export default function Footer(props) {
           </Grid>
           <Grid item>
             <a
-              href="https://www.instagram.com/bamboooo_inc"
+              href="https://www.instagram.com/memolink.jp/"
               className={classes.iconLink}
               target="_blank"
               rel="noreferrer"
